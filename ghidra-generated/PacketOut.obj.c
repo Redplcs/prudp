@@ -71,6 +71,13 @@ struct PRUDPEndPoint { // PlaceHolder Structure
 typedef struct PacketOut PacketOut, *PPacketOut;
 
 struct PacketOut { // PlaceHolder Structure
+    undefined m_abyPacketBase[0x30];
+    Timeout *m_pTimeout;
+    PRUDPEndPoint *m_pEndPoint;
+    ushort m_usNbTransmission;
+    ushort m_usPadding;
+    undefined4 m_auRetryTime[2];
+    IORequestContext *m_pIORequestContext;
 };
 
 
@@ -106,14 +113,14 @@ PacketOut::PacketOut
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &uStack_c;
   Packet::Packet((Packet *)this);
   local_4 = 0;
-  Time::Time((Time *)(this + 0x40));
+  Time::Time((Time *)this->m_auRetryTime);
   *(undefined ***)this = &_vftable_;
   Packet::SetType((Packet *)this,value);
   Packet::SetFlag((Packet *)this,value2);
-  *(undefined2 *)(this + 0x38) = 0;
-  Time::operator=((Time *)(this + 0x40),0);
-  *(undefined4 *)(this + 0x48) = 0;
-  *(PRUDPEndPoint **)(this + 0x34) = pPRUDPEndPoint;
+  this->m_usNbTransmission = 0;
+  Time::operator=((Time *)this->m_auRetryTime,0);
+  this->m_pIORequestContext = (IORequestContext *)0x0;
+  this->m_pEndPoint = pPRUDPEndPoint;
   uVar1 = (*___imp__rand)();
   Packet::SetContextInfo((Packet *)this,uVar1);
   if (pBuffer != (Buffer *)0x0) {
@@ -125,15 +132,15 @@ PacketOut::PacketOut
     this_00 = operator_new(0x18);
     local_4 = CONCAT31(local_4._1_3_,1);
     if (this_00 == (Timeout *)0x0) {
-      *(undefined4 *)(this + 0x30) = 0;
+      this->m_pTimeout = (Timeout *)0x0;
     }
     else {
       uVar4 = Timeout::Timeout(this_00);
-      *(undefined4 *)(this + 0x30) = uVar4;
+      this->m_pTimeout = (Timeout *)uVar4;
     }
   }
   else {
-    *(undefined4 *)(this + 0x30) = 0;
+    this->m_pTimeout = (Timeout *)0x0;
   }
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = uStack_c;
   return this;
@@ -171,10 +178,10 @@ void __thiscall PacketOut::~PacketOut(PacketOut *this)
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &local_c;
   *(undefined ***)this = &_vftable_;
   local_4 = 0;
-  if (*(void **)(this + 0x48) != (void *)0x0) {
-    operator_delete(*(void **)(this + 0x48));
+  if (this->m_pIORequestContext != (IORequestContext *)0x0) {
+    operator_delete(this->m_pIORequestContext);
   }
-  this_00 = *(Timeout **)(this + 0x30);
+  this_00 = this->m_pTimeout;
   if (this_00 != (Timeout *)0x0) {
     Timeout::~Timeout(this_00);
     operator_delete(this_00);
@@ -192,7 +199,7 @@ void __thiscall PacketOut::~PacketOut(PacketOut *this)
 Timeout * __thiscall PacketOut::GetTimeout(PacketOut *this)
 
 {
-  return *(Timeout **)(this + 0x30);
+  return this->m_pTimeout;
 }
 
 
@@ -202,7 +209,7 @@ Timeout * __thiscall PacketOut::GetTimeout(PacketOut *this)
 void __thiscall PacketOut::IncNbTransmission(PacketOut *this)
 
 {
-  *(short *)(this + 0x38) = *(short *)(this + 0x38) + 1;
+  this->m_usNbTransmission = this->m_usNbTransmission + 1;
   return;
 }
 
@@ -213,7 +220,7 @@ void __thiscall PacketOut::IncNbTransmission(PacketOut *this)
 ushort __thiscall PacketOut::GetNbTransmission(PacketOut *this)
 
 {
-  return *(ushort *)(this + 0x38);
+  return this->m_usNbTransmission;
 }
 
 
@@ -223,7 +230,7 @@ ushort __thiscall PacketOut::GetNbTransmission(PacketOut *this)
 PRUDPEndPoint * __thiscall PacketOut::GetEndPoint(PacketOut *this)
 
 {
-  return *(PRUDPEndPoint **)(this + 0x34);
+  return this->m_pEndPoint;
 }
 
 
@@ -233,7 +240,7 @@ PRUDPEndPoint * __thiscall PacketOut::GetEndPoint(PacketOut *this)
 void __thiscall PacketOut::SetIORequestContext(PacketOut *this,IORequestContext *pIORequestContext)
 
 {
-  *(IORequestContext **)(this + 0x48) = pIORequestContext;
+  this->m_pIORequestContext = pIORequestContext;
   *(PacketOut **)(pIORequestContext + 8) = this;
   return;
 }
@@ -245,7 +252,7 @@ void __thiscall PacketOut::SetIORequestContext(PacketOut *this,IORequestContext 
 IORequestContext * __thiscall PacketOut::GetIORequestContext(PacketOut *this)
 
 {
-  return *(IORequestContext **)(this + 0x48);
+  return this->m_pIORequestContext;
 }
 
 
@@ -258,7 +265,7 @@ bool __thiscall PacketOut::Pack(PacketOut *this,Buffer *pBuffer)
   bool bVar1;
   Buffer *pBVar2;
   
-  bVar1 = Buffer::AppendData(pBuffer,this + 0xc,8,0xffffffff);
+  bVar1 = Buffer::AppendData(pBuffer,&this->m_abyPacketBase[0xc],8,0xffffffff);
   if (!bVar1) {
     return false;
   }

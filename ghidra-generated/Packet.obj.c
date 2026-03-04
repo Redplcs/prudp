@@ -50,6 +50,15 @@ struct PRUDPInetAddress { // PlaceHolder Structure
 typedef struct Packet Packet, *PPacket;
 
 struct Packet { // PlaceHolder Structure
+    undefined m_abyRefCountedObject[0xc];
+    uchar m_ucTypeAndFlags;
+    uchar m_ucContextInfo;
+    ushort m_usSize;
+    ulong m_ulSeqId;
+    Buffer *m_pPayload;
+    undefined m_abyPeerAddress[8];
+    undefined4 m_auIOTime[2];
+    ulong m_ulIOResult;
 };
 
 typedef struct RefCountedObject RefCountedObject, *PRefCountedObject;
@@ -81,15 +90,15 @@ Packet * __thiscall Packet::Packet(Packet *this)
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &local_c;
   RefCountedObject::RefCountedObject((RefCountedObject *)this);
   local_4 = 0;
-  PRUDPInetAddress::PRUDPInetAddress((PRUDPInetAddress *)(this + 0x18));
+  PRUDPInetAddress::PRUDPInetAddress((PRUDPInetAddress *)this->m_abyPeerAddress);
   local_4 = CONCAT31(local_4._1_3_,1);
-  Time::Time((Time *)(this + 0x20));
+  Time::Time((Time *)this->m_auIOTime);
   *(undefined ***)this = &_vftable_;
-  *(undefined2 *)(this + 0xe) = 8;
-  *(undefined4 *)(this + 0x10) = 0;
-  this[0xc] = (Packet)0x0;
-  *(undefined4 *)(this + 0x14) = 0;
-  *(undefined4 *)(this + 0x28) = 0;
+  this->m_usSize = 8;
+  this->m_ulSeqId = 0;
+  this->m_ucTypeAndFlags = 0;
+  this->m_pPayload = (Buffer *)0x0;
+  this->m_ulIOResult = 0;
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_c;
   return this;
 }
@@ -125,11 +134,11 @@ void __thiscall Packet::~Packet(Packet *this)
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &local_c;
   *(undefined ***)this = &_vftable_;
   local_4 = 1;
-  if (*(RefCountedObject **)(this + 0x14) != (RefCountedObject *)0x0) {
-    RefCountedObject::ReleaseRef(*(RefCountedObject **)(this + 0x14));
+  if (this->m_pPayload != (Buffer *)0x0) {
+    RefCountedObject::ReleaseRef((RefCountedObject *)this->m_pPayload);
   }
   local_4 = local_4 & 0xffffff00;
-  PRUDPInetAddress::~PRUDPInetAddress((PRUDPInetAddress *)(this + 0x18));
+  PRUDPInetAddress::~PRUDPInetAddress((PRUDPInetAddress *)this->m_abyPeerAddress);
   local_4 = 0xffffffff;
   RefCountedObject::~RefCountedObject((RefCountedObject *)this);
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_c;
@@ -145,10 +154,10 @@ bool __thiscall Packet::SetPayload(Packet *this,Buffer *pBuffer)
 {
   ulong uVar1;
   
-  *(Buffer **)(this + 0x14) = pBuffer;
+  this->m_pPayload = pBuffer;
   uVar1 = Buffer::GetContentSize(pBuffer);
-  *(short *)(this + 0xe) = *(short *)(this + 0xe) + (short)uVar1;
-  return *(ushort *)(this + 0xe) < 0x1001;
+  this->m_usSize = this->m_usSize + (short)uVar1;
+  return this->m_usSize < 0x1001;
 }
 
 
@@ -158,7 +167,7 @@ bool __thiscall Packet::SetPayload(Packet *this,Buffer *pBuffer)
 Buffer * __thiscall Packet::GetPayload(Packet *this)
 
 {
-  return *(Buffer **)(this + 0x14);
+  return this->m_pPayload;
 }
 
 
@@ -168,7 +177,7 @@ Buffer * __thiscall Packet::GetPayload(Packet *this)
 ulong __thiscall Packet::GetHeader(Packet *this,void **pData)
 
 {
-  *pData = this + 0xc;
+  *pData = &this->m_ucTypeAndFlags;
   return 8;
 }
 
@@ -179,7 +188,7 @@ ulong __thiscall Packet::GetHeader(Packet *this,void **pData)
 bool __thiscall Packet::Valid(Packet *this)
 
 {
-  return *(ushort *)(this + 0xe) < 0x1000;
+  return this->m_usSize < 0x1000;
 }
 
 
@@ -189,7 +198,7 @@ bool __thiscall Packet::Valid(Packet *this)
 void __thiscall Packet::SetSeqId(Packet *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 0x10) = ulValue;
+  this->m_ulSeqId = ulValue;
   return;
 }
 
@@ -200,7 +209,7 @@ void __thiscall Packet::SetSeqId(Packet *this,ulong ulValue)
 ulong __thiscall Packet::GetSeqId(Packet *this)
 
 {
-  return *(ulong *)(this + 0x10);
+  return this->m_ulSeqId;
 }
 
 
@@ -210,7 +219,7 @@ ulong __thiscall Packet::GetSeqId(Packet *this)
 PRUDPInetAddress * __thiscall Packet::GetPeerAddress(Packet *this)
 
 {
-  return (PRUDPInetAddress *)(this + 0x18);
+  return (PRUDPInetAddress *)this->m_abyPeerAddress;
 }
 
 
@@ -220,7 +229,7 @@ PRUDPInetAddress * __thiscall Packet::GetPeerAddress(Packet *this)
 void __thiscall Packet::SetPeerAddress(Packet *this,PRUDPInetAddress *pAddress)
 
 {
-  PRUDPInetAddress::operator=((PRUDPInetAddress *)(this + 0x18),pAddress);
+  PRUDPInetAddress::operator=((PRUDPInetAddress *)this->m_abyPeerAddress,pAddress);
   return;
 }
 
@@ -231,7 +240,7 @@ void __thiscall Packet::SetPeerAddress(Packet *this,PRUDPInetAddress *pAddress)
 void __thiscall Packet::SetType(Packet *this,uchar value)
 
 {
-  this[0xc] = (Packet)(value & 7);
+  this->m_ucTypeAndFlags = value & 7;
   return;
 }
 
@@ -242,7 +251,7 @@ void __thiscall Packet::SetType(Packet *this,uchar value)
 uchar __thiscall Packet::GetType(Packet *this)
 
 {
-  return (byte)this[0xc] & 7;
+  return this->m_ucTypeAndFlags & 7;
 }
 
 
@@ -252,7 +261,7 @@ uchar __thiscall Packet::GetType(Packet *this)
 void __thiscall Packet::SetContextInfo(Packet *this,uchar value)
 
 {
-  this[0xd] = (Packet)value;
+  this->m_ucContextInfo = value;
   return;
 }
 
@@ -263,7 +272,7 @@ void __thiscall Packet::SetContextInfo(Packet *this,uchar value)
 uchar __thiscall Packet::GetContextInfo(Packet *this)
 
 {
-  return (uchar)this[0xd];
+  return this->m_ucContextInfo;
 }
 
 
@@ -273,7 +282,7 @@ uchar __thiscall Packet::GetContextInfo(Packet *this)
 void __thiscall Packet::SetFlag(Packet *this,uchar value)
 
 {
-  this[0xc] = (Packet)((byte)this[0xc] | value & 0xf8);
+  this->m_ucTypeAndFlags = this->m_ucTypeAndFlags | value & 0xf8;
   return;
 }
 
@@ -284,7 +293,7 @@ void __thiscall Packet::SetFlag(Packet *this,uchar value)
 void __thiscall Packet::ClearFlag(Packet *this,uchar value)
 
 {
-  this[0xc] = (Packet)((byte)this[0xc] & ~(value & 0xf8));
+  this->m_ucTypeAndFlags = this->m_ucTypeAndFlags & ~(value & 0xf8);
   return;
 }
 
@@ -295,7 +304,7 @@ void __thiscall Packet::ClearFlag(Packet *this,uchar value)
 bool __thiscall Packet::FlagSet(Packet *this,uchar value)
 
 {
-  return ((byte)this[0xc] & value) != 0;
+  return (this->m_ucTypeAndFlags & value) != 0;
 }
 
 
@@ -305,7 +314,7 @@ bool __thiscall Packet::FlagSet(Packet *this,uchar value)
 ushort __thiscall Packet::GetSize(Packet *this)
 
 {
-  return *(ushort *)(this + 0xe);
+  return this->m_usSize;
 }
 
 
@@ -315,7 +324,7 @@ ushort __thiscall Packet::GetSize(Packet *this)
 void __thiscall Packet::SetIOTime(Packet *this)
 
 {
-  Time::operator=((Time *)(this + 0x20),(Time *)&stack0x00000004);
+  Time::operator=((Time *)this->m_auIOTime,(Time *)&stack0x00000004);
   return;
 }
 
@@ -328,8 +337,8 @@ void __thiscall Packet::GetIOTime(Packet *this)
 {
   undefined4 *in_stack_00000004;
   
-  *in_stack_00000004 = *(undefined4 *)(this + 0x20);
-  in_stack_00000004[1] = *(undefined4 *)(this + 0x24);
+  *in_stack_00000004 = this->m_auIOTime[0];
+  in_stack_00000004[1] = this->m_auIOTime[1];
   return;
 }
 
@@ -340,7 +349,7 @@ void __thiscall Packet::GetIOTime(Packet *this)
 void __thiscall Packet::SetIOResult(Packet *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 0x28) = ulValue;
+  this->m_ulIOResult = ulValue;
   return;
 }
 
@@ -351,7 +360,7 @@ void __thiscall Packet::SetIOResult(Packet *this,ulong ulValue)
 ulong __thiscall Packet::GetIOResult(Packet *this)
 
 {
-  return *(ulong *)(this + 0x28);
+  return this->m_ulIOResult;
 }
 
 

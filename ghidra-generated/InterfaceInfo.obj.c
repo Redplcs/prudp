@@ -41,6 +41,11 @@ typedef struct TraceOutput TraceOutput, *PTraceOutput;
 typedef struct InterfaceInfo InterfaceInfo, *PInterfaceInfo;
 
 struct InterfaceInfo { // PlaceHolder Structure
+    ulong m_ulAddress;
+    ulong m_ulBroadcastAddress;
+    ulong m_ulMask;
+    ulong m_ulFlags;
+    char *m_szName;
 };
 
 
@@ -59,11 +64,11 @@ string s_POINT2POINT;
 void __thiscall InterfaceInfo::InterfaceInfo(InterfaceInfo *this)
 
 {
-  *(undefined4 *)this = 0;
-  *(undefined4 *)(this + 4) = 0;
-  *(undefined4 *)(this + 8) = 0;
-  *(undefined4 *)(this + 0xc) = 0;
-  *(undefined4 *)(this + 0x10) = 0;
+  this->m_ulAddress = 0;
+  this->m_ulBroadcastAddress = 0;
+  this->m_ulMask = 0;
+  this->m_ulFlags = 0;
+  this->m_szName = (char *)0x0;
   return;
 }
 
@@ -74,9 +79,9 @@ void __thiscall InterfaceInfo::InterfaceInfo(InterfaceInfo *this)
 void __thiscall InterfaceInfo::~InterfaceInfo(InterfaceInfo *this)
 
 {
-  if (*(void **)(this + 0x10) != (void *)0x0) {
-    operator_delete(*(void **)(this + 0x10));
-    *(undefined4 *)(this + 0x10) = 0;
+  if (this->m_szName != (char *)0x0) {
+    operator_delete(this->m_szName);
+    this->m_szName = (char *)0x0;
   }
   return;
 }
@@ -88,7 +93,7 @@ void __thiscall InterfaceInfo::~InterfaceInfo(InterfaceInfo *this)
 void __thiscall InterfaceInfo::SetAddress(InterfaceInfo *this,ulong ulValue)
 
 {
-  *(ulong *)this = ulValue;
+  this->m_ulAddress = ulValue;
   return;
 }
 
@@ -99,7 +104,7 @@ void __thiscall InterfaceInfo::SetAddress(InterfaceInfo *this,ulong ulValue)
 void __thiscall InterfaceInfo::SetBroadcastAddress(InterfaceInfo *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 4) = ulValue;
+  this->m_ulBroadcastAddress = ulValue;
   return;
 }
 
@@ -110,7 +115,7 @@ void __thiscall InterfaceInfo::SetBroadcastAddress(InterfaceInfo *this,ulong ulV
 void __thiscall InterfaceInfo::SetMask(InterfaceInfo *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 8) = ulValue;
+  this->m_ulMask = ulValue;
   return;
 }
 
@@ -121,7 +126,7 @@ void __thiscall InterfaceInfo::SetMask(InterfaceInfo *this,ulong ulValue)
 void __thiscall InterfaceInfo::SetFlags(InterfaceInfo *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 0xc) = ulValue;
+  this->m_ulFlags = ulValue;
   return;
 }
 
@@ -149,7 +154,7 @@ void __thiscall InterfaceInfo::SetName(InterfaceInfo *this,char *szText)
   } while (cVar1 != '\0');
   pcVar2 = operator_new(~uVar3);
   uVar3 = 0xffffffff;
-  *(char **)(this + 0x10) = pcVar2;
+  this->m_szName = pcVar2;
   do {
     pcVar5 = szText;
     if (uVar3 == 0) break;
@@ -212,7 +217,7 @@ bool __thiscall InterfaceInfo::GetAddress(InterfaceInfo *this,char *szText,ulong
 {
   bool bVar1;
   
-  bVar1 = Addr2Str(this,*(ulong *)this,szText,ulValue);
+  bVar1 = Addr2Str(this,this->m_ulAddress,szText,ulValue);
   return bVar1;
 }
 
@@ -225,7 +230,7 @@ bool __thiscall InterfaceInfo::GetBroadcastAddress(InterfaceInfo *this,char *szT
 {
   bool bVar1;
   
-  bVar1 = Addr2Str(this,*(ulong *)(this + 4),szText,ulValue);
+  bVar1 = Addr2Str(this,this->m_ulBroadcastAddress,szText,ulValue);
   return bVar1;
 }
 
@@ -238,7 +243,7 @@ bool __thiscall InterfaceInfo::GetMask(InterfaceInfo *this,char *szText,ulong ul
 {
   bool bVar1;
   
-  bVar1 = Addr2Str(this,*(ulong *)(this + 8),szText,ulValue);
+  bVar1 = Addr2Str(this,this->m_ulMask,szText,ulValue);
   return bVar1;
 }
 
@@ -250,10 +255,10 @@ bool __thiscall InterfaceInfo::GetMask(InterfaceInfo *this,char *szText,ulong ul
 bool __thiscall InterfaceInfo::GetName(InterfaceInfo *this,char *szText,ulong ulValue)
 
 {
-  if (*(int *)(this + 0x10) == 0) {
+  if (this->m_szName == (char *)0x0) {
     return false;
   }
-  (*___imp__strncpy)(szText,*(int *)(this + 0x10),ulValue);
+  (*___imp__strncpy)(szText,this->m_szName,ulValue);
   return true;
 }
 
@@ -283,7 +288,7 @@ bool __thiscall InterfaceInfo::GetFlags(InterfaceInfo *this,char *szText,ulong u
     *puVar7 = 0;
     puVar7 = puVar7 + 1;
   }
-  uVar5 = *(uint *)(this + 0xc);
+  uVar5 = this->m_ulFlags;
   *(undefined2 *)puVar7 = 0;
   *(undefined1 *)((int)puVar7 + 2) = 0;
   if ((uVar5 & 1) != 0) {
@@ -402,7 +407,7 @@ bool __thiscall InterfaceInfo::GetFlags(InterfaceInfo *this,char *szText,ulong u
 ulong __thiscall InterfaceInfo::GetAddress(InterfaceInfo *this)
 
 {
-  return *(ulong *)this;
+  return this->m_ulAddress;
 }
 
 
@@ -412,7 +417,7 @@ ulong __thiscall InterfaceInfo::GetAddress(InterfaceInfo *this)
 ulong __thiscall InterfaceInfo::GetBroadcastAddress(InterfaceInfo *this)
 
 {
-  return *(ulong *)(this + 4);
+  return this->m_ulBroadcastAddress;
 }
 
 
@@ -422,7 +427,7 @@ ulong __thiscall InterfaceInfo::GetBroadcastAddress(InterfaceInfo *this)
 ulong __thiscall InterfaceInfo::GetMask(InterfaceInfo *this)
 
 {
-  return *(ulong *)(this + 8);
+  return this->m_ulMask;
 }
 
 
@@ -432,7 +437,7 @@ ulong __thiscall InterfaceInfo::GetMask(InterfaceInfo *this)
 ulong __thiscall InterfaceInfo::GetFlags(InterfaceInfo *this)
 
 {
-  return *(ulong *)(this + 0xc);
+  return this->m_ulFlags;
 }
 
 
@@ -442,7 +447,7 @@ ulong __thiscall InterfaceInfo::GetFlags(InterfaceInfo *this)
 char * __thiscall InterfaceInfo::GetName(InterfaceInfo *this)
 
 {
-  return *(char **)(this + 0x10);
+  return this->m_szName;
 }
 
 

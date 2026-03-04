@@ -42,6 +42,11 @@ struct _OVERLAPPED { // PlaceHolder Structure
 typedef struct AsyncIOContext AsyncIOContext, *PAsyncIOContext;
 
 struct AsyncIOContext { // PlaceHolder Structure
+    undefined m_abyOverlapped[0x10];
+    void *m_pPlatformSpecificEvent;
+    Event *m_pEvent;
+    ulong m_ulIOSize;
+    ulong m_ulReturnCode;
 };
 
 
@@ -52,9 +57,9 @@ struct AsyncIOContext { // PlaceHolder Structure
 void __thiscall AsyncIOContext::AsyncIOContext(AsyncIOContext *this)
 
 {
-  *(undefined4 *)(this + 0x18) = 0;
-  *(undefined4 *)(this + 0x1c) = 0;
-  *(undefined4 *)(this + 0x14) = 0;
+  this->m_ulIOSize = 0;
+  this->m_ulReturnCode = 0;
+  this->m_pEvent = (Event *)0x0;
   return;
 }
 
@@ -68,8 +73,8 @@ void __thiscall AsyncIOContext::SetEvent(AsyncIOContext *this,Event *pEvent)
   void *pvVar1;
   
   pvVar1 = Event::GetPlatformSpecificEvent(pEvent);
-  *(Event **)(this + 0x14) = pEvent;
-  *(void **)(this + 0x10) = pvVar1;
+  this->m_pEvent = pEvent;
+  this->m_pPlatformSpecificEvent = pvVar1;
   return;
 }
 
@@ -80,7 +85,7 @@ void __thiscall AsyncIOContext::SetEvent(AsyncIOContext *this,Event *pEvent)
 Event * __thiscall AsyncIOContext::GetEvent(AsyncIOContext *this)
 
 {
-  return *(Event **)(this + 0x14);
+  return this->m_pEvent;
 }
 
 
@@ -90,8 +95,8 @@ Event * __thiscall AsyncIOContext::GetEvent(AsyncIOContext *this)
 void __thiscall AsyncIOContext::SignalEvent(AsyncIOContext *this)
 
 {
-  if (*(Event **)(this + 0x14) != (Event *)0x0) {
-    Event::Set(*(Event **)(this + 0x14));
+  if (this->m_pEvent != (Event *)0x0) {
+    Event::Set(this->m_pEvent);
     return;
   }
   return;
@@ -104,8 +109,8 @@ void __thiscall AsyncIOContext::SignalEvent(AsyncIOContext *this)
 void __thiscall AsyncIOContext::ResetEvent(AsyncIOContext *this)
 
 {
-  if (*(Event **)(this + 0x14) != (Event *)0x0) {
-    Event::Reset(*(Event **)(this + 0x14));
+  if (this->m_pEvent != (Event *)0x0) {
+    Event::Reset(this->m_pEvent);
     return;
   }
   return;
@@ -118,7 +123,7 @@ void __thiscall AsyncIOContext::ResetEvent(AsyncIOContext *this)
 void __thiscall AsyncIOContext::SetIOSize(AsyncIOContext *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 0x18) = ulValue;
+  this->m_ulIOSize = ulValue;
   return;
 }
 
@@ -129,7 +134,7 @@ void __thiscall AsyncIOContext::SetIOSize(AsyncIOContext *this,ulong ulValue)
 ulong __thiscall AsyncIOContext::GetIOSize(AsyncIOContext *this)
 
 {
-  return *(ulong *)(this + 0x18);
+  return this->m_ulIOSize;
 }
 
 
@@ -139,7 +144,7 @@ ulong __thiscall AsyncIOContext::GetIOSize(AsyncIOContext *this)
 ulong __thiscall AsyncIOContext::GetReturnCode(AsyncIOContext *this)
 
 {
-  return *(ulong *)(this + 0x1c);
+  return this->m_ulReturnCode;
 }
 
 
@@ -149,7 +154,7 @@ ulong __thiscall AsyncIOContext::GetReturnCode(AsyncIOContext *this)
 void __thiscall AsyncIOContext::SetReturnCode(AsyncIOContext *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 0x1c) = ulValue;
+  this->m_ulReturnCode = ulValue;
   return;
 }
 
@@ -160,7 +165,7 @@ void __thiscall AsyncIOContext::SetReturnCode(AsyncIOContext *this,ulong ulValue
 _OVERLAPPED * __thiscall AsyncIOContext::GetOverlapped(AsyncIOContext *this)
 
 {
-  return (_OVERLAPPED *)this;
+  return (_OVERLAPPED *)this->m_abyOverlapped;
 }
 
 

@@ -45,6 +45,17 @@ typedef struct CriticalSection CriticalSection, *PCriticalSection;
 typedef struct SlidingWindow SlidingWindow, *PSlidingWindow;
 
 struct SlidingWindow { // PlaceHolder Structure
+    undefined4 m_oTreeVftable;
+    struct _Node *m_pTreeHead;
+    undefined4 m_oTreeKeyComparator;
+    uint m_ulSize;
+    ushort m_usWindowSize;
+    ushort m_usPadding;
+    ulong m_ulRightEdge;
+    ulong m_ulSendEdge;
+    ulong m_ulLeftEdge;
+    ulong m_ulDataPending;
+    CriticalSection m_oCriticalSection;
 };
 
 typedef struct RefCountedObject RefCountedObject, *PRefCountedObject;
@@ -86,11 +97,13 @@ struct _Tree<unsigned_long,struct_std::pair<unsigned_long_const_,class_PacketOut
 typedef struct iterator iterator, *Piterator;
 
 struct iterator { // PlaceHolder Structure
+    struct _Node *m_pNode;
 };
 
 typedef struct const_iterator const_iterator, *Pconst_iterator;
 
 struct const_iterator { // PlaceHolder Structure
+    struct _Node *m_pNode;
 };
 
 typedef struct _Node _Node, *P_Node;
@@ -159,19 +172,19 @@ SlidingWindow * __thiscall SlidingWindow::SlidingWindow(SlidingWindow *this,usho
   pvVar2 = operator_new(0x18);
   *(_Node **)((int)pvVar2 + 4) = p_Var1;
   *(undefined4 *)((int)pvVar2 + 0x14) = 0;
-  *(void **)(this + 4) = pvVar2;
-  *(undefined4 *)(this + 0xc) = 0;
+  this->m_pTreeHead = (_Node *)pvVar2;
+  this->m_ulSize = 0;
   *(void **)pvVar2 = pvVar2;
-  *(int *)(*(int *)(this + 4) + 8) = *(int *)(this + 4);
+  *(int *)(this->m_pTreeHead + 8) = (int)this->m_pTreeHead;
   uStack_4 = 0xffffffff;
   (*___imp___1_Lockit_std__QAE_XZ)();
   uStack_4 = 1;
-  CriticalSection::CriticalSection((CriticalSection *)(this + 0x24));
-  *(ushort *)(this + 0x10) = usValue;
-  *(undefined4 *)(this + 0x14) = 1;
-  *(undefined4 *)(this + 0x18) = 1;
-  *(undefined4 *)(this + 0x1c) = 1;
-  *(undefined4 *)(this + 0x20) = 0;
+  CriticalSection::CriticalSection(&this->m_oCriticalSection);
+  this->m_usWindowSize = usValue;
+  this->m_ulRightEdge = 1;
+  this->m_ulSendEdge = 1;
+  this->m_ulLeftEdge = 1;
+  this->m_ulDataPending = 0;
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = uStack_c;
   return this;
 }
@@ -223,19 +236,18 @@ void __thiscall SlidingWindow::~SlidingWindow(SlidingWindow *this)
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &uStack_c;
   local_4 = 1;
   local_10 = this;
-  ScopedCS::ScopedCS(local_18,(CriticalSection *)(this + 0x24),s_<unspecified>);
+  ScopedCS::ScopedCS(local_18,&this->m_oCriticalSection,s_<unspecified>);
   local_4._0_1_ = 2;
   Purge(this);
   local_4._0_1_ = 1;
   ScopedCS::~ScopedCS(local_18);
   local_4 = (uint)local_4._1_3_ << 8;
-  CriticalSection::~CriticalSection((CriticalSection *)(this + 0x24));
+  CriticalSection::~CriticalSection(&this->m_oCriticalSection);
   local_4 = 0xffffffff;
-  std::_Tree<>::erase((_Tree<> *)this,&local_10,**(undefined4 **)(this + 4),
-                      *(undefined4 **)(this + 4));
-  operator_delete(*(void **)(this + 4));
-  *(undefined4 *)(this + 4) = 0;
-  *(undefined4 *)(this + 0xc) = 0;
+  std::_Tree<>::erase((_Tree<> *)this,&local_10,*(_Node **)this->m_pTreeHead,this->m_pTreeHead);
+  operator_delete(this->m_pTreeHead);
+  this->m_pTreeHead = (_Node *)0x0;
+  this->m_ulSize = 0;
   (*___imp___0_Lockit_std__QAE_XZ)();
   std::_Tree<>::_Nilrefs = std::_Tree<>::_Nilrefs - 1;
   if (std::_Tree<>::_Nilrefs == 0) {
@@ -273,11 +285,11 @@ void __thiscall SlidingWindow::Purge(SlidingWindow *this)
   puStack_8 = &_L6077;
   uStack_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &uStack_c;
-  ScopedCS::ScopedCS(local_14,(CriticalSection *)(this + 0x24),s_<unspecified>);
+  ScopedCS::ScopedCS(local_14,&this->m_oCriticalSection,s_<unspecified>);
   pcVar1 = ___imp___0_Lockit_std__QAE_XZ;
   local_4 = 0;
-  p_Var4 = *(_Node **)*(_Node **)(this + 4);
-  if (p_Var4 != *(_Node **)(this + 4)) {
+  p_Var4 = *(_Node **)this->m_pTreeHead;
+  if (p_Var4 != this->m_pTreeHead) {
     do {
       (*pcVar1)();
       p_Var5 = *(_Node **)(p_Var4 + 8);
@@ -311,11 +323,11 @@ void __thiscall SlidingWindow::Purge(SlidingWindow *this)
       RefCountedObject::ReleaseRef(*(RefCountedObject **)(p_Var4 + 0x10));
       std::_Tree<>::erase((_Tree<> *)this,auStack_10,p_Var4);
       p_Var4 = p_Var5;
-    } while (p_Var5 != *(_Node **)(this + 4));
+    } while (p_Var5 != this->m_pTreeHead);
   }
-  *(undefined4 *)(this + 0x18) = *(undefined4 *)(this + 0x14);
-  *(undefined4 *)(this + 0x1c) = *(undefined4 *)(this + 0x14);
-  *(undefined4 *)(this + 0x20) = 0;
+  this->m_ulSendEdge = this->m_ulRightEdge;
+  this->m_ulLeftEdge = this->m_ulRightEdge;
+  this->m_ulDataPending = 0;
   local_4 = 0xffffffff;
   ScopedCS::~ScopedCS(local_14);
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = uStack_c;
@@ -349,17 +361,17 @@ void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *pPacketOut)
   puStack_8 = &_L6144;
   local_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &local_c;
-  ScopedCS::ScopedCS(local_38,(CriticalSection *)(this + 0x24),s_<unspecified>);
+  ScopedCS::ScopedCS(local_38,&this->m_oCriticalSection,s_<unspecified>);
   local_4 = 0;
   Platform::SystemCheck
-            (*(uint *)(this + 0x1c) <= *(uint *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
+            (this->m_ulLeftEdge <= this->m_ulSendEdge,s_m_ulLeftEdge_<__m_ulRightEdge,
              s_SlidingWindow_cpp,0x30);
   RefCountedObject::AcquireRef((RefCountedObject *)pPacketOut);
   uVar1 = Packet::GetType((Packet *)pPacketOut);
   if (uVar1 == '\x01') {
-    *(int *)(this + 0x20) = *(int *)(this + 0x20) + 1;
+    this->m_ulDataPending = this->m_ulDataPending + 1;
   }
-  local_2c = *(undefined4 *)(this + 0x14);
+  local_2c = this->m_ulRightEdge;
   local_28 = 0;
   puVar2 = (undefined4 *)std::_Tree<>::insert((_Tree<> *)this,local_24);
   local_34 = *puVar2;
@@ -367,9 +379,9 @@ void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *pPacketOut)
   piVar3 = (int *)std::pair<>::pair<>(local_1c,(iterator *)&local_34,(bool *)&local_30);
   local_10 = piVar3[1];
   *(PacketOut **)(*piVar3 + 0x10) = pPacketOut;
-  Packet::SetSeqId((Packet *)pPacketOut,*(ulong *)(this + 0x14));
+  Packet::SetSeqId((Packet *)pPacketOut,this->m_ulRightEdge);
   local_4 = 0xffffffff;
-  *(int *)(this + 0x14) = *(int *)(this + 0x14) + 1;
+  this->m_ulRightEdge = this->m_ulRightEdge + 1;
   ScopedCS::~ScopedCS(local_38);
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_c;
   return;
@@ -400,16 +412,16 @@ void __thiscall SlidingWindow::Acknowledged(SlidingWindow *this,ulong ulValue)
   puStack_8 = &_L6351;
   uStack_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &uStack_c;
-  ScopedCS::ScopedCS(local_14,(CriticalSection *)(this + 0x24),s_<unspecified>);
+  ScopedCS::ScopedCS(local_14,&this->m_oCriticalSection,s_<unspecified>);
   local_4 = 0;
   Platform::SystemCheck
-            (*(uint *)(this + 0x1c) <= *(uint *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
+            (this->m_ulLeftEdge <= this->m_ulSendEdge,s_m_ulLeftEdge_<__m_ulRightEdge,
              s_SlidingWindow_cpp,0x40);
   piVar3 = (int *)std::_Tree<>::find((_Tree<> *)this,&local_10);
   p_Var1 = (_Node *)*piVar3;
-  if (p_Var1 == *(_Node **)(this + 4)) goto LAB_00002aa1;
+  if (p_Var1 == this->m_pTreeHead) goto LAB_00002aa1;
   this_00 = *(Packet **)(p_Var1 + 0x10);
-  if (ulValue == *(ulong *)(this + 0x1c)) {
+  if (ulValue == this->m_ulLeftEdge) {
     (*___imp___0_Lockit_std__QAE_XZ)();
     local_4._0_1_ = 1;
     if (*(_Node **)(p_Var1 + 8) == std::_Tree<>::_Nil) {
@@ -430,20 +442,20 @@ LAB_00002a38:
     }
     local_4 = (uint)local_4._1_3_ << 8;
     (*___imp___1_Lockit_std__QAE_XZ)();
-    if (p_Var5 == *(_Node **)(this + 4)) {
-      *(int *)(this + 0x1c) = *(int *)(this + 0x14);
+    if (p_Var5 == this->m_pTreeHead) {
+      this->m_ulLeftEdge = this->m_ulRightEdge;
       Platform::SystemCheck
-                (*(int *)(this + 0x14) == *(int *)(this + 0x18),s__m_ulLeftEdge____m_ulRightEdge__,
+                (this->m_ulRightEdge == this->m_ulSendEdge,s__m_ulLeftEdge____m_ulRightEdge__,
                  s_SlidingWindow_cpp,0x50);
     }
     else {
-      *(undefined4 *)(this + 0x1c) = *(undefined4 *)(p_Var5 + 0xc);
+      this->m_ulLeftEdge = *(undefined4 *)(p_Var5 + 0xc);
     }
   }
   std::_Tree<>::erase((_Tree<> *)this,&local_10,p_Var1);
   bVar2 = Packet::GetType(this_00);
   if ((bVar2 & 1) != 0) {
-    *(int *)(this + 0x20) = *(int *)(this + 0x20) + -1;
+    this->m_ulDataPending = this->m_ulDataPending + -1;
   }
   RefCountedObject::ReleaseRef((RefCountedObject *)this_00);
 LAB_00002aa1:
@@ -481,15 +493,15 @@ PacketOut * __thiscall SlidingWindow::GetNextToSend(SlidingWindow *this)
   puStack_8 = &_L6605;
   local_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &local_c;
-  ScopedCS::ScopedCS(local_18,(CriticalSection *)(this + 0x24),s_<unspecified>);
-  pSVar1 = this + 0x18;
+  ScopedCS::ScopedCS(local_18,&this->m_oCriticalSection,s_<unspecified>);
+  pSVar1 = &this->m_ulSendEdge;
   local_4 = 0;
   Platform::SystemCheck
-            (*(uint *)(this + 0x1c) <= *(uint *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
+            (this->m_ulLeftEdge <= this->m_ulSendEdge,s_m_ulLeftEdge_<__m_ulRightEdge,
              s_SlidingWindow_cpp,0x62);
-  if (*(ulong *)pSVar1 - *(int *)(this + 0x1c) < (uint)*(ushort *)(this + 0x10)) {
+  if (*(ulong *)pSVar1 - this->m_ulLeftEdge < (uint)this->m_usWindowSize) {
     local_14 = std::_Tree<>::_Lbound((_Tree<> *)this,(ulong *)pSVar1);
-    p_Var2 = *(_Node **)(this + 4);
+    p_Var2 = this->m_pTreeHead;
     if ((local_14 == p_Var2) || (*(uint *)pSVar1 < *(uint *)(local_14 + 0xc))) {
       local_10 = p_Var2;
       pp_Var6 = &local_10;
@@ -546,13 +558,13 @@ PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,ulong ulValu
   puStack_8 = &_L6864;
   local_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &local_c;
-  ScopedCS::ScopedCS(local_18,(CriticalSection *)(this + 0x24),s_<unspecified>);
+  ScopedCS::ScopedCS(local_18,&this->m_oCriticalSection,s_<unspecified>);
   local_4 = 0;
   Platform::SystemCheck
-            (*(uint *)(this + 0x1c) <= *(uint *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
+            (this->m_ulLeftEdge <= this->m_ulSendEdge,s_m_ulLeftEdge_<__m_ulRightEdge,
              s_SlidingWindow_cpp,0x77);
   local_14 = std::_Tree<>::_Lbound((_Tree<> *)this,&ulValue);
-  p_Var1 = *(_Node **)(this + 4);
+  p_Var1 = this->m_pTreeHead;
   if ((local_14 == p_Var1) || (ulValue < *(uint *)(local_14 + 0xc))) {
     local_10 = p_Var1;
     pp_Var5 = &local_10;
@@ -594,9 +606,9 @@ bool __thiscall SlidingWindow::ReadyToSend(SlidingWindow *this)
   SlidingWindow *local_4;
   
   local_4 = this;
-  ScopedCS::ScopedCS((ScopedCS *)&local_4,(CriticalSection *)(this + 0x24),s_<unspecified>);
-  if (((uint)(*(int *)(this + 0x18) - *(int *)(this + 0x1c)) < (uint)*(ushort *)(this + 0x10)) &&
-     (*(int *)(this + 0x18) != *(int *)(this + 0x14))) {
+  ScopedCS::ScopedCS((ScopedCS *)&local_4,&this->m_oCriticalSection,s_<unspecified>);
+  if (((uint)(this->m_ulSendEdge - this->m_ulLeftEdge) < (uint)this->m_usWindowSize) &&
+     (this->m_ulSendEdge != this->m_ulRightEdge)) {
     ScopedCS::~ScopedCS((ScopedCS *)&local_4);
     return true;
   }
@@ -616,9 +628,9 @@ bool __thiscall SlidingWindow::Empty(SlidingWindow *this)
   SlidingWindow *local_4;
   
   local_4 = this;
-  ScopedCS::ScopedCS((ScopedCS *)&local_4,(CriticalSection *)(this + 0x24),s_<unspecified>);
-  iVar1 = *(int *)(this + 0x1c);
-  iVar2 = *(int *)(this + 0x14);
+  ScopedCS::ScopedCS((ScopedCS *)&local_4,&this->m_oCriticalSection,s_<unspecified>);
+  iVar1 = this->m_ulLeftEdge;
+  iVar2 = this->m_ulRightEdge;
   ScopedCS::~ScopedCS((ScopedCS *)&local_4);
   return iVar1 == iVar2;
 }
@@ -635,8 +647,8 @@ void __thiscall SlidingWindow::AcquireIterator(SlidingWindow *this)
 {
   undefined4 *in_stack_00000004;
   
-  CriticalSection::Enter((CriticalSection *)(this + 0x24));
-  *in_stack_00000004 = **(undefined4 **)(this + 4);
+  CriticalSection::Enter(&this->m_oCriticalSection);
+  *in_stack_00000004 = *(undefined4 *)this->m_pTreeHead;
   return;
 }
 
@@ -655,7 +667,7 @@ PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,int iValue)
   char *pcVar3;
   ulong uVar4;
   
-  if (iValue != *(int *)(this + 4)) {
+  if (iValue != (int)this->m_pTreeHead) {
     uVar4 = 0x99;
     pcVar3 = s_SlidingWindow_cpp;
     pcVar2 = s___it__second_>Valid____true;
@@ -673,7 +685,7 @@ PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,int iValue)
 void __thiscall SlidingWindow::ReleaseIterator(SlidingWindow *this)
 
 {
-  CriticalSection::Leave((CriticalSection *)(this + 0x24));
+  CriticalSection::Leave(&this->m_oCriticalSection);
   return;
 }
 
@@ -688,8 +700,8 @@ bool __thiscall SlidingWindow::DataPending(SlidingWindow *this)
   SlidingWindow *local_4;
   
   local_4 = this;
-  ScopedCS::ScopedCS((ScopedCS *)&local_4,(CriticalSection *)(this + 0x24),s_<unspecified>);
-  iVar1 = *(int *)(this + 0x20);
+  ScopedCS::ScopedCS((ScopedCS *)&local_4,&this->m_oCriticalSection,s_<unspecified>);
+  iVar1 = this->m_ulDataPending;
   ScopedCS::~ScopedCS((ScopedCS *)&local_4);
   return iVar1 != 0;
 }
@@ -705,8 +717,8 @@ ulong __thiscall SlidingWindow::NbDataPending(SlidingWindow *this)
   SlidingWindow *local_4;
   
   local_4 = this;
-  ScopedCS::ScopedCS((ScopedCS *)&local_4,(CriticalSection *)(this + 0x24),s_<unspecified>);
-  uVar1 = *(ulong *)(this + 0x20);
+  ScopedCS::ScopedCS((ScopedCS *)&local_4,&this->m_oCriticalSection,s_<unspecified>);
+  uVar1 = this->m_ulDataPending;
   ScopedCS::~ScopedCS((ScopedCS *)&local_4);
   return uVar1;
 }
@@ -720,12 +732,12 @@ void __thiscall SlidingWindow::Trace(SlidingWindow *this)
 {
   int local_4;
   
-  local_4 = **(int **)(this + 4);
-  if ((int *)local_4 != *(int **)(this + 4)) {
+  local_4 = *(int *)this->m_pTreeHead;
+  if ((int *)local_4 != (int *)this->m_pTreeHead) {
     do {
       Packet::Trace(*(Packet **)(local_4 + 0x10));
       std::_Tree<>::const_iterator::_Inc((const_iterator *)&local_4);
-    } while (local_4 != *(int *)(this + 4));
+    } while (local_4 != (int)this->m_pTreeHead);
   }
   return;
 }
@@ -1341,17 +1353,17 @@ void __thiscall std::_Tree<>::const_iterator::_Inc(const_iterator *this)
   (*___imp___0_Lockit_std__QAE_XZ)();
   pcVar3 = ___imp___1_Lockit_std__QAE_XZ;
   uStack_4 = 0;
-  p_Var1 = *(_Node **)(*(int *)this + 8);
+  p_Var1 = *(_Node **)(this->m_pNode + 8);
   if (p_Var1 == _Nil) {
-    iVar5 = *(int *)(*(int *)this + 4);
-    if (*(int *)this == *(int *)(iVar5 + 8)) {
+    iVar5 = *(int *)(this->m_pNode + 4);
+    if ((int)this->m_pNode == *(int *)(iVar5 + 8)) {
       do {
-        *(int *)this = iVar5;
+        this->m_pNode = (_Node *)iVar5;
         iVar5 = *(int *)(iVar5 + 4);
-      } while (*(int *)this == *(int *)(iVar5 + 8));
+      } while ((int)this->m_pNode == *(int *)(iVar5 + 8));
     }
-    if (*(int *)(*(int *)this + 8) != iVar5) {
-      *(int *)this = iVar5;
+    if (*(int *)(this->m_pNode + 8) != iVar5) {
+      this->m_pNode = (_Node *)iVar5;
     }
   }
   else {
@@ -1360,7 +1372,7 @@ void __thiscall std::_Tree<>::const_iterator::_Inc(const_iterator *this)
       p_Var1 = p_Var2;
     }
     (*pcVar3)();
-    *(_Node **)this = p_Var1;
+    this->m_pNode = p_Var1;
   }
   uStack_4 = 0xffffffff;
   (*pcVar3)();
@@ -1663,22 +1675,22 @@ void __thiscall std::_Tree<>::const_iterator::_Dec(const_iterator *this)
   pcVar4 = ___imp___0_Lockit_std__QAE_XZ;
   (*___imp___0_Lockit_std__QAE_XZ)();
   pcVar3 = ___imp___1_Lockit_std__QAE_XZ;
-  piVar5 = *(int **)this;
+  piVar5 = (int *)this->m_pNode;
   uStack_4 = 0;
   if ((piVar5[5] == 0) && (*(int **)(piVar5[1] + 4) == piVar5)) {
-    *(int *)this = piVar5[2];
+    this->m_pNode = (_Node *)piVar5[2];
   }
   else {
     p_Var1 = (_Node *)*piVar5;
     if (p_Var1 == _Nil) {
       piVar5 = (int *)piVar5[1];
-      if (*(int *)this == *piVar5) {
+      if ((int)this->m_pNode == *piVar5) {
         do {
-          *(int **)this = piVar5;
+          this->m_pNode = (_Node *)piVar5;
           piVar5 = (int *)piVar5[1];
-        } while (*(int *)this == *piVar5);
+        } while ((int)this->m_pNode == *piVar5);
       }
-      *(int **)this = piVar5;
+      this->m_pNode = (_Node *)piVar5;
     }
     else {
       (*pcVar4)();
@@ -1686,7 +1698,7 @@ void __thiscall std::_Tree<>::const_iterator::_Dec(const_iterator *this)
         p_Var1 = p_Var2;
       }
       (*pcVar3)();
-      *(_Node **)this = p_Var1;
+      this->m_pNode = p_Var1;
     }
   }
   uStack_4 = 0xffffffff;
@@ -1709,5 +1721,4 @@ void __cdecl std::_Construct(pair<> *pPair<>,pair<> *pPair<>2)
   }
   return;
 }
-
 
