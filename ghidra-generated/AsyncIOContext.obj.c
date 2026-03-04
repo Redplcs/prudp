@@ -1,3 +1,5 @@
+#include <Platform/Event.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned int    dword;
@@ -31,9 +33,6 @@ struct CoffSectionHeader {
 };
 
 typedef struct Event Event, *PEvent;
-
-struct Event { // PlaceHolder Structure
-};
 
 typedef struct _OVERLAPPED _OVERLAPPED, *P_OVERLAPPED;
 

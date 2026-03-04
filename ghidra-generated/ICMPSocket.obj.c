@@ -1,3 +1,7 @@
+#include <Platform/Event.h>
+#include <Platform/Trace.h>
+#include <Plugins/Core/Buffer.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -42,13 +46,7 @@ struct PRUDPInetAddress { // PlaceHolder Structure
 
 typedef struct Buffer Buffer, *PBuffer;
 
-struct Buffer { // PlaceHolder Structure
-};
-
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
-
-struct TraceOutput { // PlaceHolder Structure
-};
 
 typedef struct ICMPSocket ICMPSocket, *PICMPSocket;
 
@@ -56,9 +54,6 @@ struct ICMPSocket { // PlaceHolder Structure
 };
 
 typedef struct Event Event, *PEvent;
-
-struct Event { // PlaceHolder Structure
-};
 
 typedef struct AsyncIOContext AsyncIOContext, *PAsyncIOContext;
 

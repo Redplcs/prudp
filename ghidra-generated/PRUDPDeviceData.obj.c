@@ -1,3 +1,6 @@
+#include <Plugins/Core/RefCountedObject.h>
+#include <Plugins/Transport/Interface/DeviceData.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -46,18 +49,12 @@ struct Packet { // PlaceHolder Structure
 
 typedef struct RefCountedObject RefCountedObject, *PRefCountedObject;
 
-struct RefCountedObject { // PlaceHolder Structure
-};
-
 typedef struct UDPSocket UDPSocket, *PUDPSocket;
 
 struct UDPSocket { // PlaceHolder Structure
 };
 
 typedef struct DeviceData DeviceData, *PDeviceData;
-
-struct DeviceData { // PlaceHolder Structure
-};
 
 
 

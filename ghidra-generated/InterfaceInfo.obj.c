@@ -1,3 +1,5 @@
+#include <Platform/Trace.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -35,9 +37,6 @@ struct CoffSectionHeader {
 };
 
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
-
-struct TraceOutput { // PlaceHolder Structure
-};
 
 typedef struct InterfaceInfo InterfaceInfo, *PInterfaceInfo;
 

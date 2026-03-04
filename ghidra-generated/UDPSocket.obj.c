@@ -1,3 +1,15 @@
+#include <Platform/CriticalSection.h>
+#include <Platform/Event.h>
+#include <Platform/ScopedCS.h>
+#include <Platform/Time.h>
+#include <Plugins/Core/Buffer.h>
+#include <Plugins/Core/RefCountedObject.h>
+#include <Plugins/Transport/Interface/DeviceData.h>
+#include <Plugins/Transport/Interface/InputEmulationDevice.h>
+#include <Plugins/Transport/Interface/OutputEmulationDevice.h>
+#include <Plugins/Transport/Interface/Transport.h>
+#include <Plugins/Transport/Interface/TransportPerfCounters.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -41,13 +53,7 @@ struct PRUDPDeviceData { // PlaceHolder Structure
 
 typedef struct InputEmulationDevice InputEmulationDevice, *PInputEmulationDevice;
 
-struct InputEmulationDevice { // PlaceHolder Structure
-};
-
 typedef struct CriticalSection CriticalSection, *PCriticalSection;
-
-struct CriticalSection { // PlaceHolder Structure
-};
 
 typedef struct PRUDPTransport PRUDPTransport, *PPRUDPTransport;
 
@@ -56,13 +62,7 @@ struct PRUDPTransport { // PlaceHolder Structure
 
 typedef struct Time Time, *PTime;
 
-struct Time { // PlaceHolder Structure
-};
-
 typedef struct Buffer Buffer, *PBuffer;
-
-struct Buffer { // PlaceHolder Structure
-};
 
 typedef struct PRUDPInetAddress PRUDPInetAddress, *PPRUDPInetAddress;
 
@@ -81,18 +81,9 @@ struct AsyncIOContext { // PlaceHolder Structure
 
 typedef struct TransportPerfCounters TransportPerfCounters, *PTransportPerfCounters;
 
-struct TransportPerfCounters { // PlaceHolder Structure
-};
-
 typedef struct OutputEmulationDevice OutputEmulationDevice, *POutputEmulationDevice;
 
-struct OutputEmulationDevice { // PlaceHolder Structure
-};
-
 typedef struct DeviceData DeviceData, *PDeviceData;
-
-struct DeviceData { // PlaceHolder Structure
-};
 
 typedef struct PacketOut PacketOut, *PPacketOut;
 
@@ -106,18 +97,9 @@ struct Packet { // PlaceHolder Structure
 
 typedef struct RefCountedObject RefCountedObject, *PRefCountedObject;
 
-struct RefCountedObject { // PlaceHolder Structure
-};
-
 typedef struct Event Event, *PEvent;
 
-struct Event { // PlaceHolder Structure
-};
-
 typedef struct ScopedCS ScopedCS, *PScopedCS;
-
-struct ScopedCS { // PlaceHolder Structure
-};
 
 typedef struct PacketIn PacketIn, *PPacketIn;
 
@@ -125,9 +107,6 @@ struct PacketIn { // PlaceHolder Structure
 };
 
 typedef struct Transport Transport, *PTransport;
-
-struct Transport { // PlaceHolder Structure
-};
 
 typedef struct Socket Socket, *PSocket;
 

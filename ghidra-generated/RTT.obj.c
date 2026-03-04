@@ -1,3 +1,5 @@
+#include <Platform/Trace.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned int    dword;
@@ -31,9 +33,6 @@ struct CoffSectionHeader {
 };
 
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
-
-struct TraceOutput { // PlaceHolder Structure
-};
 
 typedef struct RTT RTT, *PRTT;
 

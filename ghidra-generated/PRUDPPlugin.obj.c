@@ -1,3 +1,10 @@
+#include <Platform/Trace.h>
+#include <Plugins/Core/Plugin.h>
+#include <Plugins/Core/PluginObject.h>
+#include <Plugins/Transport/Interface/StationURL.h>
+#include <Plugins/Transport/Interface/TransportPlugin.h>
+#include <Plugins/Transport/PRUDP/PRUDPPlugin.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -41,33 +48,15 @@ struct PRUDPTransport { // PlaceHolder Structure
 
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
 
-struct TraceOutput { // PlaceHolder Structure
-};
-
 typedef struct StationURL StationURL, *PStationURL;
-
-struct StationURL { // PlaceHolder Structure
-};
 
 typedef struct PluginObject PluginObject, *PPluginObject;
 
-struct PluginObject { // PlaceHolder Structure
-};
-
 typedef struct TransportPlugin TransportPlugin, *PTransportPlugin;
-
-struct TransportPlugin { // PlaceHolder Structure
-};
 
 typedef struct PRUDPPlugin PRUDPPlugin, *PPRUDPPlugin;
 
-struct PRUDPPlugin { // PlaceHolder Structure
-};
-
 typedef struct Plugin Plugin, *PPlugin;
-
-struct Plugin { // PlaceHolder Structure
-};
 
 
 
