@@ -1,3 +1,5 @@
+#include <Plugins/Core/Buffer.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -267,9 +269,6 @@ struct PacketIn { // PlaceHolder Structure
 };
 
 typedef struct Buffer Buffer, *PBuffer;
-
-struct Buffer { // PlaceHolder Structure
-};
 
 typedef struct Packet Packet, *PPacket;
 

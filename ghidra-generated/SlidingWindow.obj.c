@@ -1,3 +1,8 @@
+#include <Platform/CriticalSection.h>
+#include <Platform/ScopedCS.h>
+#include <Platform/Trace.h>
+#include <Plugins/Core/RefCountedObject.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -37,9 +42,6 @@ struct CoffSectionHeader {
 
 typedef struct CriticalSection CriticalSection, *PCriticalSection;
 
-struct CriticalSection { // PlaceHolder Structure
-};
-
 typedef struct SlidingWindow SlidingWindow, *PSlidingWindow;
 
 struct SlidingWindow { // PlaceHolder Structure
@@ -47,13 +49,7 @@ struct SlidingWindow { // PlaceHolder Structure
 
 typedef struct RefCountedObject RefCountedObject, *PRefCountedObject;
 
-struct RefCountedObject { // PlaceHolder Structure
-};
-
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
-
-struct TraceOutput { // PlaceHolder Structure
-};
 
 typedef struct Packet Packet, *PPacket;
 
@@ -66,9 +62,6 @@ struct PacketOut { // PlaceHolder Structure
 };
 
 typedef struct ScopedCS ScopedCS, *PScopedCS;
-
-struct ScopedCS { // PlaceHolder Structure
-};
 
 typedef struct pair<unsigned_long_const_,class_PacketOut*> pair<unsigned_long_const_,class_PacketOut*>, *Ppair<unsigned_long_const_,class_PacketOut*>;
 

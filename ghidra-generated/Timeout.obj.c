@@ -1,3 +1,5 @@
+#include <Platform/Time.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -40,9 +42,6 @@ struct Timeout { // PlaceHolder Structure
 };
 
 typedef struct Time Time, *PTime;
-
-struct Time { // PlaceHolder Structure
-};
 
 
 

@@ -1,3 +1,9 @@
+#include <Platform/CriticalSection.h>
+#include <Platform/Event.h>
+#include <Platform/EventHandler.h>
+#include <Platform/ObjectThreadRoot.h>
+#include <Platform/ScopedCS.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -36,9 +42,6 @@ struct CoffSectionHeader {
 
 typedef struct CriticalSection CriticalSection, *PCriticalSection;
 
-struct CriticalSection { // PlaceHolder Structure
-};
-
 typedef struct CallbackDispatcher CallbackDispatcher, *PCallbackDispatcher;
 
 struct CallbackDispatcher { // PlaceHolder Structure
@@ -46,18 +49,9 @@ struct CallbackDispatcher { // PlaceHolder Structure
 
 typedef struct Event Event, *PEvent;
 
-struct Event { // PlaceHolder Structure
-};
-
 typedef struct ObjectThreadRoot ObjectThreadRoot, *PObjectThreadRoot;
 
-struct ObjectThreadRoot { // PlaceHolder Structure
-};
-
 typedef struct EventHandler EventHandler, *PEventHandler;
-
-struct EventHandler { // PlaceHolder Structure
-};
 
 typedef struct ObjectThread<class_CallbackDispatcher,void*> ObjectThread<class_CallbackDispatcher,void*>, *PObjectThread<class_CallbackDispatcher,void*>;
 
@@ -65,9 +59,6 @@ struct ObjectThread<class_CallbackDispatcher,void*> { // PlaceHolder Structure
 };
 
 typedef struct ScopedCS ScopedCS, *PScopedCS;
-
-struct ScopedCS { // PlaceHolder Structure
-};
 
 
 

@@ -1,3 +1,8 @@
+#include <Platform/Time.h>
+#include <Platform/Trace.h>
+#include <Plugins/Core/Buffer.h>
+#include <Plugins/Core/RefCountedObject.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -37,9 +42,6 @@ struct CoffSectionHeader {
 
 typedef struct Buffer Buffer, *PBuffer;
 
-struct Buffer { // PlaceHolder Structure
-};
-
 typedef struct PRUDPInetAddress PRUDPInetAddress, *PPRUDPInetAddress;
 
 struct PRUDPInetAddress { // PlaceHolder Structure
@@ -52,18 +54,9 @@ struct Packet { // PlaceHolder Structure
 
 typedef struct RefCountedObject RefCountedObject, *PRefCountedObject;
 
-struct RefCountedObject { // PlaceHolder Structure
-};
-
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
 
-struct TraceOutput { // PlaceHolder Structure
-};
-
 typedef struct Time Time, *PTime;
-
-struct Time { // PlaceHolder Structure
-};
 
 
 

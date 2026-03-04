@@ -1,3 +1,5 @@
+#include <Platform/UserContext.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -49,9 +51,6 @@ struct PRUDPTransportSettings { // PlaceHolder Structure
 };
 
 typedef struct UserContext UserContext, *PUserContext;
-
-struct UserContext { // PlaceHolder Structure
-};
 
 
 

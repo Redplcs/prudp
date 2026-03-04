@@ -1,3 +1,19 @@
+#include <Platform/CriticalSection.h>
+#include <Platform/Event.h>
+#include <Platform/ScopedCS.h>
+#include <Platform/Trace.h>
+#include <Platform/UserContext.h>
+#include <Plugins/Core/Buffer.h>
+#include <Plugins/Core/RefCountedObject.h>
+#include <Plugins/Transport/Interface/EndPoint.h>
+#include <Plugins/Transport/Interface/EndPointEventHandler.h>
+#include <Plugins/Transport/Interface/EndPointGroup.h>
+#include <Plugins/Transport/Interface/InputEmulationDevice.h>
+#include <Plugins/Transport/Interface/OutputEmulationDevice.h>
+#include <Plugins/Transport/Interface/StationURL.h>
+#include <Plugins/Transport/Interface/Transport.h>
+#include <Plugins/Transport/Interface/TransportEventHandler.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -48,9 +64,6 @@ typedef enum TRANSPORT_CAPS {
 
 typedef struct InputEmulationDevice InputEmulationDevice, *PInputEmulationDevice;
 
-struct InputEmulationDevice { // PlaceHolder Structure
-};
-
 typedef struct PRUDPTransportSettings PRUDPTransportSettings, *PPRUDPTransportSettings;
 
 struct PRUDPTransportSettings { // PlaceHolder Structure
@@ -68,9 +81,6 @@ struct PRUDPTransportSettings { // PlaceHolder Structure
 };
 
 typedef struct TransportEventHandler TransportEventHandler, *PTransportEventHandler;
-
-struct TransportEventHandler { // PlaceHolder Structure
-};
 
 typedef struct PRUDPTransport PRUDPTransport, *PPRUDPTransport;
 
@@ -228,18 +238,9 @@ struct PRUDPTransport { // PlaceHolder Structure
 
 typedef struct CriticalSection CriticalSection, *PCriticalSection;
 
-struct CriticalSection { // PlaceHolder Structure
-};
-
 typedef struct OutputEmulationDevice OutputEmulationDevice, *POutputEmulationDevice;
 
-struct OutputEmulationDevice { // PlaceHolder Structure
-};
-
 typedef struct EndPointEventHandler EndPointEventHandler, *PEndPointEventHandler;
-
-struct EndPointEventHandler { // PlaceHolder Structure
-};
 
 typedef struct UDPSocket UDPSocket, *PUDPSocket;
 
@@ -248,23 +249,11 @@ struct UDPSocket { // PlaceHolder Structure
 
 typedef struct EndPointGroup EndPointGroup, *PEndPointGroup;
 
-struct EndPointGroup { // PlaceHolder Structure
-};
-
 typedef struct Buffer Buffer, *PBuffer;
-
-struct Buffer { // PlaceHolder Structure
-};
 
 typedef struct RefCountedObject RefCountedObject, *PRefCountedObject;
 
-struct RefCountedObject { // PlaceHolder Structure
-};
-
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
-
-struct TraceOutput { // PlaceHolder Structure
-};
 
 typedef struct PacketOut PacketOut, *PPacketOut;
 
@@ -272,9 +261,6 @@ struct PacketOut { // PlaceHolder Structure
 };
 
 typedef struct Event Event, *PEvent;
-
-struct Event { // PlaceHolder Structure
-};
 
 typedef struct Packet Packet, *PPacket;
 
@@ -293,23 +279,11 @@ struct InterfaceInfo { // PlaceHolder Structure
 
 typedef struct Transport Transport, *PTransport;
 
-struct Transport { // PlaceHolder Structure
-};
-
 typedef struct UserContext UserContext, *PUserContext;
-
-struct UserContext { // PlaceHolder Structure
-};
 
 typedef struct StationURL StationURL, *PStationURL;
 
-struct StationURL { // PlaceHolder Structure
-};
-
 typedef struct EndPoint EndPoint, *PEndPoint;
-
-struct EndPoint { // PlaceHolder Structure
-};
 
 typedef struct RTT RTT, *PRTT;
 
@@ -363,9 +337,6 @@ struct CallbackDispatcher { // PlaceHolder Structure
 };
 
 typedef struct ScopedCS ScopedCS, *PScopedCS;
-
-struct ScopedCS { // PlaceHolder Structure
-};
 
 typedef struct pair<__int64_const_,class_PRUDPEndPoint*> pair<__int64_const_,class_PRUDPEndPoint*>, *Ppair<__int64_const_,class_PRUDPEndPoint*>;
 

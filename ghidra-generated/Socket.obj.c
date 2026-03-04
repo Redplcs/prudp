@@ -1,3 +1,6 @@
+#include <Platform/Trace.h>
+#include <Plugins/Core/Buffer.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -37,18 +40,12 @@ struct CoffSectionHeader {
 
 typedef struct Buffer Buffer, *PBuffer;
 
-struct Buffer { // PlaceHolder Structure
-};
-
 typedef struct PRUDPInetAddress PRUDPInetAddress, *PPRUDPInetAddress;
 
 struct PRUDPInetAddress { // PlaceHolder Structure
 };
 
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
-
-struct TraceOutput { // PlaceHolder Structure
-};
 
 typedef struct _OVERLAPPED _OVERLAPPED, *P_OVERLAPPED;
 

@@ -1,3 +1,6 @@
+#include <Platform/Trace.h>
+#include <Plugins/Transport/Interface/StationURL.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -47,13 +50,7 @@ struct sockaddr { // PlaceHolder Structure
 
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
 
-struct TraceOutput { // PlaceHolder Structure
-};
-
 typedef struct StationURL StationURL, *PStationURL;
-
-struct StationURL { // PlaceHolder Structure
-};
 
 
 

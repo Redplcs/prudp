@@ -1,3 +1,9 @@
+#include <Platform/CriticalSection.h>
+#include <Platform/ScopedCS.h>
+#include <Platform/Time.h>
+#include <Platform/Trace.h>
+#include <Plugins/Core/RefCountedObject.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -39,13 +45,7 @@ typedef ulonglong __uint64;
 
 typedef struct RefCountedObject RefCountedObject, *PRefCountedObject;
 
-struct RefCountedObject { // PlaceHolder Structure
-};
-
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
-
-struct TraceOutput { // PlaceHolder Structure
-};
 
 typedef struct Packet Packet, *PPacket;
 
@@ -69,18 +69,9 @@ struct PacketOut { // PlaceHolder Structure
 
 typedef struct CriticalSection CriticalSection, *PCriticalSection;
 
-struct CriticalSection { // PlaceHolder Structure
-};
-
 typedef struct Time Time, *PTime;
 
-struct Time { // PlaceHolder Structure
-};
-
 typedef struct ScopedCS ScopedCS, *PScopedCS;
-
-struct ScopedCS { // PlaceHolder Structure
-};
 
 typedef struct PRUDPEndPoint PRUDPEndPoint, *PPRUDPEndPoint;
 

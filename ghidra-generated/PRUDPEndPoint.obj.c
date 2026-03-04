@@ -1,3 +1,17 @@
+#include <Platform/SpinTest.h>
+#include <Platform/Time.h>
+#include <Platform/Trace.h>
+#include <Platform/UserContext.h>
+#include <Plugins/Core/Buffer.h>
+#include <Plugins/Core/RefCountedObject.h>
+#include <Plugins/Transport/Interface/EmulationDevice.h>
+#include <Plugins/Transport/Interface/EndPoint.h>
+#include <Plugins/Transport/Interface/EndPointEventHandler.h>
+#include <Plugins/Transport/Interface/OutputEmulationDevice.h>
+#include <Plugins/Transport/Interface/StationURL.h>
+#include <Plugins/Transport/Interface/Transport.h>
+#include <Plugins/Transport/Interface/TransportPerfCounters.h>
+
 typedef unsigned char   undefined;
 
 typedef unsigned char    bool;
@@ -47,9 +61,6 @@ struct PRUDPTransportSettings { // PlaceHolder Structure
 
 typedef struct SpinTest SpinTest, *PSpinTest;
 
-struct SpinTest { // PlaceHolder Structure
-};
-
 typedef struct PRUDPTransport PRUDPTransport, *PPRUDPTransport;
 
 struct PRUDPTransport { // PlaceHolder Structure
@@ -62,33 +73,15 @@ struct IORequestContext { // PlaceHolder Structure
 
 typedef struct TransportPerfCounters TransportPerfCounters, *PTransportPerfCounters;
 
-struct TransportPerfCounters { // PlaceHolder Structure
-};
-
 typedef struct OutputEmulationDevice OutputEmulationDevice, *POutputEmulationDevice;
-
-struct OutputEmulationDevice { // PlaceHolder Structure
-};
 
 typedef struct EndPointEventHandler EndPointEventHandler, *PEndPointEventHandler;
 
-struct EndPointEventHandler { // PlaceHolder Structure
-};
-
 typedef struct Buffer Buffer, *PBuffer;
-
-struct Buffer { // PlaceHolder Structure
-};
 
 typedef struct RefCountedObject RefCountedObject, *PRefCountedObject;
 
-struct RefCountedObject { // PlaceHolder Structure
-};
-
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
-
-struct TraceOutput { // PlaceHolder Structure
-};
 
 typedef struct PacketOut PacketOut, *PPacketOut;
 
@@ -96,9 +89,6 @@ struct PacketOut { // PlaceHolder Structure
 };
 
 typedef struct EmulationDevice EmulationDevice, *PEmulationDevice;
-
-struct EmulationDevice { // PlaceHolder Structure
-};
 
 typedef struct Packet Packet, *PPacket;
 
@@ -112,9 +102,6 @@ struct TimeoutManager { // PlaceHolder Structure
 
 typedef struct Transport Transport, *PTransport;
 
-struct Transport { // PlaceHolder Structure
-};
-
 typedef struct DispatchQueue DispatchQueue, *PDispatchQueue;
 
 struct DispatchQueue { // PlaceHolder Structure
@@ -122,18 +109,9 @@ struct DispatchQueue { // PlaceHolder Structure
 
 typedef struct UserContext UserContext, *PUserContext;
 
-struct UserContext { // PlaceHolder Structure
-};
-
 typedef struct StationURL StationURL, *PStationURL;
 
-struct StationURL { // PlaceHolder Structure
-};
-
 typedef struct EndPoint EndPoint, *PEndPoint;
-
-struct EndPoint { // PlaceHolder Structure
-};
 
 typedef struct SlidingWindow SlidingWindow, *PSlidingWindow;
 
@@ -166,9 +144,6 @@ struct Timeout { // PlaceHolder Structure
 };
 
 typedef struct Time Time, *PTime;
-
-struct Time { // PlaceHolder Structure
-};
 
 typedef struct iterator iterator, *Piterator;
 
