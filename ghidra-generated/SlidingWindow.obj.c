@@ -1,40 +1,8 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned char    uchar;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
 typedef unsigned int    undefined4;
-typedef unsigned short    ushort;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
 typedef struct CriticalSection CriticalSection, *PCriticalSection;
 
 struct CriticalSection { // PlaceHolder Structure
@@ -111,20 +79,20 @@ undefined LAB_00003f11;
 undefined __except_list;
 undefined __imp_??1_Lockit@std@@QAE@XZ;
 undefined __imp_??0_Lockit@std@@QAE@XZ;
-uint _Nilrefs;
+unsigned int _Nilrefs;
 _Node *_Nil;
 undefined LAB_00003f3b;
-TerminatedCString s_<unspecified>;
+const char * s_<unspecified>;
 undefined LAB_00003f61;
-TerminatedCString s_m_ulLeftEdge_<=_m_ulRightEdge;
+const char * s_m_ulLeftEdge_<=_m_ulRightEdge;
 undefined LAB_00003f78;
-TerminatedCString s_SlidingWindow.cpp;
+const char * s_SlidingWindow.cpp;
 undefined LAB_00003fa1;
-TerminatedCString s_(m_ulLeftEdge_==_m_ulRightEdge)_;
+const char * s_(m_ulLeftEdge_==_m_ulRightEdge)_;
 undefined LAB_00003fb8;
-TerminatedCString s_(*it).second->Valid()==true;
+const char * s_(*it).second->Valid()==true;
 undefined LAB_00003fd8;
-TerminatedCString s_ulSeqId_==_(*it).second->GetSeqI;
+const char * s_ulSeqId_==_(*it).second->GetSeqI;
 undefined LAB_00003ff9;
 undefined LAB_00004022;
 undefined LAB_00004039;
@@ -135,7 +103,7 @@ undefined LAB_00004099;
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: __thiscall SlidingWindow::SlidingWindow(unsigned short)
 
-SlidingWindow * __thiscall SlidingWindow::SlidingWindow(SlidingWindow *this,ushort param_1)
+SlidingWindow * __thiscall SlidingWindow::SlidingWindow(SlidingWindow *this,unsigned short param_1)
 
 {
   _Node *p_Var1;
@@ -174,7 +142,7 @@ SlidingWindow * __thiscall SlidingWindow::SlidingWindow(SlidingWindow *this,usho
   (*___imp___1_Lockit_std__QAE_XZ)();
   uStack_4 = 1;
   CriticalSection::CriticalSection((CriticalSection *)(this + 0x24));
-  *(ushort *)(this + 0x10) = param_1;
+  *(unsigned short *)(this + 0x10) = param_1;
   *(undefined4 *)(this + 0x14) = 1;
   *(undefined4 *)(this + 0x18) = 1;
   *(undefined4 *)(this + 0x1c) = 1;
@@ -235,7 +203,7 @@ void __thiscall SlidingWindow::~SlidingWindow(SlidingWindow *this)
   Purge(this);
   local_4._0_1_ = 1;
   ScopedCS::~ScopedCS(local_18);
-  local_4 = (uint)local_4._1_3_ << 8;
+  local_4 = (unsigned int)local_4._1_3_ << 8;
   CriticalSection::~CriticalSection((CriticalSection *)(this + 0x24));
   local_4 = 0xffffffff;
   std::_Tree<>::erase((_Tree<> *)this,&local_10,**(undefined4 **)(this + 4),
@@ -309,12 +277,12 @@ void __thiscall SlidingWindow::Purge(SlidingWindow *this)
         }
         (*___imp___1_Lockit_std__QAE_XZ)();
       }
-      local_4 = (uint)local_4._1_3_ << 8;
+      local_4 = (unsigned int)local_4._1_3_ << 8;
       (*___imp___1_Lockit_std__QAE_XZ)();
       Packet::GetSeqId(*(Packet **)(p_Var4 + 0x10));
       pcVar6 = (char *)0x0;
       pTVar3 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_00,(ulong)pTVar3,pcVar6);
+      TraceOutput::Trace(this_00,(unsigned long)pTVar3,pcVar6);
       RefCountedObject::ReleaseRef(*(RefCountedObject **)(p_Var4 + 0x10));
       std::_Tree<>::erase((_Tree<> *)this,auStack_10,p_Var4);
       p_Var4 = p_Var5;
@@ -336,7 +304,7 @@ void __thiscall SlidingWindow::Purge(SlidingWindow *this)
 void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *param_1)
 
 {
-  uchar uVar1;
+  unsigned char uVar1;
   undefined4 *puVar2;
   int *piVar3;
   int unaff_FS_OFFSET;
@@ -359,7 +327,7 @@ void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *param_1)
   ScopedCS::ScopedCS(local_38,(CriticalSection *)(this + 0x24),s_<unspecified>);
   local_4 = 0;
   Platform::SystemCheck
-            (*(uint *)(this + 0x1c) <= *(uint *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
+            (*(unsigned int *)(this + 0x1c) <= *(unsigned int *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
              s_SlidingWindow_cpp,0x30);
   RefCountedObject::AcquireRef((RefCountedObject *)param_1);
   uVar1 = Packet::GetType((Packet *)param_1);
@@ -374,7 +342,7 @@ void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *param_1)
   piVar3 = (int *)std::pair<>::pair<>(local_1c,(iterator *)&local_34,(bool *)&local_30);
   local_10 = piVar3[1];
   *(PacketOut **)(*piVar3 + 0x10) = param_1;
-  Packet::SetSeqId((Packet *)param_1,*(ulong *)(this + 0x14));
+  Packet::SetSeqId((Packet *)param_1,*(unsigned long *)(this + 0x14));
   local_4 = 0xffffffff;
   *(int *)(this + 0x14) = *(int *)(this + 0x14) + 1;
   ScopedCS::~ScopedCS(local_38);
@@ -387,18 +355,18 @@ void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *param_1)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: void __thiscall SlidingWindow::Acknowledged(unsigned long)
 
-void __thiscall SlidingWindow::Acknowledged(SlidingWindow *this,ulong param_1)
+void __thiscall SlidingWindow::Acknowledged(SlidingWindow *this,unsigned long param_1)
 
 {
   _Node *p_Var1;
   Packet *this_00;
-  byte bVar2;
+  unsigned char bVar2;
   int *piVar3;
   _Node *p_Var4;
   _Node *p_Var5;
   int unaff_FS_OFFSET;
   ScopedCS local_14 [4];
-  ulong local_10;
+  unsigned long local_10;
   undefined4 uStack_c;
   undefined1 *puStack_8;
   int local_4;
@@ -410,13 +378,13 @@ void __thiscall SlidingWindow::Acknowledged(SlidingWindow *this,ulong param_1)
   ScopedCS::ScopedCS(local_14,(CriticalSection *)(this + 0x24),s_<unspecified>);
   local_4 = 0;
   Platform::SystemCheck
-            (*(uint *)(this + 0x1c) <= *(uint *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
+            (*(unsigned int *)(this + 0x1c) <= *(unsigned int *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
              s_SlidingWindow_cpp,0x40);
   piVar3 = (int *)std::_Tree<>::find((_Tree<> *)this,&local_10);
   p_Var1 = (_Node *)*piVar3;
   if (p_Var1 == *(_Node **)(this + 4)) goto LAB_00002aa1;
   this_00 = *(Packet **)(p_Var1 + 0x10);
-  if (param_1 == *(ulong *)(this + 0x1c)) {
+  if (param_1 == *(unsigned long *)(this + 0x1c)) {
     (*___imp___0_Lockit_std__QAE_XZ)();
     local_4._0_1_ = 1;
     if (*(_Node **)(p_Var1 + 8) == std::_Tree<>::_Nil) {
@@ -435,7 +403,7 @@ void __thiscall SlidingWindow::Acknowledged(SlidingWindow *this,ulong param_1)
 LAB_00002a38:
       p_Var5 = p_Var4;
     }
-    local_4 = (uint)local_4._1_3_ << 8;
+    local_4 = (unsigned int)local_4._1_3_ << 8;
     (*___imp___1_Lockit_std__QAE_XZ)();
     if (p_Var5 == *(_Node **)(this + 4)) {
       *(int *)(this + 0x1c) = *(int *)(this + 0x14);
@@ -476,7 +444,7 @@ PacketOut * __thiscall SlidingWindow::GetNextToSend(SlidingWindow *this)
   int unaff_FS_OFFSET;
   char *pcVar7;
   char *pcVar8;
-  ulong uVar9;
+  unsigned long uVar9;
   ScopedCS local_18 [4];
   _Node *local_14;
   _Node *local_10;
@@ -492,12 +460,12 @@ PacketOut * __thiscall SlidingWindow::GetNextToSend(SlidingWindow *this)
   pSVar1 = this + 0x18;
   local_4 = 0;
   Platform::SystemCheck
-            (*(uint *)(this + 0x1c) <= *(uint *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
+            (*(unsigned int *)(this + 0x1c) <= *(unsigned int *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
              s_SlidingWindow_cpp,0x62);
-  if (*(ulong *)pSVar1 - *(int *)(this + 0x1c) < (uint)*(ushort *)(this + 0x10)) {
-    local_14 = std::_Tree<>::_Lbound((_Tree<> *)this,(ulong *)pSVar1);
+  if (*(unsigned long *)pSVar1 - *(int *)(this + 0x1c) < (unsigned int)*(unsigned short *)(this + 0x10)) {
+    local_14 = std::_Tree<>::_Lbound((_Tree<> *)this,(unsigned long *)pSVar1);
     p_Var2 = *(_Node **)(this + 4);
-    if ((local_14 == p_Var2) || (*(uint *)pSVar1 < *(uint *)(local_14 + 0xc))) {
+    if ((local_14 == p_Var2) || (*(unsigned int *)pSVar1 < *(unsigned int *)(local_14 + 0xc))) {
       local_10 = p_Var2;
       pp_Var6 = &local_10;
     }
@@ -508,7 +476,7 @@ PacketOut * __thiscall SlidingWindow::GetNextToSend(SlidingWindow *this)
     if (p_Var3 != p_Var2) {
       uVar9 = 0x69;
       pcVar8 = s_SlidingWindow_cpp;
-      *(ulong *)pSVar1 = *(ulong *)pSVar1 + 1;
+      *(unsigned long *)pSVar1 = *(unsigned long *)pSVar1 + 1;
       pcVar7 = s___it__second_>Valid____true;
       bVar5 = Packet::Valid(*(Packet **)(p_Var3 + 0x10));
       Platform::SystemCheck(bVar5,pcVar7,pcVar8,uVar9);
@@ -529,7 +497,7 @@ PacketOut * __thiscall SlidingWindow::GetNextToSend(SlidingWindow *this)
 
 // public: class PacketOut * __thiscall SlidingWindow::GetPacket(unsigned long)
 
-PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,ulong param_1)
+PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,unsigned long param_1)
 
 {
   _Node *p_Var1;
@@ -537,11 +505,11 @@ PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,ulong param_
   PacketOut *pPVar3;
   bool bVar4;
   _Node **pp_Var5;
-  ulong uVar6;
+  unsigned long uVar6;
   int unaff_FS_OFFSET;
   char *pcVar7;
   char *pcVar8;
-  ulong uVar9;
+  unsigned long uVar9;
   ScopedCS local_18 [4];
   _Node *local_14;
   _Node *local_10;
@@ -556,11 +524,11 @@ PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,ulong param_
   ScopedCS::ScopedCS(local_18,(CriticalSection *)(this + 0x24),s_<unspecified>);
   local_4 = 0;
   Platform::SystemCheck
-            (*(uint *)(this + 0x1c) <= *(uint *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
+            (*(unsigned int *)(this + 0x1c) <= *(unsigned int *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
              s_SlidingWindow_cpp,0x77);
   local_14 = std::_Tree<>::_Lbound((_Tree<> *)this,&param_1);
   p_Var1 = *(_Node **)(this + 4);
-  if ((local_14 == p_Var1) || (param_1 < *(uint *)(local_14 + 0xc))) {
+  if ((local_14 == p_Var1) || (param_1 < *(unsigned int *)(local_14 + 0xc))) {
     local_10 = p_Var1;
     pp_Var5 = &local_10;
   }
@@ -602,7 +570,7 @@ bool __thiscall SlidingWindow::ReadyToSend(SlidingWindow *this)
   
   local_4 = this;
   ScopedCS::ScopedCS((ScopedCS *)&local_4,(CriticalSection *)(this + 0x24),s_<unspecified>);
-  if (((uint)(*(int *)(this + 0x18) - *(int *)(this + 0x1c)) < (uint)*(ushort *)(this + 0x10)) &&
+  if (((unsigned int)(*(int *)(this + 0x18) - *(int *)(this + 0x1c)) < (unsigned int)*(unsigned short *)(this + 0x10)) &&
      (*(int *)(this + 0x18) != *(int *)(this + 0x14))) {
     ScopedCS::~ScopedCS((ScopedCS *)&local_4);
     return true;
@@ -660,7 +628,7 @@ PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,int param_2)
   bool bVar1;
   char *pcVar2;
   char *pcVar3;
-  ulong uVar4;
+  unsigned long uVar4;
   
   if (param_2 != *(int *)(this + 4)) {
     uVar4 = 0x99;
@@ -705,15 +673,15 @@ bool __thiscall SlidingWindow::DataPending(SlidingWindow *this)
 
 // public: unsigned long __thiscall SlidingWindow::NbDataPending(void)
 
-ulong __thiscall SlidingWindow::NbDataPending(SlidingWindow *this)
+unsigned long __thiscall SlidingWindow::NbDataPending(SlidingWindow *this)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   SlidingWindow *local_4;
   
   local_4 = this;
   ScopedCS::ScopedCS((ScopedCS *)&local_4,(CriticalSection *)(this + 0x24),s_<unspecified>);
-  uVar1 = *(ulong *)(this + 0x20);
+  uVar1 = *(unsigned long *)(this + 0x20);
   ScopedCS::~ScopedCS((ScopedCS *)&local_4);
   return uVar1;
 }
@@ -1138,7 +1106,7 @@ std::_Tree<>::erase(_Tree<> *this,undefined4 *param_2,int *param_3,int *param_4)
       } while (p_Var1 != _Nil);
     }
     pcVar3 = ___imp___1_Lockit_std__QAE_XZ;
-    iStack_4 = (uint)iStack_4._1_3_ << 8;
+    iStack_4 = (unsigned int)iStack_4._1_3_ << 8;
     (*___imp___1_Lockit_std__QAE_XZ)();
     iStack_4 = 0xffffffff;
     *(_Node **)(*(int *)(this + 4) + 4) = _Nil;
@@ -1162,18 +1130,18 @@ std::_Tree<>::erase(_Tree<> *this,undefined4 *param_2,int *param_3,int *param_4)
 // *,struct std::less<unsigned long>,class std::allocator<class PacketOut *> >::_Kfn,struct
 // std::less<unsigned long>,class std::allocator<class PacketOut *> >::find(unsigned long const &)
 
-void __thiscall std::_Tree<>::find(_Tree<> *this,ulong *param_1)
+void __thiscall std::_Tree<>::find(_Tree<> *this,unsigned long *param_1)
 
 {
   _Node *p_Var1;
-  ulong *in_stack_00000008;
+  unsigned long *in_stack_00000008;
   
   p_Var1 = _Lbound(this,in_stack_00000008);
-  if ((p_Var1 != *(_Node **)(this + 4)) && (*(uint *)(p_Var1 + 0xc) <= *in_stack_00000008)) {
-    *param_1 = (ulong)p_Var1;
+  if ((p_Var1 != *(_Node **)(this + 4)) && (*(unsigned int *)(p_Var1 + 0xc) <= *in_stack_00000008)) {
+    *param_1 = (unsigned long)p_Var1;
     return;
   }
-  *param_1 = (ulong)*(_Node **)(this + 4);
+  *param_1 = (unsigned long)*(_Node **)(this + 4);
   return;
 }
 
@@ -1196,9 +1164,9 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
   _Node *p_Var2;
   pair<> *ppVar3;
   bool bVar4;
-  uint *in_stack_00000008;
+  unsigned int *in_stack_00000008;
   pair<> *appStack_c [2];
-  uint uStack_4;
+  unsigned int uStack_4;
   
   ppVar3 = *(pair<> **)(this + 4);
   bVar4 = true;
@@ -1207,7 +1175,7 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
   if (p_Var2 != _Nil) {
     do {
       ppVar3 = (pair<> *)p_Var2;
-      bVar4 = *in_stack_00000008 < *(uint *)((_Node *)ppVar3 + 0xc);
+      bVar4 = *in_stack_00000008 < *(unsigned int *)((_Node *)ppVar3 + 0xc);
       if (bVar4) {
         p_Var2 = *(_Node **)ppVar3;
       }
@@ -1221,7 +1189,7 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
     puVar1 = (undefined4 *)_Insert(this,(_Node *)&stack0x00000008,p_Var2,ppVar3);
     uStack_4 = CONCAT31(uStack_4._1_3_,1);
     *(undefined4 *)param_1 = *puVar1;
-    *(uint *)(param_1 + 4) = uStack_4;
+    *(unsigned int *)(param_1 + 4) = uStack_4;
     return;
   }
   appStack_c[0] = ppVar3;
@@ -1230,21 +1198,21 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
       puVar1 = (undefined4 *)_Insert(this,(_Node *)&stack0x00000008,p_Var2,ppVar3);
       uStack_4 = CONCAT31(uStack_4._1_3_,1);
       *(undefined4 *)param_1 = *puVar1;
-      *(uint *)(param_1 + 4) = uStack_4;
+      *(unsigned int *)(param_1 + 4) = uStack_4;
       return;
     }
     const_iterator::_Dec((const_iterator *)appStack_c);
   }
-  if (*(uint *)(appStack_c[0] + 0xc) < *in_stack_00000008) {
+  if (*(unsigned int *)(appStack_c[0] + 0xc) < *in_stack_00000008) {
     puVar1 = (undefined4 *)_Insert(this,(_Node *)&stack0x00000008,p_Var2,ppVar3);
     uStack_4 = CONCAT31(uStack_4._1_3_,1);
     *(undefined4 *)param_1 = *puVar1;
-    *(uint *)(param_1 + 4) = uStack_4;
+    *(unsigned int *)(param_1 + 4) = uStack_4;
     return;
   }
   uStack_4 = uStack_4 & 0xffffff00;
   *(pair<> **)param_1 = appStack_c[0];
-  *(uint *)(param_1 + 4) = uStack_4;
+  *(unsigned int *)(param_1 + 4) = uStack_4;
   return;
 }
 
@@ -1446,7 +1414,7 @@ std::_Tree<>::_Insert(_Tree<> *this,_Node *param_1,_Node *param_2,pair<> *param_
   _Construct((pair<> *)(piVar5 + 3),in_stack_00000010);
   *(int *)(this + 0xc) = *(int *)(this + 0xc) + 1;
   if (((param_3 == *(pair<> **)(this + 4)) || (param_2 != _Nil)) ||
-     (*(uint *)in_stack_00000010 < *(uint *)(param_3 + 0xc))) {
+     (*(unsigned int *)in_stack_00000010 < *(unsigned int *)(param_3 + 0xc))) {
     *(int **)param_3 = piVar5;
     ppVar1 = *(pair<> **)(this + 4);
     if (param_3 == ppVar1) {
@@ -1616,7 +1584,7 @@ LAB_00003ad8:
 // std::less<unsigned long>,class std::allocator<class PacketOut *> >::_Lbound(unsigned long const
 // &)const 
 
-_Node * __thiscall std::_Tree<>::_Lbound(_Tree<> *this,ulong *param_1)
+_Node * __thiscall std::_Tree<>::_Lbound(_Tree<> *this,unsigned long *param_1)
 
 {
   _Node *p_Var1;
@@ -1628,7 +1596,7 @@ _Node * __thiscall std::_Tree<>::_Lbound(_Tree<> *this,ulong *param_1)
   if (*(_Node **)(p_Var3 + 4) != _Nil) {
     p_Var1 = *(_Node **)(p_Var3 + 4);
     do {
-      if (*(uint *)(p_Var1 + 0xc) < *param_1) {
+      if (*(unsigned int *)(p_Var1 + 0xc) < *param_1) {
         p_Var2 = *(_Node **)(p_Var1 + 8);
       }
       else {

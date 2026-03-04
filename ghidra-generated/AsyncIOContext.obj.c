@@ -1,35 +1,5 @@
 typedef unsigned char   undefined;
 
-typedef unsigned int    dword;
-typedef unsigned long    ulong;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
 typedef struct Event Event, *PEvent;
 
 struct Event { // PlaceHolder Structure
@@ -116,10 +86,10 @@ void __thiscall AsyncIOContext::ResetEvent(AsyncIOContext *this)
 
 // public: void __thiscall AsyncIOContext::SetIOSize(unsigned long)
 
-void __thiscall AsyncIOContext::SetIOSize(AsyncIOContext *this,ulong param_1)
+void __thiscall AsyncIOContext::SetIOSize(AsyncIOContext *this,unsigned long param_1)
 
 {
-  *(ulong *)(this + 0x18) = param_1;
+  *(unsigned long *)(this + 0x18) = param_1;
   return;
 }
 
@@ -127,30 +97,30 @@ void __thiscall AsyncIOContext::SetIOSize(AsyncIOContext *this,ulong param_1)
 
 // public: unsigned long __thiscall AsyncIOContext::GetIOSize(void)
 
-ulong __thiscall AsyncIOContext::GetIOSize(AsyncIOContext *this)
+unsigned long __thiscall AsyncIOContext::GetIOSize(AsyncIOContext *this)
 
 {
-  return *(ulong *)(this + 0x18);
+  return *(unsigned long *)(this + 0x18);
 }
 
 
 
 // public: unsigned long __thiscall AsyncIOContext::GetReturnCode(void)
 
-ulong __thiscall AsyncIOContext::GetReturnCode(AsyncIOContext *this)
+unsigned long __thiscall AsyncIOContext::GetReturnCode(AsyncIOContext *this)
 
 {
-  return *(ulong *)(this + 0x1c);
+  return *(unsigned long *)(this + 0x1c);
 }
 
 
 
 // public: void __thiscall AsyncIOContext::SetReturnCode(unsigned long)
 
-void __thiscall AsyncIOContext::SetReturnCode(AsyncIOContext *this,ulong param_1)
+void __thiscall AsyncIOContext::SetReturnCode(AsyncIOContext *this,unsigned long param_1)
 
 {
-  *(ulong *)(this + 0x1c) = param_1;
+  *(unsigned long *)(this + 0x1c) = param_1;
   return;
 }
 

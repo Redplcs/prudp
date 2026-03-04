@@ -1,36 +1,6 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
-
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
 
 typedef struct TraceOutput TraceOutput, *PTraceOutput;
 
@@ -54,12 +24,12 @@ undefined LAB_0000280b;
 undefined __imp__WSASocketA@24;
 undefined InterfaceInfo;
 undefined __except_list;
-TerminatedCString s_Unknown;
+const char * s_Unknown;
 undefined __imp__closesocket@4;
 undefined __imp__WSAIoctl@36;
 undefined __imp__WSAGetLastError@0;
-TerminatedCString s_ulIndex_<_m_ulNbInterface;
-TerminatedCString s_InterfaceTable.cpp;
+const char * s_ulIndex_<_m_ulNbInterface;
+const char * s_InterfaceTable.cpp;
 
 // public: __thiscall InterfaceTable::InterfaceTable(void)
 
@@ -94,7 +64,7 @@ void __thiscall InterfaceTable::~InterfaceTable(InterfaceTable *this)
 
 // public: void * __thiscall InterfaceInfo::`vector deleting destructor'(unsigned int)
 
-void * __thiscall InterfaceInfo::_vector_deleting_destructor_(InterfaceInfo *this,uint param_1)
+void * __thiscall InterfaceInfo::_vector_deleting_destructor_(InterfaceInfo *this,unsigned int param_1)
 
 {
   if ((param_1 & 2) != 0) {
@@ -119,20 +89,20 @@ void * __thiscall InterfaceInfo::_vector_deleting_destructor_(InterfaceInfo *thi
 bool __thiscall InterfaceTable::Query(InterfaceTable *this)
 
 {
-  uint uVar1;
+  unsigned int uVar1;
   int iVar2;
   void *pvVar3;
   int iVar4;
   TraceOutput *pTVar5;
-  uint *puVar6;
-  ulong uVar7;
-  ulong uVar8;
-  ulong uVar9;
+  unsigned int *puVar6;
+  unsigned long uVar7;
+  unsigned long uVar8;
+  unsigned long uVar9;
   TraceOutput *this_00;
-  uint *puVar10;
+  unsigned int *puVar10;
   int unaff_FS_OFFSET;
-  uint uVar11;
-  uint *puVar12;
+  unsigned int uVar11;
+  unsigned int *puVar12;
   undefined4 *puVar13;
   char *pcVar14;
   undefined4 uStack_34;
@@ -159,15 +129,15 @@ bool __thiscall InterfaceTable::Query(InterfaceTable *this)
     uStack_34 = 0;
     pvVar3 = operator_new(0x2f8);
     puVar13 = &uStack_34;
-    puVar12 = (uint *)0x2f8;
+    puVar12 = (unsigned int *)0x2f8;
     uVar11 = 0;
     pvStack_2c = pvVar3;
     iVar4 = (*___imp__WSAIoctl_36)(iVar2,0x4004747f,0,0,pvVar3,0x2f8,puVar13,0,0);
     if (iVar4 != -1) {
       uVar11 = uVar11 / 0x4c;
       puVar6 = operator_new(uVar11 * 0x14 + 4);
-      if (puVar6 == (uint *)0x0) {
-        puVar10 = (uint *)0x0;
+      if (puVar6 == (unsigned int *)0x0) {
+        puVar10 = (unsigned int *)0x0;
       }
       else {
         puVar10 = puVar6 + 1;
@@ -175,7 +145,7 @@ bool __thiscall InterfaceTable::Query(InterfaceTable *this)
         _eh_vector_constructor_iterator_
                   (puVar10,0x14,uVar11,InterfaceInfo::InterfaceInfo,InterfaceInfo::~InterfaceInfo);
       }
-      *(uint **)(this + 4) = puVar10;
+      *(unsigned int **)(this + 4) = puVar10;
       puVar6 = puVar12;
       for (; uVar11 != 0; uVar11 = uVar11 - 1) {
         if (puVar12[2] != 0) {
@@ -222,7 +192,7 @@ bool __thiscall InterfaceTable::Query(InterfaceTable *this)
   }
   pcVar14 = (char *)0x10000;
   pTVar5 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar5,pcVar14);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar5,pcVar14);
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = uStack_1c;
   return false;
 }
@@ -231,23 +201,23 @@ bool __thiscall InterfaceTable::Query(InterfaceTable *this)
 
 // public: unsigned long __thiscall InterfaceTable::GetNbInterface(void)
 
-ulong __thiscall InterfaceTable::GetNbInterface(InterfaceTable *this)
+unsigned long __thiscall InterfaceTable::GetNbInterface(InterfaceTable *this)
 
 {
-  return *(ulong *)this;
+  return *(unsigned long *)this;
 }
 
 
 
 // public: unsigned long __thiscall InterfaceTable::GetNbLoopbackInterface(void)
 
-ulong __thiscall InterfaceTable::GetNbLoopbackInterface(InterfaceTable *this)
+unsigned long __thiscall InterfaceTable::GetNbLoopbackInterface(InterfaceTable *this)
 
 {
   InterfaceInfo *this_00;
-  ulong uVar1;
-  ulong uVar2;
-  ulong uVar3;
+  unsigned long uVar1;
+  unsigned long uVar2;
+  unsigned long uVar3;
   
   uVar2 = 0;
   uVar3 = 0;
@@ -259,7 +229,7 @@ ulong __thiscall InterfaceTable::GetNbLoopbackInterface(InterfaceTable *this)
         uVar2 = uVar2 + 1;
       }
       uVar3 = uVar3 + 1;
-    } while (uVar3 < *(uint *)this);
+    } while (uVar3 < *(unsigned int *)this);
   }
   return uVar2;
 }
@@ -268,11 +238,11 @@ ulong __thiscall InterfaceTable::GetNbLoopbackInterface(InterfaceTable *this)
 
 // public: class InterfaceInfo & __thiscall InterfaceTable::operator[](unsigned long)
 
-InterfaceInfo * __thiscall InterfaceTable::operator[](InterfaceTable *this,ulong param_1)
+InterfaceInfo * __thiscall InterfaceTable::operator[](InterfaceTable *this,unsigned long param_1)
 
 {
   Platform::SystemCheck
-            (param_1 < *(uint *)this,s_ulIndex_<_m_ulNbInterface,s_InterfaceTable_cpp,0xbb);
+            (param_1 < *(unsigned int *)this,s_ulIndex_<_m_ulNbInterface,s_InterfaceTable_cpp,0xbb);
   return (InterfaceInfo *)(*(int *)(this + 4) + param_1 * 0x14);
 }
 
@@ -280,12 +250,12 @@ InterfaceInfo * __thiscall InterfaceTable::operator[](InterfaceTable *this,ulong
 
 // public: void __thiscall InterfaceTable::Trace(unsigned long)
 
-void __thiscall InterfaceTable::Trace(InterfaceTable *this,ulong param_1)
+void __thiscall InterfaceTable::Trace(InterfaceTable *this,unsigned long param_1)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   int iVar2;
-  uint uVar3;
+  unsigned int uVar3;
   
   uVar3 = 0;
   uVar1 = GetNbInterface(this);

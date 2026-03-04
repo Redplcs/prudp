@@ -1,40 +1,8 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned char    uchar;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
 typedef unsigned int    undefined4;
-typedef unsigned short    ushort;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
 typedef struct Buffer Buffer, *PBuffer;
 
 struct Buffer { // PlaceHolder Structure
@@ -105,7 +73,7 @@ Packet * __thiscall Packet::Packet(Packet *this)
 
 // public: virtual void * __thiscall Packet::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall Packet::_scalar_deleting_destructor_(Packet *this,uint param_1)
+void * __thiscall Packet::_scalar_deleting_destructor_(Packet *this,unsigned int param_1)
 
 {
   ~Packet(this);
@@ -125,7 +93,7 @@ void __thiscall Packet::~Packet(Packet *this)
   int unaff_FS_OFFSET;
   undefined4 local_c;
   undefined1 *puStack_8;
-  uint local_4;
+  unsigned int local_4;
   
   puStack_8 = &_L1233;
   local_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
@@ -150,12 +118,12 @@ void __thiscall Packet::~Packet(Packet *this)
 bool __thiscall Packet::SetPayload(Packet *this,Buffer *param_1)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
   *(Buffer **)(this + 0x14) = param_1;
   uVar1 = Buffer::GetContentSize(param_1);
   *(short *)(this + 0xe) = *(short *)(this + 0xe) + (short)uVar1;
-  return *(ushort *)(this + 0xe) < 0x1001;
+  return *(unsigned short *)(this + 0xe) < 0x1001;
 }
 
 
@@ -172,7 +140,7 @@ Buffer * __thiscall Packet::GetPayload(Packet *this)
 
 // public: unsigned long __thiscall Packet::GetHeader(void * *)
 
-ulong __thiscall Packet::GetHeader(Packet *this,void **param_1)
+unsigned long __thiscall Packet::GetHeader(Packet *this,void **param_1)
 
 {
   *param_1 = this + 0xc;
@@ -186,17 +154,17 @@ ulong __thiscall Packet::GetHeader(Packet *this,void **param_1)
 bool __thiscall Packet::Valid(Packet *this)
 
 {
-  return *(ushort *)(this + 0xe) < 0x1000;
+  return *(unsigned short *)(this + 0xe) < 0x1000;
 }
 
 
 
 // public: void __thiscall Packet::SetSeqId(unsigned long)
 
-void __thiscall Packet::SetSeqId(Packet *this,ulong param_1)
+void __thiscall Packet::SetSeqId(Packet *this,unsigned long param_1)
 
 {
-  *(ulong *)(this + 0x10) = param_1;
+  *(unsigned long *)(this + 0x10) = param_1;
   return;
 }
 
@@ -204,10 +172,10 @@ void __thiscall Packet::SetSeqId(Packet *this,ulong param_1)
 
 // public: unsigned long __thiscall Packet::GetSeqId(void)
 
-ulong __thiscall Packet::GetSeqId(Packet *this)
+unsigned long __thiscall Packet::GetSeqId(Packet *this)
 
 {
-  return *(ulong *)(this + 0x10);
+  return *(unsigned long *)(this + 0x10);
 }
 
 
@@ -235,7 +203,7 @@ void __thiscall Packet::SetPeerAddress(Packet *this,PRUDPInetAddress *param_1)
 
 // public: void __thiscall Packet::SetType(unsigned char)
 
-void __thiscall Packet::SetType(Packet *this,uchar param_1)
+void __thiscall Packet::SetType(Packet *this,unsigned char param_1)
 
 {
   this[0xc] = (Packet)(param_1 & 7);
@@ -246,17 +214,17 @@ void __thiscall Packet::SetType(Packet *this,uchar param_1)
 
 // public: unsigned char __thiscall Packet::GetType(void)
 
-uchar __thiscall Packet::GetType(Packet *this)
+unsigned char __thiscall Packet::GetType(Packet *this)
 
 {
-  return (byte)this[0xc] & 7;
+  return (unsigned char)this[0xc] & 7;
 }
 
 
 
 // public: void __thiscall Packet::SetContextInfo(unsigned char)
 
-void __thiscall Packet::SetContextInfo(Packet *this,uchar param_1)
+void __thiscall Packet::SetContextInfo(Packet *this,unsigned char param_1)
 
 {
   this[0xd] = (Packet)param_1;
@@ -267,20 +235,20 @@ void __thiscall Packet::SetContextInfo(Packet *this,uchar param_1)
 
 // public: unsigned char __thiscall Packet::GetContextInfo(void)
 
-uchar __thiscall Packet::GetContextInfo(Packet *this)
+unsigned char __thiscall Packet::GetContextInfo(Packet *this)
 
 {
-  return (uchar)this[0xd];
+  return (unsigned char)this[0xd];
 }
 
 
 
 // public: void __thiscall Packet::SetFlag(unsigned char)
 
-void __thiscall Packet::SetFlag(Packet *this,uchar param_1)
+void __thiscall Packet::SetFlag(Packet *this,unsigned char param_1)
 
 {
-  this[0xc] = (Packet)((byte)this[0xc] | param_1 & 0xf8);
+  this[0xc] = (Packet)((unsigned char)this[0xc] | param_1 & 0xf8);
   return;
 }
 
@@ -288,10 +256,10 @@ void __thiscall Packet::SetFlag(Packet *this,uchar param_1)
 
 // public: void __thiscall Packet::ClearFlag(unsigned char)
 
-void __thiscall Packet::ClearFlag(Packet *this,uchar param_1)
+void __thiscall Packet::ClearFlag(Packet *this,unsigned char param_1)
 
 {
-  this[0xc] = (Packet)((byte)this[0xc] & ~(param_1 & 0xf8));
+  this[0xc] = (Packet)((unsigned char)this[0xc] & ~(param_1 & 0xf8));
   return;
 }
 
@@ -299,20 +267,20 @@ void __thiscall Packet::ClearFlag(Packet *this,uchar param_1)
 
 // public: bool __thiscall Packet::FlagSet(unsigned char)
 
-bool __thiscall Packet::FlagSet(Packet *this,uchar param_1)
+bool __thiscall Packet::FlagSet(Packet *this,unsigned char param_1)
 
 {
-  return ((byte)this[0xc] & param_1) != 0;
+  return ((unsigned char)this[0xc] & param_1) != 0;
 }
 
 
 
 // public: unsigned short __thiscall Packet::GetSize(void)
 
-ushort __thiscall Packet::GetSize(Packet *this)
+unsigned short __thiscall Packet::GetSize(Packet *this)
 
 {
-  return *(ushort *)(this + 0xe);
+  return *(unsigned short *)(this + 0xe);
 }
 
 
@@ -344,10 +312,10 @@ void __thiscall Packet::GetIOTime(Packet *this)
 
 // public: void __thiscall Packet::SetIOResult(unsigned long)
 
-void __thiscall Packet::SetIOResult(Packet *this,ulong param_1)
+void __thiscall Packet::SetIOResult(Packet *this,unsigned long param_1)
 
 {
-  *(ulong *)(this + 0x28) = param_1;
+  *(unsigned long *)(this + 0x28) = param_1;
   return;
 }
 
@@ -355,10 +323,10 @@ void __thiscall Packet::SetIOResult(Packet *this,ulong param_1)
 
 // public: unsigned long __thiscall Packet::GetIOResult(void)
 
-ulong __thiscall Packet::GetIOResult(Packet *this)
+unsigned long __thiscall Packet::GetIOResult(Packet *this)
 
 {
-  return *(ulong *)(this + 0x28);
+  return *(unsigned long *)(this + 0x28);
 }
 
 
@@ -374,7 +342,7 @@ void __thiscall Packet::Trace(Packet *this)
   
   pcVar2 = (char *)0x10000;
   pTVar1 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar1,pcVar2);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar1,pcVar2);
   return;
 }
 

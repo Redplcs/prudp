@@ -1,40 +1,8 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned char    uchar;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
 typedef unsigned int    undefined4;
-typedef unsigned short    ushort;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
 typedef struct PRUDPInetAddress PRUDPInetAddress, *PPRUDPInetAddress;
 
 struct PRUDPInetAddress { // PlaceHolder Structure
@@ -135,7 +103,7 @@ void __thiscall ICMPSocket::~ICMPSocket(ICMPSocket *this)
   operator_delete(*(void **)(this + 0x38));
   local_4._0_1_ = 1;
   Buffer::~Buffer((Buffer *)(this + 0x18));
-  local_4 = (uint)local_4._1_3_ << 8;
+  local_4 = (unsigned int)local_4._1_3_ << 8;
   PRUDPInetAddress::~PRUDPInetAddress((PRUDPInetAddress *)(this + 0x14));
   local_4 = 0xffffffff;
   Socket::~Socket((Socket *)this);
@@ -184,7 +152,7 @@ void __thiscall ICMPSocket::QueueRecv(ICMPSocket *this)
   
   this[0x44] = (ICMPSocket)0x1;
   iVar1 = Socket::Recv((Socket *)this,(Buffer *)(this + 0x18),(PRUDPInetAddress *)(this + 0x14),
-                       (ulong *)(this + 0x3c),*(AsyncIOContext **)(this + 0x38));
+                       (unsigned long *)(this + 0x3c),*(AsyncIOContext **)(this + 0x38));
   if (iVar1 == -1) {
     this_00 = AsyncIOContext::GetEvent(*(AsyncIOContext **)(this + 0x38));
     Event::Set(this_00);
@@ -210,20 +178,20 @@ void __thiscall ICMPSocket::TryIOCompletion(ICMPSocket *this)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: unsigned long __thiscall ICMPSocket::GetIOCompletionResult(class PRUDPInetAddress *)
 
-ulong __thiscall ICMPSocket::GetIOCompletionResult(ICMPSocket *this,PRUDPInetAddress *param_1)
+unsigned long __thiscall ICMPSocket::GetIOCompletionResult(ICMPSocket *this,PRUDPInetAddress *param_1)
 
 {
-  ulong uVar1;
-  uchar *puVar2;
+  unsigned long uVar1;
+  unsigned char *puVar2;
   undefined4 uVar3;
-  ulong uVar4;
+  unsigned long uVar4;
   TraceOutput *pTVar5;
   TraceOutput *this_00;
-  ushort unaff_SI;
+  unsigned short unaff_SI;
   int unaff_FS_OFFSET;
   PRUDPInetAddress *in_stack_0000000c;
   char *pcVar6;
-  ulong local_10;
+  unsigned long local_10;
   undefined4 local_c;
   undefined1 *puStack_8;
   undefined4 uStack_4;
@@ -255,7 +223,7 @@ ulong __thiscall ICMPSocket::GetIOCompletionResult(ICMPSocket *this,PRUDPInetAdd
   else {
     pcVar6 = (char *)0x1;
     pTVar5 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_00,(ulong)pTVar5,pcVar6);
+    TraceOutput::Trace(this_00,(unsigned long)pTVar5,pcVar6);
   }
   this[0x44] = (ICMPSocket)0x0;
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = uStack_4;
@@ -269,7 +237,7 @@ ulong __thiscall ICMPSocket::GetIOCompletionResult(ICMPSocket *this,PRUDPInetAdd
 
 void __thiscall
 ICMPSocket::TraceICMPErrorPacket
-          (ICMPSocket *this,PRUDPInetAddress *param_1,void *param_2,ulong param_3)
+          (ICMPSocket *this,PRUDPInetAddress *param_1,void *param_2,unsigned long param_3)
 
 {
   return;

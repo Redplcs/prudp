@@ -1,39 +1,9 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
 typedef unsigned char    undefined1;
 typedef unsigned int    undefined4;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
 typedef struct PRUDPTransport PRUDPTransport, *PPRUDPTransport;
 
 struct PRUDPTransport { // PlaceHolder Structure
@@ -74,9 +44,9 @@ struct Plugin { // PlaceHolder Structure
 PRUDPPlugin s_oPlugin;
 undefined LAB_00002730;
 pointer `vftable';
-TerminatedCString s_6A718E55-82A7-4c0c-A65B-38230C45;
-TerminatedCString s_Quazal;
-TerminatedCString s_Proksim_Reliable_UDP_Transport_P;
+const char * s_6A718E55-82A7-4c0c-A65B-38230C45;
+const char * s_Quazal;
+const char * s_Proksim_Reliable_UDP_Transport_P;
 undefined s_prudp;
 undefined LAB_00002b0b;
 undefined __except_list;
@@ -117,10 +87,10 @@ PRUDPPlugin * __thiscall PRUDPPlugin::PRUDPPlugin(PRUDPPlugin *this)
 
 // public: virtual unsigned long __thiscall TransportPlugin::GetInterfaceVersion(void)
 
-ulong __thiscall TransportPlugin::GetInterfaceVersion(TransportPlugin *this)
+unsigned long __thiscall TransportPlugin::GetInterfaceVersion(TransportPlugin *this)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
   uVar1 = PluginManager::GetTransportInterfaceVersion();
   return uVar1;
@@ -130,7 +100,7 @@ ulong __thiscall TransportPlugin::GetInterfaceVersion(TransportPlugin *this)
 
 // public: virtual unsigned long __thiscall TransportPlugin::GetType(void)
 
-ulong __thiscall TransportPlugin::GetType(TransportPlugin *this)
+unsigned long __thiscall TransportPlugin::GetType(TransportPlugin *this)
 
 {
   return 1;
@@ -140,7 +110,7 @@ ulong __thiscall TransportPlugin::GetType(TransportPlugin *this)
 
 // public: virtual void * __thiscall PRUDPPlugin::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall PRUDPPlugin::_scalar_deleting_destructor_(PRUDPPlugin *this,uint param_1)
+void * __thiscall PRUDPPlugin::_scalar_deleting_destructor_(PRUDPPlugin *this,unsigned int param_1)
 
 {
   ~PRUDPPlugin(this);
@@ -216,7 +186,7 @@ char * __thiscall PRUDPPlugin::GetName(PRUDPPlugin *this)
 
 // public: virtual unsigned long __thiscall PRUDPPlugin::GetVersion(void)
 
-ulong __thiscall PRUDPPlugin::GetVersion(PRUDPPlugin *this)
+unsigned long __thiscall PRUDPPlugin::GetVersion(PRUDPPlugin *this)
 
 {
   return 1;
@@ -239,11 +209,11 @@ bool __thiscall PRUDPPlugin::IsCertified(PRUDPPlugin *this)
 bool __thiscall PRUDPPlugin::ResponsibleForURL(PRUDPPlugin *this,StationURL *param_1)
 
 {
-  byte bVar1;
-  byte *pbVar2;
-  byte *pbVar3;
+  unsigned char bVar1;
+  unsigned char *pbVar2;
+  unsigned char *pbVar3;
   bool bVar4;
-  byte local_80 [128];
+  unsigned char local_80 [128];
   
   StationURL::GetTransportType(param_1,(char *)local_80,0x80);
   pbVar3 = &s_prudp;
@@ -264,7 +234,7 @@ bool __thiscall PRUDPPlugin::ResponsibleForURL(PRUDPPlugin *this,StationURL *par
       return true;
     }
   }
-  return 1 - bVar4 == (uint)(bVar4 != 0);
+  return 1 - bVar4 == (unsigned int)(bVar4 != 0);
 }
 
 

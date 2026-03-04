@@ -1,38 +1,6 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
-
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned char    uchar;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
-typedef unsigned short    ushort;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
 
 typedef struct PRUDPDeviceData PRUDPDeviceData, *PPRUDPDeviceData;
 
@@ -142,15 +110,15 @@ undefined LAB_00002e7e;
 undefined LAB_00002e9b;
 undefined DeliverToSend;
 undefined LAB_00002ec3;
-TerminatedCString s_->;
-TerminatedCString s_<unspecified>;
-TerminatedCString s_ulTransferred_==_pBuffer->GetCon;
-TerminatedCString s_UDPSocket.cpp;
+const char * s_->;
+const char * s_<unspecified>;
+const char * s_ulTransferred_==_pBuffer->GetCon;
+const char * s_UDPSocket.cpp;
 undefined LAB_00002ee3;
-TerminatedCString s_!m_bRecvPending;
-TerminatedCString s_m_pRecvIOContext->m_oAsyncIOCont;
+const char * s_!m_bRecvPending;
+const char * s_m_pRecvIOContext->m_oAsyncIOCont;
 undefined LAB_00002ef8;
-TerminatedCString s_<-;
+const char * s_<-;
 undefined LAB_00002f18;
 undefined LAB_00002f4e;
 undefined DeliverToApp;
@@ -248,7 +216,7 @@ void __thiscall UDPSocket::~UDPSocket(UDPSocket *this)
   }
   local_4._0_1_ = 1;
   CriticalSection::~CriticalSection((CriticalSection *)(this + 0x28));
-  local_4 = (uint)local_4._1_3_ << 8;
+  local_4 = (unsigned int)local_4._1_3_ << 8;
   CriticalSection::~CriticalSection((CriticalSection *)(this + 0x24));
   local_4 = 0xffffffff;
   Socket::~Socket((Socket *)this);
@@ -272,11 +240,11 @@ void __thiscall UDPSocket::SetCompletionEvents(UDPSocket *this,Event *param_1,Ev
 
 // public: bool __thiscall UDPSocket::Bind(class PRUDPInetAddress *,unsigned short *)
 
-bool __thiscall UDPSocket::Bind(UDPSocket *this,PRUDPInetAddress *param_1,ushort *param_2)
+bool __thiscall UDPSocket::Bind(UDPSocket *this,PRUDPInetAddress *param_1,unsigned short *param_2)
 
 {
   bool bVar1;
-  ushort uVar2;
+  unsigned short uVar2;
   
   bVar1 = Socket::SetBuffers((Socket *)this);
   if (!bVar1) {
@@ -360,7 +328,7 @@ bool __thiscall UDPSocket::Send(UDPSocket *this,PacketOut *param_1)
   Event *pEVar3;
   int iVar4;
   int unaff_FS_OFFSET;
-  ulong uVar5;
+  unsigned long uVar5;
   ScopedCS local_14 [4];
   Buffer *local_10;
   undefined4 local_c;
@@ -399,7 +367,7 @@ bool __thiscall UDPSocket::Send(UDPSocket *this,PacketOut *param_1)
                (PRUDPInetAddress *)(this + 8),pPVar2,uVar5);
     iVar4 = *(int *)(this + 0x1c);
     iVar4 = Socket::Send((Socket *)this,*(Buffer **)(iVar4 + 4),(PRUDPInetAddress *)(iVar4 + 0xc),
-                         (ulong *)(iVar4 + 8),(AsyncIOContext *)(iVar4 + 0x10));
+                         (unsigned long *)(iVar4 + 8),(AsyncIOContext *)(iVar4 + 0x10));
     if (iVar4 == -1) {
       pEVar3 = AsyncIOContext::GetEvent((AsyncIOContext *)(*(int *)(this + 0x1c) + 0x10));
       Event::Set(pEVar3);
@@ -417,19 +385,19 @@ bool __thiscall UDPSocket::Send(UDPSocket *this,PacketOut *param_1)
 
 // public: unsigned long __thiscall UDPSocket::CompleteSend(void)
 
-ulong __thiscall UDPSocket::CompleteSend(UDPSocket *this)
+unsigned long __thiscall UDPSocket::CompleteSend(UDPSocket *this)
 
 {
   Buffer *this_00;
-  ulong uVar1;
+  unsigned long uVar1;
   TransportPerfCounters *pTVar2;
   OutputEmulationDevice *pOVar3;
   char *pcVar4;
   char *pcVar5;
   int iVar6;
   int iVar7;
-  ulong uVar8;
-  ulong local_4;
+  unsigned long uVar8;
+  unsigned long local_4;
   
   local_4 = 0;
   this_00 = *(Buffer **)(*(int *)(this + 0x1c) + 4);
@@ -475,7 +443,7 @@ void __thiscall UDPSocket::Listen(UDPSocket *this)
   int unaff_FS_OFFSET;
   char *pcVar4;
   char *pcVar5;
-  ulong uVar6;
+  unsigned long uVar6;
   ScopedCS local_14 [4];
   Buffer *local_10;
   undefined4 local_c;
@@ -503,14 +471,14 @@ void __thiscall UDPSocket::Listen(UDPSocket *this)
   else {
     uVar2 = Buffer::Buffer(local_10,0x1000);
   }
-  local_4 = (uint)local_4._1_3_ << 8;
+  local_4 = (unsigned int)local_4._1_3_ << 8;
   *(undefined4 *)(*(int *)(this + 0x18) + 4) = uVar2;
   *(undefined4 *)(*(int *)(this + 0x18) + 8) = 0;
   pEVar1 = AsyncIOContext::GetEvent((AsyncIOContext *)(*(int *)(this + 0x18) + 0x10));
   Event::Reset(pEVar1);
   iVar3 = *(int *)(this + 0x18);
   iVar3 = Socket::Recv((Socket *)this,*(Buffer **)(iVar3 + 4),(PRUDPInetAddress *)(iVar3 + 0xc),
-                       (ulong *)(iVar3 + 8),(AsyncIOContext *)(iVar3 + 0x10));
+                       (unsigned long *)(iVar3 + 8),(AsyncIOContext *)(iVar3 + 0x10));
   if (iVar3 == -1) {
     pEVar1 = AsyncIOContext::GetEvent((AsyncIOContext *)(*(int *)(this + 0x18) + 0x10));
     Event::Set(pEVar1);
@@ -546,14 +514,14 @@ bool __cdecl DeliverToApp(DeviceData *param_1)
 {
   int iVar1;
   DeviceData *pDVar2;
-  ushort uVar3;
+  unsigned short uVar3;
   undefined4 *puVar4;
   int iVar5;
   TransportPerfCounters *pTVar6;
   PRUDPInetAddress *pPVar7;
   int unaff_FS_OFFSET;
   int iVar8;
-  ulong uVar9;
+  unsigned long uVar9;
   undefined4 local_14;
   undefined4 local_c;
   undefined1 *puStack_8;
@@ -572,7 +540,7 @@ bool __cdecl DeliverToApp(DeviceData *param_1)
     puVar4 = (undefined4 *)Time::GetTime();
     Packet::SetIOTime(*(Packet **)(iVar1 + 0x2c),*puVar4,puVar4[1]);
     uVar3 = Packet::GetSize(*(Packet **)(iVar1 + 0x2c));
-    iVar5 = (uint)uVar3 << 3;
+    iVar5 = (unsigned int)uVar3 << 3;
     iVar8 = 1;
     pTVar6 = Transport::GetPerfCounters(*(Transport **)(iVar1 + 0x14));
     TransportPerfCounters::Inc(pTVar6,iVar8,iVar5);
@@ -632,17 +600,17 @@ PacketIn * __thiscall UDPSocket::Recv(UDPSocket *this)
 
 // public: unsigned long __thiscall UDPSocket::CompleteRecv(void)
 
-ulong __thiscall UDPSocket::CompleteRecv(UDPSocket *this)
+unsigned long __thiscall UDPSocket::CompleteRecv(UDPSocket *this)
 
 {
   Buffer *this_00;
   bool bVar1;
-  ulong uVar2;
+  unsigned long uVar2;
   PacketIn *this_01;
   RefCountedObject *this_02;
   InputEmulationDevice *pIVar3;
   int unaff_FS_OFFSET;
-  ulong local_18;
+  unsigned long local_18;
   ScopedCS local_14 [4];
   PacketIn *local_10;
   undefined4 uStack_c;
@@ -718,7 +686,7 @@ ulong __thiscall UDPSocket::CompleteRecv(UDPSocket *this)
 
 // public: unsigned long __thiscall UDPSocket::QueueSize(void)
 
-ulong __thiscall UDPSocket::QueueSize(UDPSocket *this)
+unsigned long __thiscall UDPSocket::QueueSize(UDPSocket *this)
 
 {
   return 0;
