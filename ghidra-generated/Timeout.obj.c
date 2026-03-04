@@ -1,38 +1,7 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned long    ulong;
-typedef unsigned long long    ulonglong;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
-typedef ulonglong __uint64;
 
 typedef struct Timeout Timeout, *PTimeout;
 
@@ -46,8 +15,8 @@ struct Time { // PlaceHolder Structure
 
 
 
-TerminatedCString s_(m_oRTO_>=_0)_&&_(m_oRTO_<_10000;
-TerminatedCString s_Timeout.cpp;
+const char * s_(m_oRTO_>=_0)_&&_(m_oRTO_<_10000;
+const char * s_Timeout.cpp;
 
 // public: __thiscall Timeout::Timeout(void)
 
@@ -112,8 +81,8 @@ bool __thiscall Timeout::IsExpired(Timeout *this)
 {
   bool bVar1;
   Time *pTVar2;
-  __uint64 _Var3;
-  __uint64 _Var4;
+  unsigned long long _Var3;
+  unsigned long long _Var4;
   Time local_10 [16];
   
   pTVar2 = (Time *)Time::Time(local_10,0);
@@ -122,7 +91,7 @@ bool __thiscall Timeout::IsExpired(Timeout *this)
     pTVar2 = (Time *)Time::GetTime();
     _Var3 = Time::operator_unsigned___int64(pTVar2);
     _Var4 = Time::operator_unsigned___int64((Time *)(this + 0x10));
-    if ((longlong)_Var4 < (longlong)_Var3) {
+    if ((long long)_Var4 < (long long)_Var3) {
       return true;
     }
   }
@@ -138,13 +107,13 @@ bool __thiscall Timeout::IsAwaited(Timeout *this)
 
 {
   Time *this_00;
-  __uint64 _Var1;
-  __uint64 _Var2;
+  unsigned long long _Var1;
+  unsigned long long _Var2;
   
   this_00 = (Time *)Time::GetTime();
   _Var1 = Time::operator_unsigned___int64(this_00);
   _Var2 = Time::operator_unsigned___int64((Time *)(this + 8));
-  if ((longlong)_Var1 <= (longlong)_Var2) {
+  if ((long long)_Var1 <= (long long)_Var2) {
     return false;
   }
   return true;
@@ -154,12 +123,12 @@ bool __thiscall Timeout::IsAwaited(Timeout *this)
 
 // public: void __thiscall Timeout::SetRTO(unsigned long)
 
-void __thiscall Timeout::SetRTO(Timeout *this,ulong param_1)
+void __thiscall Timeout::SetRTO(Timeout *this,unsigned long param_1)
 
 {
   bool bVar1;
   
-  *(ulong *)this = param_1;
+  *(unsigned long *)this = param_1;
   if (((int)param_1 < 0) || (99999 < (int)param_1)) {
     bVar1 = false;
   }
@@ -196,12 +165,12 @@ void __thiscall Timeout::Start(Timeout *this)
 bool __thiscall Timeout::operator<(Timeout *this,Timeout *param_1)
 
 {
-  __uint64 _Var1;
-  __uint64 _Var2;
+  unsigned long long _Var1;
+  unsigned long long _Var2;
   
   _Var1 = Time::operator_unsigned___int64((Time *)(param_1 + 8));
   _Var2 = Time::operator_unsigned___int64((Time *)(this + 8));
-  if ((longlong)_Var1 <= (longlong)_Var2) {
+  if ((long long)_Var1 <= (long long)_Var2) {
     return false;
   }
   return true;
@@ -211,10 +180,10 @@ bool __thiscall Timeout::operator<(Timeout *this,Timeout *param_1)
 
 // public: unsigned long __thiscall Timeout::GetRTO(void)
 
-ulong __thiscall Timeout::GetRTO(Timeout *this)
+unsigned long __thiscall Timeout::GetRTO(Timeout *this)
 
 {
-  return *(ulong *)this;
+  return *(unsigned long *)this;
 }
 
 

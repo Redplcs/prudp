@@ -1,42 +1,8 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned char    uchar;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
-typedef unsigned long long    ulonglong;
 typedef unsigned int    undefined4;
-typedef unsigned short    ushort;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
-typedef ulonglong __uint64;
 
 typedef struct Buffer Buffer, *PBuffer;
 
@@ -92,10 +58,10 @@ undefined LAB_00002628;
 
 PacketOut * __thiscall
 PacketOut::PacketOut
-          (PacketOut *this,PRUDPEndPoint *param_1,uchar param_2,uchar param_3,Buffer *param_4)
+          (PacketOut *this,PRUDPEndPoint *param_1,unsigned char param_2,unsigned char param_3,Buffer *param_4)
 
 {
-  uchar uVar1;
+  unsigned char uVar1;
   bool bVar2;
   RefCountedObject *pRVar3;
   Timeout *this_00;
@@ -148,7 +114,7 @@ PacketOut::PacketOut
 
 // public: virtual void * __thiscall PacketOut::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall PacketOut::_scalar_deleting_destructor_(PacketOut *this,uint param_1)
+void * __thiscall PacketOut::_scalar_deleting_destructor_(PacketOut *this,unsigned int param_1)
 
 {
   ~PacketOut(this);
@@ -215,10 +181,10 @@ void __thiscall PacketOut::IncNbTransmission(PacketOut *this)
 
 // public: unsigned short __thiscall PacketOut::GetNbTransmission(void)
 
-ushort __thiscall PacketOut::GetNbTransmission(PacketOut *this)
+unsigned short __thiscall PacketOut::GetNbTransmission(PacketOut *this)
 
 {
-  return *(ushort *)(this + 0x38);
+  return *(unsigned short *)(this + 0x38);
 }
 
 

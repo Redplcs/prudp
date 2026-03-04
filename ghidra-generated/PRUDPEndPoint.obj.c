@@ -1,44 +1,9 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef long long    longlong;
-typedef unsigned char    uchar;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
-typedef unsigned long long    ulonglong;
 typedef unsigned char    undefined1;
 typedef unsigned int    undefined4;
-typedef unsigned short    ushort;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef ulonglong __uint64;
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
 
 typedef struct PRUDPTransportSettings PRUDPTransportSettings, *PPRUDPTransportSettings;
 
@@ -190,37 +155,37 @@ undefined __except_list;
 undefined LAB_00004867;
 undefined __imp_??0_Lockit@std@@QAE@XZ;
 _Node *_Nil;
-TerminatedCString s_ISGOODPTR(pPacket);
-TerminatedCString s_PRUDPEndPoint.cpp;
+const char * s_ISGOODPTR(pPacket);
+const char * s_PRUDPEndPoint.cpp;
 undefined __imp_??1_Lockit@std@@QAE@XZ;
 undefined LAB_0000489e;
-TerminatedCString s_IsConnecting();
+const char * s_IsConnecting();
 undefined LAB_000048c3;
-TerminatedCString s_IsDisconnecting();
+const char * s_IsDisconnecting();
 undefined LAB_000048f1;
-TerminatedCString s_:/;
+const char * s_:/;
 undefined LAB_0000490b;
 undefined __imp__sprintf;
-TerminatedCString s_%s%s;
-TerminatedCString s_prudp;
+const char * s_%s%s;
+const char * s_prudp;
 undefined LAB_0000492b;
-TerminatedCString s_(_LONGLONG)pPacket->GetIOTime()>;
-TerminatedCString s_ISGOODPTR(pAckedPacket->GetTimeo;
-TerminatedCString s_ISGOODPTR(pAckedPacket);
-TerminatedCString s_pTimedOutPacket!=NULL;
+const char * s_(_LONGLONG)pPacket->GetIOTime()>;
+const char * s_ISGOODPTR(pAckedPacket->GetTimeo;
+const char * s_ISGOODPTR(pAckedPacket);
+const char * s_pTimedOutPacket!=NULL;
 undefined LAB_0000494b;
 string s_Unknown;
 string s_Faulty;
-TerminatedCString s_Disconnected;
-TerminatedCString s_Disconnecting;
-TerminatedCString s_Connected;
-TerminatedCString s_Connecting;
-TerminatedCString s_NotConnected;
+const char * s_Disconnected;
+const char * s_Disconnecting;
+const char * s_Connected;
+const char * s_Connecting;
+const char * s_NotConnected;
 
 // public: __thiscall PRUDPEndPoint::PRUDPEndPoint(class Transport *,unsigned long)
 
 PRUDPEndPoint * __thiscall
-PRUDPEndPoint::PRUDPEndPoint(PRUDPEndPoint *this,Transport *pTransport,ulong param_2)
+PRUDPEndPoint::PRUDPEndPoint(PRUDPEndPoint *this,Transport *pTransport,unsigned long param_2)
 
 {
   DispatchQueue *this_00;
@@ -228,7 +193,7 @@ PRUDPEndPoint::PRUDPEndPoint(PRUDPEndPoint *this,Transport *pTransport,ulong par
   SlidingWindow *this_01;
   PRUDPTransport *this_02;
   PRUDPTransportSettings *this_03;
-  ulong uVar2;
+  unsigned long uVar2;
   TraceOutput *pTVar3;
   TraceOutput *this_04;
   int unaff_FS_OFFSET;
@@ -251,7 +216,7 @@ PRUDPEndPoint::PRUDPEndPoint(PRUDPEndPoint *this,Transport *pTransport,ulong par
   Time::Time((Time *)(this + 0x40));
   *(Transport **)this = pTransport;
   *(undefined4 *)(this + 0x10) = 0;
-  *(ulong *)(this + 0x14) = param_2;
+  *(unsigned long *)(this + 0x14) = param_2;
   this_00 = operator_new(0x14);
   local_4._0_1_ = 3;
   if (this_00 == (DispatchQueue *)0x0) {
@@ -271,7 +236,7 @@ PRUDPEndPoint::PRUDPEndPoint(PRUDPEndPoint *this,Transport *pTransport,ulong par
     this_02 = GetTransport(this);
     this_03 = PRUDPTransport::GetSettings(this_02);
     uVar2 = PRUDPTransportSettings::GetWindowSize(this_03);
-    uVar1 = SlidingWindow::SlidingWindow(this_01,(ushort)uVar2);
+    uVar1 = SlidingWindow::SlidingWindow(this_01,(unsigned short)uVar2);
   }
   pcVar4 = (char *)0x0;
   local_4 = CONCAT31(local_4._1_3_,2);
@@ -283,7 +248,7 @@ PRUDPEndPoint::PRUDPEndPoint(PRUDPEndPoint *this,Transport *pTransport,ulong par
   *(undefined4 *)(this + 0x54) = 0;
   this[0x58] = (PRUDPEndPoint)0x1;
   pTVar3 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_04,(ulong)pTVar3,pcVar4);
+  TraceOutput::Trace(this_04,(unsigned long)pTVar3,pcVar4);
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_4;
   return this;
 }
@@ -320,7 +285,7 @@ void __thiscall PRUDPEndPoint::~PRUDPEndPoint(PRUDPEndPoint *this)
   StopPing(this);
   pcVar6 = (char *)0x0;
   pTVar2 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_03,(ulong)pTVar2,pcVar6);
+  TraceOutput::Trace(this_03,(unsigned long)pTVar2,pcVar6);
   ppuVar7 = &local_8;
   puVar3 = (undefined4 *)SlidingWindow::AcquireIterator(*(SlidingWindow **)(this + 0x20));
   p_Var5 = (_Node *)*puVar3;
@@ -332,7 +297,7 @@ void __thiscall PRUDPEndPoint::~PRUDPEndPoint(PRUDPEndPoint *this)
     RefCountedObject::GetRefCount(this_02);
     pcVar6 = (char *)0x0;
     pTVar2 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_04,(ulong)pTVar2,pcVar6);
+    TraceOutput::Trace(this_04,(unsigned long)pTVar2,pcVar6);
     CancelPacketTimeout(this,(PacketOut *)this_02);
     (*pcVar1)();
     p_Var4 = *(_Node **)(p_Var5 + 8);
@@ -377,7 +342,7 @@ void __thiscall PRUDPEndPoint::~PRUDPEndPoint(PRUDPEndPoint *this)
   }
   local_4._0_1_ = 1;
   RTT::~RTT((RTT *)(this + 0x28));
-  local_4 = (uint)local_4._1_3_ << 8;
+  local_4 = (unsigned int)local_4._1_3_ << 8;
   PRUDPInetAddress::~PRUDPInetAddress((PRUDPInetAddress *)(this + 0x18));
   local_4 = 0xffffffff;
   EndPoint::~EndPoint((EndPoint *)this);
@@ -391,16 +356,16 @@ void __thiscall PRUDPEndPoint::~PRUDPEndPoint(PRUDPEndPoint *this)
 // (__cdecl*const)(class EndPoint *,class Buffer *,unsigned long,class UserContext *),class
 // UserContext const &,unsigned long)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPEndPoint::Connect
           (PRUDPEndPoint *this,StationURL *param_1,Buffer *param_2,
           _func_void_EndPoint_ptr_Buffer_ptr_ulong_UserContext_ptr *param_3,UserContext *param_4,
-          ulong param_5)
+          unsigned long param_5)
 
 {
   PRUDPInetAddress *this_00;
   bool bVar1;
-  ulong uVar2;
+  unsigned long uVar2;
   PRUDPTransport *pPVar3;
   PRUDPTransportSettings *this_01;
   PacketOut *pPVar4;
@@ -428,7 +393,7 @@ PRUDPEndPoint::Connect
   pPVar3 = GetTransport(this);
   this_01 = PRUDPTransport::GetSettings(pPVar3);
   uVar2 = PRUDPTransportSettings::GetWellKnownPortNumber(this_01);
-  bVar1 = PRUDPInetAddress::SetFromURL(this_00,param_1,(ushort)uVar2);
+  bVar1 = PRUDPInetAddress::SetFromURL(this_00,param_1,(unsigned short)uVar2);
   if (!bVar1) {
     uVar2 = 0xc;
     goto LAB_00002ec1;
@@ -476,7 +441,7 @@ LAB_00002dba:
   Timeout::SetRelativeExpirationTime(this_02,uVar2);
   pcVar7 = (char *)0x0;
   pTVar6 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_03,(ulong)pTVar6,pcVar7);
+  TraceOutput::Trace(this_03,(unsigned long)pTVar6,pcVar7);
   bVar1 = Send(this,pPVar4);
   if (bVar1) {
     RefCountedObject::ReleaseRef((RefCountedObject *)pPVar4);
@@ -516,22 +481,22 @@ LAB_00002ec1:
 // public: unsigned long __thiscall PRUDPEndPoint::Disconnect(void (__cdecl*const)(class EndPoint
 // *,class Buffer *,unsigned long,class UserContext *),class UserContext const &,unsigned long)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPEndPoint::Disconnect
           (PRUDPEndPoint *this,_func_void_EndPoint_ptr_Buffer_ptr_ulong_UserContext_ptr *param_1,
-          UserContext *param_2,ulong param_3)
+          UserContext *param_2,unsigned long param_3)
 
 {
   bool bVar1;
   TraceOutput *pTVar2;
-  ulong uVar3;
+  unsigned long uVar3;
   PacketOut *pPVar4;
   IORequestContext *pIVar5;
   Timeout *pTVar6;
   TraceOutput *this_00;
   int unaff_FS_OFFSET;
   undefined4 in_stack_00000010;
-  ulong in_stack_00000014;
+  unsigned long in_stack_00000014;
   char *pcVar7;
   SpinTest local_2c [32];
   undefined4 uStack_c;
@@ -545,7 +510,7 @@ PRUDPEndPoint::Disconnect
   PRUDPInetAddress::GetPort((PRUDPInetAddress *)(this + 0x18));
   pcVar7 = (char *)0x0;
   pTVar2 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar7);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar2,pcVar7);
   bVar1 = IsConnected(this);
   if (bVar1) {
     SetState(this,3);
@@ -561,7 +526,7 @@ PRUDPEndPoint::Disconnect
       pIVar5 = (IORequestContext *)0x0;
     }
     else {
-      *(ulong *)pIVar5 = param_3;
+      *(unsigned long *)pIVar5 = param_3;
       *(undefined4 *)(pIVar5 + 4) = in_stack_00000010;
       *(undefined4 *)(pIVar5 + 8) = 0;
     }
@@ -615,23 +580,23 @@ LAB_0000307c:
 // EndPoint *,class Buffer *,unsigned long,class UserContext *),class UserContext const &,unsigned
 // long)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPEndPoint::Send(PRUDPEndPoint *this,Buffer *param_1,
                    _func_void_EndPoint_ptr_Buffer_ptr_ulong_UserContext_ptr *param_2,
-                   UserContext *param_3,ulong param_4)
+                   UserContext *param_3,unsigned long param_4)
 
 {
   bool bVar1;
-  byte bVar2;
-  ulong uVar3;
+  unsigned char bVar2;
+  unsigned long uVar3;
   PRUDPTransport *pPVar4;
   PRUDPTransportSettings *pPVar5;
-  ulong uVar6;
+  unsigned long uVar6;
   Buffer *pBVar7;
-  uchar *puVar8;
+  unsigned char *puVar8;
   PacketOut *pPVar9;
   IORequestContext *pIVar10;
-  uint uVar11;
+  unsigned int uVar11;
   int unaff_FS_OFFSET;
   undefined4 local_c;
   undefined1 *puStack_8;
@@ -746,9 +711,9 @@ LAB_000032bb:
         uVar11 = uVar11 + uVar3;
         uVar3 = Buffer::GetContentSize(param_1);
         if (uVar11 < uVar3) {
-          Packet::SetContextInfo((Packet *)pPVar9,(uchar)param_4);
-          bVar2 = (uchar)param_4 + 1;
-          param_4 = (ulong)bVar2;
+          Packet::SetContextInfo((Packet *)pPVar9,(unsigned char)param_4);
+          bVar2 = (unsigned char)param_4 + 1;
+          param_4 = (unsigned long)bVar2;
           if (bVar2 == 0) {
             param_4 = 1;
           }
@@ -799,12 +764,12 @@ bool __thiscall PRUDPEndPoint::IsDisconnected(PRUDPEndPoint *this)
 
 // public: unsigned long __thiscall PRUDPEndPoint::GetQueueSize(void)
 
-ulong __thiscall PRUDPEndPoint::GetQueueSize(PRUDPEndPoint *this)
+unsigned long __thiscall PRUDPEndPoint::GetQueueSize(PRUDPEndPoint *this)
 
 {
   PRUDPTransport *this_00;
   OutputEmulationDevice *this_01;
-  ulong uVar1;
+  unsigned long uVar1;
   
   this_00 = GetTransport(this);
   this_01 = Transport::GetOutputEmulationDevice((Transport *)this_00);
@@ -816,10 +781,10 @@ ulong __thiscall PRUDPEndPoint::GetQueueSize(PRUDPEndPoint *this)
 
 // public: unsigned long __thiscall PRUDPEndPoint::GetNbReliablePending(void)
 
-ulong __thiscall PRUDPEndPoint::GetNbReliablePending(PRUDPEndPoint *this)
+unsigned long __thiscall PRUDPEndPoint::GetNbReliablePending(PRUDPEndPoint *this)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
   uVar1 = SlidingWindow::NbDataPending(*(SlidingWindow **)(this + 0x20));
   return uVar1;
@@ -877,10 +842,10 @@ bool __thiscall PRUDPEndPoint::Send(PRUDPEndPoint *this,PacketOut *param_1)
 
 {
   bool bVar1;
-  uchar uVar2;
-  ushort uVar3;
+  unsigned char uVar2;
+  unsigned short uVar3;
   PRUDPTransport *this_00;
-  ulong uVar4;
+  unsigned long uVar4;
   
   Packet::SetPeerAddress((Packet *)param_1,(PRUDPInetAddress *)(this + 0x18));
   bVar1 = Packet::FlagSet((Packet *)param_1,'\x10');
@@ -896,11 +861,11 @@ bool __thiscall PRUDPEndPoint::Send(PRUDPEndPoint *this,PacketOut *param_1)
   if (!bVar1) {
     uVar2 = Packet::GetType((Packet *)param_1);
     if (uVar2 == '\x01') {
-      Packet::SetSeqId((Packet *)param_1,*(ulong *)(this + 0x48));
+      Packet::SetSeqId((Packet *)param_1,*(unsigned long *)(this + 0x48));
       *(int *)(this + 0x48) = *(int *)(this + 0x48) + 1;
     }
   }
-  uVar4 = *(ulong *)(this + 0x14);
+  uVar4 = *(unsigned long *)(this + 0x14);
   this_00 = GetTransport(this);
   PRUDPTransport::Send(this_00,uVar4,param_1);
   return true;
@@ -921,7 +886,7 @@ void __thiscall PRUDPEndPoint::SendNextReliable(PRUDPEndPoint *this)
   
   pcVar4 = (char *)0x0;
   pTVar1 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar1,pcVar4);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar1,pcVar4);
   pPVar2 = SlidingWindow::GetNextToSend(*(SlidingWindow **)(this + 0x20));
   if (pPVar2 != (PacketOut *)0x0) {
     pTVar3 = (Time *)Time::GetTime();
@@ -938,17 +903,17 @@ void __thiscall PRUDPEndPoint::SendNextReliable(PRUDPEndPoint *this)
 void __thiscall PRUDPEndPoint::SendReliable(PRUDPEndPoint *this,PacketOut *param_1)
 
 {
-  uchar uVar1;
+  unsigned char uVar1;
   bool bVar2;
-  ushort uVar3;
+  unsigned short uVar3;
   PRUDPTransport *pPVar4;
   TimeoutManager *pTVar5;
   TraceOutput *pTVar6;
   Timeout *this_00;
-  ulong uVar7;
+  unsigned long uVar7;
   TraceOutput *this_01;
   TraceOutput *this_02;
-  uint uStack0000000c;
+  unsigned int uStack0000000c;
   char *pcVar8;
   PacketOut *pPVar9;
   
@@ -967,21 +932,21 @@ void __thiscall PRUDPEndPoint::SendReliable(PRUDPEndPoint *this,PacketOut *param
   RTT::GetRTO((RTT *)(this + 0x28));
   pcVar8 = (char *)0x0;
   pTVar6 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_01,(ulong)pTVar6,pcVar8);
+  TraceOutput::Trace(this_01,(unsigned long)pTVar6,pcVar8);
   this_00 = PacketOut::GetTimeout(param_1);
   uVar3 = PacketOut::GetNbTransmission(param_1);
-  uStack0000000c = (uint)uVar3;
+  uStack0000000c = (unsigned int)uVar3;
   uVar7 = RTT::GetRTO((RTT *)(this + 0x28));
   Timeout::SetRTO(this_00,uStack0000000c * uVar7);
   Packet::GetSeqId((Packet *)param_1);
   pcVar8 = (char *)0x0;
   pTVar6 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_02,(ulong)pTVar6,pcVar8);
+  TraceOutput::Trace(this_02,(unsigned long)pTVar6,pcVar8);
   pPVar9 = param_1;
   pPVar4 = GetTransport(this);
   pTVar5 = PRUDPTransport::GetTimeoutManager(pPVar4);
   TimeoutManager::SchedulePacketTimeout(pTVar5,pPVar9);
-  uVar7 = *(ulong *)(this + 0x14);
+  uVar7 = *(unsigned long *)(this + 0x14);
   pPVar4 = GetTransport(this);
   PRUDPTransport::Send(pPVar4,uVar7,param_1);
   return;
@@ -1007,7 +972,7 @@ PacketIn * __thiscall PRUDPEndPoint::GetNextDispatchPacket(PRUDPEndPoint *this)
 void __thiscall PRUDPEndPoint::Dispatch(PRUDPEndPoint *this,Packet *param_1)
 
 {
-  uchar uVar1;
+  unsigned char uVar1;
   PRUDPEndPoint PVar2;
   Buffer *pBVar3;
   TraceOutput *pTVar4;
@@ -1029,7 +994,7 @@ void __thiscall PRUDPEndPoint::Dispatch(PRUDPEndPoint *this,Packet *param_1)
      (PVar2 = (PRUDPEndPoint)Packet::GetContextInfo(param_1), PVar2 != this[0x58])) {
     pcVar6 = (char *)0x1;
     pTVar4 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_01,(ulong)pTVar4,pcVar6);
+    TraceOutput::Trace(this_01,(unsigned long)pTVar4,pcVar6);
     if (*(RefCountedObject **)(this + 0x54) == (RefCountedObject *)0x0) {
       return;
     }
@@ -1057,14 +1022,14 @@ void __thiscall PRUDPEndPoint::Dispatch(PRUDPEndPoint *this,Packet *param_1)
       Buffer::GetContentSize(*(Buffer **)(this + 0x54));
       pcVar6 = (char *)0x6000000;
       pTVar4 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_03,(ulong)pTVar4,pcVar6);
+      TraceOutput::Trace(this_03,(unsigned long)pTVar4,pcVar6);
     }
     else {
       Buffer::GetContentSize(*(Buffer **)(this + 0x54));
       StationURL::GetURL(this_00);
       pcVar6 = (char *)0x6000000;
       pTVar4 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_02,(ulong)pTVar4,pcVar6);
+      TraceOutput::Trace(this_02,(unsigned long)pTVar4,pcVar6);
       EndPoint::ReleaseURL((EndPoint *)this,this_00);
     }
     pEVar5 = EndPoint::GetEventHandler((EndPoint *)this);
@@ -1080,7 +1045,7 @@ void __thiscall PRUDPEndPoint::Dispatch(PRUDPEndPoint *this,Packet *param_1)
 
 // private: void __thiscall PRUDPEndPoint::SignalFaultEvent(unsigned long)
 
-void __thiscall PRUDPEndPoint::SignalFaultEvent(PRUDPEndPoint *this,ulong param_1)
+void __thiscall PRUDPEndPoint::SignalFaultEvent(PRUDPEndPoint *this,unsigned long param_1)
 
 {
   EndPointEventHandler *pEVar1;
@@ -1096,13 +1061,13 @@ void __thiscall PRUDPEndPoint::SignalFaultEvent(PRUDPEndPoint *this,ulong param_
     if (this_00 == (StationURL *)0x0) {
       pcVar3 = (char *)0x6000000;
       pTVar2 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_02,(ulong)pTVar2,pcVar3);
+      TraceOutput::Trace(this_02,(unsigned long)pTVar2,pcVar3);
     }
     else {
       StationURL::GetURL(this_00);
       pcVar3 = (char *)0x6000000;
       pTVar2 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_01,(ulong)pTVar2,pcVar3);
+      TraceOutput::Trace(this_01,(unsigned long)pTVar2,pcVar3);
       EndPoint::ReleaseURL((EndPoint *)this,this_00);
     }
     if (*(int *)(this + 0x10) != 1) {
@@ -1126,13 +1091,13 @@ void __thiscall PRUDPEndPoint::ServiceIncomingPacket(PRUDPEndPoint *this,PacketI
 
 {
   PacketIn *this_00;
-  uchar uVar1;
+  unsigned char uVar1;
   bool bVar2;
-  uchar uVar3;
+  unsigned char uVar3;
   TraceOutput *pTVar4;
   PacketOut *pPVar5;
   Packet *pPVar6;
-  ulong uVar7;
+  unsigned long uVar7;
   Time *pTVar8;
   PRUDPTransport *pPVar9;
   TransportPerfCounters *pTVar10;
@@ -1174,12 +1139,12 @@ void __thiscall PRUDPEndPoint::ServiceIncomingPacket(PRUDPEndPoint *this,PacketI
   pcVar17 = (char *)0x0;
   param_1 = (PacketIn *)CONCAT31(param_1._1_3_,uVar1);
   pTVar4 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_03,(ulong)pTVar4,pcVar17);
+  TraceOutput::Trace(this_03,(unsigned long)pTVar4,pcVar17);
   bVar2 = Packet::FlagSet((Packet *)this_00,' ');
   if (bVar2) {
     pcVar17 = (char *)0x0;
     pTVar4 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_04,(ulong)pTVar4,pcVar17);
+    TraceOutput::Trace(this_04,(unsigned long)pTVar4,pcVar17);
     pPVar5 = operator_new(0x50);
     if (pPVar5 == (PacketOut *)0x0) {
       pPVar6 = (Packet *)0x0;
@@ -1216,7 +1181,7 @@ void __thiscall PRUDPEndPoint::ServiceIncomingPacket(PRUDPEndPoint *this,PacketI
          (pIVar13 = PacketOut::GetIORequestContext(pPVar5), pIVar13 != (IORequestContext *)0x0)) {
         pcVar17 = (char *)0x0;
         pTVar4 = TraceOutput::GetInstance();
-        TraceOutput::Trace(this_09,(ulong)pTVar4,pcVar17);
+        TraceOutput::Trace(this_09,(unsigned long)pTVar4,pcVar17);
         pIVar13 = PacketOut::GetIORequestContext(pPVar5);
         if (*(int *)pIVar13 != 0) {
           uVar22 = *(undefined4 *)(pIVar13 + 4);
@@ -1255,14 +1220,14 @@ void __thiscall PRUDPEndPoint::ServiceIncomingPacket(PRUDPEndPoint *this,PacketI
             Packet::GetSeqId((Packet *)this_00);
             pcVar17 = (char *)0x0;
             pTVar4 = TraceOutput::GetInstance();
-            TraceOutput::Trace(this_05,(ulong)pTVar4,pcVar17);
+            TraceOutput::Trace(this_05,(unsigned long)pTVar4,pcVar17);
           }
           iVar18 = 4;
           pPVar9 = GetTransport(this);
           pTVar10 = Transport::GetPerfCounters((Transport *)pPVar9);
           TransportPerfCounters::Inc(pTVar10,iVar18,iVar15);
           uVar7 = Packet::GetSeqId((Packet *)this_00);
-          *(ulong *)(this + 0x4c) = uVar7 + 1;
+          *(unsigned long *)(this + 0x4c) = uVar7 + 1;
         }
       }
       bVar2 = Packet::FlagSet((Packet *)this_00,'\x10');
@@ -1281,7 +1246,7 @@ void __thiscall PRUDPEndPoint::ServiceIncomingPacket(PRUDPEndPoint *this,PacketI
          (pIVar13 = PacketOut::GetIORequestContext(pPVar5), pIVar13 != (IORequestContext *)0x0)) {
         pcVar17 = (char *)0x0;
         pTVar4 = TraceOutput::GetInstance();
-        TraceOutput::Trace(this_06,(ulong)pTVar4,pcVar17);
+        TraceOutput::Trace(this_06,(unsigned long)pTVar4,pcVar17);
         pIVar13 = PacketOut::GetIORequestContext(pPVar5);
         if (*(int *)pIVar13 != 0) {
           uVar22 = *(undefined4 *)(pIVar13 + 4);
@@ -1302,7 +1267,7 @@ void __thiscall PRUDPEndPoint::ServiceIncomingPacket(PRUDPEndPoint *this,PacketI
         if (this_01 == (StationURL *)0x0) {
           pcVar17 = (char *)0x6000000;
           pTVar4 = TraceOutput::GetInstance();
-          TraceOutput::Trace(this_08,(ulong)pTVar4,pcVar17);
+          TraceOutput::Trace(this_08,(unsigned long)pTVar4,pcVar17);
           pEVar12 = EndPoint::GetEventHandler((EndPoint *)this);
           (**(code **)(*(int *)pEVar12 + 0x10))(this);
         }
@@ -1310,7 +1275,7 @@ void __thiscall PRUDPEndPoint::ServiceIncomingPacket(PRUDPEndPoint *this,PacketI
           StationURL::GetURL(this_01);
           pcVar17 = (char *)0x6000000;
           pTVar4 = TraceOutput::GetInstance();
-          TraceOutput::Trace(this_07,(ulong)pTVar4,pcVar17);
+          TraceOutput::Trace(this_07,(unsigned long)pTVar4,pcVar17);
           EndPoint::ReleaseURL((EndPoint *)this,this_01);
           pEVar12 = EndPoint::GetEventHandler((EndPoint *)this);
           (**(code **)(*(int *)pEVar12 + 0x10))(this);
@@ -1328,7 +1293,7 @@ void __thiscall PRUDPEndPoint::ServiceIncomingPacket(PRUDPEndPoint *this,PacketI
         pTVar8 = local_10;
         this_02 = (Time *)Packet::GetIOTime((Packet *)this_00);
         _Var16 = Time::operator-(this_02,pTVar8);
-        RTT::Adjust((RTT *)(this + 0x28),(ulong)_Var16);
+        RTT::Adjust((RTT *)(this + 0x28),(unsigned long)_Var16);
       }
     }
     break;
@@ -1340,7 +1305,7 @@ void __thiscall PRUDPEndPoint::ServiceIncomingPacket(PRUDPEndPoint *this,PacketI
          (pIVar13 = PacketOut::GetIORequestContext(pPVar5), pIVar13 != (IORequestContext *)0x0)) {
         pcVar17 = (char *)0x0;
         pTVar4 = TraceOutput::GetInstance();
-        TraceOutput::Trace(this_10,(ulong)pTVar4,pcVar17);
+        TraceOutput::Trace(this_10,(unsigned long)pTVar4,pcVar17);
         uVar7 = Packet::GetSeqId((Packet *)pPVar5);
         pPVar5 = SlidingWindow::GetPacket(*(SlidingWindow **)(this + 0x20),uVar7);
         pIVar13 = PacketOut::GetIORequestContext(pPVar5);
@@ -1389,15 +1354,15 @@ void __thiscall PRUDPEndPoint::PacketAcknowledged(PRUDPEndPoint *this,Packet *pa
 
 {
   bool bVar1;
-  ushort uVar2;
-  ulong uVar3;
+  unsigned short uVar2;
+  unsigned long uVar3;
   PacketOut *this_00;
   Time *pTVar4;
   Time *this_01;
   int iVar5;
   int iVar6;
-  uint unaff_ESI;
-  __uint64 _Var7;
+  unsigned int unaff_ESI;
+  unsigned long long _Var7;
   __int64 _Var8;
   
   uVar3 = Packet::GetSeqId(param_1);
@@ -1413,7 +1378,7 @@ void __thiscall PRUDPEndPoint::PacketAcknowledged(PRUDPEndPoint *this,Packet *pa
       pTVar4 = (Time *)Packet::GetIOTime(param_1);
       _Var7 = Time::operator_unsigned___int64(pTVar4);
       iVar6 = (int)(_Var7 >> 0x20);
-      if ((iVar6 < iVar5) || ((iVar6 <= iVar5 && ((uint)_Var7 < unaff_ESI)))) {
+      if ((iVar6 < iVar5) || ((iVar6 <= iVar5 && ((unsigned int)_Var7 < unaff_ESI)))) {
         bVar1 = false;
       }
       else {
@@ -1424,7 +1389,7 @@ void __thiscall PRUDPEndPoint::PacketAcknowledged(PRUDPEndPoint *this,Packet *pa
       pTVar4 = (Time *)&stack0xffffffe4;
       this_01 = (Time *)Packet::GetIOTime(param_1);
       _Var8 = Time::operator-(this_01,pTVar4);
-      RTT::Adjust((RTT *)(this + 0x28),(ulong)_Var8);
+      RTT::Adjust((RTT *)(this + 0x28),(unsigned long)_Var8);
     }
     CancelPacketTimeout(this,this_00);
     uVar3 = Packet::GetSeqId(param_1);
@@ -1441,13 +1406,13 @@ void __thiscall PRUDPEndPoint::PacketAcknowledged(PRUDPEndPoint *this,Packet *pa
 void __thiscall PRUDPEndPoint::ServiceTimeout(PRUDPEndPoint *this,PacketOut *param_1)
 
 {
-  uchar uVar1;
+  unsigned char uVar1;
   bool bVar2;
-  ushort uVar3;
+  unsigned short uVar3;
   TraceOutput *pTVar4;
   PRUDPTransport *this_00;
   PRUDPTransportSettings *this_01;
-  ulong uVar5;
+  unsigned long uVar5;
   Timeout *this_02;
   IORequestContext *pIVar6;
   PRUDPEndPoint *pPVar7;
@@ -1460,7 +1425,7 @@ void __thiscall PRUDPEndPoint::ServiceTimeout(PRUDPEndPoint *this,PacketOut *par
   
   pcVar8 = (char *)0x0;
   pTVar4 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_03,(ulong)pTVar4,pcVar8);
+  TraceOutput::Trace(this_03,(unsigned long)pTVar4,pcVar8);
   Platform::SystemCheck
             (in_stack_0000000c != (Packet *)0x0,s_pTimedOutPacket__NULL,s_PRUDPEndPoint_cpp,0x23d);
   uVar1 = Packet::GetType(in_stack_0000000c);
@@ -1510,7 +1475,7 @@ void __thiscall PRUDPEndPoint::CancelPacketTimeout(PRUDPEndPoint *this,PacketOut
   Packet::GetSeqId((Packet *)param_1);
   pcVar2 = (char *)0x0;
   pTVar1 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_02,(ulong)pTVar1,pcVar2);
+  TraceOutput::Trace(this_02,(unsigned long)pTVar1,pcVar2);
   Platform::SystemCheck(true,s_ISGOODPTR_pPacket_,s_PRUDPEndPoint_cpp,0x251);
   this_00 = GetTransport(this);
   this_01 = PRUDPTransport::GetTimeoutManager(this_00);
@@ -1529,7 +1494,7 @@ void __thiscall PRUDPEndPoint::StartPing(PRUDPEndPoint *this)
   undefined4 uVar2;
   PRUDPTransport *pPVar3;
   PRUDPTransportSettings *this_00;
-  ulong uVar4;
+  unsigned long uVar4;
   Timeout *this_01;
   TimeoutManager *this_02;
   int unaff_FS_OFFSET;
@@ -1596,11 +1561,11 @@ void __thiscall PRUDPEndPoint::TimeToPing(PRUDPEndPoint *this)
 
 {
   PacketOut *pPVar1;
-  uchar uVar2;
+  unsigned char uVar2;
   undefined4 *puVar3;
   PRUDPTransport *pPVar4;
   PRUDPTransportSettings *pPVar5;
-  ulong uVar6;
+  unsigned long uVar6;
   TraceOutput *pTVar7;
   TimeoutManager *this_00;
   TraceOutput *this_01;
@@ -1616,11 +1581,11 @@ void __thiscall PRUDPEndPoint::TimeToPing(PRUDPEndPoint *this)
   pPVar5 = PRUDPTransport::GetSettings(pPVar4);
   uVar6 = PRUDPTransportSettings::GetMaxSilenceTime(pPVar5);
   _Var8 = Time::operator-((Time *)&local_10,(Time *)(this + 0x40));
-  if ((-1 < _Var8) && ((0xffffffff < _Var8 || (uVar6 < (uint)_Var8)))) {
+  if ((-1 < _Var8) && ((0xffffffff < _Var8 || (uVar6 < (unsigned int)_Var8)))) {
     Time::operator-((Time *)&local_10,(Time *)(this + 0x40));
     pcVar9 = (char *)0x20;
     pTVar7 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_01,(ulong)pTVar7,pcVar9);
+    TraceOutput::Trace(this_01,(unsigned long)pTVar7,pcVar9);
     SignalFaultEvent(this,2);
     return;
   }
@@ -1628,7 +1593,7 @@ void __thiscall PRUDPEndPoint::TimeToPing(PRUDPEndPoint *this)
   pPVar5 = PRUDPTransport::GetSettings(pPVar4);
   uVar6 = PRUDPTransportSettings::GetKeepAliveTimeout(pPVar5);
   _Var8 = Time::operator-((Time *)&local_10,(Time *)(this + 0x38));
-  if ((-1 < _Var8) && ((0xffffffff < _Var8 || (uVar6 < (uint)_Var8)))) {
+  if ((-1 < _Var8) && ((0xffffffff < _Var8 || (uVar6 < (unsigned int)_Var8)))) {
     uVar2 = Packet::GetContextInfo(*(Packet **)(this + 0x24));
     Packet::SetContextInfo(*(Packet **)(this + 0x24),uVar2 + '\x01');
     Send(this,*(PacketOut **)(this + 0x24));
@@ -1664,8 +1629,8 @@ void __thiscall PRUDPEndPoint::GetStringState(PRUDPEndPoint *this,char *param_1)
 
 {
   char cVar1;
-  uint uVar2;
-  uint uVar3;
+  unsigned int uVar2;
+  unsigned int uVar3;
   char *pcVar4;
   char *pcVar5;
   
@@ -1742,7 +1707,7 @@ LAB_00004249:
 
 // private: void __thiscall PRUDPEndPoint::TraceState(unsigned long)
 
-void __thiscall PRUDPEndPoint::TraceState(PRUDPEndPoint *this,ulong param_1)
+void __thiscall PRUDPEndPoint::TraceState(PRUDPEndPoint *this,unsigned long param_1)
 
 {
   TraceOutput *pTVar1;
@@ -1752,7 +1717,7 @@ void __thiscall PRUDPEndPoint::TraceState(PRUDPEndPoint *this,ulong param_1)
   local_80[0] = '\0';
   GetStringState(this,local_80);
   pTVar1 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar1,(char *)param_1);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar1,(char *)param_1);
   return;
 }
 
@@ -1837,10 +1802,10 @@ void __thiscall PRUDPEndPoint::SetPeerFlooded(PRUDPEndPoint *this,bool param_1)
 
 {
   if (param_1) {
-    this[0x50] = (PRUDPEndPoint)((byte)this[0x50] | 1);
+    this[0x50] = (PRUDPEndPoint)((unsigned char)this[0x50] | 1);
     return;
   }
-  this[0x50] = (PRUDPEndPoint)((byte)this[0x50] & 0xfe);
+  this[0x50] = (PRUDPEndPoint)((unsigned char)this[0x50] & 0xfe);
   return;
 }
 
@@ -1852,11 +1817,11 @@ void __thiscall PRUDPEndPoint::SetPeerDisconnected(PRUDPEndPoint *this,bool para
 
 {
   if (param_1) {
-    this[0x50] = (PRUDPEndPoint)((byte)this[0x50] | 3);
+    this[0x50] = (PRUDPEndPoint)((unsigned char)this[0x50] | 3);
     SetPeerConnected(this,false);
     return;
   }
-  this[0x50] = (PRUDPEndPoint)((byte)this[0x50] & 0xfc);
+  this[0x50] = (PRUDPEndPoint)((unsigned char)this[0x50] & 0xfc);
   return;
 }
 
@@ -1868,11 +1833,11 @@ void __thiscall PRUDPEndPoint::SetPeerConnected(PRUDPEndPoint *this,bool param_1
 
 {
   if (param_1) {
-    this[0x50] = (PRUDPEndPoint)((byte)this[0x50] | 2);
+    this[0x50] = (PRUDPEndPoint)((unsigned char)this[0x50] | 2);
     SetPeerDisconnected(this,false);
     return;
   }
-  this[0x50] = (PRUDPEndPoint)((byte)this[0x50] & 0xfd);
+  this[0x50] = (PRUDPEndPoint)((unsigned char)this[0x50] & 0xfd);
   return;
 }
 
@@ -1880,10 +1845,10 @@ void __thiscall PRUDPEndPoint::SetPeerConnected(PRUDPEndPoint *this,bool param_1
 
 // private: unsigned long __thiscall PRUDPEndPoint::GetAssociatedSocket(void)
 
-ulong __thiscall PRUDPEndPoint::GetAssociatedSocket(PRUDPEndPoint *this)
+unsigned long __thiscall PRUDPEndPoint::GetAssociatedSocket(PRUDPEndPoint *this)
 
 {
-  return *(ulong *)(this + 0x14);
+  return *(unsigned long *)(this + 0x14);
 }
 
 
@@ -1900,10 +1865,10 @@ RTT * __thiscall PRUDPEndPoint::GetRTT(PRUDPEndPoint *this)
 
 // private: void __thiscall PRUDPEndPoint::SetSocket(unsigned long)
 
-void __thiscall PRUDPEndPoint::SetSocket(PRUDPEndPoint *this,ulong param_1)
+void __thiscall PRUDPEndPoint::SetSocket(PRUDPEndPoint *this,unsigned long param_1)
 
 {
-  *(ulong *)(this + 0x14) = param_1;
+  *(unsigned long *)(this + 0x14) = param_1;
   return;
 }
 

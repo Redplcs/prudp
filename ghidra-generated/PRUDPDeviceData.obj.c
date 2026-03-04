@@ -1,39 +1,8 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
 typedef unsigned int    undefined4;
-typedef unsigned short    ushort;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
 typedef struct PRUDPDeviceData PRUDPDeviceData, *PPRUDPDeviceData;
 
 struct PRUDPDeviceData { // PlaceHolder Structure
@@ -75,7 +44,7 @@ PRUDPDeviceData::PRUDPDeviceData
           _func_bool_DeviceData_ptr *param_3)
 
 {
-  ushort uVar1;
+  unsigned short uVar1;
   RefCountedObject *pRVar2;
   int unaff_FS_OFFSET;
   undefined4 local_c;
@@ -87,7 +56,7 @@ PRUDPDeviceData::PRUDPDeviceData
   local_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &local_c;
   uVar1 = Packet::GetSize(param_1);
-  DeviceData::DeviceData((DeviceData *)this,(uint)uVar1,param_3);
+  DeviceData::DeviceData((DeviceData *)this,(unsigned int)uVar1,param_3);
   local_4 = 0;
   *(undefined ***)this = &_vftable_;
   pRVar2 = RefCountedObject::AcquireRef((RefCountedObject *)param_1);
@@ -101,7 +70,7 @@ PRUDPDeviceData::PRUDPDeviceData
 
 // public: virtual void * __thiscall PRUDPDeviceData::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall PRUDPDeviceData::_scalar_deleting_destructor_(PRUDPDeviceData *this,uint param_1)
+void * __thiscall PRUDPDeviceData::_scalar_deleting_destructor_(PRUDPDeviceData *this,unsigned int param_1)
 
 {
   ~PRUDPDeviceData(this);

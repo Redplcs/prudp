@@ -1,40 +1,8 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned char    uchar;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
 typedef unsigned int    undefined4;
-typedef unsigned short    ushort;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
 #define INVALID_CONTEXT_ID 0
 
 #define DEFAULT_SOURCE_UNDEFINED 65535
@@ -772,7 +740,7 @@ PacketIn * __thiscall PacketIn::PacketIn(PacketIn *this)
   else {
     pBVar1 = (Buffer *)Buffer::Buffer(pBVar1,0x1000);
   }
-  local_4 = (uint)local_4._1_3_ << 8;
+  local_4 = (unsigned int)local_4._1_3_ << 8;
   Packet::SetPayload((Packet *)this,pBVar1);
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_c;
   return this;
@@ -782,7 +750,7 @@ PacketIn * __thiscall PacketIn::PacketIn(PacketIn *this)
 
 // public: virtual void * __thiscall PacketIn::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall PacketIn::_scalar_deleting_destructor_(PacketIn *this,uint param_1)
+void * __thiscall PacketIn::_scalar_deleting_destructor_(PacketIn *this,unsigned int param_1)
 
 {
   ~PacketIn(this);
@@ -811,11 +779,11 @@ bool __thiscall PacketIn::Unpack(PacketIn *this,Buffer *param_1)
 
 {
   bool bVar1;
-  ushort uVar2;
-  ulong uVar3;
+  unsigned short uVar2;
+  unsigned long uVar3;
   Buffer *pBVar4;
-  uchar *puVar5;
-  ulong uVar6;
+  unsigned char *puVar5;
+  unsigned long uVar6;
   
   uVar3 = Buffer::GetContentSize(param_1);
   if (uVar3 != 0) {

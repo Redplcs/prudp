@@ -1,37 +1,8 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned long    ulong;
 typedef unsigned int    undefined4;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
 typedef struct PRUDPTransportSettings PRUDPTransportSettings, *PPRUDPTransportSettings;
 
 struct PRUDPTransportSettings { // PlaceHolder Structure
@@ -89,7 +60,7 @@ void __thiscall PRUDPTransportSettings::SetDefaults(PRUDPTransportSettings *this
 
 // public: unsigned long __thiscall PRUDPTransportSettings::SetWindowSize(unsigned long)
 
-ulong __thiscall PRUDPTransportSettings::SetWindowSize(PRUDPTransportSettings *this,ulong param_1)
+unsigned long __thiscall PRUDPTransportSettings::SetWindowSize(PRUDPTransportSettings *this,unsigned long param_1)
 
 {
   this->field10_0x1c = param_1;
@@ -100,7 +71,7 @@ ulong __thiscall PRUDPTransportSettings::SetWindowSize(PRUDPTransportSettings *t
 
 // public: unsigned long __thiscall PRUDPTransportSettings::GetWindowSize(void)
 
-ulong __thiscall PRUDPTransportSettings::GetWindowSize(PRUDPTransportSettings *this)
+unsigned long __thiscall PRUDPTransportSettings::GetWindowSize(PRUDPTransportSettings *this)
 
 {
   return this->field10_0x1c;
@@ -110,8 +81,8 @@ ulong __thiscall PRUDPTransportSettings::GetWindowSize(PRUDPTransportSettings *t
 
 // public: unsigned long __thiscall PRUDPTransportSettings::SetWellKnownPortNumber(unsigned long)
 
-ulong __thiscall
-PRUDPTransportSettings::SetWellKnownPortNumber(PRUDPTransportSettings *this,ulong param_1)
+unsigned long __thiscall
+PRUDPTransportSettings::SetWellKnownPortNumber(PRUDPTransportSettings *this,unsigned long param_1)
 
 {
   this->field0_0x0 = (undefined *)param_1;
@@ -122,17 +93,17 @@ PRUDPTransportSettings::SetWellKnownPortNumber(PRUDPTransportSettings *this,ulon
 
 // public: unsigned long __thiscall PRUDPTransportSettings::GetWellKnownPortNumber(void)
 
-ulong __thiscall PRUDPTransportSettings::GetWellKnownPortNumber(PRUDPTransportSettings *this)
+unsigned long __thiscall PRUDPTransportSettings::GetWellKnownPortNumber(PRUDPTransportSettings *this)
 
 {
-  return (ulong)this->field0_0x0;
+  return (unsigned long)this->field0_0x0;
 }
 
 
 
 // public: unsigned long __thiscall PRUDPTransportSettings::SetMTU(unsigned long)
 
-ulong __thiscall PRUDPTransportSettings::SetMTU(PRUDPTransportSettings *this,ulong param_1)
+unsigned long __thiscall PRUDPTransportSettings::SetMTU(PRUDPTransportSettings *this,unsigned long param_1)
 
 {
   this->field8_0x14 = param_1;
@@ -143,7 +114,7 @@ ulong __thiscall PRUDPTransportSettings::SetMTU(PRUDPTransportSettings *this,ulo
 
 // public: unsigned long __thiscall PRUDPTransportSettings::GetMTU(void)
 
-ulong __thiscall PRUDPTransportSettings::GetMTU(PRUDPTransportSettings *this)
+unsigned long __thiscall PRUDPTransportSettings::GetMTU(PRUDPTransportSettings *this)
 
 {
   return this->field8_0x14;
@@ -153,8 +124,8 @@ ulong __thiscall PRUDPTransportSettings::GetMTU(PRUDPTransportSettings *this)
 
 // public: unsigned long __thiscall PRUDPTransportSettings::SetMaxRetransmission(unsigned long)
 
-ulong __thiscall
-PRUDPTransportSettings::SetMaxRetransmission(PRUDPTransportSettings *this,ulong param_1)
+unsigned long __thiscall
+PRUDPTransportSettings::SetMaxRetransmission(PRUDPTransportSettings *this,unsigned long param_1)
 
 {
   this->field1_0x4 = param_1;
@@ -165,7 +136,7 @@ PRUDPTransportSettings::SetMaxRetransmission(PRUDPTransportSettings *this,ulong 
 
 // public: unsigned long __thiscall PRUDPTransportSettings::GetMaxRetransmission(void)
 
-ulong __thiscall PRUDPTransportSettings::GetMaxRetransmission(PRUDPTransportSettings *this)
+unsigned long __thiscall PRUDPTransportSettings::GetMaxRetransmission(PRUDPTransportSettings *this)
 
 {
   return this->field1_0x4;
@@ -175,7 +146,7 @@ ulong __thiscall PRUDPTransportSettings::GetMaxRetransmission(PRUDPTransportSett
 
 // public: unsigned long __thiscall PRUDPTransportSettings::TrapICMP(bool)
 
-ulong __thiscall PRUDPTransportSettings::TrapICMP(PRUDPTransportSettings *this,bool param_1)
+unsigned long __thiscall PRUDPTransportSettings::TrapICMP(PRUDPTransportSettings *this,bool param_1)
 
 {
   this->field_0x8 = param_1;
@@ -196,8 +167,8 @@ bool __thiscall PRUDPTransportSettings::IsTrappingICMP(PRUDPTransportSettings *t
 
 // public: unsigned long __thiscall PRUDPTransportSettings::SetKeepAliveTimeout(unsigned long)
 
-ulong __thiscall
-PRUDPTransportSettings::SetKeepAliveTimeout(PRUDPTransportSettings *this,ulong param_1)
+unsigned long __thiscall
+PRUDPTransportSettings::SetKeepAliveTimeout(PRUDPTransportSettings *this,unsigned long param_1)
 
 {
   this->field6_0xc = param_1;
@@ -208,7 +179,7 @@ PRUDPTransportSettings::SetKeepAliveTimeout(PRUDPTransportSettings *this,ulong p
 
 // public: unsigned long __thiscall PRUDPTransportSettings::GetKeepAliveTimeout(void)
 
-ulong __thiscall PRUDPTransportSettings::GetKeepAliveTimeout(PRUDPTransportSettings *this)
+unsigned long __thiscall PRUDPTransportSettings::GetKeepAliveTimeout(PRUDPTransportSettings *this)
 
 {
   return this->field6_0xc;
@@ -218,8 +189,8 @@ ulong __thiscall PRUDPTransportSettings::GetKeepAliveTimeout(PRUDPTransportSetti
 
 // public: unsigned long __thiscall PRUDPTransportSettings::SetMaxSilenceTime(unsigned long)
 
-ulong __thiscall
-PRUDPTransportSettings::SetMaxSilenceTime(PRUDPTransportSettings *this,ulong param_1)
+unsigned long __thiscall
+PRUDPTransportSettings::SetMaxSilenceTime(PRUDPTransportSettings *this,unsigned long param_1)
 
 {
   this->field7_0x10 = param_1;
@@ -230,7 +201,7 @@ PRUDPTransportSettings::SetMaxSilenceTime(PRUDPTransportSettings *this,ulong par
 
 // public: unsigned long __thiscall PRUDPTransportSettings::GetMaxSilenceTime(void)
 
-ulong __thiscall PRUDPTransportSettings::GetMaxSilenceTime(PRUDPTransportSettings *this)
+unsigned long __thiscall PRUDPTransportSettings::GetMaxSilenceTime(PRUDPTransportSettings *this)
 
 {
   return this->field7_0x10;
@@ -250,7 +221,7 @@ bool __thiscall PRUDPTransportSettings::IsBroadcastingEverywhere(PRUDPTransportS
 
 // public: unsigned long __thiscall PRUDPTransportSettings::BroadcastEverywhere(bool)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPTransportSettings::BroadcastEverywhere(PRUDPTransportSettings *this,bool param_1)
 
 {
@@ -262,7 +233,7 @@ PRUDPTransportSettings::BroadcastEverywhere(PRUDPTransportSettings *this,bool pa
 
 // public: unsigned long __thiscall PRUDPTransportSettings::GetTimeSlice(void)
 
-ulong __thiscall PRUDPTransportSettings::GetTimeSlice(PRUDPTransportSettings *this)
+unsigned long __thiscall PRUDPTransportSettings::GetTimeSlice(PRUDPTransportSettings *this)
 
 {
   return this->field9_0x18;
@@ -272,7 +243,7 @@ ulong __thiscall PRUDPTransportSettings::GetTimeSlice(PRUDPTransportSettings *th
 
 // public: unsigned long __thiscall PRUDPTransportSettings::SetTimeSlice(unsigned long)
 
-ulong __thiscall PRUDPTransportSettings::SetTimeSlice(PRUDPTransportSettings *this,ulong param_1)
+unsigned long __thiscall PRUDPTransportSettings::SetTimeSlice(PRUDPTransportSettings *this,unsigned long param_1)
 
 {
   this->field9_0x18 = param_1;
@@ -284,12 +255,12 @@ ulong __thiscall PRUDPTransportSettings::SetTimeSlice(PRUDPTransportSettings *th
 // public: unsigned long __thiscall PRUDPTransportSettings::SetOption(unsigned long,class
 // UserContext &)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPTransportSettings::SetOption
-          (PRUDPTransportSettings *this,ulong ulOption,UserContext *oOptionSetting)
+          (PRUDPTransportSettings *this,unsigned long ulOption,UserContext *oOptionSetting)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
   if (ulOption < 0x103) {
     if (ulOption == 0x102) {
@@ -302,32 +273,32 @@ PRUDPTransportSettings::SetOption
         return uVar1;
       }
       if (ulOption == 1) {
-        uVar1 = SetMTU(this,*(ulong *)oOptionSetting);
+        uVar1 = SetMTU(this,*(unsigned long *)oOptionSetting);
         return uVar1;
       }
       if (ulOption == 2) {
-        uVar1 = SetWellKnownPortNumber(this,*(ulong *)oOptionSetting);
+        uVar1 = SetWellKnownPortNumber(this,*(unsigned long *)oOptionSetting);
         return uVar1;
       }
     }
     else if (ulOption == 0x101) {
-      uVar1 = SetMaxRetransmission(this,*(ulong *)oOptionSetting);
+      uVar1 = SetMaxRetransmission(this,*(unsigned long *)oOptionSetting);
       return uVar1;
     }
   }
   else {
     switch(ulOption) {
     case 0x103:
-      uVar1 = SetMaxSilenceTime(this,*(ulong *)oOptionSetting);
+      uVar1 = SetMaxSilenceTime(this,*(unsigned long *)oOptionSetting);
       return uVar1;
     case 0x104:
-      uVar1 = SetKeepAliveTimeout(this,*(ulong *)oOptionSetting);
+      uVar1 = SetKeepAliveTimeout(this,*(unsigned long *)oOptionSetting);
       return uVar1;
     case 0x105:
-      uVar1 = SetTimeSlice(this,*(ulong *)oOptionSetting);
+      uVar1 = SetTimeSlice(this,*(unsigned long *)oOptionSetting);
       return uVar1;
     case 0x106:
-      uVar1 = SetWindowSize(this,*(ulong *)oOptionSetting);
+      uVar1 = SetWindowSize(this,*(unsigned long *)oOptionSetting);
       return uVar1;
     }
   }
@@ -339,12 +310,12 @@ PRUDPTransportSettings::SetOption
 // public: unsigned long __thiscall PRUDPTransportSettings::GetOption(unsigned long,class
 // UserContext &)
 
-ulong __thiscall
-PRUDPTransportSettings::GetOption(PRUDPTransportSettings *this,ulong param_1,UserContext *param_2)
+unsigned long __thiscall
+PRUDPTransportSettings::GetOption(PRUDPTransportSettings *this,unsigned long param_1,UserContext *param_2)
 
 {
   bool bVar1;
-  ulong uVar2;
+  unsigned long uVar2;
   undefined4 local_8;
   undefined4 local_4;
   
@@ -366,20 +337,20 @@ PRUDPTransportSettings::GetOption(PRUDPTransportSettings *this,ulong param_1,Use
       }
       if (param_1 == 1) {
         uVar2 = GetMTU(this);
-        *(ulong *)param_2 = uVar2;
+        *(unsigned long *)param_2 = uVar2;
         *(undefined4 *)(param_2 + 4) = local_4;
         return 0;
       }
       if (param_1 == 2) {
         uVar2 = GetWellKnownPortNumber(this);
-        *(ulong *)param_2 = uVar2;
+        *(unsigned long *)param_2 = uVar2;
         *(undefined4 *)(param_2 + 4) = local_4;
         return 0;
       }
     }
     else if (param_1 == 0x101) {
       uVar2 = GetMaxRetransmission(this);
-      *(ulong *)param_2 = uVar2;
+      *(unsigned long *)param_2 = uVar2;
       *(undefined4 *)(param_2 + 4) = local_4;
       return 0;
     }
@@ -388,22 +359,22 @@ PRUDPTransportSettings::GetOption(PRUDPTransportSettings *this,ulong param_1,Use
     switch(param_1) {
     case 0x103:
       uVar2 = GetMaxSilenceTime(this);
-      *(ulong *)param_2 = uVar2;
+      *(unsigned long *)param_2 = uVar2;
       *(undefined4 *)(param_2 + 4) = local_4;
       return 0;
     case 0x104:
       uVar2 = GetKeepAliveTimeout(this);
-      *(ulong *)param_2 = uVar2;
+      *(unsigned long *)param_2 = uVar2;
       *(undefined4 *)(param_2 + 4) = local_4;
       return 0;
     case 0x105:
       uVar2 = GetTimeSlice(this);
-      *(ulong *)param_2 = uVar2;
+      *(unsigned long *)param_2 = uVar2;
       *(undefined4 *)(param_2 + 4) = local_4;
       return 0;
     case 0x106:
       uVar2 = GetWindowSize(this);
-      *(ulong *)param_2 = uVar2;
+      *(unsigned long *)param_2 = uVar2;
       *(undefined4 *)(param_2 + 4) = local_4;
       return 0;
     }

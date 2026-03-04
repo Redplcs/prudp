@@ -1,41 +1,9 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
-typedef unsigned long long    ulonglong;
 typedef unsigned char    undefined1;
 typedef unsigned int    undefined4;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
-typedef ulonglong __uint64;
 
 typedef struct RefCountedObject RefCountedObject, *PRefCountedObject;
 
@@ -96,11 +64,11 @@ struct list<class_PacketOut*,class_std::allocator<class_PacketOut*>_> { // Place
 
 undefined LAB_00002808;
 undefined __except_list;
-TerminatedCString s_<unspecified>;
+const char * s_<unspecified>;
 undefined LAB_00002833;
 undefined LAB_00002848;
-TerminatedCString s_pPacket!=NULL;
-TerminatedCString s_TimeoutManager.cpp;
+const char * s_pPacket!=NULL;
+const char * s_TimeoutManager.cpp;
 undefined LAB_00002868;
 
 // public: __thiscall TimeoutManager::TimeoutManager(void)
@@ -146,7 +114,7 @@ void __thiscall TimeoutManager::~TimeoutManager(TimeoutManager *this)
   TimeoutManager *local_10;
   undefined4 local_c;
   undefined1 *puStack_8;
-  uint local_4;
+  unsigned int local_4;
   
   puStack_8 = &_L7135;
   local_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
@@ -268,7 +236,7 @@ void __thiscall TimeoutManager::CancelPacketTimeout(TimeoutManager *this,PacketO
   Packet::GetSeqId((Packet *)param_1);
   pcVar4 = (char *)0x0;
   pTVar2 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar4);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar2,pcVar4);
   piVar1 = *(int **)(this + 4);
   piVar3 = (int *)*piVar1;
   if (piVar3 != piVar1) {
@@ -285,7 +253,7 @@ void __thiscall TimeoutManager::CancelPacketTimeout(TimeoutManager *this,PacketO
       Packet::GetSeqId((Packet *)param_1);
       pcVar4 = (char *)0x0;
       pTVar2 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_01,(ulong)pTVar2,pcVar4);
+      TraceOutput::Trace(this_01,(unsigned long)pTVar2,pcVar4);
     }
   }
   uStack0000000c = 0xffffffff;
@@ -336,13 +304,13 @@ void __thiscall TimeoutManager::ServicePacketTimeouts(TimeoutManager *this)
     Time::operator_unsigned___int64(this_02);
     pcVar6 = (char *)0x0;
     pTVar5 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_03,(ulong)pTVar5,pcVar6);
+    TraceOutput::Trace(this_03,(unsigned long)pTVar5,pcVar6);
     PRUDPEndPoint::ServiceTimeout(this_01,this_00);
     RefCountedObject::ReleaseRef((RefCountedObject *)this_00);
     Packet::GetSeqId((Packet *)this_00);
     pcVar6 = (char *)0x0;
     pTVar5 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_04,(ulong)pTVar5,pcVar6);
+    TraceOutput::Trace(this_04,(unsigned long)pTVar5,pcVar6);
     iVar1 = *(int *)(this + 8);
   }
   CriticalSection::Leave((CriticalSection *)(this + 0xc));

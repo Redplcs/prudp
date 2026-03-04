@@ -1,41 +1,8 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef long long    longlong;
-typedef unsigned char    uchar;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
 typedef unsigned int    undefined4;
-typedef unsigned short    ushort;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
 typedef enum TRANSPORT_CAPS {
     IP_BASED	=1,
     BROADCAST=2,
@@ -411,33 +378,33 @@ pointer `vftable';
 undefined ~PRUDPInetAddress;
 undefined __except_list;
 undefined __imp_??1_Lockit@std@@QAE@XZ;
-uint _Nilrefs;
+unsigned int _Nilrefs;
 _Node *_Nil;
-TerminatedCString s_<unspecified>;
+const char * s_<unspecified>;
 undefined LAB_00006709;
 undefined __imp__WSACleanup@0;
-TerminatedCString s_prudp;
+const char * s_prudp;
 undefined __imp___stricmp;
 undefined __imp__WSAStartup@8;
 undefined LAB_00006736;
 undefined LAB_00006748;
 undefined LAB_00006776;
 undefined __imp__sprintf;
-TerminatedCString s_%s%s;
-TerminatedCString s_:/;
-TerminatedCString s_PRUDPTransport::SendBroadcast(%d;
+const char * s_%s%s;
+const char * s_:/;
+const char * s_PRUDPTransport::SendBroadcast(%d;
 undefined LAB_00006793;
 undefined LAB_000067d2;
 undefined LAB_000067f3;
-TerminatedCString s_prudp:/;
+const char * s_prudp:/;
 undefined LAB_00006813;
 undefined LAB_00006828;
 undefined LAB_0000684b;
 undefined HandleTimeSliceWrap;
 undefined LAB_00006873;
 undefined HandleRecvCompletedWrap;
-TerminatedCString s_m_apSocket[ulSocket]==NULL;
-TerminatedCString s_PRUDPTransport.cpp;
+const char * s_m_apSocket[ulSocket]==NULL;
+const char * s_PRUDPTransport.cpp;
 undefined HandleSendCompletedWrap;
 undefined LAB_0000689b;
 undefined HandleICMPCompletedWrap;
@@ -446,10 +413,10 @@ undefined LAB_000068d8;
 undefined LAB_000068fb;
 undefined LAB_00006933;
 undefined LAB_00006948;
-TerminatedCString s_<-;
+const char * s_<-;
 undefined LAB_00006968;
-TerminatedCString s_pPacket->Valid()==true;
-TerminatedCString s_pPacket!=NULL;
+const char * s_pPacket->Valid()==true;
+const char * s_pPacket!=NULL;
 undefined LAB_00006988;
 undefined LAB_000069a9;
 undefined LAB_000069d2;
@@ -547,7 +514,7 @@ PRUDPTransport * __thiscall PRUDPTransport::PRUDPTransport(PRUDPTransport *this,
 
 // public: virtual void * __thiscall PRUDPTransport::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall PRUDPTransport::_scalar_deleting_destructor_(PRUDPTransport *this,uint param_1)
+void * __thiscall PRUDPTransport::_scalar_deleting_destructor_(PRUDPTransport *this,unsigned int param_1)
 
 {
   ~PRUDPTransport(this);
@@ -617,10 +584,10 @@ void __thiscall PRUDPTransport::~PRUDPTransport(PRUDPTransport *this)
   pcVar9 = (char *)0x0;
   local_4 = 8;
   pTVar6 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_01,(ulong)pTVar6,pcVar9);
+  TraceOutput::Trace(this_01,(unsigned long)pTVar6,pcVar9);
   pcVar9 = (char *)0x0;
   pTVar6 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_02,(ulong)pTVar6,pcVar9);
+  TraceOutput::Trace(this_02,(unsigned long)pTVar6,pcVar9);
   if ((*(CallbackDispatcher **)&this->field_0x4c != (CallbackDispatcher *)0x0) &&
      (bVar5 = CallbackDispatcher::Stop(*(CallbackDispatcher **)&this->field_0x4c,5000), !bVar5)) {
     SystemError::TraceLast(1);
@@ -729,11 +696,11 @@ char * __thiscall PRUDPTransport::GetType(PRUDPTransport *this)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: virtual unsigned long __thiscall PRUDPTransport::Initialize(void)
 
-ulong __thiscall PRUDPTransport::Initialize(PRUDPTransport *this)
+unsigned long __thiscall PRUDPTransport::Initialize(PRUDPTransport *this)
 
 {
   bool bVar1;
-  ulong result;
+  unsigned long result;
   int iVar2;
   TraceOutput *pTVar3;
   TraceOutput *this_00;
@@ -749,9 +716,9 @@ ulong __thiscall PRUDPTransport::Initialize(PRUDPTransport *this)
     }
     pcVar4 = (char *)0x0;
     pTVar3 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_00,(ulong)pTVar3,pcVar4);
+    TraceOutput::Trace(this_00,(unsigned long)pTVar3,pcVar4);
     bVar1 = InterfaceTable::Query((InterfaceTable *)&this->field_0x7c);
-    result = (-(uint)bVar1 & 0xffffffea) + 0x16;
+    result = (-(unsigned int)bVar1 & 0xffffffea) + 0x16;
   }
   return result;
 }
@@ -761,13 +728,13 @@ ulong __thiscall PRUDPTransport::Initialize(PRUDPTransport *this)
 // WARNING: Removing unreachable block (ram,0x000033e5)
 // public: virtual unsigned long __thiscall PRUDPTransport::ListenOnWellKnown(void)
 
-ulong __thiscall PRUDPTransport::ListenOnWellKnown(PRUDPTransport *this)
+unsigned long __thiscall PRUDPTransport::ListenOnWellKnown(PRUDPTransport *this)
 
 {
   bool bVar1;
   TraceOutput *pTVar2;
   PRUDPTransportSettings *this_00;
-  ulong uVar3;
+  unsigned long uVar3;
   TraceOutput *this_01;
   TraceOutput *this_02;
   TraceOutput *this_03;
@@ -775,21 +742,21 @@ ulong __thiscall PRUDPTransport::ListenOnWellKnown(PRUDPTransport *this)
   
   pcVar4 = (char *)0x6000000;
   pTVar2 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_01,(ulong)pTVar2,pcVar4);
+  TraceOutput::Trace(this_01,(unsigned long)pTVar2,pcVar4);
   StartEventListener(this);
   this_00 = GetSettings(this);
   uVar3 = PRUDPTransportSettings::GetWellKnownPortNumber(this_00);
-  bVar1 = UDPListen(this,0,(ushort)uVar3);
+  bVar1 = UDPListen(this,0,(unsigned short)uVar3);
   if (bVar1) {
     PRUDPInetAddress::GetPort((PRUDPInetAddress *)&this->field_0x1c);
     pcVar4 = (char *)0x6000000;
     pTVar2 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_03,(ulong)pTVar2,pcVar4);
+    TraceOutput::Trace(this_03,(unsigned long)pTVar2,pcVar4);
     return 0;
   }
   pcVar4 = (char *)0x6000000;
   pTVar2 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_02,(ulong)pTVar2,pcVar4);
+  TraceOutput::Trace(this_02,(unsigned long)pTVar2,pcVar4);
   return 3;
 }
 
@@ -798,7 +765,7 @@ ulong __thiscall PRUDPTransport::ListenOnWellKnown(PRUDPTransport *this)
 // WARNING: Removing unreachable block (ram,0x000034a5)
 // public: virtual unsigned long __thiscall PRUDPTransport::ListenOnArbitrary(void)
 
-ulong __thiscall PRUDPTransport::ListenOnArbitrary(PRUDPTransport *this)
+unsigned long __thiscall PRUDPTransport::ListenOnArbitrary(PRUDPTransport *this)
 
 {
   bool bVar1;
@@ -810,19 +777,19 @@ ulong __thiscall PRUDPTransport::ListenOnArbitrary(PRUDPTransport *this)
   
   pcVar3 = (char *)0x6000000;
   pTVar2 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar3);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar2,pcVar3);
   StartEventListener(this);
   bVar1 = UDPListen(this,1,0);
   if (bVar1) {
     PRUDPInetAddress::GetPort((PRUDPInetAddress *)&this->field_0x20);
     pcVar3 = (char *)0x6000000;
     pTVar2 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_02,(ulong)pTVar2,pcVar3);
+    TraceOutput::Trace(this_02,(unsigned long)pTVar2,pcVar3);
     return 0;
   }
   pcVar3 = (char *)0x6000000;
   pTVar2 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_01,(ulong)pTVar2,pcVar3);
+  TraceOutput::Trace(this_01,(unsigned long)pTVar2,pcVar3);
   return 3;
 }
 
@@ -830,7 +797,7 @@ ulong __thiscall PRUDPTransport::ListenOnArbitrary(PRUDPTransport *this)
 
 // public: virtual unsigned long __thiscall PRUDPTransport::StopListenOnWellKnown(void)
 
-ulong __thiscall PRUDPTransport::StopListenOnWellKnown(PRUDPTransport *this)
+unsigned long __thiscall PRUDPTransport::StopListenOnWellKnown(PRUDPTransport *this)
 
 {
   TraceOutput *pTVar1;
@@ -839,7 +806,7 @@ ulong __thiscall PRUDPTransport::StopListenOnWellKnown(PRUDPTransport *this)
   
   pcVar2 = (char *)0x6000000;
   pTVar1 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar1,pcVar2);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar1,pcVar2);
   return 0;
 }
 
@@ -847,7 +814,7 @@ ulong __thiscall PRUDPTransport::StopListenOnWellKnown(PRUDPTransport *this)
 
 // public: virtual unsigned long __thiscall PRUDPTransport::StopListenOnArbitrary(void)
 
-ulong __thiscall PRUDPTransport::StopListenOnArbitrary(PRUDPTransport *this)
+unsigned long __thiscall PRUDPTransport::StopListenOnArbitrary(PRUDPTransport *this)
 
 {
   TraceOutput *pTVar1;
@@ -856,7 +823,7 @@ ulong __thiscall PRUDPTransport::StopListenOnArbitrary(PRUDPTransport *this)
   
   pcVar2 = (char *)0x6000000;
   pTVar1 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar1,pcVar2);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar1,pcVar2);
   return 0;
 }
 
@@ -906,7 +873,7 @@ EndPoint * __thiscall PRUDPTransport::CreateEndPoint(PRUDPTransport *this)
 
 // public: virtual unsigned long __thiscall PRUDPTransport::DeleteEndPoint(class EndPoint *)
 
-ulong __thiscall PRUDPTransport::DeleteEndPoint(PRUDPTransport *this,EndPoint *param_1)
+unsigned long __thiscall PRUDPTransport::DeleteEndPoint(PRUDPTransport *this,EndPoint *param_1)
 
 {
   int *piVar1;
@@ -955,10 +922,10 @@ ulong __thiscall PRUDPTransport::DeleteEndPoint(PRUDPTransport *this,EndPoint *p
 
 // public: virtual unsigned long __thiscall PRUDPTransport::SendBroadcast(class Buffer *)
 
-ulong __thiscall PRUDPTransport::SendBroadcast(PRUDPTransport *this,Buffer *param_1)
+unsigned long __thiscall PRUDPTransport::SendBroadcast(PRUDPTransport *this,Buffer *param_1)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   undefined4 local_8 [2];
   
   local_8[0] = 0;
@@ -973,19 +940,19 @@ ulong __thiscall PRUDPTransport::SendBroadcast(PRUDPTransport *this,Buffer *para
 // (__cdecl*const)(class Transport *,class Buffer *,unsigned long,class UserContext *),class
 // UserContext const &)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPTransport::SendBroadcast
           (PRUDPTransport *this,Buffer *param_1,
           _func_void_Transport_ptr_Buffer_ptr_ulong_UserContext_ptr *param_2,UserContext *param_3)
 
 {
   undefined1 *this_00;
-  ulong uVar1;
+  unsigned long uVar1;
   TraceOutput *pTVar2;
   InterfaceInfo *pIVar3;
   PRUDPTransportSettings *this_01;
   TraceOutput *this_02;
-  ulong uVar4;
+  unsigned long uVar4;
   int unaff_FS_OFFSET;
   code *in_stack_00000010;
   undefined4 in_stack_00000014;
@@ -1007,7 +974,7 @@ PRUDPTransport::SendBroadcast
   pcVar6 = s_PRUDPTransport__SendBroadcast__d;
   pcVar5 = (char *)0x6000000;
   pTVar2 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_02,(ulong)pTVar2,pcVar5);
+  TraceOutput::Trace(this_02,(unsigned long)pTVar2,pcVar5);
   (*___imp__sprintf)(local_114,s__s_s,s_prudp,s___,pcVar6,uVar1);
   this_00 = &this->field_0x7c;
   uVar4 = 0;
@@ -1026,7 +993,7 @@ LAB_00003799:
         PRUDPInetAddress::SetAddress(aPStack_11c,acStack_104);
         this_01 = GetSettings(this);
         uVar1 = PRUDPTransportSettings::GetWellKnownPortNumber(this_01);
-        PRUDPInetAddress::SetPortNumber(aPStack_11c,(ushort)uVar1);
+        PRUDPInetAddress::SetPortNumber(aPStack_11c,(unsigned short)uVar1);
         StationURL::StationURL(aSStack_118,local_114);
         PRUDPInetAddress::GetURL(aPStack_11c,aSStack_118);
         (**(code **)(*(int *)this + 0x38))(aSStack_118,param_1);
@@ -1052,10 +1019,10 @@ LAB_00003799:
 
 // public: virtual unsigned long __thiscall PRUDPTransport::Send(class StationURL *,class Buffer *)
 
-ulong __thiscall PRUDPTransport::Send(PRUDPTransport *this,StationURL *param_1,Buffer *param_2)
+unsigned long __thiscall PRUDPTransport::Send(PRUDPTransport *this,StationURL *param_1,Buffer *param_2)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   undefined4 local_8 [2];
   
   local_8[0] = 0;
@@ -1069,7 +1036,7 @@ ulong __thiscall PRUDPTransport::Send(PRUDPTransport *this,StationURL *param_1,B
 // *,void (__cdecl*const)(class Transport *,class Buffer *,unsigned long,class UserContext *),class
 // UserContext const &)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPTransport::Send
           (PRUDPTransport *this,StationURL *param_1,Buffer *param_2,
           _func_void_Transport_ptr_Buffer_ptr_ulong_UserContext_ptr *param_3,UserContext *param_4)
@@ -1078,7 +1045,7 @@ PRUDPTransport::Send
   char cVar1;
   bool bVar2;
   TraceOutput *pTVar3;
-  ulong uVar4;
+  unsigned long uVar4;
   PRUDPTransportSettings *this_00;
   PacketOut *this_01;
   Packet *this_02;
@@ -1098,7 +1065,7 @@ PRUDPTransport::Send
   StationURL::GetURL(param_1);
   pcVar5 = (char *)0x6000000;
   pTVar3 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_03,(ulong)pTVar3,pcVar5);
+  TraceOutput::Trace(this_03,(unsigned long)pTVar3,pcVar5);
   cVar1 = (**(code **)(*(int *)this + 4))(param_1);
   if (cVar1 == '\0') {
     uVar4 = 0xf;
@@ -1107,7 +1074,7 @@ PRUDPTransport::Send
     PRUDPInetAddress::PRUDPInetAddress((PRUDPInetAddress *)&param_3);
     this_00 = GetSettings(this);
     uVar4 = PRUDPTransportSettings::GetWellKnownPortNumber(this_00);
-    bVar2 = PRUDPInetAddress::SetFromURL((PRUDPInetAddress *)&param_3,param_1,(ushort)uVar4);
+    bVar2 = PRUDPInetAddress::SetFromURL((PRUDPInetAddress *)&param_3,param_1,(unsigned short)uVar4);
     if (bVar2) {
       if (param_2 == (Buffer *)0x0) {
         PRUDPInetAddress::~PRUDPInetAddress((PRUDPInetAddress *)&param_3);
@@ -1164,12 +1131,12 @@ LAB_00003a50:
 
 // public: virtual unsigned long __thiscall PRUDPTransport::GetNbLocalURL(void)
 
-ulong __thiscall PRUDPTransport::GetNbLocalURL(PRUDPTransport *this)
+unsigned long __thiscall PRUDPTransport::GetNbLocalURL(PRUDPTransport *this)
 
 {
   undefined1 *this_00;
-  ulong uVar1;
-  ulong uVar2;
+  unsigned long uVar1;
+  unsigned long uVar2;
   
   this_00 = &this->field_0x7c;
   uVar1 = InterfaceTable::GetNbInterface((InterfaceTable *)this_00);
@@ -1191,17 +1158,17 @@ ulong __thiscall PRUDPTransport::GetNbLocalURL(PRUDPTransport *this)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: virtual class StationURL * __thiscall PRUDPTransport::GetLocalURL(unsigned long)
 
-StationURL * __thiscall PRUDPTransport::GetLocalURL(PRUDPTransport *this,ulong param_1)
+StationURL * __thiscall PRUDPTransport::GetLocalURL(PRUDPTransport *this,unsigned long param_1)
 
 {
   undefined1 *this_00;
-  ushort uVar1;
-  uint uVar2;
-  ulong uVar3;
-  ulong uVar4;
+  unsigned short uVar1;
+  unsigned int uVar2;
+  unsigned long uVar3;
+  unsigned long uVar4;
   InterfaceInfo *pIVar5;
   StationURL *this_01;
-  ulong uVar6;
+  unsigned long uVar6;
   int unaff_FS_OFFSET;
   char *pcVar7;
   StationURL *pSStack_234;
@@ -1233,7 +1200,7 @@ StationURL * __thiscall PRUDPTransport::GetLocalURL(PRUDPTransport *this,ulong p
       iStack_4 = 0;
       PRUDPInetAddress::SetAddress((PRUDPInetAddress *)&pSStack_234,acStack_20c);
       uVar1 = GetPortNumber(this,0);
-      uVar1 = GetPortNumber(this,(uint)(uVar1 == 0));
+      uVar1 = GetPortNumber(this,(unsigned int)(uVar1 == 0));
       PRUDPInetAddress::SetPortNumber((PRUDPInetAddress *)&pSStack_234,uVar1);
       pSStack_230 = operator_new(4);
       iStack_4._0_1_ = 1;
@@ -1243,7 +1210,7 @@ StationURL * __thiscall PRUDPTransport::GetLocalURL(PRUDPTransport *this,ulong p
       else {
         this_01 = (StationURL *)StationURL::StationURL(pSStack_230);
       }
-      iStack_4 = (uint)iStack_4._1_3_ << 8;
+      iStack_4 = (unsigned int)iStack_4._1_3_ << 8;
       StationURL::SetURL(this_01,acStack_22c);
       PRUDPInetAddress::GetURL((PRUDPInetAddress *)&pSStack_234,this_01);
       iStack_4 = 0xffffffff;
@@ -1268,7 +1235,7 @@ StationURL * __thiscall PRUDPTransport::GetLocalURL(PRUDPTransport *this,ulong p
             iStack_4 = 2;
             PRUDPInetAddress::SetAddress((PRUDPInetAddress *)&pSStack_230,acStack_10c);
             uVar1 = GetPortNumber(this,0);
-            uVar1 = GetPortNumber(this,(uint)(uVar1 == 0));
+            uVar1 = GetPortNumber(this,(unsigned int)(uVar1 == 0));
             PRUDPInetAddress::SetPortNumber((PRUDPInetAddress *)&pSStack_230,uVar1);
             pSStack_234 = operator_new(4);
             iStack_4._0_1_ = 3;
@@ -1303,7 +1270,7 @@ LAB_00003c24:
 // public: virtual class StationURL * __thiscall PRUDPTransport::GetIPURL(unsigned long,unsigned
 // short)
 
-StationURL * __thiscall PRUDPTransport::GetIPURL(PRUDPTransport *this,ulong param_1,ushort param_2)
+StationURL * __thiscall PRUDPTransport::GetIPURL(PRUDPTransport *this,unsigned long param_1,unsigned short param_2)
 
 {
   bool bVar1;
@@ -1355,7 +1322,7 @@ StationURL * __thiscall PRUDPTransport::GetIPURL(PRUDPTransport *this,ulong para
 
 // public: virtual class StationURL * __thiscall PRUDPTransport::GetIPURL(char *,unsigned short)
 
-StationURL * __thiscall PRUDPTransport::GetIPURL(PRUDPTransport *this,char *param_1,ushort param_2)
+StationURL * __thiscall PRUDPTransport::GetIPURL(PRUDPTransport *this,char *param_1,unsigned short param_2)
 
 {
   bool bVar1;
@@ -1420,13 +1387,13 @@ StationURL * __thiscall PRUDPTransport::GetIPURL(PRUDPTransport *this,char *para
 
 bool __thiscall
 PRUDPTransport::GetIPFromURL
-          (PRUDPTransport *this,StationURL *param_1,ulong *param_2,ushort *param_3)
+          (PRUDPTransport *this,StationURL *param_1,unsigned long *param_2,unsigned short *param_3)
 
 {
   bool bVar1;
-  ushort uVar2;
+  unsigned short uVar2;
   PRUDPTransportSettings *this_00;
-  ulong uVar3;
+  unsigned long uVar3;
   int unaff_FS_OFFSET;
   PRUDPTransport *local_10;
   undefined4 local_c;
@@ -1442,8 +1409,8 @@ PRUDPTransport::GetIPFromURL
   local_4 = 0;
   this_00 = GetSettings(this);
   uVar3 = PRUDPTransportSettings::GetWellKnownPortNumber(this_00);
-  bVar1 = PRUDPInetAddress::SetFromURL((PRUDPInetAddress *)&local_10,param_1,(ushort)uVar3);
-  if (((bVar1) && (param_2 != (ulong *)0x0)) && (param_3 != (ushort *)0x0)) {
+  bVar1 = PRUDPInetAddress::SetFromURL((PRUDPInetAddress *)&local_10,param_1,(unsigned short)uVar3);
+  if (((bVar1) && (param_2 != (unsigned long *)0x0)) && (param_3 != (unsigned short *)0x0)) {
     uVar3 = PRUDPInetAddress::GetAddress((PRUDPInetAddress *)&local_10);
     *param_2 = uVar3;
     uVar2 = PRUDPInetAddress::GetPort((PRUDPInetAddress *)&local_10);
@@ -1479,15 +1446,15 @@ void __thiscall PRUDPTransport::ReleaseURL(PRUDPTransport *this,StationURL *para
 // *,class StationURL *,class Buffer *,void (__cdecl*const)(class EndPoint *,class Buffer *,unsigned
 // long,class UserContext *),class UserContext const &,unsigned long)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPTransport::ConnectEndPoint
           (PRUDPTransport *this,EndPoint *param_1,StationURL *param_2,Buffer *param_3,
           _func_void_EndPoint_ptr_Buffer_ptr_ulong_UserContext_ptr *param_4,UserContext *param_5,
-          ulong param_6)
+          unsigned long param_6)
 
 {
   char cVar1;
-  ulong uVar2;
+  unsigned long uVar2;
   PRUDPEndPoint *unaff_retaddr;
   
   cVar1 = (**(code **)(*(int *)this + 4))(param_2);
@@ -1497,7 +1464,7 @@ PRUDPTransport::ConnectEndPoint
   uVar2 = PRUDPEndPoint::Connect
                     (unaff_retaddr,param_2,(Buffer *)param_2,
                      (_func_void_EndPoint_ptr_Buffer_ptr_ulong_UserContext_ptr *)param_3,
-                     (UserContext *)param_4,(ulong)param_5);
+                     (UserContext *)param_4,(unsigned long)param_5);
   return uVar2;
 }
 
@@ -1507,14 +1474,14 @@ PRUDPTransport::ConnectEndPoint
 // *,void (__cdecl*const)(class EndPoint *,class Buffer *,unsigned long,class UserContext *),class
 // UserContext const &,unsigned long)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPTransport::DisconnectEndPoint
           (PRUDPTransport *this,EndPoint *param_1,
           _func_void_EndPoint_ptr_Buffer_ptr_ulong_UserContext_ptr *param_2,UserContext *param_3,
-          ulong param_4)
+          unsigned long param_4)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
   uVar1 = PRUDPEndPoint::Disconnect((PRUDPEndPoint *)param_1,param_2,param_3,param_4);
   return uVar1;
@@ -1526,14 +1493,14 @@ PRUDPTransport::DisconnectEndPoint
 // Buffer *,void (__cdecl*const)(class EndPoint *,class Buffer *,unsigned long,class UserContext
 // *),class UserContext const &,unsigned long)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPTransport::SendToEndPoint
           (PRUDPTransport *this,EndPoint *param_1,Buffer *param_2,
           _func_void_EndPoint_ptr_Buffer_ptr_ulong_UserContext_ptr *param_3,UserContext *param_4,
-          ulong param_5)
+          unsigned long param_5)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
   uVar1 = PRUDPEndPoint::Send((PRUDPEndPoint *)param_1,param_2,param_3,param_4,param_5);
   return uVar1;
@@ -1596,12 +1563,12 @@ bool __thiscall PRUDPTransport::IsEndPointPeerDisconnected(PRUDPTransport *this,
 // protected: virtual unsigned long __thiscall PRUDPTransport::RegisterEndPointEventHandler(class
 // EndPoint *,class EndPointEventHandler *)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPTransport::RegisterEndPointEventHandler
           (PRUDPTransport *this,EndPoint *param_1,EndPointEventHandler *param_2)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
   uVar1 = EndPoint::RegisterEventHandler(param_1,param_2);
   return uVar1;
@@ -1627,10 +1594,10 @@ PRUDPTransport::GetEndPointStationURL(PRUDPTransport *this,EndPoint *param_1)
 // protected: virtual unsigned long __thiscall PRUDPTransport::GetEndPointQueueSize(class EndPoint
 // *)
 
-ulong __thiscall PRUDPTransport::GetEndPointQueueSize(PRUDPTransport *this,EndPoint *param_1)
+unsigned long __thiscall PRUDPTransport::GetEndPointQueueSize(PRUDPTransport *this,EndPoint *param_1)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
   uVar1 = PRUDPEndPoint::GetQueueSize((PRUDPEndPoint *)param_1);
   return uVar1;
@@ -1640,11 +1607,11 @@ ulong __thiscall PRUDPTransport::GetEndPointQueueSize(PRUDPTransport *this,EndPo
 
 // protected: virtual unsigned long __thiscall PRUDPTransport::GetEndPointRTT(class EndPoint *)
 
-ulong __thiscall PRUDPTransport::GetEndPointRTT(PRUDPTransport *this,EndPoint *param_1)
+unsigned long __thiscall PRUDPTransport::GetEndPointRTT(PRUDPTransport *this,EndPoint *param_1)
 
 {
   RTT *this_00;
-  ulong uVar1;
+  unsigned long uVar1;
   
   this_00 = PRUDPEndPoint::GetRTT((PRUDPEndPoint *)param_1);
   uVar1 = RTT::GetLastRTT(this_00);
@@ -1656,11 +1623,11 @@ ulong __thiscall PRUDPTransport::GetEndPointRTT(PRUDPTransport *this,EndPoint *p
 // protected: virtual unsigned long __thiscall PRUDPTransport::GetEndPointRTTAverage(class EndPoint
 // *)
 
-ulong __thiscall PRUDPTransport::GetEndPointRTTAverage(PRUDPTransport *this,EndPoint *param_1)
+unsigned long __thiscall PRUDPTransport::GetEndPointRTTAverage(PRUDPTransport *this,EndPoint *param_1)
 
 {
   RTT *this_00;
-  ulong uVar1;
+  unsigned long uVar1;
   
   this_00 = PRUDPEndPoint::GetRTT((PRUDPEndPoint *)param_1);
   uVar1 = RTT::GetRTTSmoothedAvg(this_00);
@@ -1673,11 +1640,11 @@ ulong __thiscall PRUDPTransport::GetEndPointRTTAverage(PRUDPTransport *this,EndP
 // EndPointGroup *,class Buffer *,void (__cdecl*const *)(class EndPointGroup *,class Buffer *,class
 // UserContext *),class UserContext const &,unsigned long)
 
-ulong __thiscall
+unsigned long __thiscall
 PRUDPTransport::SendToEndPointGroup
           (PRUDPTransport *this,EndPointGroup *param_1,Buffer *param_2,
           _func_void_EndPointGroup_ptr_Buffer_ptr_UserContext_ptr **param_3,UserContext *param_4,
-          ulong param_5)
+          unsigned long param_5)
 
 {
   return 1;
@@ -1708,11 +1675,11 @@ bool __thiscall PRUDPTransport::IsCapable(PRUDPTransport *this,TRANSPORT_CAPS ul
 // public: virtual unsigned long __thiscall PRUDPTransport::SetOption(unsigned long,class
 // UserContext &)
 
-ulong __thiscall
-PRUDPTransport::SetOption(PRUDPTransport *this,ulong ulOption,UserContext *oOptionSetting)
+unsigned long __thiscall
+PRUDPTransport::SetOption(PRUDPTransport *this,unsigned long ulOption,UserContext *oOptionSetting)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
   uVar1 = PRUDPTransportSettings::SetOption(&this->m_oTransportSettings,ulOption,oOptionSetting);
   return uVar1;
@@ -1723,10 +1690,10 @@ PRUDPTransport::SetOption(PRUDPTransport *this,ulong ulOption,UserContext *oOpti
 // public: virtual unsigned long __thiscall PRUDPTransport::GetOption(unsigned long,class
 // UserContext &)
 
-ulong __thiscall PRUDPTransport::GetOption(PRUDPTransport *this,ulong param_1,UserContext *param_2)
+unsigned long __thiscall PRUDPTransport::GetOption(PRUDPTransport *this,unsigned long param_1,UserContext *param_2)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
   uVar1 = PRUDPTransportSettings::GetOption(&this->m_oTransportSettings,param_1,param_2);
   return uVar1;
@@ -1742,7 +1709,7 @@ void __thiscall PRUDPTransport::StartEventListener(PRUDPTransport *this)
   CallbackDispatcher *this_00;
   undefined4 uVar1;
   PRUDPTransportSettings *this_01;
-  ulong uVar2;
+  unsigned long uVar2;
   int unaff_FS_OFFSET;
   undefined4 local_c;
   undefined1 *puStack_8;
@@ -1759,7 +1726,7 @@ void __thiscall PRUDPTransport::StartEventListener(PRUDPTransport *this)
       uVar1 = 0;
     }
     else {
-      uVar1 = CallbackDispatcher::CallbackDispatcher(this_00,(ulong)this);
+      uVar1 = CallbackDispatcher::CallbackDispatcher(this_00,(unsigned long)this);
     }
     local_4 = 0xffffffff;
     *(undefined4 *)&this->field_0x4c = uVar1;
@@ -1787,7 +1754,7 @@ void __thiscall PRUDPTransport::SetHighPrio(PRUDPTransport *this)
 
 // private: bool __thiscall PRUDPTransport::UDPListen(unsigned long,unsigned short)
 
-bool __thiscall PRUDPTransport::UDPListen(PRUDPTransport *this,ulong param_1,ushort param_2)
+bool __thiscall PRUDPTransport::UDPListen(PRUDPTransport *this,unsigned long param_1,unsigned short param_2)
 
 {
   bool bVar1;
@@ -1801,7 +1768,7 @@ bool __thiscall PRUDPTransport::UDPListen(PRUDPTransport *this,ulong param_1,ush
   int unaff_FS_OFFSET;
   char *pcVar6;
   ScopedCS local_14 [4];
-  ushort local_10 [2];
+  unsigned short local_10 [2];
   undefined4 local_c;
   undefined1 *local_8;
   int local_4;
@@ -1827,7 +1794,7 @@ bool __thiscall PRUDPTransport::UDPListen(PRUDPTransport *this,ulong param_1,ush
   else {
     this_00 = (Socket *)UDPSocket::UDPSocket(pUVar2,this);
   }
-  local_4 = (uint)local_4._1_3_ << 8;
+  local_4 = (unsigned int)local_4._1_3_ << 8;
   *(Socket **)(&this->field_0x24 + param_1 * 4) = this_00;
   bVar1 = Socket::Open(this_00);
   if (bVar1) {
@@ -1837,7 +1804,7 @@ bool __thiscall PRUDPTransport::UDPListen(PRUDPTransport *this,ulong param_1,ush
     if (bVar1) {
       pcVar6 = (char *)0x0;
       pTVar3 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_01,(ulong)pTVar3,pcVar6);
+      TraceOutput::Trace(this_01,(unsigned long)pTVar3,pcVar6);
       pEVar4 = CallbackDispatcher::CreateCallbackEvent
                          (*(CallbackDispatcher **)&this->field_0x4c,HandleRecvCompletedWrap,param_1)
       ;
@@ -1853,7 +1820,7 @@ bool __thiscall PRUDPTransport::UDPListen(PRUDPTransport *this,ulong param_1,ush
       pPVar5 = GetSettings(this);
       bVar1 = PRUDPTransportSettings::IsTrappingICMP(pPVar5);
       if (bVar1) {
-        bVar1 = ICMPListen(this,param_1,(ushort)local_8);
+        bVar1 = ICMPListen(this,param_1,(unsigned short)local_8);
         pPVar5 = GetSettings(this);
         PRUDPTransportSettings::TrapICMP(pPVar5,bVar1);
       }
@@ -1863,7 +1830,7 @@ bool __thiscall PRUDPTransport::UDPListen(PRUDPTransport *this,ulong param_1,ush
     }
     pcVar6 = (char *)0x0;
     pTVar3 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_02,(ulong)pTVar3,pcVar6);
+    TraceOutput::Trace(this_02,(unsigned long)pTVar3,pcVar6);
     pUVar2 = *(UDPSocket **)(&this->field_0x24 + param_1 * 4);
     if (pUVar2 != (UDPSocket *)0x0) {
       UDPSocket::~UDPSocket(pUVar2);
@@ -1880,7 +1847,7 @@ bool __thiscall PRUDPTransport::UDPListen(PRUDPTransport *this,ulong param_1,ush
 
 // private: bool __thiscall PRUDPTransport::StopUDPListen(unsigned long)
 
-bool __thiscall PRUDPTransport::StopUDPListen(PRUDPTransport *this,ulong param_1)
+bool __thiscall PRUDPTransport::StopUDPListen(PRUDPTransport *this,unsigned long param_1)
 
 {
   UDPSocket *this_00;
@@ -1912,7 +1879,7 @@ bool __thiscall PRUDPTransport::StopUDPListen(PRUDPTransport *this,ulong param_1
 
 // private: bool __thiscall PRUDPTransport::ICMPListen(unsigned long,unsigned short)
 
-bool __thiscall PRUDPTransport::ICMPListen(PRUDPTransport *this,ulong param_1,ushort param_2)
+bool __thiscall PRUDPTransport::ICMPListen(PRUDPTransport *this,unsigned long param_1,unsigned short param_2)
 
 {
   bool bVar1;
@@ -1940,12 +1907,12 @@ bool __thiscall PRUDPTransport::ICMPListen(PRUDPTransport *this,ulong param_1,us
   local_4 = 0;
   pcVar6 = (char *)0x0;
   pTVar2 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar6);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar2,pcVar6);
   if (*(int *)(&this->field_0x3c + in_stack_0000000c * 4) != 0) {
 LAB_00004619:
     local_10 = (PRUDPTransport *)0x462a;
     ScopedCS::~ScopedCS((ScopedCS *)&stack0x00000000);
-    *(ulong *)(&__except_list + unaff_FS_OFFSET) = param_1;
+    *(unsigned long *)(&__except_list + unaff_FS_OFFSET) = param_1;
     return true;
   }
   pIVar3 = operator_new(0x48);
@@ -1965,14 +1932,14 @@ LAB_00004619:
     if (bVar1) {
       pEVar5 = CallbackDispatcher::CreateCallbackEvent
                          (*(CallbackDispatcher **)&this->field_0x4c,HandleICMPCompletedWrap,
-                          *(ulong *)(&this->field_0x3c + in_stack_0000000c * 4));
+                          *(unsigned long *)(&this->field_0x3c + in_stack_0000000c * 4));
       *(Event **)(&this->field_0x44 + in_stack_0000000c * 4) = pEVar5;
       ICMPSocket::SetCompletionEvent
                 (*(ICMPSocket **)(&this->field_0x3c + in_stack_0000000c * 4),pEVar5);
       ICMPSocket::QueueRecv(*(ICMPSocket **)(&this->field_0x3c + in_stack_0000000c * 4));
       pcVar6 = (char *)0x6000000;
       pTVar2 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_01,(ulong)pTVar2,pcVar6);
+      TraceOutput::Trace(this_01,(unsigned long)pTVar2,pcVar6);
       local_10 = (PRUDPTransport *)0x4619;
       PRUDPInetAddress::~PRUDPInetAddress((PRUDPInetAddress *)&stack0x00000018);
       goto LAB_00004619;
@@ -1980,7 +1947,7 @@ LAB_00004619:
   }
   pcVar6 = (char *)0x0;
   pTVar2 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_02,(ulong)pTVar2,pcVar6);
+  TraceOutput::Trace(this_02,(unsigned long)pTVar2,pcVar6);
   SystemError::TraceLast(0);
   Socket::Close(*(Socket **)(&this->field_0x3c + in_stack_0000000c * 4));
   pIVar3 = *(ICMPSocket **)(&this->field_0x3c + in_stack_0000000c * 4);
@@ -1991,7 +1958,7 @@ LAB_00004619:
   *(undefined4 *)(&this->field_0x3c + in_stack_0000000c * 4) = 0;
   PRUDPInetAddress::~PRUDPInetAddress((PRUDPInetAddress *)&stack0x00000018);
   ScopedCS::~ScopedCS((ScopedCS *)&stack0x00000000);
-  *(ulong *)(&__except_list + unaff_FS_OFFSET) = param_1;
+  *(unsigned long *)(&__except_list + unaff_FS_OFFSET) = param_1;
   return false;
 }
 
@@ -1999,7 +1966,7 @@ LAB_00004619:
 
 // private: bool __thiscall PRUDPTransport::StopICMPListen(unsigned long)
 
-bool __thiscall PRUDPTransport::StopICMPListen(PRUDPTransport *this,ulong param_1)
+bool __thiscall PRUDPTransport::StopICMPListen(PRUDPTransport *this,unsigned long param_1)
 
 {
   ICMPSocket *this_00;
@@ -2037,7 +2004,7 @@ bool __thiscall PRUDPTransport::RegisterEndPoint(PRUDPTransport *this,PRUDPEndPo
   TraceOutput *this_02;
   int unaff_FS_OFFSET;
   char *pcVar4;
-  ulong uVar5;
+  unsigned long uVar5;
   ScopedCS local_30 [4];
   undefined8 local_2c;
   pair<> local_24 [12];
@@ -2060,7 +2027,7 @@ bool __thiscall PRUDPTransport::RegisterEndPoint(PRUDPTransport *this,PRUDPEndPo
   if ((*piVar2 != *(int *)&this->field_0x64) && (*(int *)(*piVar2 + 0x18) != 0)) {
     pcVar4 = (char *)0x6000000;
     pTVar3 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_02,(ulong)pTVar3,pcVar4);
+    TraceOutput::Trace(this_02,(unsigned long)pTVar3,pcVar4);
     param_1 = (PRUDPEndPoint *)0xffffffff;
     ScopedCS::~ScopedCS((ScopedCS *)((int)&local_2c + 4));
     *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_4;
@@ -2068,7 +2035,7 @@ bool __thiscall PRUDPTransport::RegisterEndPoint(PRUDPTransport *this,PRUDPEndPo
   }
   pcVar4 = (char *)0x0;
   pTVar3 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_01,(ulong)pTVar3,pcVar4);
+  TraceOutput::Trace(this_01,(unsigned long)pTVar3,pcVar4);
   uVar5 = 0;
   pPVar1 = PRUDPEndPoint::GetPRUDPInetAddress(this_00);
   PRUDPInetAddress::Trace(pPVar1,uVar5);
@@ -2115,7 +2082,7 @@ void __thiscall PRUDPTransport::UnregisterEndPoint(PRUDPTransport *this,PRUDPEnd
   if (param_1 != (PRUDPEndPoint *)p_Var1) {
     if ((*(int *)((_Node *)param_1 + 0x14) <= local_14._4_4_) &&
        ((*(int *)((_Node *)param_1 + 0x14) < local_14._4_4_ ||
-        (*(uint *)((_Node *)param_1 + 0x10) <= (uint)local_14)))) {
+        (*(unsigned int *)((_Node *)param_1 + 0x10) <= (unsigned int)local_14)))) {
       ppPVar2 = &param_1;
       goto LAB_000048f0;
     }
@@ -2137,7 +2104,7 @@ LAB_000048f0:
 // private: void __thiscall PRUDPTransport::SendReset(unsigned long,class PRUDPInetAddress *)
 
 void __thiscall
-PRUDPTransport::SendReset(PRUDPTransport *this,ulong param_1,PRUDPInetAddress *param_2)
+PRUDPTransport::SendReset(PRUDPTransport *this,unsigned long param_1,PRUDPInetAddress *param_2)
 
 {
   PacketOut *this_00;
@@ -2175,7 +2142,7 @@ PRUDPTransport::SendReset(PRUDPTransport *this,ulong param_1,PRUDPInetAddress *p
 
 PRUDPEndPoint * __thiscall
 PRUDPTransport::ServiceConnectionRequest
-          (PRUDPTransport *this,PRUDPInetAddress *param_1,Buffer *param_2,ulong param_3)
+          (PRUDPTransport *this,PRUDPInetAddress *param_1,Buffer *param_2,unsigned long param_3)
 
 {
   bool bVar1;
@@ -2183,7 +2150,7 @@ PRUDPTransport::ServiceConnectionRequest
   int *piVar3;
   PRUDPEndPoint *this_00;
   TransportEventHandler *pTVar4;
-  ulong uVar5;
+  unsigned long uVar5;
   TraceOutput *pTVar6;
   TraceOutput *this_01;
   TraceOutput *this_02;
@@ -2221,7 +2188,7 @@ LAB_00004a4e:
   else {
     if ((local_1c._4_4_ < *(int *)(local_2c + 0x14)) ||
        ((local_1c._4_4_ <= *(int *)(local_2c + 0x14) &&
-        ((uint)local_1c < *(uint *)(local_2c + 0x10))))) goto LAB_00004a4e;
+        ((unsigned int)local_1c < *(unsigned int *)(local_2c + 0x10))))) goto LAB_00004a4e;
     piVar3 = &local_2c;
   }
   if ((*piVar3 == iVar7) ||
@@ -2255,7 +2222,7 @@ LAB_00004b83:
     StationURL::GetURL((StationURL *)&stack0xffffffcc);
     pcVar8 = (char *)0x6000000;
     pTVar6 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_03,(ulong)pTVar6,pcVar8);
+    TraceOutput::Trace(this_03,(unsigned long)pTVar6,pcVar8);
   }
   else {
     uVar5 = Buffer::GetContentSize(unaff_retaddr);
@@ -2263,7 +2230,7 @@ LAB_00004b83:
       StationURL::GetURL((StationURL *)&stack0xffffffcc);
       pcVar8 = (char *)0x6000000;
       pTVar6 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_02,(ulong)pTVar6,pcVar8);
+      TraceOutput::Trace(this_02,(unsigned long)pTVar6,pcVar8);
       pTVar4 = Transport::GetEventHandler((Transport *)this);
       iVar7 = *(int *)pTVar4;
       unaff_retaddr = (Buffer *)0x0;
@@ -2273,7 +2240,7 @@ LAB_00004b83:
       StationURL::GetURL((StationURL *)&stack0xffffffcc);
       pcVar8 = (char *)0x6000000;
       pTVar6 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_01,(ulong)pTVar6,pcVar8);
+      TraceOutput::Trace(this_01,(unsigned long)pTVar6,pcVar8);
       pTVar4 = Transport::GetEventHandler((Transport *)this);
       iVar7 = *(int *)pTVar4;
     }
@@ -2282,7 +2249,7 @@ LAB_00004b83:
     StationURL::GetURL((StationURL *)&stack0xffffffcc);
     pcVar8 = (char *)0x6000000;
     pTVar6 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_04,(ulong)pTVar6,pcVar8);
+    TraceOutput::Trace(this_04,(unsigned long)pTVar6,pcVar8);
     SendReset(this,param_3,param_1);
     if (this_00 != (PRUDPEndPoint *)0x0) {
       PRUDPEndPoint::~PRUDPEndPoint(this_00);
@@ -2307,7 +2274,7 @@ PRUDPTransport::ServiceUserMsg(PRUDPTransport *this,PRUDPInetAddress *param_1,Bu
 
 {
   TransportEventHandler *pTVar1;
-  ulong uVar2;
+  unsigned long uVar2;
   TraceOutput *pTVar3;
   TraceOutput *this_00;
   TraceOutput *this_01;
@@ -2336,7 +2303,7 @@ PRUDPTransport::ServiceUserMsg(PRUDPTransport *this,PRUDPInetAddress *param_1,Bu
       StationURL::GetURL(aSStack_20);
       pcVar5 = (char *)0x6000000;
       pTVar3 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_01,(ulong)pTVar3,pcVar5);
+      TraceOutput::Trace(this_01,(unsigned long)pTVar3,pcVar5);
       pTVar1 = Transport::GetEventHandler((Transport *)this);
       iVar4 = *(int *)pTVar1;
       param_2 = (Buffer *)0x0;
@@ -2346,7 +2313,7 @@ PRUDPTransport::ServiceUserMsg(PRUDPTransport *this,PRUDPInetAddress *param_1,Bu
       StationURL::GetURL(aSStack_20);
       pcVar5 = (char *)0x6000000;
       pTVar3 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_00,(ulong)pTVar3,pcVar5);
+      TraceOutput::Trace(this_00,(unsigned long)pTVar3,pcVar5);
       pTVar1 = Transport::GetEventHandler((Transport *)this);
       iVar4 = *(int *)pTVar1;
     }
@@ -2362,15 +2329,15 @@ PRUDPTransport::ServiceUserMsg(PRUDPTransport *this,PRUDPInetAddress *param_1,Bu
 
 // private: void __thiscall PRUDPTransport::DemuxIncomingPacket(unsigned long)
 
-void __thiscall PRUDPTransport::DemuxIncomingPacket(PRUDPTransport *this,ulong param_1)
+void __thiscall PRUDPTransport::DemuxIncomingPacket(PRUDPTransport *this,unsigned long param_1)
 
 {
   _Node *p_Var1;
   bool bVar2;
-  uchar uVar3;
+  unsigned char uVar3;
   PacketIn *this_00;
   PRUDPInetAddress *this_01;
-  ulong uVar4;
+  unsigned long uVar4;
   TraceOutput *pTVar5;
   PRUDPTransportSettings *this_02;
   PRUDPInetAddress *pPVar6;
@@ -2383,7 +2350,7 @@ void __thiscall PRUDPTransport::DemuxIncomingPacket(PRUDPTransport *this,ulong p
   TraceOutput *this_05;
   int iVar11;
   __int64 _Var12;
-  ulong in_stack_00000014;
+  unsigned long in_stack_00000014;
   char *pcVar13;
   PRUDPInetAddress *pPVar14;
   _Node *local_8;
@@ -2399,7 +2366,7 @@ void __thiscall PRUDPTransport::DemuxIncomingPacket(PRUDPTransport *this,ulong p
     Packet::GetIOResult((Packet *)this_00);
     pcVar13 = (char *)0x0;
     pTVar5 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_03,(ulong)pTVar5,pcVar13);
+    TraceOutput::Trace(this_03,(unsigned long)pTVar5,pcVar13);
     this_02 = GetSettings(this);
     bVar2 = PRUDPTransportSettings::IsTrappingICMP(this_02);
     if (bVar2) {
@@ -2438,10 +2405,10 @@ void __thiscall PRUDPTransport::DemuxIncomingPacket(PRUDPTransport *this,ulong p
     Packet::GetType((Packet *)this_00);
     pcVar13 = (char *)0x0;
     pTVar5 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_04,(ulong)pTVar5,pcVar13);
+    TraceOutput::Trace(this_04,(unsigned long)pTVar5,pcVar13);
     PRUDPInetAddress::Trace(this_01,0);
     _Var12 = PRUDPInetAddress::GetKey(this_01);
-    iVar11 = (int)((ulonglong)_Var12 >> 0x20);
+    iVar11 = (int)((unsigned long long)_Var12 >> 0x20);
     local_8 = std::_Tree<>::_Lbound((_Tree<> *)&this->field_0x60,(__int64 *)&stack0x00000000);
     p_Var1 = *(_Node **)&this->field_0x64;
     if (local_8 == p_Var1) {
@@ -2451,7 +2418,7 @@ LAB_00004edc:
     }
     else {
       if ((iVar11 < *(int *)(local_8 + 0x14)) ||
-         ((iVar11 <= *(int *)(local_8 + 0x14) && ((uint)_Var12 < *(uint *)(local_8 + 0x10)))))
+         ((iVar11 <= *(int *)(local_8 + 0x14) && ((unsigned int)_Var12 < *(unsigned int *)(local_8 + 0x10)))))
       goto LAB_00004edc;
       pp_Var8 = &local_8;
     }
@@ -2461,7 +2428,7 @@ LAB_00004edc:
       if (uVar3 != '\x06') {
         pcVar13 = (char *)0x0;
         pTVar5 = TraceOutput::GetInstance();
-        TraceOutput::Trace(this_05,(ulong)pTVar5,pcVar13);
+        TraceOutput::Trace(this_05,(unsigned long)pTVar5,pcVar13);
         SendReset(this,in_stack_00000014,this_01);
         RefCountedObject::ReleaseRef((RefCountedObject *)this_00);
         return;
@@ -2485,7 +2452,7 @@ void __thiscall PRUDPTransport::CompleteICMP(PRUDPTransport *this,ICMPSocket *pa
   _Node *p_Var1;
   PRUDPEndPoint *this_00;
   ICMPSocket *this_01;
-  ulong uVar2;
+  unsigned long uVar2;
   ICMPSocket **ppIVar3;
   int unaff_FS_OFFSET;
   PRUDPInetAddress local_1c [4];
@@ -2515,7 +2482,7 @@ LAB_0000500c:
   else {
     if ((local_14._4_4_ < *(int *)((_Node *)param_1 + 0x14)) ||
        ((local_14._4_4_ <= *(int *)((_Node *)param_1 + 0x14) &&
-        ((uint)local_14 < *(uint *)((_Node *)param_1 + 0x10))))) goto LAB_0000500c;
+        ((unsigned int)local_14 < *(unsigned int *)((_Node *)param_1 + 0x10))))) goto LAB_0000500c;
     ppIVar3 = &param_1;
   }
   if (((_Node *)*ppIVar3 != p_Var1) &&
@@ -2534,13 +2501,13 @@ LAB_0000502a:
 
 // private: bool __thiscall PRUDPTransport::Send(unsigned long,class PacketOut *)
 
-bool __thiscall PRUDPTransport::Send(PRUDPTransport *this,ulong param_1,PacketOut *param_2)
+bool __thiscall PRUDPTransport::Send(PRUDPTransport *this,unsigned long param_1,PacketOut *param_2)
 
 {
   bool bVar1;
   char *pcVar2;
   char *pcVar3;
-  ulong uVar4;
+  unsigned long uVar4;
   
   Platform::SystemCheck(param_2 != (PacketOut *)0x0,s_pPacket__NULL,s_PRUDPTransport_cpp,0x363);
   uVar4 = 0x364;
@@ -2574,8 +2541,8 @@ void __thiscall PRUDPTransport::TimeSliceHandler(PRUDPTransport *this)
   OutputEmulationDevice *pOVar2;
   InputEmulationDevice *pIVar3;
   int iVar4;
-  byte bVar5;
-  uint uVar6;
+  unsigned char bVar5;
+  unsigned int uVar6;
   int unaff_FS_OFFSET;
   PRUDPTransport *local_10;
   undefined4 uStack_c;
@@ -2589,10 +2556,10 @@ void __thiscall PRUDPTransport::TimeSliceHandler(PRUDPTransport *this)
   local_10 = this;
   TimeoutManager::ServicePacketTimeouts((TimeoutManager *)&this->field_0x50);
   bVar5 = 0;
-  local_10 = (PRUDPTransport *)((uint)local_10 & 0xffffff00);
+  local_10 = (PRUDPTransport *)((unsigned int)local_10 & 0xffffff00);
   if (this->field_0x18 != '\0') {
     do {
-      uVar6 = (uint)local_10 & 0xff;
+      uVar6 = (unsigned int)local_10 & 0xff;
       if (*(UDPSocket **)(&this->field_0x24 + uVar6 * 4) != (UDPSocket *)0x0) {
         UDPSocket::TryIOCompletion(*(UDPSocket **)(&this->field_0x24 + uVar6 * 4));
       }
@@ -2601,7 +2568,7 @@ void __thiscall PRUDPTransport::TimeSliceHandler(PRUDPTransport *this)
       }
       bVar5 = bVar5 + 1;
       local_10 = (PRUDPTransport *)CONCAT31(local_10._1_3_,bVar5);
-    } while (bVar5 < (byte)this->field_0x18);
+    } while (bVar5 < (unsigned char)this->field_0x18);
   }
   pOVar2 = Transport::GetOutputEmulationDevice((Transport *)this);
   if (pOVar2[0x20] != (OutputEmulationDevice)0x0) {
@@ -2639,20 +2606,20 @@ void __thiscall PRUDPTransport::TimeSliceHandler(PRUDPTransport *this)
 
 // private: class UDPSocket * __thiscall PRUDPTransport::GetSocket(unsigned char)
 
-UDPSocket * __thiscall PRUDPTransport::GetSocket(PRUDPTransport *this,uchar param_1)
+UDPSocket * __thiscall PRUDPTransport::GetSocket(PRUDPTransport *this,unsigned char param_1)
 
 {
-  return *(UDPSocket **)(&this->field_0x24 + (uint)param_1 * 4);
+  return *(UDPSocket **)(&this->field_0x24 + (unsigned int)param_1 * 4);
 }
 
 
 
 // private: unsigned short __thiscall PRUDPTransport::GetPortNumber(unsigned long)
 
-ushort __thiscall PRUDPTransport::GetPortNumber(PRUDPTransport *this,ulong param_1)
+unsigned short __thiscall PRUDPTransport::GetPortNumber(PRUDPTransport *this,unsigned long param_1)
 
 {
-  ushort uVar1;
+  unsigned short uVar1;
   
   if (*(Socket **)(&this->field_0x24 + param_1 * 4) != (Socket *)0x0) {
     uVar1 = Socket::GetBoundPort(*(Socket **)(&this->field_0x24 + param_1 * 4));
@@ -2679,7 +2646,7 @@ PRUDPTransportSettings * __thiscall PRUDPTransport::GetSettings(PRUDPTransport *
 void __thiscall
 PRUDPTransport::TraceProto
           (PRUDPTransport *this,char *param_1,Packet *param_2,PRUDPInetAddress *param_3,
-          PRUDPInetAddress *param_4,ulong param_5)
+          PRUDPInetAddress *param_4,unsigned long param_5)
 
 {
   return;
@@ -2689,7 +2656,7 @@ PRUDPTransport::TraceProto
 
 // unsigned long __cdecl HandleTimeSliceWrap(unsigned long,unsigned long)
 
-ulong __cdecl HandleTimeSliceWrap(ulong param_1,ulong param_2)
+unsigned long __cdecl HandleTimeSliceWrap(unsigned long param_1,unsigned long param_2)
 
 {
   PRUDPTransport::TimeSliceHandler((PRUDPTransport *)param_1);
@@ -2700,7 +2667,7 @@ ulong __cdecl HandleTimeSliceWrap(ulong param_1,ulong param_2)
 
 // unsigned long __cdecl HandleRecvCompletedWrap(unsigned long,unsigned long)
 
-ulong __cdecl HandleRecvCompletedWrap(ulong param_1,ulong param_2)
+unsigned long __cdecl HandleRecvCompletedWrap(unsigned long param_1,unsigned long param_2)
 
 {
   UDPSocket::CompleteRecv(*(UDPSocket **)(param_1 + 0x24 + param_2 * 4));
@@ -2712,7 +2679,7 @@ ulong __cdecl HandleRecvCompletedWrap(ulong param_1,ulong param_2)
 
 // unsigned long __cdecl HandleSendCompletedWrap(unsigned long,unsigned long)
 
-ulong __cdecl HandleSendCompletedWrap(ulong param_1,ulong param_2)
+unsigned long __cdecl HandleSendCompletedWrap(unsigned long param_1,unsigned long param_2)
 
 {
   UDPSocket::CompleteSend(*(UDPSocket **)(param_1 + 0x24 + param_2 * 4));
@@ -2723,7 +2690,7 @@ ulong __cdecl HandleSendCompletedWrap(ulong param_1,ulong param_2)
 
 // unsigned long __cdecl HandleICMPCompletedWrap(unsigned long,unsigned long)
 
-ulong __cdecl HandleICMPCompletedWrap(ulong param_1,ulong param_2)
+unsigned long __cdecl HandleICMPCompletedWrap(unsigned long param_1,unsigned long param_2)
 
 {
   PRUDPTransport::CompleteICMP((PRUDPTransport *)param_1,(ICMPSocket *)param_2);
@@ -3158,7 +3125,7 @@ std::_Tree<>::erase(_Tree<> *this,undefined4 *param_2,int *param_3,int *param_4)
       } while (p_Var1 != _Nil);
     }
     pcVar3 = ___imp___1_Lockit_std__QAE_XZ;
-    iStack_4 = (uint)iStack_4._1_3_ << 8;
+    iStack_4 = (unsigned int)iStack_4._1_3_ << 8;
     (*___imp___1_Lockit_std__QAE_XZ)();
     iStack_4 = 0xffffffff;
     *(_Node **)(*(int *)(this + 4) + 4) = _Nil;
@@ -3186,13 +3153,13 @@ void __thiscall std::_Tree<>::find(_Tree<> *this,__int64 *param_1)
 
 {
   _Node *p_Var1;
-  uint *in_stack_00000008;
+  unsigned int *in_stack_00000008;
   
   p_Var1 = _Lbound(this,(__int64 *)in_stack_00000008);
   if (p_Var1 != *(_Node **)(this + 4)) {
     if ((*(int *)(p_Var1 + 0x14) <= (int)in_stack_00000008[1]) &&
        ((*(int *)(p_Var1 + 0x14) < (int)in_stack_00000008[1] ||
-        (*(uint *)(p_Var1 + 0x10) <= *in_stack_00000008)))) {
+        (*(unsigned int *)(p_Var1 + 0x10) <= *in_stack_00000008)))) {
       *(_Node **)param_1 = p_Var1;
       return;
     }
@@ -3241,9 +3208,9 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
   undefined4 *puVar2;
   _Node *p_Var3;
   pair<> *ppVar4;
-  uint *in_stack_00000008;
+  unsigned int *in_stack_00000008;
   pair<> *appStack_c [2];
-  uint uStack_4;
+  unsigned int uStack_4;
   
   ppVar4 = *(pair<> **)(this + 4);
   bVar1 = true;
@@ -3254,7 +3221,7 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
       ppVar4 = (pair<> *)p_Var3;
       if ((*(int *)((_Node *)ppVar4 + 0x14) < (int)in_stack_00000008[1]) ||
          ((*(int *)((_Node *)ppVar4 + 0x14) <= (int)in_stack_00000008[1] &&
-          (*(uint *)((_Node *)ppVar4 + 0x10) <= *in_stack_00000008)))) {
+          (*(unsigned int *)((_Node *)ppVar4 + 0x10) <= *in_stack_00000008)))) {
         p_Var3 = *(_Node **)((_Node *)ppVar4 + 8);
         bVar1 = false;
       }
@@ -3269,7 +3236,7 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
     puVar2 = (undefined4 *)_Insert(this,(_Node *)&stack0x00000008,p_Var3,ppVar4);
     uStack_4 = CONCAT31(uStack_4._1_3_,1);
     *(undefined4 *)param_1 = *puVar2;
-    *(uint *)(param_1 + 4) = uStack_4;
+    *(unsigned int *)(param_1 + 4) = uStack_4;
     return;
   }
   appStack_c[0] = ppVar4;
@@ -3278,23 +3245,23 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
       puVar2 = (undefined4 *)_Insert(this,(_Node *)&stack0x00000008,p_Var3,ppVar4);
       uStack_4 = CONCAT31(uStack_4._1_3_,1);
       *(undefined4 *)param_1 = *puVar2;
-      *(uint *)(param_1 + 4) = uStack_4;
+      *(unsigned int *)(param_1 + 4) = uStack_4;
       return;
     }
     const_iterator::_Dec((const_iterator *)appStack_c);
   }
   if ((*(int *)(appStack_c[0] + 0x14) <= (int)in_stack_00000008[1]) &&
      ((*(int *)(appStack_c[0] + 0x14) < (int)in_stack_00000008[1] ||
-      (*(uint *)(appStack_c[0] + 0x10) < *in_stack_00000008)))) {
+      (*(unsigned int *)(appStack_c[0] + 0x10) < *in_stack_00000008)))) {
     puVar2 = (undefined4 *)_Insert(this,(_Node *)&stack0x00000008,p_Var3,ppVar4);
     uStack_4 = CONCAT31(uStack_4._1_3_,1);
     *(undefined4 *)param_1 = *puVar2;
-    *(uint *)(param_1 + 4) = uStack_4;
+    *(unsigned int *)(param_1 + 4) = uStack_4;
     return;
   }
   uStack_4 = uStack_4 & 0xffffff00;
   *(pair<> **)param_1 = appStack_c[0];
-  *(uint *)(param_1 + 4) = uStack_4;
+  *(unsigned int *)(param_1 + 4) = uStack_4;
   return;
 }
 
@@ -3482,7 +3449,7 @@ std::_Tree<>::_Insert(_Tree<> *this,_Node *param_1,_Node *param_2,pair<> *param_
   if ((param_3 != *(pair<> **)(this + 4)) && (param_2 == _Nil)) {
     if ((*(int *)(param_3 + 0x14) <= *(int *)(in_stack_00000010 + 4)) &&
        ((*(int *)(param_3 + 0x14) < *(int *)(in_stack_00000010 + 4) ||
-        (*(uint *)(param_3 + 0x10) <= *(uint *)in_stack_00000010)))) {
+        (*(unsigned int *)(param_3 + 0x10) <= *(unsigned int *)in_stack_00000010)))) {
       *(int **)(param_3 + 8) = piVar5;
       if (param_3 == *(pair<> **)(*(int *)(this + 4) + 8)) {
         *(int **)(*(int *)(this + 4) + 8) = piVar5;
@@ -3666,7 +3633,7 @@ _Node * __thiscall std::_Tree<>::_Lbound(_Tree<> *this,__int64 *param_1)
     do {
       if ((*(int *)((int)param_1 + 4) < *(int *)(p_Var1 + 0x14)) ||
          ((*(int *)((int)param_1 + 4) <= *(int *)(p_Var1 + 0x14) &&
-          ((uint)*param_1 <= *(uint *)(p_Var1 + 0x10))))) {
+          ((unsigned int)*param_1 <= *(unsigned int *)(p_Var1 + 0x10))))) {
         p_Var2 = *(_Node **)p_Var1;
         p_Var3 = p_Var1;
       }

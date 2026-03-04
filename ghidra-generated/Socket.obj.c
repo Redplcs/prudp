@@ -1,40 +1,8 @@
+#include <stdbool.h>
+
 typedef unsigned char   undefined;
 
-typedef unsigned char    bool;
-typedef unsigned int    dword;
-typedef unsigned char    uchar;
-typedef unsigned int    uint;
-typedef unsigned long    ulong;
 typedef unsigned int    undefined4;
-typedef unsigned short    ushort;
-typedef unsigned short    word;
-typedef struct CoffFileHeader CoffFileHeader, *PCoffFileHeader;
-
-struct CoffFileHeader {
-    word f_magic;
-    word f_nscns;
-    dword f_timdat;
-    dword f_symptr;
-    dword f_nsyms;
-    word f_opthdr;
-    word f_flags;
-};
-
-typedef struct CoffSectionHeader CoffSectionHeader, *PCoffSectionHeader;
-
-struct CoffSectionHeader {
-    char s_name[8];
-    dword s_paddr;
-    dword s_vaddr;
-    dword s_size;
-    dword s_scnptr;
-    dword s_relptr;
-    dword s_lnnoptr;
-    word s_nreloc;
-    word s_nlnno;
-    dword s_flags;
-};
-
 typedef struct Buffer Buffer, *PBuffer;
 
 struct Buffer { // PlaceHolder Structure
@@ -75,12 +43,12 @@ struct Socket { // PlaceHolder Structure
 undefined LAB_00002e0b;
 undefined __except_list;
 undefined LAB_00002e2b;
-TerminatedCString s_m_eState_==_CLOSE;
-TerminatedCString s_Socket.cpp;
+const char * s_m_eState_==_CLOSE;
+const char * s_Socket.cpp;
 undefined __imp__WSASocketA@24;
 undefined __imp__getsockname@12;
 undefined __imp__bind@12;
-TerminatedCString s_m_eState_==_OPEN;
+const char * s_m_eState_==_OPEN;
 undefined __imp__shutdown@8;
 undefined __imp__closesocket@4;
 undefined __imp__WSASendTo@36;
@@ -93,7 +61,7 @@ undefined __imp__GetLastError@0;
 
 // public: __thiscall Socket::Socket(unsigned long)
 
-Socket * __thiscall Socket::Socket(Socket *this,ulong param_1)
+Socket * __thiscall Socket::Socket(Socket *this,unsigned long param_1)
 
 {
   undefined4 *puVar1;
@@ -111,7 +79,7 @@ Socket * __thiscall Socket::Socket(Socket *this,ulong param_1)
   puVar1 = operator_new(0x24);
   *(undefined4 **)(this + 0x10) = puVar1;
   *puVar1 = 0xffffffff;
-  *(ulong *)(this + 4) = param_1;
+  *(unsigned long *)(this + 4) = param_1;
   *(undefined4 *)this = 3;
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_c;
   return this;
@@ -167,7 +135,7 @@ bool __thiscall Socket::Open(Socket *this)
     GetLastSocketError();
     pcVar3 = (char *)0x0;
     pTVar2 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar3);
+    TraceOutput::Trace(this_00,(unsigned long)pTVar2,pcVar3);
     return false;
   }
   SetBroadcastMode(this,true);
@@ -197,7 +165,7 @@ bool __thiscall Socket::Bind(Socket *this,PRUDPInetAddress *param_1)
     GetLastSocketError();
     pcVar4 = (char *)0x0;
     pTVar3 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_00,(ulong)pTVar3,pcVar4);
+    TraceOutput::Trace(this_00,(unsigned long)pTVar3,pcVar4);
     return false;
   }
   puVar5 = &stack0xfffffff0;
@@ -223,13 +191,13 @@ PRUDPInetAddress * __thiscall Socket::GetAddress(Socket *this)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: void __thiscall Socket::Shutdown(unsigned long)
 
-void __thiscall Socket::Shutdown(Socket *this,ulong param_1)
+void __thiscall Socket::Shutdown(Socket *this,unsigned long param_1)
 
 {
   code *pcVar1;
   TraceOutput *pTVar2;
   int iVar3;
-  ulong uVar4;
+  unsigned long uVar4;
   TraceOutput *this_00;
   TraceOutput *this_01;
   undefined4 in_stack_0000000c;
@@ -238,7 +206,7 @@ void __thiscall Socket::Shutdown(Socket *this,ulong param_1)
   if (*(int *)this == 3) {
     pcVar5 = (char *)0x1;
     pTVar2 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar5);
+    TraceOutput::Trace(this_00,(unsigned long)pTVar2,pcVar5);
   }
   pcVar1 = ___imp__shutdown_8;
   iVar3 = *(int *)this;
@@ -247,7 +215,7 @@ void __thiscall Socket::Shutdown(Socket *this,ulong param_1)
     if ((iVar3 == -1) && (uVar4 = GetLastSocketError(), uVar4 != 0x2749)) {
       pcVar5 = (char *)0x1;
       pTVar2 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_01,(ulong)pTVar2,pcVar5);
+      TraceOutput::Trace(this_01,(unsigned long)pTVar2,pcVar5);
       Platform::Sleep(10);
     }
     else {
@@ -281,13 +249,13 @@ void __thiscall Socket::Close(Socket *this)
 // AsyncIOContext *)
 
 int __thiscall
-Socket::Send(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param_3,
+Socket::Send(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,unsigned long *param_3,
             AsyncIOContext *param_4)
 
 {
   undefined4 *puVar1;
-  uchar *puVar2;
-  ulong uVar3;
+  unsigned char *puVar2;
+  unsigned long uVar3;
   TraceOutput *pTVar4;
   _OVERLAPPED *p_Var5;
   sockaddr *psVar6;
@@ -302,16 +270,16 @@ Socket::Send(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
   
   *param_3 = 0;
   puVar2 = Buffer::GetContentPtr(param_1);
-  *(uchar **)(*(int *)(this + 0x10) + 8) = puVar2;
+  *(unsigned char **)(*(int *)(this + 0x10) + 8) = puVar2;
   uVar3 = Buffer::GetContentSize(param_1);
-  *(ulong *)(*(int *)(this + 0x10) + 4) = uVar3;
+  *(unsigned long *)(*(int *)(this + 0x10) + 4) = uVar3;
   PRUDPInetAddress::ToStr(param_2,local_80);
   Buffer::GetContentPtr(param_1);
   Buffer::GetContentPtr(param_1);
   Buffer::GetContentSize(param_1);
   pcVar8 = (char *)0x0;
   pTVar4 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar4,pcVar8);
+  TraceOutput::Trace(this_00,(unsigned long)pTVar4,pcVar8);
   puVar1 = *(undefined4 **)(this + 0x10);
   uVar10 = 0;
   p_Var5 = AsyncIOContext::GetOverlapped(in_stack_00000018);
@@ -324,7 +292,7 @@ Socket::Send(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
       GetLastSocketError();
       pcVar8 = (char *)0x1;
       pTVar4 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_01,(ulong)pTVar4,pcVar8);
+      TraceOutput::Trace(this_01,(unsigned long)pTVar4,pcVar8);
       uVar3 = GetLastSocketError();
       return uVar3;
     }
@@ -339,13 +307,13 @@ Socket::Send(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
 // AsyncIOContext *)
 
 int __thiscall
-Socket::Recv(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param_3,
+Socket::Recv(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,unsigned long *param_3,
             AsyncIOContext *param_4)
 
 {
   undefined4 *puVar1;
-  uchar *puVar2;
-  ulong uVar3;
+  unsigned char *puVar2;
+  unsigned long uVar3;
   _OVERLAPPED *p_Var4;
   sockaddr *psVar5;
   int iVar6;
@@ -362,10 +330,10 @@ Socket::Recv(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
   *(undefined4 *)pSVar9 = 0x10;
   *param_3 = 0;
   puVar2 = Buffer::GetContentPtr(param_1);
-  *(uchar **)(*(int *)(this + 0x10) + 0x18) = puVar2;
+  *(unsigned char **)(*(int *)(this + 0x10) + 0x18) = puVar2;
   uVar3 = Buffer::GetSize(param_1);
   uVar10 = 0;
-  *(ulong *)(*(int *)(this + 0x10) + 0x14) = uVar3;
+  *(unsigned long *)(*(int *)(this + 0x10) + 0x14) = uVar3;
   puVar1 = *(undefined4 **)(this + 0x10);
   p_Var4 = AsyncIOContext::GetOverlapped(param_4);
   psVar5 = PRUDPInetAddress::GetSockAddr(param_2);
@@ -377,7 +345,7 @@ Socket::Recv(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
       GetLastSocketError();
       pcVar8 = (char *)0x6000000;
       pTVar7 = TraceOutput::GetInstance();
-      TraceOutput::Trace(this_00,(ulong)pTVar7,pcVar8);
+      TraceOutput::Trace(this_00,(unsigned long)pTVar7,pcVar8);
       return -1;
     }
   }
@@ -402,15 +370,15 @@ void __thiscall Socket::TryIOCompletion(Socket *this,AsyncIOContext *param_1)
 // long *)
 
 bool __thiscall
-Socket::WaitForIOCompletion(Socket *this,AsyncIOContext *param_1,ulong param_2,ulong *param_3)
+Socket::WaitForIOCompletion(Socket *this,AsyncIOContext *param_1,unsigned long param_2,unsigned long *param_3)
 
 {
   _OVERLAPPED *p_Var1;
   int iVar2;
-  ulong uVar3;
-  ulong *unaff_EDI;
+  unsigned long uVar3;
+  unsigned long *unaff_EDI;
   undefined4 uVar4;
-  ulong uStack_c;
+  unsigned long uStack_c;
   
   uStack_c = 0;
   uVar4 = 0;
@@ -431,15 +399,15 @@ Socket::WaitForIOCompletion(Socket *this,AsyncIOContext *param_1,ulong param_2,u
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: unsigned long __thiscall Socket::GetIOResult(class AsyncIOContext *,unsigned long *)
 
-ulong __thiscall Socket::GetIOResult(Socket *this,AsyncIOContext *param_1,ulong *param_2)
+unsigned long __thiscall Socket::GetIOResult(Socket *this,AsyncIOContext *param_1,unsigned long *param_2)
 
 {
   _OVERLAPPED *p_Var1;
   int iVar2;
-  ulong uVar3;
-  ulong *puVar4;
+  unsigned long uVar3;
+  unsigned long *puVar4;
   undefined4 uVar5;
-  ulong **ppuVar6;
+  unsigned long **ppuVar6;
   
   ppuVar6 = &param_2;
   uVar5 = 0;
@@ -464,7 +432,7 @@ bool __thiscall Socket::SetAsync(Socket *this,bool param_1)
 {
   int iVar1;
   
-  _param_1 = (uint)param_1;
+  _param_1 = (unsigned int)param_1;
   iVar1 = (*___imp__ioctlsocket_12)(**(undefined4 **)(this + 0x10),0x8004667e,&param_1);
   return (bool)('\x01' - (iVar1 != 0));
 }
@@ -487,7 +455,7 @@ bool __thiscall Socket::SetNoDelay(Socket *this,bool param_1)
     GetLastSocketError();
     pcVar3 = (char *)0x0;
     pTVar2 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar3);
+    TraceOutput::Trace(this_00,(unsigned long)pTVar2,pcVar3);
     return false;
   }
   return true;
@@ -513,7 +481,7 @@ bool __thiscall Socket::SetBuffers(Socket *this)
     GetLastSocketError();
     pcVar3 = (char *)0x0;
     pTVar2 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar3);
+    TraceOutput::Trace(this_00,(unsigned long)pTVar2,pcVar3);
     return false;
   }
   return true;
@@ -537,7 +505,7 @@ bool __thiscall Socket::ReuseAddress(Socket *this,bool param_1)
     GetLastSocketError();
     pcVar3 = (char *)0x0;
     pTVar2 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar3);
+    TraceOutput::Trace(this_00,(unsigned long)pTVar2,pcVar3);
     return false;
   }
   return true;
@@ -561,7 +529,7 @@ bool __thiscall Socket::SetDebugMode(Socket *this,bool param_1)
     GetLastSocketError();
     pcVar3 = (char *)0x0;
     pTVar2 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar3);
+    TraceOutput::Trace(this_00,(unsigned long)pTVar2,pcVar3);
     return false;
   }
   return true;
@@ -577,7 +545,7 @@ bool __thiscall Socket::SetBroadcastMode(Socket *this,bool param_1)
 {
   int iVar1;
   
-  _param_1 = (uint)param_1;
+  _param_1 = (unsigned int)param_1;
   iVar1 = (*___imp__setsockopt_20)(**(undefined4 **)(this + 0x10),0xffff,0x20,&param_1,4);
   return iVar1 != -1;
 }
@@ -587,10 +555,10 @@ bool __thiscall Socket::SetBroadcastMode(Socket *this,bool param_1)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: static unsigned long __cdecl Socket::GetLastSocketError(void)
 
-ulong __cdecl Socket::GetLastSocketError(void)
+unsigned long __cdecl Socket::GetLastSocketError(void)
 
 {
-  ulong uVar1;
+  unsigned long uVar1;
   
                     // WARNING: Could not recover jumptable at 0x00002c00. Too many branches
                     // WARNING: Treating indirect jump as call
@@ -602,10 +570,10 @@ ulong __cdecl Socket::GetLastSocketError(void)
 
 // public: unsigned short __thiscall Socket::GetBoundPort(void)
 
-ushort __thiscall Socket::GetBoundPort(Socket *this)
+unsigned short __thiscall Socket::GetBoundPort(Socket *this)
 
 {
-  ushort uVar1;
+  unsigned short uVar1;
   
   uVar1 = PRUDPInetAddress::GetPort((PRUDPInetAddress *)(this + 8));
   return uVar1;
