@@ -67,22 +67,22 @@ void __thiscall RTT::~RTT(RTT *this)
 
 // public: void __thiscall RTT::Adjust(unsigned long)
 
-void __thiscall RTT::Adjust(RTT *this,ulong param_1)
+void __thiscall RTT::Adjust(RTT *this,ulong ulValue)
 
 {
   int iVar1;
   
   if (*(int *)(this + 8) == -1) {
-    *(ulong *)(this + 8) = param_1;
-    *(ulong *)this = param_1 * 8;
+    *(ulong *)(this + 8) = ulValue;
+    *(ulong *)this = ulValue * 8;
     return;
   }
-  iVar1 = param_1 - (*(uint *)this >> 3);
+  iVar1 = ulValue - (*(uint *)this >> 3);
   *(uint *)this = *(uint *)this + iVar1;
   if (iVar1 < 0) {
     iVar1 = -iVar1;
   }
-  *(ulong *)(this + 8) = param_1;
+  *(ulong *)(this + 8) = ulValue;
   *(uint *)(this + 4) = (*(uint *)(this + 4) - (*(uint *)(this + 4) >> 2)) + iVar1;
   return;
 }
@@ -142,14 +142,14 @@ ulong __thiscall RTT::GetLastRTT(RTT *this)
 
 // public: void __thiscall RTT::Trace(unsigned long)
 
-void __thiscall RTT::Trace(RTT *this,ulong param_1)
+void __thiscall RTT::Trace(RTT *this,ulong ulValue)
 
 {
   TraceOutput *pTVar1;
   TraceOutput *this_00;
   
   pTVar1 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar1,(char *)param_1);
+  TraceOutput::Trace(this_00,(ulong)pTVar1,(char *)ulValue);
   return;
 }
 

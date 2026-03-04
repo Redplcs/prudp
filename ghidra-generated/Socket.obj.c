@@ -90,7 +90,7 @@ undefined __imp__GetLastError@0;
 
 // public: __thiscall Socket::Socket(unsigned long)
 
-Socket * __thiscall Socket::Socket(Socket *this,ulong param_1)
+Socket * __thiscall Socket::Socket(Socket *this,ulong ulValue)
 
 {
   undefined4 *puVar1;
@@ -108,7 +108,7 @@ Socket * __thiscall Socket::Socket(Socket *this,ulong param_1)
   puVar1 = operator_new(0x24);
   *(undefined4 **)(this + 0x10) = puVar1;
   *puVar1 = 0xffffffff;
-  *(ulong *)(this + 4) = param_1;
+  *(ulong *)(this + 4) = ulValue;
   *(undefined4 *)this = 3;
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_c;
   return this;
@@ -177,7 +177,7 @@ bool __thiscall Socket::Open(Socket *this)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: bool __thiscall Socket::Bind(class PRUDPInetAddress *)
 
-bool __thiscall Socket::Bind(Socket *this,PRUDPInetAddress *param_1)
+bool __thiscall Socket::Bind(Socket *this,PRUDPInetAddress *pAddress)
 
 {
   sockaddr *psVar1;
@@ -188,7 +188,7 @@ bool __thiscall Socket::Bind(Socket *this,PRUDPInetAddress *param_1)
   undefined1 *puVar5;
   
   Platform::SystemCheck(*(int *)this == 0,s_m_eState____OPEN,s_Socket_cpp,0x53);
-  psVar1 = PRUDPInetAddress::GetSockAddr(param_1);
+  psVar1 = PRUDPInetAddress::GetSockAddr(pAddress);
   iVar2 = (*___imp__bind_12)(**(undefined4 **)(this + 0x10),psVar1);
   if (iVar2 == -1) {
     GetLastSocketError();
@@ -201,7 +201,7 @@ bool __thiscall Socket::Bind(Socket *this,PRUDPInetAddress *param_1)
   *(undefined4 *)this = 1;
   psVar1 = PRUDPInetAddress::GetSockAddr((PRUDPInetAddress *)(this + 8));
   (*___imp__getsockname_12)(**(undefined4 **)(this + 0x10),psVar1,puVar5);
-  PRUDPInetAddress::operator=(param_1,(PRUDPInetAddress *)(this + 8));
+  PRUDPInetAddress::operator=(pAddress,(PRUDPInetAddress *)(this + 8));
   return true;
 }
 
@@ -220,7 +220,7 @@ PRUDPInetAddress * __thiscall Socket::GetAddress(Socket *this)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: void __thiscall Socket::Shutdown(unsigned long)
 
-void __thiscall Socket::Shutdown(Socket *this,ulong param_1)
+void __thiscall Socket::Shutdown(Socket *this,ulong ulValue)
 
 {
   code *pcVar1;
@@ -278,8 +278,8 @@ void __thiscall Socket::Close(Socket *this)
 // AsyncIOContext *)
 
 int __thiscall
-Socket::Send(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param_3,
-            AsyncIOContext *param_4)
+Socket::Send(Socket *this,Buffer *pBuffer,PRUDPInetAddress *pAddress,ulong *pulValue,
+            AsyncIOContext *pAsyncIOContext)
 
 {
   undefined4 *puVar1;
@@ -297,15 +297,15 @@ Socket::Send(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
   undefined4 uVar10;
   char local_80 [128];
   
-  *param_3 = 0;
-  puVar2 = Buffer::GetContentPtr(param_1);
+  *pulValue = 0;
+  puVar2 = Buffer::GetContentPtr(pBuffer);
   *(uchar **)(*(int *)(this + 0x10) + 8) = puVar2;
-  uVar3 = Buffer::GetContentSize(param_1);
+  uVar3 = Buffer::GetContentSize(pBuffer);
   *(ulong *)(*(int *)(this + 0x10) + 4) = uVar3;
-  PRUDPInetAddress::ToStr(param_2,local_80);
-  Buffer::GetContentPtr(param_1);
-  Buffer::GetContentPtr(param_1);
-  Buffer::GetContentSize(param_1);
+  PRUDPInetAddress::ToStr(pAddress,local_80);
+  Buffer::GetContentPtr(pBuffer);
+  Buffer::GetContentPtr(pBuffer);
+  Buffer::GetContentSize(pBuffer);
   pcVar8 = (char *)0x0;
   pTVar4 = TraceOutput::GetInstance();
   TraceOutput::Trace(this_00,(ulong)pTVar4,pcVar8);
@@ -313,8 +313,8 @@ Socket::Send(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
   uVar10 = 0;
   p_Var5 = AsyncIOContext::GetOverlapped(in_stack_00000018);
   uVar9 = 0x10;
-  psVar6 = PRUDPInetAddress::GetSockAddr(param_2);
-  iVar7 = (*___imp__WSASendTo_36)(*puVar1,puVar1 + 1,1,param_3,0,psVar6,uVar9,p_Var5,uVar10);
+  psVar6 = PRUDPInetAddress::GetSockAddr(pAddress);
+  iVar7 = (*___imp__WSASendTo_36)(*puVar1,puVar1 + 1,1,pulValue,0,psVar6,uVar9,p_Var5,uVar10);
   if (iVar7 == -1) {
     uVar3 = GetLastSocketError();
     if (uVar3 != 0x3e5) {
@@ -336,8 +336,8 @@ Socket::Send(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
 // AsyncIOContext *)
 
 int __thiscall
-Socket::Recv(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param_3,
-            AsyncIOContext *param_4)
+Socket::Recv(Socket *this,Buffer *pBuffer,PRUDPInetAddress *pAddress,ulong *pulValue,
+            AsyncIOContext *pAsyncIOContext)
 
 {
   undefined4 *puVar1;
@@ -357,17 +357,17 @@ Socket::Recv(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
   pSVar9 = this + 0xc;
   local_4 = 0;
   *(undefined4 *)pSVar9 = 0x10;
-  *param_3 = 0;
-  puVar2 = Buffer::GetContentPtr(param_1);
+  *pulValue = 0;
+  puVar2 = Buffer::GetContentPtr(pBuffer);
   *(uchar **)(*(int *)(this + 0x10) + 0x18) = puVar2;
-  uVar3 = Buffer::GetSize(param_1);
+  uVar3 = Buffer::GetSize(pBuffer);
   uVar10 = 0;
   *(ulong *)(*(int *)(this + 0x10) + 0x14) = uVar3;
   puVar1 = *(undefined4 **)(this + 0x10);
-  p_Var4 = AsyncIOContext::GetOverlapped(param_4);
-  psVar5 = PRUDPInetAddress::GetSockAddr(param_2);
+  p_Var4 = AsyncIOContext::GetOverlapped(pAsyncIOContext);
+  psVar5 = PRUDPInetAddress::GetSockAddr(pAddress);
   iVar6 = (*___imp__WSARecvFrom_36)
-                    (*puVar1,puVar1 + 5,1,param_3,&local_4,psVar5,pSVar9,p_Var4,uVar10);
+                    (*puVar1,puVar1 + 5,1,pulValue,&local_4,psVar5,pSVar9,p_Var4,uVar10);
   if (iVar6 == -1) {
     uVar3 = GetLastSocketError();
     if (uVar3 != 0x3e5) {
@@ -378,7 +378,7 @@ Socket::Recv(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
       return -1;
     }
   }
-  AsyncIOContext::SetIOSize(unaff_EDI,*param_3);
+  AsyncIOContext::SetIOSize(unaff_EDI,*pulValue);
   return 0;
 }
 
@@ -386,7 +386,7 @@ Socket::Recv(Socket *this,Buffer *param_1,PRUDPInetAddress *param_2,ulong *param
 
 // public: void __thiscall Socket::TryIOCompletion(class AsyncIOContext *)
 
-void __thiscall Socket::TryIOCompletion(Socket *this,AsyncIOContext *param_1)
+void __thiscall Socket::TryIOCompletion(Socket *this,AsyncIOContext *pAsyncIOContext)
 
 {
   return;
@@ -399,7 +399,7 @@ void __thiscall Socket::TryIOCompletion(Socket *this,AsyncIOContext *param_1)
 // long *)
 
 bool __thiscall
-Socket::WaitForIOCompletion(Socket *this,AsyncIOContext *param_1,ulong param_2,ulong *param_3)
+Socket::WaitForIOCompletion(Socket *this,AsyncIOContext *pAsyncIOContext,ulong ulValue,ulong *pulValue)
 
 {
   _OVERLAPPED *p_Var1;
@@ -411,13 +411,13 @@ Socket::WaitForIOCompletion(Socket *this,AsyncIOContext *param_1,ulong param_2,u
   
   uStack_c = 0;
   uVar4 = 0;
-  p_Var1 = AsyncIOContext::GetOverlapped(param_1);
-  iVar2 = (*___imp__WSAWaitForMultipleEvents_20)(1,p_Var1 + 0x10,uVar4,param_2);
+  p_Var1 = AsyncIOContext::GetOverlapped(pAsyncIOContext);
+  iVar2 = (*___imp__WSAWaitForMultipleEvents_20)(1,p_Var1 + 0x10,uVar4,ulValue);
   if (iVar2 == 0) {
-    uVar3 = GetIOResult(this,param_1,&uStack_c);
+    uVar3 = GetIOResult(this,pAsyncIOContext,&uStack_c);
     *unaff_EDI = uVar3;
-    AsyncIOContext::SetIOSize(param_1,uStack_c);
-    AsyncIOContext::SetReturnCode(param_1,*unaff_EDI);
+    AsyncIOContext::SetIOSize(pAsyncIOContext,uStack_c);
+    AsyncIOContext::SetReturnCode(pAsyncIOContext,*unaff_EDI);
     return true;
   }
   return false;
@@ -428,7 +428,7 @@ Socket::WaitForIOCompletion(Socket *this,AsyncIOContext *param_1,ulong param_2,u
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: unsigned long __thiscall Socket::GetIOResult(class AsyncIOContext *,unsigned long *)
 
-ulong __thiscall Socket::GetIOResult(Socket *this,AsyncIOContext *param_1,ulong *param_2)
+ulong __thiscall Socket::GetIOResult(Socket *this,AsyncIOContext *pAsyncIOContext,ulong *pulValue)
 
 {
   _OVERLAPPED *p_Var1;
@@ -438,10 +438,10 @@ ulong __thiscall Socket::GetIOResult(Socket *this,AsyncIOContext *param_1,ulong 
   undefined4 uVar5;
   ulong **ppuVar6;
   
-  ppuVar6 = &param_2;
+  ppuVar6 = &pulValue;
   uVar5 = 0;
-  puVar4 = param_2;
-  p_Var1 = AsyncIOContext::GetOverlapped(param_1);
+  puVar4 = pulValue;
+  p_Var1 = AsyncIOContext::GetOverlapped(pAsyncIOContext);
   iVar2 = (*___imp__WSAGetOverlappedResult_20)
                     (**(undefined4 **)(this + 0x10),p_Var1,puVar4,uVar5,ppuVar6);
   if (iVar2 == 0) {
@@ -456,13 +456,13 @@ ulong __thiscall Socket::GetIOResult(Socket *this,AsyncIOContext *param_1,ulong 
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: bool __thiscall Socket::SetAsync(bool)
 
-bool __thiscall Socket::SetAsync(Socket *this,bool param_1)
+bool __thiscall Socket::SetAsync(Socket *this,bool bValue)
 
 {
   int iVar1;
   
-  _param_1 = (uint)param_1;
-  iVar1 = (*___imp__ioctlsocket_12)(**(undefined4 **)(this + 0x10),0x8004667e,&param_1);
+  _param_1 = (uint)bValue;
+  iVar1 = (*___imp__ioctlsocket_12)(**(undefined4 **)(this + 0x10),0x8004667e,&bValue);
   return (bool)('\x01' - (iVar1 != 0));
 }
 
@@ -471,7 +471,7 @@ bool __thiscall Socket::SetAsync(Socket *this,bool param_1)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: bool __thiscall Socket::SetNoDelay(bool)
 
-bool __thiscall Socket::SetNoDelay(Socket *this,bool param_1)
+bool __thiscall Socket::SetNoDelay(Socket *this,bool bValue)
 
 {
   int iVar1;
@@ -479,7 +479,7 @@ bool __thiscall Socket::SetNoDelay(Socket *this,bool param_1)
   TraceOutput *this_00;
   char *pcVar3;
   
-  iVar1 = (*___imp__setsockopt_20)(**(undefined4 **)(this + 0x10),6,1,&param_1,1);
+  iVar1 = (*___imp__setsockopt_20)(**(undefined4 **)(this + 0x10),6,1,&bValue,1);
   if (iVar1 == -1) {
     GetLastSocketError();
     pcVar3 = (char *)0x0;
@@ -521,7 +521,7 @@ bool __thiscall Socket::SetBuffers(Socket *this)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: bool __thiscall Socket::ReuseAddress(bool)
 
-bool __thiscall Socket::ReuseAddress(Socket *this,bool param_1)
+bool __thiscall Socket::ReuseAddress(Socket *this,bool bValue)
 
 {
   int iVar1;
@@ -529,7 +529,7 @@ bool __thiscall Socket::ReuseAddress(Socket *this,bool param_1)
   TraceOutput *this_00;
   char *pcVar3;
   
-  iVar1 = (*___imp__setsockopt_20)(**(undefined4 **)(this + 0x10),0xffff,4,&param_1,1);
+  iVar1 = (*___imp__setsockopt_20)(**(undefined4 **)(this + 0x10),0xffff,4,&bValue,1);
   if (iVar1 == -1) {
     GetLastSocketError();
     pcVar3 = (char *)0x0;
@@ -545,7 +545,7 @@ bool __thiscall Socket::ReuseAddress(Socket *this,bool param_1)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: bool __thiscall Socket::SetDebugMode(bool)
 
-bool __thiscall Socket::SetDebugMode(Socket *this,bool param_1)
+bool __thiscall Socket::SetDebugMode(Socket *this,bool bValue)
 
 {
   int iVar1;
@@ -553,7 +553,7 @@ bool __thiscall Socket::SetDebugMode(Socket *this,bool param_1)
   TraceOutput *this_00;
   char *pcVar3;
   
-  iVar1 = (*___imp__setsockopt_20)(**(undefined4 **)(this + 0x10),0xffff,1,&param_1,1);
+  iVar1 = (*___imp__setsockopt_20)(**(undefined4 **)(this + 0x10),0xffff,1,&bValue,1);
   if (iVar1 == -1) {
     GetLastSocketError();
     pcVar3 = (char *)0x0;
@@ -569,13 +569,13 @@ bool __thiscall Socket::SetDebugMode(Socket *this,bool param_1)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: bool __thiscall Socket::SetBroadcastMode(bool)
 
-bool __thiscall Socket::SetBroadcastMode(Socket *this,bool param_1)
+bool __thiscall Socket::SetBroadcastMode(Socket *this,bool bValue)
 
 {
   int iVar1;
   
-  _param_1 = (uint)param_1;
-  iVar1 = (*___imp__setsockopt_20)(**(undefined4 **)(this + 0x10),0xffff,0x20,&param_1,4);
+  _param_1 = (uint)bValue;
+  iVar1 = (*___imp__setsockopt_20)(**(undefined4 **)(this + 0x10),0xffff,0x20,&bValue,4);
   return iVar1 != -1;
 }
 

@@ -781,11 +781,11 @@ PacketIn * __thiscall PacketIn::PacketIn(PacketIn *this)
 
 // public: virtual void * __thiscall PacketIn::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall PacketIn::_scalar_deleting_destructor_(PacketIn *this,uint param_1)
+void * __thiscall PacketIn::_scalar_deleting_destructor_(PacketIn *this,uint shouldDelete)
 
 {
   ~PacketIn(this);
-  if ((param_1 & 1) != 0) {
+  if ((shouldDelete & 1) != 0) {
     operator_delete(this);
   }
   return this;
@@ -806,7 +806,7 @@ void __thiscall PacketIn::~PacketIn(PacketIn *this)
 
 // public: bool __thiscall PacketIn::Unpack(class Buffer *)
 
-bool __thiscall PacketIn::Unpack(PacketIn *this,Buffer *param_1)
+bool __thiscall PacketIn::Unpack(PacketIn *this,Buffer *pBuffer)
 
 {
   bool bVar1;
@@ -816,21 +816,21 @@ bool __thiscall PacketIn::Unpack(PacketIn *this,Buffer *param_1)
   uchar *puVar5;
   ulong uVar6;
   
-  uVar3 = Buffer::GetContentSize(param_1);
+  uVar3 = Buffer::GetContentSize(pBuffer);
   if (uVar3 != 0) {
-    bVar1 = Buffer::ValidateAndRetrieveChecksum(param_1);
+    bVar1 = Buffer::ValidateAndRetrieveChecksum(pBuffer);
     if (bVar1) {
-      bVar1 = Buffer::CopyContent(param_1,this + 0xc,8,0);
+      bVar1 = Buffer::CopyContent(pBuffer,this + 0xc,8,0);
       if (bVar1) {
         pBVar4 = Packet::GetPayload((Packet *)this);
         Buffer::Clear(pBVar4);
         uVar2 = Packet::GetSize((Packet *)this);
-        uVar3 = Buffer::GetContentSize(param_1);
+        uVar3 = Buffer::GetContentSize(pBuffer);
         if (uVar3 == uVar2) {
           uVar6 = 0xffffffff;
-          uVar3 = Buffer::GetContentSize(param_1);
+          uVar3 = Buffer::GetContentSize(pBuffer);
           uVar3 = uVar3 - 8;
-          puVar5 = Buffer::GetContentPtr(param_1);
+          puVar5 = Buffer::GetContentPtr(pBuffer);
           puVar5 = puVar5 + 8;
           pBVar4 = Packet::GetPayload((Packet *)this);
           bVar1 = Buffer::AppendData(pBVar4,puVar5,uVar3,uVar6);

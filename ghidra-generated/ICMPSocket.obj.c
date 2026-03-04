@@ -142,10 +142,10 @@ void __thiscall ICMPSocket::~ICMPSocket(ICMPSocket *this)
 
 // public: void __thiscall ICMPSocket::SetCompletionEvent(class Event *)
 
-void __thiscall ICMPSocket::SetCompletionEvent(ICMPSocket *this,Event *param_1)
+void __thiscall ICMPSocket::SetCompletionEvent(ICMPSocket *this,Event *pEvent)
 
 {
-  AsyncIOContext::SetEvent(*(AsyncIOContext **)(this + 0x38),param_1);
+  AsyncIOContext::SetEvent(*(AsyncIOContext **)(this + 0x38),pEvent);
   return;
 }
 
@@ -153,7 +153,7 @@ void __thiscall ICMPSocket::SetCompletionEvent(ICMPSocket *this,Event *param_1)
 
 // public: bool __thiscall ICMPSocket::Bind(class PRUDPInetAddress *)
 
-bool __thiscall ICMPSocket::Bind(ICMPSocket *this,PRUDPInetAddress *param_1)
+bool __thiscall ICMPSocket::Bind(ICMPSocket *this,PRUDPInetAddress *pAddress)
 
 {
   bool bVar1;
@@ -163,7 +163,7 @@ bool __thiscall ICMPSocket::Bind(ICMPSocket *this,PRUDPInetAddress *param_1)
     return false;
   }
   Socket::SetAsync((Socket *)this,true);
-  bVar1 = Socket::Bind((Socket *)this,param_1);
+  bVar1 = Socket::Bind((Socket *)this,pAddress);
   return bVar1;
 }
 
@@ -205,7 +205,7 @@ void __thiscall ICMPSocket::TryIOCompletion(ICMPSocket *this)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: unsigned long __thiscall ICMPSocket::GetIOCompletionResult(class PRUDPInetAddress *)
 
-ulong __thiscall ICMPSocket::GetIOCompletionResult(ICMPSocket *this,PRUDPInetAddress *param_1)
+ulong __thiscall ICMPSocket::GetIOCompletionResult(ICMPSocket *this,PRUDPInetAddress *pAddress)
 
 {
   ulong uVar1;
@@ -264,7 +264,7 @@ ulong __thiscall ICMPSocket::GetIOCompletionResult(ICMPSocket *this,PRUDPInetAdd
 
 void __thiscall
 ICMPSocket::TraceICMPErrorPacket
-          (ICMPSocket *this,PRUDPInetAddress *param_1,void *param_2,ulong param_3)
+          (ICMPSocket *this,PRUDPInetAddress *pAddress,void *pData,ulong ulValue)
 
 {
   return;

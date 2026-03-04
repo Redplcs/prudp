@@ -86,7 +86,7 @@ void __thiscall Timeout::SetExpirationTime(Timeout *this)
 
 // public: void __thiscall Timeout::SetRelativeExpirationTime(long)
 
-void __thiscall Timeout::SetRelativeExpirationTime(Timeout *this,long param_1)
+void __thiscall Timeout::SetRelativeExpirationTime(Timeout *this,long value)
 
 {
   Time *this_00;
@@ -153,13 +153,13 @@ bool __thiscall Timeout::IsAwaited(Timeout *this)
 
 // public: void __thiscall Timeout::SetRTO(unsigned long)
 
-void __thiscall Timeout::SetRTO(Timeout *this,ulong param_1)
+void __thiscall Timeout::SetRTO(Timeout *this,ulong ulValue)
 
 {
   bool bVar1;
   
-  *(ulong *)this = param_1;
-  if (((int)param_1 < 0) || (99999 < (int)param_1)) {
+  *(ulong *)this = ulValue;
+  if (((int)ulValue < 0) || (99999 < (int)ulValue)) {
     bVar1 = false;
   }
   else {
@@ -192,13 +192,13 @@ void __thiscall Timeout::Start(Timeout *this)
 // WARNING: Removing unreachable block (ram,0x000024e3)
 // public: bool __thiscall Timeout::operator<(class Timeout &)
 
-bool __thiscall Timeout::operator<(Timeout *this,Timeout *param_1)
+bool __thiscall Timeout::operator<(Timeout *this,Timeout *pTimeout)
 
 {
   __uint64 _Var1;
   __uint64 _Var2;
   
-  _Var1 = Time::operator_unsigned___int64((Time *)(param_1 + 8));
+  _Var1 = Time::operator_unsigned___int64((Time *)(pTimeout + 8));
   _Var2 = Time::operator_unsigned___int64((Time *)(this + 8));
   if ((longlong)_Var1 <= (longlong)_Var2) {
     return false;

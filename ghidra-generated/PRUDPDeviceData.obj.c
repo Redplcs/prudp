@@ -68,8 +68,8 @@ undefined LAB_00002528;
 
 PRUDPDeviceData * __thiscall
 PRUDPDeviceData::PRUDPDeviceData
-          (PRUDPDeviceData *this,Packet *param_1,UDPSocket *param_2,
-          _func_bool_DeviceData_ptr *param_3)
+          (PRUDPDeviceData *this,Packet *pPacket,UDPSocket *pUDPSocket,
+          _func_bool_DeviceData_ptr *p_func_bool_devicedata_ptr)
 
 {
   ushort uVar1;
@@ -83,13 +83,13 @@ PRUDPDeviceData::PRUDPDeviceData
   puStack_8 = &_L1335;
   local_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &local_c;
-  uVar1 = Packet::GetSize(param_1);
-  DeviceData::DeviceData((DeviceData *)this,(uint)uVar1,param_3);
+  uVar1 = Packet::GetSize(pPacket);
+  DeviceData::DeviceData((DeviceData *)this,(uint)uVar1,p_func_bool_devicedata_ptr);
   local_4 = 0;
   *(undefined ***)this = &_vftable_;
-  pRVar2 = RefCountedObject::AcquireRef((RefCountedObject *)param_1);
+  pRVar2 = RefCountedObject::AcquireRef((RefCountedObject *)pPacket);
   *(RefCountedObject **)(this + 0x14) = pRVar2;
-  *(UDPSocket **)(this + 0x18) = param_2;
+  *(UDPSocket **)(this + 0x18) = pUDPSocket;
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_c;
   return this;
 }
@@ -98,11 +98,11 @@ PRUDPDeviceData::PRUDPDeviceData
 
 // public: virtual void * __thiscall PRUDPDeviceData::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall PRUDPDeviceData::_scalar_deleting_destructor_(PRUDPDeviceData *this,uint param_1)
+void * __thiscall PRUDPDeviceData::_scalar_deleting_destructor_(PRUDPDeviceData *this,uint shouldDelete)
 
 {
   ~PRUDPDeviceData(this);
-  if ((param_1 & 1) != 0) {
+  if ((shouldDelete & 1) != 0) {
     operator_delete(this);
   }
   return this;

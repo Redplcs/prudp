@@ -98,11 +98,11 @@ Packet * __thiscall Packet::Packet(Packet *this)
 
 // public: virtual void * __thiscall Packet::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall Packet::_scalar_deleting_destructor_(Packet *this,uint param_1)
+void * __thiscall Packet::_scalar_deleting_destructor_(Packet *this,uint shouldDelete)
 
 {
   ~Packet(this);
-  if ((param_1 & 1) != 0) {
+  if ((shouldDelete & 1) != 0) {
     operator_delete(this);
   }
   return this;
@@ -140,13 +140,13 @@ void __thiscall Packet::~Packet(Packet *this)
 
 // protected: bool __thiscall Packet::SetPayload(class Buffer *)
 
-bool __thiscall Packet::SetPayload(Packet *this,Buffer *param_1)
+bool __thiscall Packet::SetPayload(Packet *this,Buffer *pBuffer)
 
 {
   ulong uVar1;
   
-  *(Buffer **)(this + 0x14) = param_1;
-  uVar1 = Buffer::GetContentSize(param_1);
+  *(Buffer **)(this + 0x14) = pBuffer;
+  uVar1 = Buffer::GetContentSize(pBuffer);
   *(short *)(this + 0xe) = *(short *)(this + 0xe) + (short)uVar1;
   return *(ushort *)(this + 0xe) < 0x1001;
 }
@@ -165,10 +165,10 @@ Buffer * __thiscall Packet::GetPayload(Packet *this)
 
 // public: unsigned long __thiscall Packet::GetHeader(void * *)
 
-ulong __thiscall Packet::GetHeader(Packet *this,void **param_1)
+ulong __thiscall Packet::GetHeader(Packet *this,void **pData)
 
 {
-  *param_1 = this + 0xc;
+  *pData = this + 0xc;
   return 8;
 }
 
@@ -186,10 +186,10 @@ bool __thiscall Packet::Valid(Packet *this)
 
 // public: void __thiscall Packet::SetSeqId(unsigned long)
 
-void __thiscall Packet::SetSeqId(Packet *this,ulong param_1)
+void __thiscall Packet::SetSeqId(Packet *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 0x10) = param_1;
+  *(ulong *)(this + 0x10) = ulValue;
   return;
 }
 
@@ -217,10 +217,10 @@ PRUDPInetAddress * __thiscall Packet::GetPeerAddress(Packet *this)
 
 // public: void __thiscall Packet::SetPeerAddress(class PRUDPInetAddress *)
 
-void __thiscall Packet::SetPeerAddress(Packet *this,PRUDPInetAddress *param_1)
+void __thiscall Packet::SetPeerAddress(Packet *this,PRUDPInetAddress *pAddress)
 
 {
-  PRUDPInetAddress::operator=((PRUDPInetAddress *)(this + 0x18),param_1);
+  PRUDPInetAddress::operator=((PRUDPInetAddress *)(this + 0x18),pAddress);
   return;
 }
 
@@ -228,10 +228,10 @@ void __thiscall Packet::SetPeerAddress(Packet *this,PRUDPInetAddress *param_1)
 
 // public: void __thiscall Packet::SetType(unsigned char)
 
-void __thiscall Packet::SetType(Packet *this,uchar param_1)
+void __thiscall Packet::SetType(Packet *this,uchar value)
 
 {
-  this[0xc] = (Packet)(param_1 & 7);
+  this[0xc] = (Packet)(value & 7);
   return;
 }
 
@@ -249,10 +249,10 @@ uchar __thiscall Packet::GetType(Packet *this)
 
 // public: void __thiscall Packet::SetContextInfo(unsigned char)
 
-void __thiscall Packet::SetContextInfo(Packet *this,uchar param_1)
+void __thiscall Packet::SetContextInfo(Packet *this,uchar value)
 
 {
-  this[0xd] = (Packet)param_1;
+  this[0xd] = (Packet)value;
   return;
 }
 
@@ -270,10 +270,10 @@ uchar __thiscall Packet::GetContextInfo(Packet *this)
 
 // public: void __thiscall Packet::SetFlag(unsigned char)
 
-void __thiscall Packet::SetFlag(Packet *this,uchar param_1)
+void __thiscall Packet::SetFlag(Packet *this,uchar value)
 
 {
-  this[0xc] = (Packet)((byte)this[0xc] | param_1 & 0xf8);
+  this[0xc] = (Packet)((byte)this[0xc] | value & 0xf8);
   return;
 }
 
@@ -281,10 +281,10 @@ void __thiscall Packet::SetFlag(Packet *this,uchar param_1)
 
 // public: void __thiscall Packet::ClearFlag(unsigned char)
 
-void __thiscall Packet::ClearFlag(Packet *this,uchar param_1)
+void __thiscall Packet::ClearFlag(Packet *this,uchar value)
 
 {
-  this[0xc] = (Packet)((byte)this[0xc] & ~(param_1 & 0xf8));
+  this[0xc] = (Packet)((byte)this[0xc] & ~(value & 0xf8));
   return;
 }
 
@@ -292,10 +292,10 @@ void __thiscall Packet::ClearFlag(Packet *this,uchar param_1)
 
 // public: bool __thiscall Packet::FlagSet(unsigned char)
 
-bool __thiscall Packet::FlagSet(Packet *this,uchar param_1)
+bool __thiscall Packet::FlagSet(Packet *this,uchar value)
 
 {
-  return ((byte)this[0xc] & param_1) != 0;
+  return ((byte)this[0xc] & value) != 0;
 }
 
 
@@ -337,10 +337,10 @@ void __thiscall Packet::GetIOTime(Packet *this)
 
 // public: void __thiscall Packet::SetIOResult(unsigned long)
 
-void __thiscall Packet::SetIOResult(Packet *this,ulong param_1)
+void __thiscall Packet::SetIOResult(Packet *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 0x28) = param_1;
+  *(ulong *)(this + 0x28) = ulValue;
   return;
 }
 

@@ -128,7 +128,7 @@ undefined LAB_00004099;
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: __thiscall SlidingWindow::SlidingWindow(unsigned short)
 
-SlidingWindow * __thiscall SlidingWindow::SlidingWindow(SlidingWindow *this,ushort param_1)
+SlidingWindow * __thiscall SlidingWindow::SlidingWindow(SlidingWindow *this,ushort usValue)
 
 {
   _Node *p_Var1;
@@ -142,8 +142,8 @@ SlidingWindow * __thiscall SlidingWindow::SlidingWindow(SlidingWindow *this,usho
   puStack_8 = &_L5534;
   uStack_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &uStack_c;
-  this[1] = param_1._0_1_;
-  *this = param_1._0_1_;
+  this[1] = usValue._0_1_;
+  *this = usValue._0_1_;
   this[8] = (SlidingWindow)0x0;
   (*___imp___0_Lockit_std__QAE_XZ)();
   uStack_4 = 0;
@@ -167,7 +167,7 @@ SlidingWindow * __thiscall SlidingWindow::SlidingWindow(SlidingWindow *this,usho
   (*___imp___1_Lockit_std__QAE_XZ)();
   uStack_4 = 1;
   CriticalSection::CriticalSection((CriticalSection *)(this + 0x24));
-  *(ushort *)(this + 0x10) = param_1;
+  *(ushort *)(this + 0x10) = usValue;
   *(undefined4 *)(this + 0x14) = 1;
   *(undefined4 *)(this + 0x18) = 1;
   *(undefined4 *)(this + 0x1c) = 1;
@@ -326,7 +326,7 @@ void __thiscall SlidingWindow::Purge(SlidingWindow *this)
 
 // public: void __thiscall SlidingWindow::Push(class PacketOut *)
 
-void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *param_1)
+void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *pPacketOut)
 
 {
   uchar uVar1;
@@ -354,8 +354,8 @@ void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *param_1)
   Platform::SystemCheck
             (*(uint *)(this + 0x1c) <= *(uint *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
              s_SlidingWindow_cpp,0x30);
-  RefCountedObject::AcquireRef((RefCountedObject *)param_1);
-  uVar1 = Packet::GetType((Packet *)param_1);
+  RefCountedObject::AcquireRef((RefCountedObject *)pPacketOut);
+  uVar1 = Packet::GetType((Packet *)pPacketOut);
   if (uVar1 == '\x01') {
     *(int *)(this + 0x20) = *(int *)(this + 0x20) + 1;
   }
@@ -366,8 +366,8 @@ void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *param_1)
   local_30 = puVar2[1];
   piVar3 = (int *)std::pair<>::pair<>(local_1c,(iterator *)&local_34,(bool *)&local_30);
   local_10 = piVar3[1];
-  *(PacketOut **)(*piVar3 + 0x10) = param_1;
-  Packet::SetSeqId((Packet *)param_1,*(ulong *)(this + 0x14));
+  *(PacketOut **)(*piVar3 + 0x10) = pPacketOut;
+  Packet::SetSeqId((Packet *)pPacketOut,*(ulong *)(this + 0x14));
   local_4 = 0xffffffff;
   *(int *)(this + 0x14) = *(int *)(this + 0x14) + 1;
   ScopedCS::~ScopedCS(local_38);
@@ -380,7 +380,7 @@ void __thiscall SlidingWindow::Push(SlidingWindow *this,PacketOut *param_1)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: void __thiscall SlidingWindow::Acknowledged(unsigned long)
 
-void __thiscall SlidingWindow::Acknowledged(SlidingWindow *this,ulong param_1)
+void __thiscall SlidingWindow::Acknowledged(SlidingWindow *this,ulong ulValue)
 
 {
   _Node *p_Var1;
@@ -409,7 +409,7 @@ void __thiscall SlidingWindow::Acknowledged(SlidingWindow *this,ulong param_1)
   p_Var1 = (_Node *)*piVar3;
   if (p_Var1 == *(_Node **)(this + 4)) goto LAB_00002aa1;
   this_00 = *(Packet **)(p_Var1 + 0x10);
-  if (param_1 == *(ulong *)(this + 0x1c)) {
+  if (ulValue == *(ulong *)(this + 0x1c)) {
     (*___imp___0_Lockit_std__QAE_XZ)();
     local_4._0_1_ = 1;
     if (*(_Node **)(p_Var1 + 8) == std::_Tree<>::_Nil) {
@@ -522,7 +522,7 @@ PacketOut * __thiscall SlidingWindow::GetNextToSend(SlidingWindow *this)
 
 // public: class PacketOut * __thiscall SlidingWindow::GetPacket(unsigned long)
 
-PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,ulong param_1)
+PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,ulong ulValue)
 
 {
   _Node *p_Var1;
@@ -551,9 +551,9 @@ PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,ulong param_
   Platform::SystemCheck
             (*(uint *)(this + 0x1c) <= *(uint *)(this + 0x18),s_m_ulLeftEdge_<__m_ulRightEdge,
              s_SlidingWindow_cpp,0x77);
-  local_14 = std::_Tree<>::_Lbound((_Tree<> *)this,&param_1);
+  local_14 = std::_Tree<>::_Lbound((_Tree<> *)this,&ulValue);
   p_Var1 = *(_Node **)(this + 4);
-  if ((local_14 == p_Var1) || (param_1 < *(uint *)(local_14 + 0xc))) {
+  if ((local_14 == p_Var1) || (ulValue < *(uint *)(local_14 + 0xc))) {
     local_10 = p_Var1;
     pp_Var5 = &local_10;
   }
@@ -566,7 +566,7 @@ PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,ulong param_
     pcVar8 = s_SlidingWindow_cpp;
     pcVar7 = s_ulSeqId______it__second_>GetSeqI;
     uVar6 = Packet::GetSeqId(*(Packet **)(p_Var2 + 0x10));
-    Platform::SystemCheck(param_1 == uVar6,pcVar7,pcVar8,uVar9);
+    Platform::SystemCheck(ulValue == uVar6,pcVar7,pcVar8,uVar9);
     uVar6 = 0x7d;
     pcVar8 = s_SlidingWindow_cpp;
     pcVar7 = s___it__second_>Valid____true;
@@ -647,7 +647,7 @@ void __thiscall SlidingWindow::AcquireIterator(SlidingWindow *this)
 // PacketOut *,struct std::less<unsigned long>,class std::allocator<class PacketOut *>
 // >::_Kfn,struct std::less<unsigned long>,class std::allocator<class PacketOut *> >::iterator)
 
-PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,int param_2)
+PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,int iValue)
 
 {
   bool bVar1;
@@ -655,13 +655,13 @@ PacketOut * __thiscall SlidingWindow::GetPacket(SlidingWindow *this,int param_2)
   char *pcVar3;
   ulong uVar4;
   
-  if (param_2 != *(int *)(this + 4)) {
+  if (iValue != *(int *)(this + 4)) {
     uVar4 = 0x99;
     pcVar3 = s_SlidingWindow_cpp;
     pcVar2 = s___it__second_>Valid____true;
-    bVar1 = Packet::Valid(*(Packet **)(param_2 + 0x10));
+    bVar1 = Packet::Valid(*(Packet **)(iValue + 0x10));
     Platform::SystemCheck(bVar1,pcVar2,pcVar3,uVar4);
-    return *(PacketOut **)(param_2 + 0x10);
+    return *(PacketOut **)(iValue + 0x10);
   }
   return (PacketOut *)0x0;
 }
@@ -745,7 +745,7 @@ void __thiscall SlidingWindow::Trace(SlidingWindow *this)
 // std::allocator<class PacketOut *> >::_Kfn,struct std::less<unsigned long>,class
 // std::allocator<class PacketOut *> >::iterator)
 
-undefined4 * __thiscall std::_Tree<>::erase(_Tree<> *this,undefined4 *param_2,_Node *param_3)
+undefined4 * __thiscall std::_Tree<>::erase(_Tree<> *this,undefined4 *pUndefined4,_Node *p_node)
 
 {
   _Node *p_Var1;
@@ -765,12 +765,12 @@ undefined4 * __thiscall std::_Tree<>::erase(_Tree<> *this,undefined4 *param_2,_N
   undefined1 *puStack_8;
   undefined4 uStack_4;
   
-  p_Var7 = param_3;
+  p_Var7 = p_node;
   uStack_4 = 0xffffffff;
   puStack_8 = &_L8347;
   uStack_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &uStack_c;
-  const_iterator::_Inc((const_iterator *)&param_3);
+  const_iterator::_Inc((const_iterator *)&p_node);
   pcVar8 = ___imp___0_Lockit_std__QAE_XZ;
   local_1c = p_Var7;
   (*___imp___0_Lockit_std__QAE_XZ)();
@@ -1060,10 +1060,10 @@ LAB_00003384:
   operator_delete(local_1c);
   uStack_4 = 0xffffffff;
   *(int *)(this + 0xc) = *(int *)(this + 0xc) + -1;
-  *param_2 = param_3;
+  *pUndefined4 = p_node;
   (*___imp___1_Lockit_std__QAE_XZ)();
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = uStack_c;
-  return param_2;
+  return pUndefined4;
 }
 
 
@@ -1085,7 +1085,7 @@ LAB_00003384:
 // std::less<unsigned long>,class std::allocator<class PacketOut *> >::iterator)
 
 undefined4 * __thiscall
-std::_Tree<>::erase(_Tree<> *this,undefined4 *param_2,int *param_3,int *param_4)
+std::_Tree<>::erase(_Tree<> *this,undefined4 *pUndefined4,int *piValue,int *piValue2)
 
 {
   _Node *p_Var1;
@@ -1099,22 +1099,22 @@ std::_Tree<>::erase(_Tree<> *this,undefined4 *param_2,int *param_3,int *param_4)
   undefined1 *puStack_8;
   int iStack_4;
   
-  piVar4 = param_4;
+  piVar4 = piValue2;
   local_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   iStack_4 = 0xffffffff;
   puStack_8 = &_L8566;
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &local_c;
   pcVar3 = ___imp___0_Lockit_std__QAE_XZ;
-  piVar2 = param_3;
-  if (((*(int *)(this + 0xc) == 0) || (param_3 != (int *)**(int **)(this + 4))) ||
-     (param_4 != *(int **)(this + 4))) {
+  piVar2 = piValue;
+  if (((*(int *)(this + 0xc) == 0) || (piValue != (int *)**(int **)(this + 4))) ||
+     (piValue2 != *(int **)(this + 4))) {
     while (piVar2 != piVar4) {
-      param_3 = piVar2;
-      const_iterator::_Inc((const_iterator *)&param_3);
+      piValue = piVar2;
+      const_iterator::_Inc((const_iterator *)&piValue);
       erase(this,local_10,piVar2);
-      piVar2 = param_3;
+      piVar2 = piValue;
     }
-    *param_2 = piVar2;
+    *pUndefined4 = piVar2;
   }
   else {
     (*___imp___0_Lockit_std__QAE_XZ)();
@@ -1138,11 +1138,11 @@ std::_Tree<>::erase(_Tree<> *this,undefined4 *param_2,int *param_3,int *param_4)
     *(undefined4 *)(this + 0xc) = 0;
     *(undefined4 *)*(undefined4 *)(this + 4) = *(undefined4 *)(this + 4);
     *(int *)(*(int *)(this + 4) + 8) = *(int *)(this + 4);
-    *param_2 = **(undefined4 **)(this + 4);
+    *pUndefined4 = **(undefined4 **)(this + 4);
     (*pcVar3)();
   }
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_c;
-  return param_2;
+  return pUndefined4;
 }
 
 
@@ -1155,7 +1155,7 @@ std::_Tree<>::erase(_Tree<> *this,undefined4 *param_2,int *param_3,int *param_4)
 // *,struct std::less<unsigned long>,class std::allocator<class PacketOut *> >::_Kfn,struct
 // std::less<unsigned long>,class std::allocator<class PacketOut *> >::find(unsigned long const &)
 
-void __thiscall std::_Tree<>::find(_Tree<> *this,ulong *param_1)
+void __thiscall std::_Tree<>::find(_Tree<> *this,ulong *pulValue)
 
 {
   _Node *p_Var1;
@@ -1163,10 +1163,10 @@ void __thiscall std::_Tree<>::find(_Tree<> *this,ulong *param_1)
   
   p_Var1 = _Lbound(this,in_stack_00000008);
   if ((p_Var1 != *(_Node **)(this + 4)) && (*(uint *)(p_Var1 + 0xc) <= *in_stack_00000008)) {
-    *param_1 = (ulong)p_Var1;
+    *pulValue = (ulong)p_Var1;
     return;
   }
-  *param_1 = (ulong)*(_Node **)(this + 4);
+  *pulValue = (ulong)*(_Node **)(this + 4);
   return;
 }
 
@@ -1182,7 +1182,7 @@ void __thiscall std::_Tree<>::find(_Tree<> *this,ulong *param_1)
 // std::less<unsigned long>,class std::allocator<class PacketOut *> >::insert(struct
 // std::pair<unsigned long const ,class PacketOut *> const &)
 
-void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
+void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *pPair<>)
 
 {
   undefined4 *puVar1;
@@ -1213,8 +1213,8 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
   if (this[8] != (_Tree<>)0x0) {
     puVar1 = (undefined4 *)_Insert(this,(_Node *)&stack0x00000008,p_Var2,ppVar3);
     uStack_4 = CONCAT31(uStack_4._1_3_,1);
-    *(undefined4 *)param_1 = *puVar1;
-    *(uint *)(param_1 + 4) = uStack_4;
+    *(undefined4 *)pPair<> = *puVar1;
+    *(uint *)(pPair<> + 4) = uStack_4;
     return;
   }
   appStack_c[0] = ppVar3;
@@ -1222,8 +1222,8 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
     if (ppVar3 == (pair<> *)**(int **)(this + 4)) {
       puVar1 = (undefined4 *)_Insert(this,(_Node *)&stack0x00000008,p_Var2,ppVar3);
       uStack_4 = CONCAT31(uStack_4._1_3_,1);
-      *(undefined4 *)param_1 = *puVar1;
-      *(uint *)(param_1 + 4) = uStack_4;
+      *(undefined4 *)pPair<> = *puVar1;
+      *(uint *)(pPair<> + 4) = uStack_4;
       return;
     }
     const_iterator::_Dec((const_iterator *)appStack_c);
@@ -1231,13 +1231,13 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
   if (*(uint *)(appStack_c[0] + 0xc) < *in_stack_00000008) {
     puVar1 = (undefined4 *)_Insert(this,(_Node *)&stack0x00000008,p_Var2,ppVar3);
     uStack_4 = CONCAT31(uStack_4._1_3_,1);
-    *(undefined4 *)param_1 = *puVar1;
-    *(uint *)(param_1 + 4) = uStack_4;
+    *(undefined4 *)pPair<> = *puVar1;
+    *(uint *)(pPair<> + 4) = uStack_4;
     return;
   }
   uStack_4 = uStack_4 & 0xffffff00;
-  *(pair<> **)param_1 = appStack_c[0];
-  *(uint *)(param_1 + 4) = uStack_4;
+  *(pair<> **)pPair<> = appStack_c[0];
+  *(uint *)(pPair<> + 4) = uStack_4;
   return;
 }
 
@@ -1252,7 +1252,7 @@ void __thiscall std::_Tree<>::insert(_Tree<> *this,pair<> *param_1)
 // *,struct std::less<unsigned long>,class std::allocator<class PacketOut *> >::_Kfn,struct
 // std::less<unsigned long>,class std::allocator<class PacketOut *> >::_Node *)
 
-void __thiscall std::_Tree<>::_Erase(_Tree<> *this,_Node *param_1)
+void __thiscall std::_Tree<>::_Erase(_Tree<> *this,_Node *p_node)
 
 {
   _Node *p_Var1;
@@ -1267,12 +1267,12 @@ void __thiscall std::_Tree<>::_Erase(_Tree<> *this,_Node *param_1)
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &uStack_c;
   (*___imp___0_Lockit_std__QAE_XZ)();
   uStack_4 = 0;
-  if (param_1 != _Nil) {
+  if (p_node != _Nil) {
     do {
-      _Erase(this,*(_Node **)(param_1 + 8));
-      p_Var1 = *(_Node **)param_1;
-      operator_delete(param_1);
-      param_1 = p_Var1;
+      _Erase(this,*(_Node **)(p_node + 8));
+      p_Var1 = *(_Node **)p_node;
+      operator_delete(p_node);
+      p_node = p_Var1;
     } while (p_Var1 != _Nil);
   }
   uStack_4 = 0xffffffff;
@@ -1296,20 +1296,20 @@ void __thiscall std::_Tree<>::_Erase(_Tree<> *this,_Node *param_1)
 // std::allocator<class PacketOut *> >::_Kfn,struct std::less<unsigned long>,class
 // std::allocator<class PacketOut *> >::_Node *)
 
-_Node * __cdecl std::_Tree<>::_Min(_Node *param_1)
+_Node * __cdecl std::_Tree<>::_Min(_Node *p_node)
 
 {
   _Node *p_Var1;
   _Node *p_Var2;
   
   (*___imp___0_Lockit_std__QAE_XZ)();
-  p_Var2 = *(_Node **)param_1;
+  p_Var2 = *(_Node **)p_node;
   while (p_Var1 = p_Var2, p_Var1 != _Nil) {
-    param_1 = p_Var1;
+    p_node = p_Var1;
     p_Var2 = *(_Node **)p_Var1;
   }
   (*___imp___1_Lockit_std__QAE_XZ)();
-  return param_1;
+  return p_node;
 }
 
 
@@ -1382,11 +1382,11 @@ void __thiscall std::_Tree<>::const_iterator::_Inc(const_iterator *this)
 // std::allocator<class PacketOut *> >::_Kfn,struct std::less<unsigned long>,class
 // std::allocator<class PacketOut *> >::iterator const &,bool const &)
 
-void __thiscall std::pair<>::pair<>(pair<> *this,iterator *param_1,bool *param_2)
+void __thiscall std::pair<>::pair<>(pair<> *this,iterator *pIterator,bool *pBool)
 
 {
-  *(undefined4 *)this = *(undefined4 *)param_1;
-  this[4] = (pair<>)*param_2;
+  *(undefined4 *)this = *(undefined4 *)pIterator;
+  this[4] = (pair<>)*pBool;
   return;
 }
 
@@ -1410,7 +1410,7 @@ void __thiscall std::pair<>::pair<>(pair<> *this,iterator *param_1,bool *param_2
 // std::pair<unsigned long const ,class PacketOut *> const &)
 
 _Node * __thiscall
-std::_Tree<>::_Insert(_Tree<> *this,_Node *param_1,_Node *param_2,pair<> *param_3)
+std::_Tree<>::_Insert(_Tree<> *this,_Node *p_node,_Node *p_node2,pair<> *pPair<>)
 
 {
   pair<> *ppVar1;
@@ -1432,27 +1432,27 @@ std::_Tree<>::_Insert(_Tree<> *this,_Node *param_1,_Node *param_2,pair<> *param_
   (*___imp___0_Lockit_std__QAE_XZ)();
   uStack_4 = 0;
   piVar5 = operator_new(0x18);
-  piVar5[1] = (int)param_3;
+  piVar5[1] = (int)pPair<>;
   piVar5[5] = 0;
   *piVar5 = (int)_Nil;
   piVar5[2] = (int)_Nil;
   _Construct((pair<> *)(piVar5 + 3),in_stack_00000010);
   *(int *)(this + 0xc) = *(int *)(this + 0xc) + 1;
-  if (((param_3 == *(pair<> **)(this + 4)) || (param_2 != _Nil)) ||
-     (*(uint *)in_stack_00000010 < *(uint *)(param_3 + 0xc))) {
-    *(int **)param_3 = piVar5;
+  if (((pPair<> == *(pair<> **)(this + 4)) || (p_node2 != _Nil)) ||
+     (*(uint *)in_stack_00000010 < *(uint *)(pPair<> + 0xc))) {
+    *(int **)pPair<> = piVar5;
     ppVar1 = *(pair<> **)(this + 4);
-    if (param_3 == ppVar1) {
+    if (pPair<> == ppVar1) {
       *(int **)(ppVar1 + 4) = piVar5;
       *(int **)(*(int *)(this + 4) + 8) = piVar5;
     }
-    else if (param_3 == *(pair<> **)ppVar1) {
+    else if (pPair<> == *(pair<> **)ppVar1) {
       *(int **)ppVar1 = piVar5;
     }
   }
   else {
-    *(int **)(param_3 + 8) = piVar5;
-    if (param_3 == *(pair<> **)(*(int *)(this + 4) + 8)) {
+    *(int **)(pPair<> + 8) = piVar5;
+    if (pPair<> == *(pair<> **)(*(int *)(this + 4) + 8)) {
       *(int **)(*(int *)(this + 4) + 8) = piVar5;
     }
   }
@@ -1591,10 +1591,10 @@ LAB_00003ad8:
   }
   uStack_4 = 0xffffffff;
   *(undefined4 *)(*(int *)(*(int *)(this + 4) + 4) + 0x14) = 1;
-  *(int **)param_1 = piVar5;
+  *(int **)p_node = piVar5;
   (*___imp___1_Lockit_std__QAE_XZ)();
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = uStack_c;
-  return param_1;
+  return p_node;
 }
 
 
@@ -1609,7 +1609,7 @@ LAB_00003ad8:
 // std::less<unsigned long>,class std::allocator<class PacketOut *> >::_Lbound(unsigned long const
 // &)const 
 
-_Node * __thiscall std::_Tree<>::_Lbound(_Tree<> *this,ulong *param_1)
+_Node * __thiscall std::_Tree<>::_Lbound(_Tree<> *this,ulong *pulValue)
 
 {
   _Node *p_Var1;
@@ -1621,7 +1621,7 @@ _Node * __thiscall std::_Tree<>::_Lbound(_Tree<> *this,ulong *param_1)
   if (*(_Node **)(p_Var3 + 4) != _Nil) {
     p_Var1 = *(_Node **)(p_Var3 + 4);
     do {
-      if (*(uint *)(p_Var1 + 0xc) < *param_1) {
+      if (*(uint *)(p_Var1 + 0xc) < *pulValue) {
         p_Var2 = *(_Node **)(p_Var1 + 8);
       }
       else {
@@ -1700,12 +1700,12 @@ void __thiscall std::_Tree<>::const_iterator::_Dec(const_iterator *this)
 // void __cdecl std::_Construct(struct std::pair<unsigned long const ,class PacketOut *> *,struct
 // std::pair<unsigned long const ,class PacketOut *> const &)
 
-void __cdecl std::_Construct(pair<> *param_1,pair<> *param_2)
+void __cdecl std::_Construct(pair<> *pPair<>,pair<> *pPair<>2)
 
 {
-  if (param_1 != (pair<> *)0x0) {
-    *(undefined4 *)param_1 = *(undefined4 *)param_2;
-    *(undefined4 *)(param_1 + 4) = *(undefined4 *)(param_2 + 4);
+  if (pPair<> != (pair<> *)0x0) {
+    *(undefined4 *)pPair<> = *(undefined4 *)pPair<>2;
+    *(undefined4 *)(pPair<> + 4) = *(undefined4 *)(pPair<>2 + 4);
   }
   return;
 }

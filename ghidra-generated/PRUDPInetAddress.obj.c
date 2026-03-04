@@ -92,7 +92,7 @@ PRUDPInetAddress * __thiscall PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddres
 // public: __thiscall PRUDPInetAddress::PRUDPInetAddress(class PRUDPInetAddress *)
 
 PRUDPInetAddress * __thiscall
-PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddress *this,PRUDPInetAddress *param_1)
+PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddress *this,PRUDPInetAddress *pAddress)
 
 {
   undefined4 *puVar1;
@@ -100,7 +100,7 @@ PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddress *this,PRUDPInetAddress *para
   
   puVar2 = operator_new(0x10);
   *(undefined4 **)this = puVar2;
-  puVar1 = *(undefined4 **)param_1;
+  puVar1 = *(undefined4 **)pAddress;
   *puVar2 = *puVar1;
   puVar2[1] = puVar1[1];
   puVar2[2] = puVar1[2];
@@ -113,14 +113,14 @@ PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddress *this,PRUDPInetAddress *para
 // public: __thiscall PRUDPInetAddress::PRUDPInetAddress(class PRUDPInetAddress &)
 
 PRUDPInetAddress * __thiscall
-PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddress *this,PRUDPInetAddress *param_1)
+PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddress *this,PRUDPInetAddress *pAddress)
 
 {
   void *pvVar1;
   
   pvVar1 = operator_new(0x10);
   *(void **)this = pvVar1;
-  operator=(this,param_1);
+  operator=(this,pAddress);
   return this;
 }
 
@@ -129,7 +129,7 @@ PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddress *this,PRUDPInetAddress *para
 // public: __thiscall PRUDPInetAddress::PRUDPInetAddress(unsigned long,unsigned short)
 
 PRUDPInetAddress * __thiscall
-PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddress *this,ulong param_1,ushort param_2)
+PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddress *this,ulong ulValue,ushort usValue)
 
 {
   undefined2 *puVar1;
@@ -137,8 +137,8 @@ PRUDPInetAddress::PRUDPInetAddress(PRUDPInetAddress *this,ulong param_1,ushort p
   puVar1 = operator_new(0x10);
   *(undefined2 **)this = puVar1;
   *puVar1 = 2;
-  SetAddress(this,param_1);
-  SetPortNumber(this,param_2);
+  SetAddress(this,ulValue);
+  SetPortNumber(this,usValue);
   return this;
 }
 
@@ -159,7 +159,7 @@ void __thiscall PRUDPInetAddress::~PRUDPInetAddress(PRUDPInetAddress *this)
 // public: bool __thiscall PRUDPInetAddress::SetFromURL(class StationURL *,unsigned short)
 
 bool __thiscall
-PRUDPInetAddress::SetFromURL(PRUDPInetAddress *this,StationURL *param_1,ushort param_2)
+PRUDPInetAddress::SetFromURL(PRUDPInetAddress *this,StationURL *pStationURL,ushort usValue)
 
 {
   bool bVar1;
@@ -168,7 +168,7 @@ PRUDPInetAddress::SetFromURL(PRUDPInetAddress *this,StationURL *param_1,ushort p
   char local_90 [16];
   char local_80 [128];
   
-  uVar3 = StationURL::GetParamValue(param_1,s_address,local_80,0x80,false);
+  uVar3 = StationURL::GetParamValue(pStationURL,s_address,local_80,0x80,false);
   if (uVar3 != 0) {
     return false;
   }
@@ -176,13 +176,13 @@ PRUDPInetAddress::SetFromURL(PRUDPInetAddress *this,StationURL *param_1,ushort p
   if (!bVar1) {
     return false;
   }
-  uVar3 = StationURL::GetParamValue(param_1,s_port,local_90,0x10,false);
+  uVar3 = StationURL::GetParamValue(pStationURL,s_port,local_90,0x10,false);
   if (uVar3 == 0) {
     uVar2 = (*___imp__atoi)(local_90);
     SetPortNumber(this,uVar2);
     return true;
   }
-  SetPortNumber(this,param_2);
+  SetPortNumber(this,usValue);
   return true;
 }
 
@@ -191,7 +191,7 @@ PRUDPInetAddress::SetFromURL(PRUDPInetAddress *this,StationURL *param_1,ushort p
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: bool __thiscall PRUDPInetAddress::GetURL(class StationURL *)
 
-bool __thiscall PRUDPInetAddress::GetURL(PRUDPInetAddress *this,StationURL *param_1)
+bool __thiscall PRUDPInetAddress::GetURL(PRUDPInetAddress *this,StationURL *pStationURL)
 
 {
   code *pcVar1;
@@ -217,7 +217,7 @@ bool __thiscall PRUDPInetAddress::GetURL(PRUDPInetAddress *this,StationURL *para
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: bool __thiscall PRUDPInetAddress::SetAddress(char *)
 
-bool __thiscall PRUDPInetAddress::SetAddress(PRUDPInetAddress *this,char *param_1)
+bool __thiscall PRUDPInetAddress::SetAddress(PRUDPInetAddress *this,char *szText)
 
 {
   int iVar1;
@@ -230,7 +230,7 @@ bool __thiscall PRUDPInetAddress::SetAddress(PRUDPInetAddress *this,char *param_
   undefined1 auStack_fc [252];
   
   **(undefined2 **)this = 2;
-  StringConversion::T2A(param_1,local_100,0x100);
+  StringConversion::T2A(szText,local_100,0x100);
   iVar1 = (*___imp__inet_addr_4)(local_100);
   if (iVar1 != -1) {
     pcVar3 = (char *)0x0;
@@ -266,10 +266,10 @@ sockaddr * __thiscall PRUDPInetAddress::GetSockAddr(PRUDPInetAddress *this)
 
 // private: void __thiscall PRUDPInetAddress::SetAddress(void *)
 
-void __thiscall PRUDPInetAddress::SetAddress(PRUDPInetAddress *this,void *param_1)
+void __thiscall PRUDPInetAddress::SetAddress(PRUDPInetAddress *this,void *pData)
 
 {
-  *(undefined4 *)(*(int *)this + 4) = *(undefined4 *)param_1;
+  *(undefined4 *)(*(int *)this + 4) = *(undefined4 *)pData;
   return;
 }
 
@@ -278,12 +278,12 @@ void __thiscall PRUDPInetAddress::SetAddress(PRUDPInetAddress *this,void *param_
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: void __thiscall PRUDPInetAddress::SetAddress(unsigned long)
 
-void __thiscall PRUDPInetAddress::SetAddress(PRUDPInetAddress *this,ulong param_1)
+void __thiscall PRUDPInetAddress::SetAddress(PRUDPInetAddress *this,ulong ulValue)
 
 {
   undefined4 uVar1;
   
-  uVar1 = (*___imp__htonl_4)(param_1);
+  uVar1 = (*___imp__htonl_4)(ulValue);
   *(undefined4 *)(*(int *)this + 4) = uVar1;
   return;
 }
@@ -307,7 +307,7 @@ ulong __thiscall PRUDPInetAddress::GetAddress(PRUDPInetAddress *this)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: void __thiscall PRUDPInetAddress::SetPortNumber(unsigned short)
 
-void __thiscall PRUDPInetAddress::SetPortNumber(PRUDPInetAddress *this,ushort param_1)
+void __thiscall PRUDPInetAddress::SetPortNumber(PRUDPInetAddress *this,ushort usValue)
 
 {
   undefined2 uVar1;
@@ -348,7 +348,7 @@ __int64 __thiscall PRUDPInetAddress::GetKey(PRUDPInetAddress *this)
 
 bool __thiscall
 PRUDPInetAddress::operator<
-          (PRUDPInetAddress *this,undefined4 param_2,undefined4 param_3,int param_4)
+          (PRUDPInetAddress *this,undefined4 uValue,undefined4 uValue2,int iValue)
 
 {
   TraceOutput *pTVar1;
@@ -368,11 +368,11 @@ PRUDPInetAddress::operator<
   local_4 = 0;
   pTVar1 = TraceOutput::GetInstance();
   TraceOutput::Trace(this_00,(ulong)pTVar1,pcVar3);
-  if ((*(uint *)(*(int *)this + 4) <= *(uint *)(param_4 + 4)) &&
-     (*(ushort *)(*(int *)this + 2) < *(ushort *)(param_4 + 2))) {
+  if ((*(uint *)(*(int *)this + 4) <= *(uint *)(iValue + 4)) &&
+     (*(ushort *)(*(int *)this + 2) < *(ushort *)(iValue + 2))) {
     bVar2 = true;
   }
-  ~PRUDPInetAddress((PRUDPInetAddress *)&param_4);
+  ~PRUDPInetAddress((PRUDPInetAddress *)&iValue);
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_4;
   return bVar2;
 }
@@ -383,7 +383,7 @@ PRUDPInetAddress::operator<
 
 bool __thiscall
 PRUDPInetAddress::operator==
-          (PRUDPInetAddress *this,undefined4 param_2,undefined4 param_3,int param_4)
+          (PRUDPInetAddress *this,undefined4 uValue,undefined4 uValue2,int iValue)
 
 {
   TraceOutput *pTVar1;
@@ -403,11 +403,11 @@ PRUDPInetAddress::operator==
   local_4 = 0;
   pTVar1 = TraceOutput::GetInstance();
   TraceOutput::Trace(this_00,(ulong)pTVar1,pcVar3);
-  if ((*(int *)(*(int *)this + 4) == *(int *)(param_4 + 4)) &&
-     (*(short *)(*(int *)this + 2) == *(short *)(param_4 + 2))) {
+  if ((*(int *)(*(int *)this + 4) == *(int *)(iValue + 4)) &&
+     (*(short *)(*(int *)this + 2) == *(short *)(iValue + 2))) {
     bVar2 = true;
   }
-  ~PRUDPInetAddress((PRUDPInetAddress *)&param_4);
+  ~PRUDPInetAddress((PRUDPInetAddress *)&iValue);
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_4;
   return bVar2;
 }
@@ -417,7 +417,7 @@ PRUDPInetAddress::operator==
 // public: class PRUDPInetAddress & __thiscall PRUDPInetAddress::operator=(class PRUDPInetAddress &)
 
 PRUDPInetAddress * __thiscall
-PRUDPInetAddress::operator=(PRUDPInetAddress *this,PRUDPInetAddress *param_1)
+PRUDPInetAddress::operator=(PRUDPInetAddress *this,PRUDPInetAddress *pAddress)
 
 {
   undefined4 *puVar1;
@@ -429,7 +429,7 @@ PRUDPInetAddress::operator=(PRUDPInetAddress *this,PRUDPInetAddress *param_1)
   pcVar4 = (char *)0x0;
   pTVar3 = TraceOutput::GetInstance();
   TraceOutput::Trace(this_00,(ulong)pTVar3,pcVar4);
-  puVar1 = *(undefined4 **)param_1;
+  puVar1 = *(undefined4 **)pAddress;
   puVar2 = *(undefined4 **)this;
   *puVar2 = *puVar1;
   puVar2[1] = puVar1[1];
@@ -442,7 +442,7 @@ PRUDPInetAddress::operator=(PRUDPInetAddress *this,PRUDPInetAddress *param_1)
 
 // public: void __thiscall PRUDPInetAddress::Trace(unsigned long)
 
-void __thiscall PRUDPInetAddress::Trace(PRUDPInetAddress *this,ulong param_1)
+void __thiscall PRUDPInetAddress::Trace(PRUDPInetAddress *this,ulong ulValue)
 
 {
   TraceOutput *pTVar1;
@@ -451,7 +451,7 @@ void __thiscall PRUDPInetAddress::Trace(PRUDPInetAddress *this,ulong param_1)
   
   ToStr(this,local_80);
   pTVar1 = TraceOutput::GetInstance();
-  TraceOutput::Trace(this_00,(ulong)pTVar1,(char *)param_1);
+  TraceOutput::Trace(this_00,(ulong)pTVar1,(char *)ulValue);
   return;
 }
 
@@ -460,7 +460,7 @@ void __thiscall PRUDPInetAddress::Trace(PRUDPInetAddress *this,ulong param_1)
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: void __thiscall PRUDPInetAddress::ToStr(char *)
 
-void __thiscall PRUDPInetAddress::ToStr(PRUDPInetAddress *this,char *param_1)
+void __thiscall PRUDPInetAddress::ToStr(PRUDPInetAddress *this,char *szText)
 
 {
   undefined2 uVar1;
