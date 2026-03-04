@@ -1,0 +1,10 @@
+#include <version/genericversion.rc>
+
+#define V1	2
+#define V2	0
+
+#define VERSION_NUMBER V1,V2,V3,V4
+
+#define LEGAL_TRADEMARKS "Quazal Net-Z is a trademark of Quazal\0"
+#define PRODUCT_NAME "Quazal Net-Z\0"
+#define SPECIAL_BUILD "Quazal Net-Z 2.0 RC 2\0"

@@ -1,0 +1,14 @@
+#define V3 550
+#define V4 10
+
+#define BUILD_STRING "Build 550.10\0"
+
+#define COMMENTS " \0"
+#define COMPANY_NAME "Quazal\0"
+#define FILE_DESCRIPTION " \0"
+#define FILE_VERSION BUILD_STRING
+#define INTERNAL_NAME " \0"
+#define LEGAL_COPYRIGHT "Copyright © 1998-2001 Quazal, All rights reserved.\0"
+#define ORIGINAL_FILENAME " \0"
+#define PRIVATE_BUILD BUILD_STRING
+#define PRODUCT_VERSION BUILD_STRING
