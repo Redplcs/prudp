@@ -93,18 +93,18 @@ void __thiscall InterfaceTable::~InterfaceTable(InterfaceTable *this)
 
 // public: void * __thiscall InterfaceInfo::`vector deleting destructor'(unsigned int)
 
-void * __thiscall InterfaceInfo::_vector_deleting_destructor_(InterfaceInfo *this,uint param_1)
+void * __thiscall InterfaceInfo::_vector_deleting_destructor_(InterfaceInfo *this,uint uValue)
 
 {
-  if ((param_1 & 2) != 0) {
+  if ((uValue & 2) != 0) {
     _eh_vector_destructor_iterator_(this,0x14,*(int *)(this + -4),InterfaceInfo::~InterfaceInfo);
-    if ((param_1 & 1) != 0) {
+    if ((uValue & 1) != 0) {
       operator_delete(this + -4);
     }
     return this + -4;
   }
   InterfaceInfo::~InterfaceInfo(this);
-  if ((param_1 & 1) != 0) {
+  if ((uValue & 1) != 0) {
     operator_delete(this);
   }
   return this;
@@ -267,19 +267,19 @@ ulong __thiscall InterfaceTable::GetNbLoopbackInterface(InterfaceTable *this)
 
 // public: class InterfaceInfo & __thiscall InterfaceTable::operator[](unsigned long)
 
-InterfaceInfo * __thiscall InterfaceTable::operator[](InterfaceTable *this,ulong param_1)
+InterfaceInfo * __thiscall InterfaceTable::operator[](InterfaceTable *this,ulong ulValue)
 
 {
   Platform::SystemCheck
-            (param_1 < *(uint *)this,s_ulIndex_<_m_ulNbInterface,s_InterfaceTable_cpp,0xbb);
-  return (InterfaceInfo *)(*(int *)(this + 4) + param_1 * 0x14);
+            (ulValue < *(uint *)this,s_ulIndex_<_m_ulNbInterface,s_InterfaceTable_cpp,0xbb);
+  return (InterfaceInfo *)(*(int *)(this + 4) + ulValue * 0x14);
 }
 
 
 
 // public: void __thiscall InterfaceTable::Trace(unsigned long)
 
-void __thiscall InterfaceTable::Trace(InterfaceTable *this,ulong param_1)
+void __thiscall InterfaceTable::Trace(InterfaceTable *this,ulong ulValue)
 
 {
   ulong uVar1;
@@ -291,7 +291,7 @@ void __thiscall InterfaceTable::Trace(InterfaceTable *this,ulong param_1)
   if (uVar1 != 0) {
     iVar2 = 0;
     do {
-      InterfaceInfo::Trace((InterfaceInfo *)(*(int *)(this + 4) + iVar2),param_1);
+      InterfaceInfo::Trace((InterfaceInfo *)(*(int *)(this + 4) + iVar2),ulValue);
       uVar3 = uVar3 + 1;
       iVar2 = iVar2 + 0x14;
       uVar1 = GetNbInterface(this);

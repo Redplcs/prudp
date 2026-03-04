@@ -87,7 +87,7 @@ undefined LAB_00002628;
 
 PacketOut * __thiscall
 PacketOut::PacketOut
-          (PacketOut *this,PRUDPEndPoint *param_1,uchar param_2,uchar param_3,Buffer *param_4)
+          (PacketOut *this,PRUDPEndPoint *pPRUDPEndPoint,uchar value,uchar value2,Buffer *pBuffer)
 
 {
   uchar uVar1;
@@ -108,16 +108,16 @@ PacketOut::PacketOut
   local_4 = 0;
   Time::Time((Time *)(this + 0x40));
   *(undefined ***)this = &_vftable_;
-  Packet::SetType((Packet *)this,param_2);
-  Packet::SetFlag((Packet *)this,param_3);
+  Packet::SetType((Packet *)this,value);
+  Packet::SetFlag((Packet *)this,value2);
   *(undefined2 *)(this + 0x38) = 0;
   Time::operator=((Time *)(this + 0x40),0);
   *(undefined4 *)(this + 0x48) = 0;
-  *(PRUDPEndPoint **)(this + 0x34) = param_1;
+  *(PRUDPEndPoint **)(this + 0x34) = pPRUDPEndPoint;
   uVar1 = (*___imp__rand)();
   Packet::SetContextInfo((Packet *)this,uVar1);
-  if (param_4 != (Buffer *)0x0) {
-    pRVar3 = RefCountedObject::AcquireRef((RefCountedObject *)param_4);
+  if (pBuffer != (Buffer *)0x0) {
+    pRVar3 = RefCountedObject::AcquireRef((RefCountedObject *)pBuffer);
     Packet::SetPayload((Packet *)this,(Buffer *)pRVar3);
   }
   bVar2 = Packet::FlagSet((Packet *)this,' ');
@@ -143,11 +143,11 @@ PacketOut::PacketOut
 
 // public: virtual void * __thiscall PacketOut::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall PacketOut::_scalar_deleting_destructor_(PacketOut *this,uint param_1)
+void * __thiscall PacketOut::_scalar_deleting_destructor_(PacketOut *this,uint shouldDelete)
 
 {
   ~PacketOut(this);
-  if ((param_1 & 1) != 0) {
+  if ((shouldDelete & 1) != 0) {
     operator_delete(this);
   }
   return this;
@@ -230,11 +230,11 @@ PRUDPEndPoint * __thiscall PacketOut::GetEndPoint(PacketOut *this)
 
 // public: void __thiscall PacketOut::SetIORequestContext(class IORequestContext *)
 
-void __thiscall PacketOut::SetIORequestContext(PacketOut *this,IORequestContext *param_1)
+void __thiscall PacketOut::SetIORequestContext(PacketOut *this,IORequestContext *pIORequestContext)
 
 {
-  *(IORequestContext **)(this + 0x48) = param_1;
-  *(PacketOut **)(param_1 + 8) = this;
+  *(IORequestContext **)(this + 0x48) = pIORequestContext;
+  *(PacketOut **)(pIORequestContext + 8) = this;
   return;
 }
 
@@ -252,22 +252,22 @@ IORequestContext * __thiscall PacketOut::GetIORequestContext(PacketOut *this)
 
 // public: bool __thiscall PacketOut::Pack(class Buffer *)
 
-bool __thiscall PacketOut::Pack(PacketOut *this,Buffer *param_1)
+bool __thiscall PacketOut::Pack(PacketOut *this,Buffer *pBuffer)
 
 {
   bool bVar1;
   Buffer *pBVar2;
   
-  bVar1 = Buffer::AppendData(param_1,this + 0xc,8,0xffffffff);
+  bVar1 = Buffer::AppendData(pBuffer,this + 0xc,8,0xffffffff);
   if (!bVar1) {
     return false;
   }
   pBVar2 = Packet::GetPayload((Packet *)this);
   if (pBVar2 != (Buffer *)0x0) {
     pBVar2 = Packet::GetPayload((Packet *)this);
-    Buffer::operator+=(param_1,pBVar2);
+    Buffer::operator+=(pBuffer,pBVar2);
   }
-  Buffer::AppendCheckSum(param_1);
+  Buffer::AppendCheckSum(pBuffer);
   return true;
 }
 

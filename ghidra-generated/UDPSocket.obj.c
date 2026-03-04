@@ -136,7 +136,7 @@ undefined DeliverToApp;
 
 // public: __thiscall UDPSocket::UDPSocket(class PRUDPTransport *)
 
-UDPSocket * __thiscall UDPSocket::UDPSocket(UDPSocket *this,PRUDPTransport *param_1)
+UDPSocket * __thiscall UDPSocket::UDPSocket(UDPSocket *this,PRUDPTransport *pPRUDPTransport)
 
 {
   undefined4 *puVar1;
@@ -184,7 +184,7 @@ UDPSocket * __thiscall UDPSocket::UDPSocket(UDPSocket *this,PRUDPTransport *para
     puVar1[1] = 0;
   }
   *(undefined4 **)(this + 0x1c) = puVar1;
-  *(PRUDPTransport **)(this + 0x14) = param_1;
+  *(PRUDPTransport **)(this + 0x14) = pPRUDPTransport;
   this[0x20] = (UDPSocket)0x0;
   this[0x21] = (UDPSocket)0x0;
   *(undefined4 *)(this + 0x2c) = 0;
@@ -239,11 +239,11 @@ void __thiscall UDPSocket::~UDPSocket(UDPSocket *this)
 
 // public: void __thiscall UDPSocket::SetCompletionEvents(class Event *,class Event *)
 
-void __thiscall UDPSocket::SetCompletionEvents(UDPSocket *this,Event *param_1,Event *param_2)
+void __thiscall UDPSocket::SetCompletionEvents(UDPSocket *this,Event *pEvent,Event *pEvent2)
 
 {
-  AsyncIOContext::SetEvent((AsyncIOContext *)(*(int *)(this + 0x18) + 0x10),param_1);
-  AsyncIOContext::SetEvent((AsyncIOContext *)(*(int *)(this + 0x1c) + 0x10),param_2);
+  AsyncIOContext::SetEvent((AsyncIOContext *)(*(int *)(this + 0x18) + 0x10),pEvent);
+  AsyncIOContext::SetEvent((AsyncIOContext *)(*(int *)(this + 0x1c) + 0x10),pEvent2);
   return;
 }
 
@@ -251,7 +251,7 @@ void __thiscall UDPSocket::SetCompletionEvents(UDPSocket *this,Event *param_1,Ev
 
 // public: bool __thiscall UDPSocket::Bind(class PRUDPInetAddress *,unsigned short *)
 
-bool __thiscall UDPSocket::Bind(UDPSocket *this,PRUDPInetAddress *param_1,ushort *param_2)
+bool __thiscall UDPSocket::Bind(UDPSocket *this,PRUDPInetAddress *pAddress,ushort *pUshort)
 
 {
   bool bVar1;
@@ -262,12 +262,12 @@ bool __thiscall UDPSocket::Bind(UDPSocket *this,PRUDPInetAddress *param_1,ushort
     return false;
   }
   Socket::SetAsync((Socket *)this,true);
-  bVar1 = Socket::Bind((Socket *)this,param_1);
+  bVar1 = Socket::Bind((Socket *)this,pAddress);
   if (!bVar1) {
     return false;
   }
-  uVar2 = PRUDPInetAddress::GetPort(param_1);
-  *param_2 = uVar2;
+  uVar2 = PRUDPInetAddress::GetPort(pAddress);
+  *pUshort = uVar2;
   return true;
 }
 
@@ -275,7 +275,7 @@ bool __thiscall UDPSocket::Bind(UDPSocket *this,PRUDPInetAddress *param_1,ushort
 
 // public: void __thiscall UDPSocket::Queue(class PacketOut *)
 
-void __thiscall UDPSocket::Queue(UDPSocket *this,PacketOut *param_1)
+void __thiscall UDPSocket::Queue(UDPSocket *this,PacketOut *pPacketOut)
 
 {
   bool bVar1;
@@ -293,16 +293,16 @@ void __thiscall UDPSocket::Queue(UDPSocket *this,PacketOut *param_1)
   uStack_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &uStack_c;
   puVar2 = (undefined4 *)Time::GetTime();
-  Packet::SetIOTime((Packet *)param_1,*puVar2,puVar2[1]);
+  Packet::SetIOTime((Packet *)pPacketOut,*puVar2,puVar2[1]);
   pPStack_4 = operator_new(0x1c);
   this_00 = (RefCountedObject *)0x0;
   uStack_c = 0;
   if (pPStack_4 != (PRUDPDeviceData *)0x0) {
     this_00 = (RefCountedObject *)
-              PRUDPDeviceData::PRUDPDeviceData(pPStack_4,(Packet *)param_1,this,DeliverToSend);
+              PRUDPDeviceData::PRUDPDeviceData(pPStack_4,(Packet *)pPacketOut,this,DeliverToSend);
   }
   uStack_c = 0xffffffff;
-  bVar1 = Packet::FlagSet((Packet *)param_1,0x80);
+  bVar1 = Packet::FlagSet((Packet *)pPacketOut,0x80);
   if (!bVar1) {
     pOVar3 = Transport::GetOutputEmulationDevice(*(Transport **)(this + 0x14));
     (**(code **)(*(int *)pOVar3 + 8))(this_00);
@@ -318,12 +318,12 @@ void __thiscall UDPSocket::Queue(UDPSocket *this,PacketOut *param_1)
 
 // bool __cdecl DeliverToSend(class DeviceData *)
 
-bool __cdecl DeliverToSend(DeviceData *param_1)
+bool __cdecl DeliverToSend(DeviceData *pDeviceData)
 
 {
   bool bVar1;
   
-  bVar1 = UDPSocket::Send(*(UDPSocket **)(param_1 + 0x18),*(PacketOut **)(param_1 + 0x14));
+  bVar1 = UDPSocket::Send(*(UDPSocket **)(pDeviceData + 0x18),*(PacketOut **)(pDeviceData + 0x14));
   return bVar1;
 }
 
@@ -331,7 +331,7 @@ bool __cdecl DeliverToSend(DeviceData *param_1)
 
 // public: bool __thiscall UDPSocket::Send(class PacketOut *)
 
-bool __thiscall UDPSocket::Send(UDPSocket *this,PacketOut *param_1)
+bool __thiscall UDPSocket::Send(UDPSocket *this,PacketOut *pPacketOut)
 
 {
   undefined4 uVar1;
@@ -365,16 +365,16 @@ bool __thiscall UDPSocket::Send(UDPSocket *this,PacketOut *param_1)
     }
     local_4 = 0xffffffff;
     *(undefined4 *)(*(int *)(this + 0x1c) + 4) = uVar1;
-    PacketOut::Pack(param_1,*(Buffer **)(*(int *)(this + 0x1c) + 4));
-    pPVar2 = Packet::GetPeerAddress((Packet *)param_1);
+    PacketOut::Pack(pPacketOut,*(Buffer **)(*(int *)(this + 0x1c) + 4));
+    pPVar2 = Packet::GetPeerAddress((Packet *)pPacketOut);
     PRUDPInetAddress::operator=((PRUDPInetAddress *)(*(int *)(this + 0x1c) + 0xc),pPVar2);
     *(undefined4 *)(*(int *)(this + 0x1c) + 8) = 0;
     pEVar3 = AsyncIOContext::GetEvent((AsyncIOContext *)(*(int *)(this + 0x1c) + 0x10));
     Event::Reset(pEVar3);
     uVar5 = 0x8000000;
-    pPVar2 = Packet::GetPeerAddress((Packet *)param_1);
+    pPVar2 = Packet::GetPeerAddress((Packet *)pPacketOut);
     PRUDPTransport::TraceProto
-              (*(PRUDPTransport **)(this + 0x14),s__>,(Packet *)param_1,
+              (*(PRUDPTransport **)(this + 0x14),s__>,(Packet *)pPacketOut,
                (PRUDPInetAddress *)(this + 8),pPVar2,uVar5);
     iVar4 = *(int *)(this + 0x1c);
     iVar4 = Socket::Send((Socket *)this,*(Buffer **)(iVar4 + 4),(PRUDPInetAddress *)(iVar4 + 0xc),
@@ -520,7 +520,7 @@ void __thiscall UDPSocket::TryIOCompletion(UDPSocket *this)
 
 // bool __cdecl DeliverToApp(class DeviceData *)
 
-bool __cdecl DeliverToApp(DeviceData *param_1)
+bool __cdecl DeliverToApp(DeviceData *pDeviceData)
 
 {
   int iVar1;
@@ -538,13 +538,13 @@ bool __cdecl DeliverToApp(DeviceData *param_1)
   undefined1 *puStack_8;
   undefined4 local_4;
   
-  pDVar2 = param_1;
+  pDVar2 = pDeviceData;
   local_4 = 0xffffffff;
   puStack_8 = &_L53581;
   local_c = *(undefined4 *)(&__except_list + unaff_FS_OFFSET);
   *(undefined4 **)(&__except_list + unaff_FS_OFFSET) = &local_c;
-  iVar1 = *(int *)(param_1 + 0x18);
-  ScopedCS::ScopedCS((ScopedCS *)&param_1,(CriticalSection *)(iVar1 + 0x28),s_<unspecified>);
+  iVar1 = *(int *)(pDeviceData + 0x18);
+  ScopedCS::ScopedCS((ScopedCS *)&pDeviceData,(CriticalSection *)(iVar1 + 0x28),s_<unspecified>);
   local_4 = 0;
   if (*(int *)(iVar1 + 0x2c) == 0) {
     *(undefined4 *)(iVar1 + 0x2c) = *(undefined4 *)(pDVar2 + 0x14);
@@ -570,7 +570,7 @@ bool __cdecl DeliverToApp(DeviceData *param_1)
     return true;
   }
   local_4 = 0xffffffff;
-  ScopedCS::~ScopedCS((ScopedCS *)&param_1);
+  ScopedCS::~ScopedCS((ScopedCS *)&pDeviceData);
   *(undefined4 *)(&__except_list + unaff_FS_OFFSET) = local_c;
   return false;
 }

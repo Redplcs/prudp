@@ -62,13 +62,13 @@ void __thiscall AsyncIOContext::AsyncIOContext(AsyncIOContext *this)
 
 // public: void __thiscall AsyncIOContext::SetEvent(class Event *)
 
-void __thiscall AsyncIOContext::SetEvent(AsyncIOContext *this,Event *param_1)
+void __thiscall AsyncIOContext::SetEvent(AsyncIOContext *this,Event *pEvent)
 
 {
   void *pvVar1;
   
-  pvVar1 = Event::GetPlatformSpecificEvent(param_1);
-  *(Event **)(this + 0x14) = param_1;
+  pvVar1 = Event::GetPlatformSpecificEvent(pEvent);
+  *(Event **)(this + 0x14) = pEvent;
   *(void **)(this + 0x10) = pvVar1;
   return;
 }
@@ -115,10 +115,10 @@ void __thiscall AsyncIOContext::ResetEvent(AsyncIOContext *this)
 
 // public: void __thiscall AsyncIOContext::SetIOSize(unsigned long)
 
-void __thiscall AsyncIOContext::SetIOSize(AsyncIOContext *this,ulong param_1)
+void __thiscall AsyncIOContext::SetIOSize(AsyncIOContext *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 0x18) = param_1;
+  *(ulong *)(this + 0x18) = ulValue;
   return;
 }
 
@@ -146,10 +146,10 @@ ulong __thiscall AsyncIOContext::GetReturnCode(AsyncIOContext *this)
 
 // public: void __thiscall AsyncIOContext::SetReturnCode(unsigned long)
 
-void __thiscall AsyncIOContext::SetReturnCode(AsyncIOContext *this,ulong param_1)
+void __thiscall AsyncIOContext::SetReturnCode(AsyncIOContext *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 0x1c) = param_1;
+  *(ulong *)(this + 0x1c) = ulValue;
   return;
 }
 

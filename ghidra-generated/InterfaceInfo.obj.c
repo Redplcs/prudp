@@ -85,10 +85,10 @@ void __thiscall InterfaceInfo::~InterfaceInfo(InterfaceInfo *this)
 
 // public: void __thiscall InterfaceInfo::SetAddress(unsigned long)
 
-void __thiscall InterfaceInfo::SetAddress(InterfaceInfo *this,ulong param_1)
+void __thiscall InterfaceInfo::SetAddress(InterfaceInfo *this,ulong ulValue)
 
 {
-  *(ulong *)this = param_1;
+  *(ulong *)this = ulValue;
   return;
 }
 
@@ -96,10 +96,10 @@ void __thiscall InterfaceInfo::SetAddress(InterfaceInfo *this,ulong param_1)
 
 // public: void __thiscall InterfaceInfo::SetBroadcastAddress(unsigned long)
 
-void __thiscall InterfaceInfo::SetBroadcastAddress(InterfaceInfo *this,ulong param_1)
+void __thiscall InterfaceInfo::SetBroadcastAddress(InterfaceInfo *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 4) = param_1;
+  *(ulong *)(this + 4) = ulValue;
   return;
 }
 
@@ -107,10 +107,10 @@ void __thiscall InterfaceInfo::SetBroadcastAddress(InterfaceInfo *this,ulong par
 
 // public: void __thiscall InterfaceInfo::SetMask(unsigned long)
 
-void __thiscall InterfaceInfo::SetMask(InterfaceInfo *this,ulong param_1)
+void __thiscall InterfaceInfo::SetMask(InterfaceInfo *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 8) = param_1;
+  *(ulong *)(this + 8) = ulValue;
   return;
 }
 
@@ -118,10 +118,10 @@ void __thiscall InterfaceInfo::SetMask(InterfaceInfo *this,ulong param_1)
 
 // public: void __thiscall InterfaceInfo::SetFlags(unsigned long)
 
-void __thiscall InterfaceInfo::SetFlags(InterfaceInfo *this,ulong param_1)
+void __thiscall InterfaceInfo::SetFlags(InterfaceInfo *this,ulong ulValue)
 
 {
-  *(ulong *)(this + 0xc) = param_1;
+  *(ulong *)(this + 0xc) = ulValue;
   return;
 }
 
@@ -129,7 +129,7 @@ void __thiscall InterfaceInfo::SetFlags(InterfaceInfo *this,ulong param_1)
 
 // public: void __thiscall InterfaceInfo::SetName(char *)
 
-void __thiscall InterfaceInfo::SetName(InterfaceInfo *this,char *param_1)
+void __thiscall InterfaceInfo::SetName(InterfaceInfo *this,char *szText)
 
 {
   char cVar1;
@@ -138,9 +138,9 @@ void __thiscall InterfaceInfo::SetName(InterfaceInfo *this,char *param_1)
   uint uVar4;
   char *pcVar5;
   
-  Platform::SystemCheck(param_1 != (char *)0x0,s_szName____NULL,s_InterfaceInfo_cpp,0x36);
+  Platform::SystemCheck(szText != (char *)0x0,s_szName____NULL,s_InterfaceInfo_cpp,0x36);
   uVar3 = 0xffffffff;
-  pcVar2 = param_1;
+  pcVar2 = szText;
   do {
     if (uVar3 == 0) break;
     uVar3 = uVar3 - 1;
@@ -151,12 +151,12 @@ void __thiscall InterfaceInfo::SetName(InterfaceInfo *this,char *param_1)
   uVar3 = 0xffffffff;
   *(char **)(this + 0x10) = pcVar2;
   do {
-    pcVar5 = param_1;
+    pcVar5 = szText;
     if (uVar3 == 0) break;
     uVar3 = uVar3 - 1;
-    pcVar5 = param_1 + 1;
-    cVar1 = *param_1;
-    param_1 = pcVar5;
+    pcVar5 = szText + 1;
+    cVar1 = *szText;
+    szText = pcVar5;
   } while (cVar1 != '\0');
   uVar3 = ~uVar3;
   pcVar5 = pcVar5 + -uVar3;
@@ -179,7 +179,7 @@ void __thiscall InterfaceInfo::SetName(InterfaceInfo *this,char *param_1)
 // private: bool __thiscall InterfaceInfo::Addr2Str(unsigned long,char *,unsigned long)
 
 bool __thiscall
-InterfaceInfo::Addr2Str(InterfaceInfo *this,ulong param_1,char *param_2,ulong param_3)
+InterfaceInfo::Addr2Str(InterfaceInfo *this,ulong ulValue,char *szText,ulong ulValue2)
 
 {
   char cVar1;
@@ -187,7 +187,7 @@ InterfaceInfo::Addr2Str(InterfaceInfo *this,ulong param_1,char *param_2,ulong pa
   uint uVar3;
   char *pcVar4;
   
-  pcVar2 = (char *)(*___imp__inet_ntoa_4)(param_1);
+  pcVar2 = (char *)(*___imp__inet_ntoa_4)(ulValue);
   uVar3 = 0xffffffff;
   pcVar4 = pcVar2;
   do {
@@ -196,8 +196,8 @@ InterfaceInfo::Addr2Str(InterfaceInfo *this,ulong param_1,char *param_2,ulong pa
     cVar1 = *pcVar4;
     pcVar4 = pcVar4 + 1;
   } while (cVar1 != '\0');
-  if ((char *)(~uVar3 - 1) < param_2) {
-    StringConversion::A2T(pcVar2,(char *)param_1,(uint)param_2);
+  if ((char *)(~uVar3 - 1) < szText) {
+    StringConversion::A2T(pcVar2,(char *)ulValue,(uint)szText);
     return true;
   }
   return false;
@@ -207,12 +207,12 @@ InterfaceInfo::Addr2Str(InterfaceInfo *this,ulong param_1,char *param_2,ulong pa
 
 // public: bool __thiscall InterfaceInfo::GetAddress(char *,unsigned long)
 
-bool __thiscall InterfaceInfo::GetAddress(InterfaceInfo *this,char *param_1,ulong param_2)
+bool __thiscall InterfaceInfo::GetAddress(InterfaceInfo *this,char *szText,ulong ulValue)
 
 {
   bool bVar1;
   
-  bVar1 = Addr2Str(this,*(ulong *)this,param_1,param_2);
+  bVar1 = Addr2Str(this,*(ulong *)this,szText,ulValue);
   return bVar1;
 }
 
@@ -220,12 +220,12 @@ bool __thiscall InterfaceInfo::GetAddress(InterfaceInfo *this,char *param_1,ulon
 
 // public: bool __thiscall InterfaceInfo::GetBroadcastAddress(char *,unsigned long)
 
-bool __thiscall InterfaceInfo::GetBroadcastAddress(InterfaceInfo *this,char *param_1,ulong param_2)
+bool __thiscall InterfaceInfo::GetBroadcastAddress(InterfaceInfo *this,char *szText,ulong ulValue)
 
 {
   bool bVar1;
   
-  bVar1 = Addr2Str(this,*(ulong *)(this + 4),param_1,param_2);
+  bVar1 = Addr2Str(this,*(ulong *)(this + 4),szText,ulValue);
   return bVar1;
 }
 
@@ -233,12 +233,12 @@ bool __thiscall InterfaceInfo::GetBroadcastAddress(InterfaceInfo *this,char *par
 
 // public: bool __thiscall InterfaceInfo::GetMask(char *,unsigned long)
 
-bool __thiscall InterfaceInfo::GetMask(InterfaceInfo *this,char *param_1,ulong param_2)
+bool __thiscall InterfaceInfo::GetMask(InterfaceInfo *this,char *szText,ulong ulValue)
 
 {
   bool bVar1;
   
-  bVar1 = Addr2Str(this,*(ulong *)(this + 8),param_1,param_2);
+  bVar1 = Addr2Str(this,*(ulong *)(this + 8),szText,ulValue);
   return bVar1;
 }
 
@@ -247,13 +247,13 @@ bool __thiscall InterfaceInfo::GetMask(InterfaceInfo *this,char *param_1,ulong p
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: bool __thiscall InterfaceInfo::GetName(char *,unsigned long)
 
-bool __thiscall InterfaceInfo::GetName(InterfaceInfo *this,char *param_1,ulong param_2)
+bool __thiscall InterfaceInfo::GetName(InterfaceInfo *this,char *szText,ulong ulValue)
 
 {
   if (*(int *)(this + 0x10) == 0) {
     return false;
   }
-  (*___imp__strncpy)(param_1,*(int *)(this + 0x10),param_2);
+  (*___imp__strncpy)(szText,*(int *)(this + 0x10),ulValue);
   return true;
 }
 
@@ -262,7 +262,7 @@ bool __thiscall InterfaceInfo::GetName(InterfaceInfo *this,char *param_1,ulong p
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // public: bool __thiscall InterfaceInfo::GetFlags(char *,unsigned long)
 
-bool __thiscall InterfaceInfo::GetFlags(InterfaceInfo *this,char *param_1,ulong param_2)
+bool __thiscall InterfaceInfo::GetFlags(InterfaceInfo *this,char *szText,ulong ulValue)
 
 {
   char cVar1;
@@ -391,7 +391,7 @@ bool __thiscall InterfaceInfo::GetFlags(InterfaceInfo *this,char *param_1,ulong 
       pcVar9 = pcVar9 + 1;
     }
   }
-  (*___imp__strncpy)(param_1,&local_200,param_2);
+  (*___imp__strncpy)(szText,&local_200,ulValue);
   return true;
 }
 
@@ -449,7 +449,7 @@ char * __thiscall InterfaceInfo::GetName(InterfaceInfo *this)
 
 // public: void __thiscall InterfaceInfo::Trace(unsigned long)
 
-void __thiscall InterfaceInfo::Trace(InterfaceInfo *this,ulong param_1)
+void __thiscall InterfaceInfo::Trace(InterfaceInfo *this,ulong ulValue)
 
 {
   bool bVar1;
@@ -464,37 +464,37 @@ void __thiscall InterfaceInfo::Trace(InterfaceInfo *this,ulong param_1)
   char local_78 [8];
   char local_70 [112];
   
-  pcVar3 = (char *)param_1;
+  pcVar3 = (char *)ulValue;
   pTVar2 = TraceOutput::GetInstance();
   TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar3);
   bVar1 = GetName(this,local_78,0x80);
   if (bVar1) {
-    pcVar3 = (char *)param_1;
+    pcVar3 = (char *)ulValue;
     pTVar2 = TraceOutput::GetInstance();
     TraceOutput::Trace(this_01,(ulong)pTVar2,pcVar3);
   }
   bVar1 = GetAddress(this,local_70,0x80);
   if (bVar1) {
-    pcVar3 = (char *)param_1;
+    pcVar3 = (char *)ulValue;
     pTVar2 = TraceOutput::GetInstance();
     TraceOutput::Trace(this_02,(ulong)pTVar2,pcVar3);
   }
   bVar1 = GetBroadcastAddress(this,local_70,0x80);
   if (bVar1) {
-    pcVar3 = (char *)param_1;
+    pcVar3 = (char *)ulValue;
     pTVar2 = TraceOutput::GetInstance();
     TraceOutput::Trace(this_03,(ulong)pTVar2,pcVar3);
   }
   bVar1 = GetMask(this,local_70,0x80);
   if (bVar1) {
-    pcVar3 = (char *)param_1;
+    pcVar3 = (char *)ulValue;
     pTVar2 = TraceOutput::GetInstance();
     TraceOutput::Trace(this_04,(ulong)pTVar2,pcVar3);
   }
   bVar1 = GetFlags(this,local_70,0x80);
   if (bVar1) {
     pTVar2 = TraceOutput::GetInstance();
-    TraceOutput::Trace(this_05,(ulong)pTVar2,(char *)param_1);
+    TraceOutput::Trace(this_05,(ulong)pTVar2,(char *)ulValue);
   }
   return;
 }

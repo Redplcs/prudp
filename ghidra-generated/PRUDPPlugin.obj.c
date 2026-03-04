@@ -129,11 +129,11 @@ ulong __thiscall TransportPlugin::GetType(TransportPlugin *this)
 
 // public: virtual void * __thiscall PRUDPPlugin::`scalar deleting destructor'(unsigned int)
 
-void * __thiscall PRUDPPlugin::_scalar_deleting_destructor_(PRUDPPlugin *this,uint param_1)
+void * __thiscall PRUDPPlugin::_scalar_deleting_destructor_(PRUDPPlugin *this,uint shouldDelete)
 
 {
   ~PRUDPPlugin(this);
-  if ((param_1 & 1) != 0) {
+  if ((shouldDelete & 1) != 0) {
     operator_delete(this);
   }
   return this;
@@ -225,7 +225,7 @@ bool __thiscall PRUDPPlugin::IsCertified(PRUDPPlugin *this)
 
 // public: virtual bool __thiscall PRUDPPlugin::ResponsibleForURL(class StationURL *)
 
-bool __thiscall PRUDPPlugin::ResponsibleForURL(PRUDPPlugin *this,StationURL *param_1)
+bool __thiscall PRUDPPlugin::ResponsibleForURL(PRUDPPlugin *this,StationURL *pStationURL)
 
 {
   byte bVar1;
@@ -234,7 +234,7 @@ bool __thiscall PRUDPPlugin::ResponsibleForURL(PRUDPPlugin *this,StationURL *par
   bool bVar4;
   byte local_80 [128];
   
-  StationURL::GetTransportType(param_1,(char *)local_80,0x80);
+  StationURL::GetTransportType(pStationURL,(char *)local_80,0x80);
   pbVar3 = &s_prudp;
   pbVar2 = local_80;
   while( true ) {
@@ -289,11 +289,11 @@ PluginObject * __thiscall PRUDPPlugin::CreatePluginObject(PRUDPPlugin *this)
 
 // public: virtual void __thiscall PRUDPPlugin::DeletePluginObject(class PluginObject *)
 
-void __thiscall PRUDPPlugin::DeletePluginObject(PRUDPPlugin *this,PluginObject *param_1)
+void __thiscall PRUDPPlugin::DeletePluginObject(PRUDPPlugin *this,PluginObject *pPlugin)
 
 {
-  if (param_1 != (PluginObject *)0x0) {
-    (*(code *)**(undefined4 **)param_1)(1);
+  if (pPlugin != (PluginObject *)0x0) {
+    (*(code *)**(undefined4 **)pPlugin)(1);
   }
   return;
 }
@@ -302,14 +302,14 @@ void __thiscall PRUDPPlugin::DeletePluginObject(PRUDPPlugin *this,PluginObject *
 
 // public: virtual void __thiscall PRUDPPlugin::SetTraceOutput(class TraceOutput *)
 
-void __thiscall PRUDPPlugin::SetTraceOutput(PRUDPPlugin *this,TraceOutput *param_1)
+void __thiscall PRUDPPlugin::SetTraceOutput(PRUDPPlugin *this,TraceOutput *pTraceOutput)
 
 {
   TraceOutput *pTVar1;
   
   pTVar1 = TraceOutput::GetInstance();
-  if (param_1 != pTVar1) {
-    TraceOutput::SetTheTraceOutput(param_1);
+  if (pTraceOutput != pTVar1) {
+    TraceOutput::SetTheTraceOutput(pTraceOutput);
   }
   return;
 }
@@ -323,5 +323,4 @@ PRUDPPlugin * __cdecl PRUDPPlugin::GetInstance(void)
 {
   return &s_oPlugin;
 }
-
 

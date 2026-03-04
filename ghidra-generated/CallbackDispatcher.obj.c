@@ -81,7 +81,7 @@ ulong ulNbCallbackCalled;
 // public: __thiscall CallbackDispatcher::CallbackDispatcher(unsigned long)
 
 CallbackDispatcher * __thiscall
-CallbackDispatcher::CallbackDispatcher(CallbackDispatcher *this,ulong param_1)
+CallbackDispatcher::CallbackDispatcher(CallbackDispatcher *this,ulong ulValue)
 
 {
   bool bVar1;
@@ -104,7 +104,7 @@ CallbackDispatcher::CallbackDispatcher(CallbackDispatcher *this,ulong param_1)
   CriticalSection::CriticalSection((CriticalSection *)(this + 0x3c));
   local_4._0_1_ = 1;
   this[0x48] = (CallbackDispatcher)0x0;
-  *(ulong *)(this + 0x24) = param_1;
+  *(ulong *)(this + 0x24) = ulValue;
   pEVar2 = operator_new(0x14);
   local_4._0_1_ = 2;
   if (pEVar2 == (EventHandler *)0x0) {
@@ -189,10 +189,10 @@ void __thiscall CallbackDispatcher::~CallbackDispatcher(CallbackDispatcher *this
 
 // public: void __thiscall CallbackDispatcher::SetPriority(unsigned long)
 
-void __thiscall CallbackDispatcher::SetPriority(CallbackDispatcher *this,ulong param_1)
+void __thiscall CallbackDispatcher::SetPriority(CallbackDispatcher *this,ulong ulValue)
 
 {
-  ObjectThreadRoot::SetPriority((ObjectThreadRoot *)this,param_1);
+  ObjectThreadRoot::SetPriority((ObjectThreadRoot *)this,ulValue);
   return;
 }
 
@@ -203,7 +203,7 @@ void __thiscall CallbackDispatcher::SetPriority(CallbackDispatcher *this,ulong p
 
 void __thiscall
 CallbackDispatcher::RegisterTimeSliceCallback
-          (CallbackDispatcher *this,_func_ulong_ulong_ulong *param_1,ulong param_2,long param_3)
+          (CallbackDispatcher *this,_func_ulong_ulong_ulong *p_func_ulong_ulong_ulong,ulong ulValue,long value)
 
 {
   ulong *puVar1;
@@ -217,11 +217,11 @@ CallbackDispatcher::RegisterTimeSliceCallback
     puVar1 = (ulong *)0x0;
   }
   else {
-    puVar1[1] = (ulong)param_1;
-    *puVar1 = param_2;
+    puVar1[1] = (ulong)p_func_ulong_ulong_ulong;
+    *puVar1 = ulValue;
   }
   *(ulong **)(this + 0x40) = puVar1;
-  *(long *)(this + 0x44) = param_3;
+  *(long *)(this + 0x44) = value;
   Event::Set(*(Event **)(this + 0x2c));
   return;
 }
@@ -244,7 +244,7 @@ void __thiscall CallbackDispatcher::UnregisterTimeSliceCallback(CallbackDispatch
 
 // public: bool __thiscall CallbackDispatcher::Stop(unsigned long)
 
-bool __thiscall CallbackDispatcher::Stop(CallbackDispatcher *this,ulong param_1)
+bool __thiscall CallbackDispatcher::Stop(CallbackDispatcher *this,ulong ulValue)
 
 {
   bool bVar1;
@@ -252,7 +252,7 @@ bool __thiscall CallbackDispatcher::Stop(CallbackDispatcher *this,ulong param_1)
   if (this[0x10] != (CallbackDispatcher)0x0) {
     this[0x48] = (CallbackDispatcher)0x1;
     Event::Set(*(Event **)(this + 0x2c));
-    bVar1 = ObjectThreadRoot::Wait((ObjectThreadRoot *)this,param_1);
+    bVar1 = ObjectThreadRoot::Wait((ObjectThreadRoot *)this,ulValue);
     return bVar1;
   }
   return true;
@@ -265,7 +265,7 @@ bool __thiscall CallbackDispatcher::Stop(CallbackDispatcher *this,ulong param_1)
 
 Event * __thiscall
 CallbackDispatcher::CreateCallbackEvent
-          (CallbackDispatcher *this,_func_ulong_ulong_ulong *param_1,ulong param_2)
+          (CallbackDispatcher *this,_func_ulong_ulong_ulong *p_func_ulong_ulong_ulong,ulong ulValue)
 
 {
   ulong *puVar1;
@@ -273,8 +273,8 @@ CallbackDispatcher::CreateCallbackEvent
   
   puVar1 = operator_new(8);
   if (puVar1 != (ulong *)0x0) {
-    puVar1[1] = (ulong)param_1;
-    *puVar1 = param_2;
+    puVar1[1] = (ulong)p_func_ulong_ulong_ulong;
+    *puVar1 = ulValue;
     pEVar2 = EventHandler::CreateEventObject(*(EventHandler **)(this + 0x28),1,(ulong)puVar1);
     return pEVar2;
   }
@@ -286,14 +286,14 @@ CallbackDispatcher::CreateCallbackEvent
 
 // public: void __thiscall CallbackDispatcher::DeleteCallbackEvent(class Event *)
 
-void __thiscall CallbackDispatcher::DeleteCallbackEvent(CallbackDispatcher *this,Event *param_1)
+void __thiscall CallbackDispatcher::DeleteCallbackEvent(CallbackDispatcher *this,Event *pEvent)
 
 {
   void *pvVar1;
   
-  Platform::SystemCheck(param_1 != (Event *)0x0,s_pEvent__NULL,s_CallbackDispatcher_cpp,0x7c);
-  pvVar1 = (void *)Event::GetContext(param_1);
-  EventHandler::DeleteEventObject(*(EventHandler **)(this + 0x28),param_1);
+  Platform::SystemCheck(pEvent != (Event *)0x0,s_pEvent__NULL,s_CallbackDispatcher_cpp,0x7c);
+  pvVar1 = (void *)Event::GetContext(pEvent);
+  EventHandler::DeleteEventObject(*(EventHandler **)(this + 0x28),pEvent);
   Platform::SystemCheck(pvVar1 != (void *)0x0,s_pCallback__NULL,s_CallbackDispatcher_cpp,0x7f);
   if (pvVar1 != (void *)0x0) {
     operator_delete(pvVar1);
@@ -308,7 +308,7 @@ void __thiscall CallbackDispatcher::DeleteCallbackEvent(CallbackDispatcher *this
 
 void __thiscall
 CallbackDispatcher::CallInContext
-          (CallbackDispatcher *this,_func_ulong_ulong_ulong *param_1,ulong param_2)
+          (CallbackDispatcher *this,_func_ulong_ulong_ulong *p_func_ulong_ulong_ulong,ulong ulValue)
 
 {
   uint uVar1;
@@ -333,8 +333,8 @@ CallbackDispatcher::CallInContext
     puVar3 = (ulong *)0x0;
   }
   else {
-    puVar3[1] = (ulong)param_1;
-    *puVar3 = param_2;
+    puVar3[1] = (ulong)p_func_ulong_ulong_ulong;
+    *puVar3 = ulValue;
   }
   uVar1 = *(uint *)(this + 0xc);
   uVar4 = ObjectThreadRoot::GetCurrentThreadID();
@@ -347,8 +347,8 @@ CallbackDispatcher::CallInContext
     Event::Reset(*(Event **)(this + 0x38));
     Event::SetContext(*(Event **)(this + 0x30),(ulong)puVar3);
     Event::Set(*(Event **)(this + 0x30));
-    param_1 = (_func_ulong_ulong_ulong *)0x0;
-    EventHandler::WaitForEvent(*(EventHandler **)(this + 0x34),0xffffffff,(Event **)&param_1);
+    p_func_ulong_ulong_ulong = (_func_ulong_ulong_ulong *)0x0;
+    EventHandler::WaitForEvent(*(EventHandler **)(this + 0x34),0xffffffff,(Event **)&p_func_ulong_ulong_ulong);
   }
   if (puVar3 != (ulong *)0x0) {
     operator_delete(puVar3);
@@ -363,7 +363,7 @@ CallbackDispatcher::CallInContext
 
 // public: void __thiscall CallbackDispatcher::DispatcherThread(void *)
 
-void __thiscall CallbackDispatcher::DispatcherThread(CallbackDispatcher *this,void *param_1)
+void __thiscall CallbackDispatcher::DispatcherThread(CallbackDispatcher *this,void *pData)
 
 {
   CallbackDispatcher CVar1;
@@ -427,7 +427,7 @@ LAB_000029b5:
 
 // unsigned long __cdecl CallbackDispatcherTest::Callback1(unsigned long,unsigned long)
 
-ulong __cdecl CallbackDispatcherTest::Callback1(ulong param_1,ulong param_2)
+ulong __cdecl CallbackDispatcherTest::Callback1(ulong ulValue,ulong ulValue2)
 
 {
   ulNbCallbackCalled = ulNbCallbackCalled + 1;
@@ -438,7 +438,7 @@ ulong __cdecl CallbackDispatcherTest::Callback1(ulong param_1,ulong param_2)
 
 // unsigned long __cdecl CallbackDispatcherTest::Callback2(unsigned long,unsigned long)
 
-ulong __cdecl CallbackDispatcherTest::Callback2(ulong param_1,ulong param_2)
+ulong __cdecl CallbackDispatcherTest::Callback2(ulong ulValue,ulong ulValue2)
 
 {
   ulNbCallbackCalled = ulNbCallbackCalled + 1;
@@ -481,11 +481,11 @@ void __thiscall ObjectThread<>::CallObjectMethod(ObjectThread<> *this)
 // public: virtual void * __thiscall ObjectThread<class CallbackDispatcher,void *>::`scalar deleting
 // destructor'(unsigned int)
 
-void * __thiscall ObjectThread<>::_scalar_deleting_destructor_(ObjectThread<> *this,uint param_1)
+void * __thiscall ObjectThread<>::_scalar_deleting_destructor_(ObjectThread<> *this,uint uValue)
 
 {
   ~ObjectThread<>(this);
-  if ((param_1 & 1) != 0) {
+  if ((uValue & 1) != 0) {
     operator_delete(this);
   }
   return this;

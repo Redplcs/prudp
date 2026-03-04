@@ -169,7 +169,7 @@ void __thiscall TimeoutManager::~TimeoutManager(TimeoutManager *this)
 
 // public: void __thiscall TimeoutManager::SchedulePacketTimeout(class PacketOut *)
 
-void __thiscall TimeoutManager::SchedulePacketTimeout(TimeoutManager *this,PacketOut *param_1)
+void __thiscall TimeoutManager::SchedulePacketTimeout(TimeoutManager *this,PacketOut *pPacketOut)
 
 {
   bool bVar1;
@@ -192,20 +192,20 @@ void __thiscall TimeoutManager::SchedulePacketTimeout(TimeoutManager *this,Packe
   local_10 = this;
   ScopedCS::ScopedCS((ScopedCS *)&local_10,(CriticalSection *)(this + 0xc),s_<unspecified>);
   local_4 = 0;
-  Platform::SystemCheck(param_1 != (PacketOut *)0x0,s_pPacket__NULL,s_TimeoutManager_cpp,0x1e);
-  pTVar2 = PacketOut::GetTimeout(param_1);
+  Platform::SystemCheck(pPacketOut != (PacketOut *)0x0,s_pPacket__NULL,s_TimeoutManager_cpp,0x1e);
+  pTVar2 = PacketOut::GetTimeout(pPacketOut);
   Timeout::Start(pTVar2);
   piVar6 = (int *)**(int **)(this + 4);
   if (piVar6 != *(int **)(this + 4)) {
     do {
-      pTVar2 = PacketOut::GetTimeout(param_1);
+      pTVar2 = PacketOut::GetTimeout(pPacketOut);
       this_00 = PacketOut::GetTimeout((PacketOut *)piVar6[2]);
       bVar1 = Timeout::operator<(this_00,pTVar2);
       if (!bVar1) break;
       piVar6 = (int *)*piVar6;
     } while (piVar6 != (int *)*(int *)(this + 4));
   }
-  RefCountedObject::AcquireRef((RefCountedObject *)param_1);
+  RefCountedObject::AcquireRef((RefCountedObject *)pPacketOut);
   piVar5 = (int *)piVar6[1];
   piVar3 = operator_new(0xc);
   piVar4 = piVar6;
@@ -220,7 +220,7 @@ void __thiscall TimeoutManager::SchedulePacketTimeout(TimeoutManager *this,Packe
   piVar6[1] = (int)piVar3;
   *(int **)piVar3[1] = piVar3;
   if (piVar3 + 2 != (int *)0x0) {
-    piVar3[2] = (int)param_1;
+    piVar3[2] = (int)pPacketOut;
   }
   local_4 = 0xffffffff;
   *(int *)(this + 8) = *(int *)(this + 8) + 1;
@@ -233,7 +233,7 @@ void __thiscall TimeoutManager::SchedulePacketTimeout(TimeoutManager *this,Packe
 
 // public: void __thiscall TimeoutManager::CancelPacketTimeout(class PacketOut *)
 
-void __thiscall TimeoutManager::CancelPacketTimeout(TimeoutManager *this,PacketOut *param_1)
+void __thiscall TimeoutManager::CancelPacketTimeout(TimeoutManager *this,PacketOut *pPacketOut)
 
 {
   int *piVar1;
@@ -256,7 +256,7 @@ void __thiscall TimeoutManager::CancelPacketTimeout(TimeoutManager *this,PacketO
   local_10 = this;
   ScopedCS::ScopedCS((ScopedCS *)&local_10,(CriticalSection *)(this + 0xc),s_<unspecified>);
   local_4 = 0;
-  Packet::GetSeqId((Packet *)param_1);
+  Packet::GetSeqId((Packet *)pPacketOut);
   pcVar4 = (char *)0x0;
   pTVar2 = TraceOutput::GetInstance();
   TraceOutput::Trace(this_00,(ulong)pTVar2,pcVar4);
@@ -264,7 +264,7 @@ void __thiscall TimeoutManager::CancelPacketTimeout(TimeoutManager *this,PacketO
   piVar3 = (int *)*piVar1;
   if (piVar3 != piVar1) {
     do {
-      if ((PacketOut *)piVar3[2] == param_1) break;
+      if ((PacketOut *)piVar3[2] == pPacketOut) break;
       piVar3 = (int *)*piVar3;
     } while (piVar3 != piVar1);
     if (piVar3 != piVar1) {
@@ -272,8 +272,8 @@ void __thiscall TimeoutManager::CancelPacketTimeout(TimeoutManager *this,PacketO
       *(int *)(*piVar3 + 4) = piVar3[1];
       operator_delete(piVar3);
       *(int *)(this + 8) = *(int *)(this + 8) + -1;
-      RefCountedObject::ReleaseRef((RefCountedObject *)param_1);
-      Packet::GetSeqId((Packet *)param_1);
+      RefCountedObject::ReleaseRef((RefCountedObject *)pPacketOut);
+      Packet::GetSeqId((Packet *)pPacketOut);
       pcVar4 = (char *)0x0;
       pTVar2 = TraceOutput::GetInstance();
       TraceOutput::Trace(this_01,(ulong)pTVar2,pcVar4);
@@ -282,7 +282,7 @@ void __thiscall TimeoutManager::CancelPacketTimeout(TimeoutManager *this,PacketO
   uStack0000000c = 0xffffffff;
   uStack_c = 0x25d1;
   ScopedCS::~ScopedCS((ScopedCS *)&stack0x00000000);
-  *(PacketOut **)(&__except_list + unaff_FS_OFFSET) = param_1;
+  *(PacketOut **)(&__except_list + unaff_FS_OFFSET) = pPacketOut;
   return;
 }
 
