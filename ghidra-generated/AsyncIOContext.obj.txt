@@ -1,0 +1,872 @@
+.drectve:0000...2d              ??          2Dh    -                                
+.drectve:0000...64              ??          64h    d                                
+.drectve:0000...65              ??          65h    e                                
+.drectve:0000...66              ??          66h    f                                
+.drectve:0000...61              ??          61h    a                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...74              ??          74h    t                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...62              ??          62h    b                                
+.drectve:0000...3a              ??          3Ah    :                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...64              ??          64h    d                                
+.drectve:0000...2e              ??          2Eh    .                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...62              ??          62h    b                                
+.drectve:0000...20              ??          20h                                     
+.drectve:0000...2d              ??          2Dh    -                                
+.drectve:0000...64              ??          64h    d                                
+.drectve:0000...65              ??          65h    e                                
+.drectve:0000...66              ??          66h    f                                
+.drectve:0000...61              ??          61h    a                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...74              ??          74h    t                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...62              ??          62h    b                                
+.drectve:0000...3a              ??          3Ah    :                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...64              ??          64h    d                                
+.drectve:0000...2e              ??          2Eh    .                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...62              ??          62h    b                                
+.drectve:0000...20              ??          20h                                     
+.drectve:0000...2d              ??          2Dh    -                                
+.drectve:0000...64              ??          64h    d                                
+.drectve:0000...65              ??          65h    e                                
+.drectve:0000...66              ??          66h    f                                
+.drectve:0000...61              ??          61h    a                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...74              ??          74h    t                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...62              ??          62h    b                                
+.drectve:0000...3a              ??          3Ah    :                                
+.drectve:0000...4d              ??          4Dh    M                                
+.drectve:0000...53              ??          53h    S                                
+.drectve:0000...56              ??          56h    V                                
+.drectve:0000...43              ??          43h    C                                
+.drectve:0000...52              ??          52h    R                                
+.drectve:0000...54              ??          54h    T                                
+.drectve:0000...20              ??          20h                                     
+.drectve:0000...2d              ??          2Dh    -                                
+.drectve:0000...64              ??          64h    d                                
+.drectve:0000...65              ??          65h    e                                
+.drectve:0000...66              ??          66h    f                                
+.drectve:0000...61              ??          61h    a                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...74              ??          74h    t                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...62              ??          62h    b                                
+.drectve:0000...3a              ??          3Ah    :                                
+.drectve:0000...4f              ??          4Fh    O                                
+.drectve:0000...4c              ??          4Ch    L                                
+.drectve:0000...44              ??          44h    D                                
+.drectve:0000...4e              ??          4Eh    N                                
+.drectve:0000...41              ??          41h    A                                
+.drectve:0000...4d              ??          4Dh    M                                
+.drectve:0000...45              ??          45h    E                                
+.drectve:0000...53              ??          53h    S                                
+.drectve:0000...20              ??          20h                                     
+                            ;************************************************************************************************
+                            ;*                   public: __thiscall AsyncIOContext::AsyncIOContext(void)                    *
+                            ;************************************************************************************************
+                            ;undefined AsyncIOContext(AsyncIOContext * this)
+          ;this          AsyncIOCont...     ECX                      
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002200  8bc1            MOV         EAX,this                                
+.text:00002202  33c9            XOR         this,this                               
+.text:00002204  894818          MOV         dword ptr [EAX + 0x18],this             
+.text:00002207  89481c          MOV         dword ptr [EAX + 0x1c],this             
+.text:0000220a  894814          MOV         dword ptr [EAX + 0x14],this             
+.text:0000220d  c3              RET                                                 
+.text:0000220e  90              ??          90h                                     
+.text:0000220f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*               public: void __thiscall AsyncIOContext::SetEvent(class Event *)                *
+                            ;************************************************************************************************
+                            ;void SetEvent(AsyncIOContext * this, Event * param_1)
+          ;this          AsyncIOCont...     ECX                      
+          ;param_1       Event *              4                      ;XREF[1]:     00002212(R)
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002210  56              PUSH        ESI                                     
+.text:00002211  57              PUSH        EDI                                     
+.text:00002212  8b7c240c        MOV         EDI,dword ptr [ESP + param_1+0x8]       
+.text:00002216  8bf1            MOV         ESI,this                                
+.text:00002218  8bcf            MOV         this,EDI                                
+.text:0000221a  e891100000      CALL        EXTERNAL:<EXTERNAL>::Event::GetPlatfo...;void * GetPlatformSpecificEvent(Even...
+.text:0000221f  897e14          MOV         dword ptr [ESI + 0x14],EDI              
+.text:00002222  894610          MOV         dword ptr [ESI + 0x10],EAX              
+.text:00002225  5f              POP         EDI                                     
+.text:00002226  5e              POP         ESI                                     
+.text:00002227  c20400          RET         0x4                                     
+.text:0000222a  90              ??          90h                                     
+.text:0000222b  90              ??          90h                                     
+.text:0000222c  90              ??          90h                                     
+.text:0000222d  90              ??          90h                                     
+.text:0000222e  90              ??          90h                                     
+.text:0000222f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*               public: class Event * __thiscall AsyncIOContext::GetEvent(void)                *
+                            ;************************************************************************************************
+                            ;Event * GetEvent(AsyncIOContext * this)
+          ;this          AsyncIOCont...     ECX                      
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002230  8b4114          MOV         EAX,dword ptr [this + 0x14]             
+.text:00002233  c3              RET                                                 
+.text:00002234  90              ??          90h                                     
+.text:00002235  90              ??          90h                                     
+.text:00002236  90              ??          90h                                     
+.text:00002237  90              ??          90h                                     
+.text:00002238  90              ??          90h                                     
+.text:00002239  90              ??          90h                                     
+.text:0000223a  90              ??          90h                                     
+.text:0000223b  90              ??          90h                                     
+.text:0000223c  90              ??          90h                                     
+.text:0000223d  90              ??          90h                                     
+.text:0000223e  90              ??          90h                                     
+.text:0000223f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*                  public: void __thiscall AsyncIOContext::SignalEvent(void)                   *
+                            ;************************************************************************************************
+                            ;void SignalEvent(AsyncIOContext * this)
+          ;this          AsyncIOCont...     ECX                      
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002240  8b4914          MOV         this,dword ptr [this + 0x14]            
+.text:00002243  85c9            TEST        this,this                               
+.text:00002245  7405            JZ          LAB_0000224c                            
+.text:00002247  e96c100000      JMP         EXTERNAL:<EXTERNAL>::Event::Set         ;void Set(Event * this)
+                            LAB_0000224c:                 ;XREF[1]:     00002245(j)
+.text:0000224c  c3              RET                                                 
+.text:0000224d  90              ??          90h                                     
+.text:0000224e  90              ??          90h                                     
+.text:0000224f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*                   public: void __thiscall AsyncIOContext::ResetEvent(void)                   *
+                            ;************************************************************************************************
+                            ;void ResetEvent(AsyncIOContext * this)
+          ;this          AsyncIOCont...     ECX                      
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002250  8b4914          MOV         this,dword ptr [this + 0x14]            
+.text:00002253  85c9            TEST        this,this                               
+.text:00002255  7405            JZ          LAB_0000225c                            
+.text:00002257  e964100000      JMP         EXTERNAL:<EXTERNAL>::Event::Reset       ;void Reset(Event * this)
+                            LAB_0000225c:                 ;XREF[1]:     00002255(j)
+.text:0000225c  c3              RET                                                 
+.text:0000225d  90              ??          90h                                     
+.text:0000225e  90              ??          90h                                     
+.text:0000225f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*               public: void __thiscall AsyncIOContext::SetIOSize(unsigned long)               *
+                            ;************************************************************************************************
+                            ;void SetIOSize(AsyncIOContext * this, ulong param_1)
+          ;this          AsyncIOCont...     ECX                      
+          ;param_1       ulong                4                      ;XREF[1]:     00002260(R)
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002260  8b442404        MOV         EAX,dword ptr [ESP + param_1]           
+.text:00002264  894118          MOV         dword ptr [this + 0x18],EAX             
+.text:00002267  c20400          RET         0x4                                     
+.text:0000226a  90              ??          90h                                     
+.text:0000226b  90              ??          90h                                     
+.text:0000226c  90              ??          90h                                     
+.text:0000226d  90              ??          90h                                     
+.text:0000226e  90              ??          90h                                     
+.text:0000226f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*               public: unsigned long __thiscall AsyncIOContext::GetIOSize(void)               *
+                            ;************************************************************************************************
+                            ;ulong GetIOSize(AsyncIOContext * this)
+          ;this          AsyncIOCont...     ECX                      
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002270  8b4118          MOV         EAX,dword ptr [this + 0x18]             
+.text:00002273  c3              RET                                                 
+.text:00002274  90              ??          90h                                     
+.text:00002275  90              ??          90h                                     
+.text:00002276  90              ??          90h                                     
+.text:00002277  90              ??          90h                                     
+.text:00002278  90              ??          90h                                     
+.text:00002279  90              ??          90h                                     
+.text:0000227a  90              ??          90h                                     
+.text:0000227b  90              ??          90h                                     
+.text:0000227c  90              ??          90h                                     
+.text:0000227d  90              ??          90h                                     
+.text:0000227e  90              ??          90h                                     
+.text:0000227f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*             public: unsigned long __thiscall AsyncIOContext::GetReturnCode(void)             *
+                            ;************************************************************************************************
+                            ;ulong GetReturnCode(AsyncIOContext * this)
+          ;this          AsyncIOCont...     ECX                      
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002280  8b411c          MOV         EAX,dword ptr [this + 0x1c]             
+.text:00002283  c3              RET                                                 
+.text:00002284  90              ??          90h                                     
+.text:00002285  90              ??          90h                                     
+.text:00002286  90              ??          90h                                     
+.text:00002287  90              ??          90h                                     
+.text:00002288  90              ??          90h                                     
+.text:00002289  90              ??          90h                                     
+.text:0000228a  90              ??          90h                                     
+.text:0000228b  90              ??          90h                                     
+.text:0000228c  90              ??          90h                                     
+.text:0000228d  90              ??          90h                                     
+.text:0000228e  90              ??          90h                                     
+.text:0000228f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*             public: void __thiscall AsyncIOContext::SetReturnCode(unsigned long)             *
+                            ;************************************************************************************************
+                            ;void SetReturnCode(AsyncIOContext * this, ulong param_1)
+          ;this          AsyncIOCont...     ECX                      
+          ;param_1       ulong                4                      ;XREF[1]:     00002290(R)
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002290  8b442404        MOV         EAX,dword ptr [ESP + param_1]           
+.text:00002294  89411c          MOV         dword ptr [this + 0x1c],EAX             
+.text:00002297  c20400          RET         0x4                                     
+.text:0000229a  90              ??          90h                                     
+.text:0000229b  90              ??          90h                                     
+.text:0000229c  90              ??          90h                                     
+.text:0000229d  90              ??          90h                                     
+.text:0000229e  90              ??          90h                                     
+.text:0000229f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*         public: struct _OVERLAPPED * __thiscall AsyncIOContext::GetOverlapped(void)          *
+                            ;************************************************************************************************
+                            ;_OVERLAPPED * GetOverlapped(AsyncIOContext * this)
+          ;this          AsyncIOCont...     ECX                      
+                                                          ;XREF[1]:     Entry Point(*)
+.text:000022a0  8bc1            MOV         EAX,this                                
+.text:000022a2  c3              RET                                                 
+.text:000022a3  90              ??          90h                                     
+.text:000022a4  90              ??          90h                                     
+.text:000022a5  90              ??          90h                                     
+.text:000022a6  90              ??          90h                                     
+.text:000022a7  90              ??          90h                                     
+.text:000022a8  90              ??          90h                                     
+.text:000022a9  90              ??          90h                                     
+.text:000022aa  90              ??          90h                                     
+.text:000022ab  90              ??          90h                                     
+.text:000022ac  90              ??          90h                                     
+.text:000022ad  90              ??          90h                                     
+.text:000022ae  90              ??          90h                                     
+.text:000022af  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;void * GetPlatformSpecificEvent(Event * this)
+          ;this          Event *            ECX                      
+                                                          ;XREF[1]:     0000221a(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;void Set(Event * this)
+          ;this          Event *            ECX                      
+                                                          ;XREF[1]:     00002247(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;void Reset(Event * this)
+          ;this          Event *            ECX                      
+                                                          ;XREF[1]:     00002257(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+HEADER:HEADER...4c011500c...    CoffFile...                                        
+   |_HEADER:HEADER...f_magic         dw          14Ch                                    
+   |_HEADER:HEADER...f_nscns         dw          15h                                     
+   |_HEADER:HEADER...f_timdat        ddw         3BEC6FC5h                               
+   |_HEADER:HEADER...f_symptr        ddw         580h                                    
+   |_HEADER:HEADER...f_nsyms         ddw         3Bh                                     
+   |_HEADER:HEADER...f_opthdr        dw          0h                                      
+   |_HEADER:HEADER...f_flags         dw          0h                                      
+HEADER:HEADER...2e6472656...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".drectve"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'r'                                     
+      |_HEADER:HEADER...[3]             char        'e'                                     
+      |_HEADER:HEADER...[4]             char        'c'                                     
+      |_HEADER:HEADER...[5]             char        't'                                     
+      |_HEADER:HEADER...[6]             char        'v'                                     
+      |_HEADER:HEADER...[7]             char        'e'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         52h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         35Ch                                    
+   |_HEADER:HEADER...s_relptr        ddw         0h                                      
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          0h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         100A00h                                 
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         3AEh                                    
+   |_HEADER:HEADER...s_relptr        ddw         0h                                      
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          0h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         3BEh                                    
+   |_HEADER:HEADER...s_relptr        ddw         3CEh                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         20h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         3D8h                                    
+   |_HEADER:HEADER...s_relptr        ddw         3F8h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         402h                                    
+   |_HEADER:HEADER...s_relptr        ddw         412h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         41Ch                                    
+   |_HEADER:HEADER...s_relptr        ddw         0h                                      
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          0h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         42Ch                                    
+   |_HEADER:HEADER...s_relptr        ddw         43Ch                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         446h                                    
+   |_HEADER:HEADER...s_relptr        ddw         456h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         460h                                    
+   |_HEADER:HEADER...s_relptr        ddw         470h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         47Ah                                    
+   |_HEADER:HEADER...s_relptr        ddw         48Ah                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         494h                                    
+   |_HEADER:HEADER...s_relptr        ddw         4A4h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         4AEh                                    
+   |_HEADER:HEADER...s_relptr        ddw         0h                                      
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          0h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         4BEh                                    
+   |_HEADER:HEADER...s_relptr        ddw         4CEh                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         4D8h                                    
+   |_HEADER:HEADER...s_relptr        ddw         0h                                      
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          0h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         4E8h                                    
+   |_HEADER:HEADER...s_relptr        ddw         4F8h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         502h                                    
+   |_HEADER:HEADER...s_relptr        ddw         0h                                      
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          0h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         512h                                    
+   |_HEADER:HEADER...s_relptr        ddw         522h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         52Ch                                    
+   |_HEADER:HEADER...s_relptr        ddw         0h                                      
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          0h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         53Ch                                    
+   |_HEADER:HEADER...s_relptr        ddw         54Ch                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         556h                                    
+   |_HEADER:HEADER...s_relptr        ddw         0h                                      
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          0h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         566h                                    
+   |_HEADER:HEADER...s_relptr        ddw         576h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+.debug$F-11:....50              ??          50h    P                                ;?  ->  00002250
+.debug$F-11:....22              ??          22h    "                                
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....0d              ??          0Dh                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-11:....00              ??          00h                                     
+.debug$F-13:....60              ??          60h    `                                ;?  ->  00002260
+.debug$F-13:....22              ??          22h    "                                
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....0a              ??          0Ah                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....01              ??          01h                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-13:....00              ??          00h                                     
+.debug$F-15:....70              ??          70h    p                                ;?  ->  00002270
+.debug$F-15:....22              ??          22h    "                                
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....04              ??          04h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-15:....00              ??          00h                                     
+.debug$F-17:....80              ??          80h                                     ;?  ->  00002280
+.debug$F-17:....22              ??          22h    "                                
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....04              ??          04h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-17:....00              ??          00h                                     
+.debug$F-19:....90              ??          90h                                     ;?  ->  00002290
+.debug$F-19:....22              ??          22h    "                                
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....0a              ??          0Ah                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....01              ??          01h                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-19:....00              ??          00h                                     
+.debug$F-21:....a0              ??          A0h                                     ;?  ->  000022a0
+.debug$F-21:....22              ??          22h    "                                
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....03              ??          03h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-21:....00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     ;?  ->  00002200
+.debug$F-3:.d...22              ??          22h    "                                
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...0e              ??          0Eh                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-3:.d...00              ??          00h                                     
+.debug$F-5:.d...10              ??          10h                                     ;?  ->  00002210
+.debug$F-5:.d...22              ??          22h    "                                
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...1a              ??          1Ah                                     
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...01              ??          01h                                     
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...00              ??          00h                                     
+.debug$F-5:.d...02              ??          02h                                     
+.debug$F-7:.d...30              ??          30h    0                                ;?  ->  00002230
+.debug$F-7:.d...22              ??          22h    "                                
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...04              ??          04h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-7:.d...00              ??          00h                                     
+.debug$F-9:.d...40              ??          40h    @                                ;?  ->  00002240
+.debug$F-9:.d...22              ??          22h    "                                
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...0d              ??          0Dh                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     
+.debug$F-9:.d...00              ??          00h                                     

@@ -1,0 +1,833 @@
+.drectve:0000...2d              ??          2Dh    -                                
+.drectve:0000...64              ??          64h    d                                
+.drectve:0000...65              ??          65h    e                                
+.drectve:0000...66              ??          66h    f                                
+.drectve:0000...61              ??          61h    a                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...74              ??          74h    t                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...62              ??          62h    b                                
+.drectve:0000...3a              ??          3Ah    :                                
+.drectve:0000...4d              ??          4Dh    M                                
+.drectve:0000...53              ??          53h    S                                
+.drectve:0000...56              ??          56h    V                                
+.drectve:0000...43              ??          43h    C                                
+.drectve:0000...52              ??          52h    R                                
+.drectve:0000...54              ??          54h    T                                
+.drectve:0000...20              ??          20h                                     
+.drectve:0000...2d              ??          2Dh    -                                
+.drectve:0000...64              ??          64h    d                                
+.drectve:0000...65              ??          65h    e                                
+.drectve:0000...66              ??          66h    f                                
+.drectve:0000...61              ??          61h    a                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...74              ??          74h    t                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...62              ??          62h    b                                
+.drectve:0000...3a              ??          3Ah    :                                
+.drectve:0000...4f              ??          4Fh    O                                
+.drectve:0000...4c              ??          4Ch    L                                
+.drectve:0000...44              ??          44h    D                                
+.drectve:0000...4e              ??          4Eh    N                                
+.drectve:0000...41              ??          41h    A                                
+.drectve:0000...4d              ??          4Dh    M                                
+.drectve:0000...45              ??          45h    E                                
+.drectve:0000...53              ??          53h    S                                
+.drectve:0000...20              ??          20h                                     
+                            ;************************************************************************************************
+                            ;*                                  const PacketIn::`vftable'                                   *
+                            ;************************************************************************************************
+                            ??_7PacketIn@@6B@:            ;XREF[1]:     0000232e(*)
+                            `vftable':                    
+.rdata:00002200 38360000        addr        EXTERNAL:<EXTERNAL>::PacketIn::`vecto...;= ??
+                            ;************************************************************************************************
+                            ;*                         public: __thiscall PacketIn::PacketIn(void)                          *
+                            ;************************************************************************************************
+                            ;undefined PacketIn(PacketIn * this)
+          ;this          PacketIn *         ECX                      
+          ;local_4       undefined4          -4                      ;XREF[3]:     00002326(W),00002342(W),0000235c(W)
+          ;local_c       undefined4          -c                      ;XREF[1]:     00002366(R)
+          ;local_10      undefined4         -10                      ;XREF[1]:     0000233c(W)
+          ;local_14      undefined4         -14                      ;XREF[1]:     0000231b(W)
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002300  6aff            PUSH        -0x1                                    
+.text:00002302  6813250000      PUSH        .text$x:$L1150                          
+.text:00002307  64a178360000    MOV         EAX,FS:[EXTERNAL:__except_list]         ;= ??
+.text:0000230d  50              PUSH        EAX                                     
+.text:0000230e  648925783...    MOV         dword ptr FS:[EX...,ESP                 ;= ??
+.text:00002315  83ec08          SUB         ESP,0x8                                 
+.text:00002318  56              PUSH        ESI                                     
+.text:00002319  8bf1            MOV         ESI,this                                
+.text:0000231b  89742404        MOV         dword ptr [ESP + local_14+0x18],ESI     
+.text:0000231f  e844130000      CALL        EXTERNAL:<EXTERNAL>::Packet::Packet     ;undefined Packet(Packet * this)
+.text:00002324  6a20            PUSH        0x20                                    
+.text:00002326  c74424180...    MOV         dword ptr [ESP + local_4+0x1c],0x0      
+.text:0000232e  c70600220000    MOV         dword ptr [ESI],.rdata:PacketIn::`vft...;= 00003638
+.text:00002334  e827130000      CALL        EXTERNAL:<EXTERNAL>::operator_new       ;void * operator_new(uint param_1)
+.text:00002339  83c404          ADD         ESP,0x4                                 
+.text:0000233c  89442408        MOV         dword ptr [ESP + local_10+0x18],EAX     
+.text:00002340  85c0            TEST        EAX,EAX                                 
+.text:00002342  c644241401      MOV         byte ptr [ESP + local_4+0x18],0x1       
+.text:00002347  740e            JZ          LAB_00002357                            
+.text:00002349  6800100000      PUSH        0x1000                                  
+.text:0000234e  8bc8            MOV         this,EAX                                
+.text:00002350  e803130000      CALL        EXTERNAL:<EXTERNAL>::Buffer::Buffer     ;undefined Buffer(Buffer * this, ulon...
+.text:00002355  eb02            JMP         LAB_00002359                            
+                            LAB_00002357:                 ;XREF[1]:     00002347(j)
+.text:00002357  33c0            XOR         EAX,EAX                                 
+                            LAB_00002359:                 ;XREF[1]:     00002355(j)
+.text:00002359  50              PUSH        EAX                                     
+.text:0000235a  8bce            MOV         this,ESI                                
+.text:0000235c  c644241800      MOV         byte ptr [ESP + local_4+0x1c],0x0       
+.text:00002361  e8ea120000      CALL        EXTERNAL:<EXTERNAL>::Packet::SetPayload ;bool SetPayload(Packet * this, Buffe...
+.text:00002366  8b4c240c        MOV         this,dword ptr [ESP + local_c+0x18]     
+.text:0000236a  8bc6            MOV         EAX,ESI                                 
+.text:0000236c  5e              POP         ESI                                     
+.text:0000236d  64890d783...    MOV         dword ptr FS:[EX...,this                ;= ??
+.text:00002374  83c414          ADD         ESP,0x14                                
+.text:00002377  c3              RET                                                 
+.text:00002378  90              ??          90h                                     
+.text:00002379  90              ??          90h                                     
+.text:0000237a  90              ??          90h                                     
+.text:0000237b  90              ??          90h                                     
+.text:0000237c  90              ??          90h                                     
+.text:0000237d  90              ??          90h                                     
+.text:0000237e  90              ??          90h                                     
+.text:0000237f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*    public: virtual void * __thiscall PacketIn::`scalar deleting destructor'(unsigned int)    *
+                            ;************************************************************************************************
+                            ;void * `scalar_deleting_destructor'(PacketIn * this, uint param_1)
+          ;this          PacketIn *         ECX                      
+          ;param_1       uint                 4                      ;XREF[1]:     00002388(R)
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002380  56              PUSH        ESI                                     
+.text:00002381  8bf1            MOV         ESI,this                                
+.text:00002383  e818000000      CALL        .text:PacketIn::~PacketIn               ;void ~PacketIn(PacketIn * this)
+.text:00002388  f644240801      TEST        byte ptr [ESP + param_1+0x4],0x1        
+.text:0000238d  7409            JZ          LAB_00002398                            
+.text:0000238f  56              PUSH        ESI                                     
+.text:00002390  e8ab120000      CALL        EXTERNAL:<EXTERNAL>::operator_delete    ;void operator_delete(void * param_1)
+.text:00002395  83c404          ADD         ESP,0x4                                 
+                            LAB_00002398:                 ;XREF[1]:     0000238d(j)
+.text:00002398  8bc6            MOV         EAX,ESI                                 
+.text:0000239a  5e              POP         ESI                                     
+.text:0000239b  c20400          RET         0x4                                     
+.text:0000239e  90              ??          90h                                     
+.text:0000239f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*                     public: virtual __thiscall PacketIn::~PacketIn(void)                     *
+                            ;************************************************************************************************
+                            ;void ~PacketIn(PacketIn * this)
+          ;this          PacketIn *         ECX                      
+                                                          ;XREF[2]:     Entry Point(*),00002383(c)
+.text:000023a0  e9a3120000      JMP         EXTERNAL:<EXTERNAL>::Packet::~Packet    ;void ~Packet(Packet * this)
+.text:000023a5  90              ??          90h                                     
+.text:000023a6  90              ??          90h                                     
+.text:000023a7  90              ??          90h                                     
+.text:000023a8  90              ??          90h                                     
+.text:000023a9  90              ??          90h                                     
+.text:000023aa  90              ??          90h                                     
+.text:000023ab  90              ??          90h                                     
+.text:000023ac  90              ??          90h                                     
+.text:000023ad  90              ??          90h                                     
+.text:000023ae  90              ??          90h                                     
+.text:000023af  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*                   public: bool __thiscall PacketIn::Unpack(class Buffer *)                   *
+                            ;************************************************************************************************
+                            ;bool Unpack(PacketIn * this, Buffer * param_1)
+          ;this          PacketIn *         ECX                      
+          ;param_1       Buffer *             4                      ;XREF[1]:     000023b1(R)
+                                                          ;XREF[1]:     Entry Point(*)
+.text:000023b0  56              PUSH        ESI                                     
+.text:000023b1  8b742408        MOV         ESI,dword ptr [ESP + param_1+0x4]       
+.text:000023b5  57              PUSH        EDI                                     
+.text:000023b6  8bf9            MOV         EDI,this                                
+.text:000023b8  8bce            MOV         this,ESI                                
+.text:000023ba  e8f9120000      CALL        EXTERNAL:<EXTERNAL>::Buffer::GetConte...;ulong GetContentSize(Buffer * this)
+.text:000023bf  85c0            TEST        EAX,EAX                                 
+.text:000023c1  7679            JBE         LAB_0000243c                            
+.text:000023c3  8bce            MOV         this,ESI                                
+.text:000023c5  e8e6120000      CALL        EXTERNAL:<EXTERNAL>::Buffer::Validate...;bool ValidateAndRetrieveChecksum(Buf...
+.text:000023ca  84c0            TEST        AL,AL                                   
+.text:000023cc  746e            JZ          LAB_0000243c                            
+.text:000023ce  6a00            PUSH        0x0                                     
+.text:000023d0  8d470c          LEA         EAX,[EDI + 0xc]                         
+.text:000023d3  6a08            PUSH        0x8                                     
+.text:000023d5  50              PUSH        EAX                                     
+.text:000023d6  8bce            MOV         this,ESI                                
+.text:000023d8  e8cb120000      CALL        EXTERNAL:<EXTERNAL>::Buffer::CopyContent;bool CopyContent(Buffer * this, void...
+.text:000023dd  84c0            TEST        AL,AL                                   
+.text:000023df  745b            JZ          LAB_0000243c                            
+.text:000023e1  53              PUSH        EBX                                     
+.text:000023e2  8bcf            MOV         this,EDI                                
+.text:000023e4  e8b7120000      CALL        EXTERNAL:<EXTERNAL>::Packet::GetPayload ;Buffer * GetPayload(Packet * this)
+.text:000023e9  8bc8            MOV         this,EAX                                
+.text:000023eb  e8a8120000      CALL        EXTERNAL:<EXTERNAL>::Buffer::Clear      ;void Clear(Buffer * this)
+.text:000023f0  8bcf            MOV         this,EDI                                
+.text:000023f2  e899120000      CALL        EXTERNAL:<EXTERNAL>::Packet::GetSize    ;ushort GetSize(Packet * this)
+.text:000023f7  668bd8          MOV         BX,AX                                   
+.text:000023fa  8bce            MOV         this,ESI                                
+.text:000023fc  81e3ffff0000    AND         EBX,0xffff                              
+.text:00002402  e8b1120000      CALL        EXTERNAL:<EXTERNAL>::Buffer::GetConte...;ulong GetContentSize(Buffer * this)
+.text:00002407  3bc3            CMP         EAX,EBX                                 
+.text:00002409  5b              POP         EBX                                     
+.text:0000240a  7530            JNZ         LAB_0000243c                            
+.text:0000240c  6aff            PUSH        -0x1                                    
+.text:0000240e  8bce            MOV         this,ESI                                
+.text:00002410  e8a3120000      CALL        EXTERNAL:<EXTERNAL>::Buffer::GetConte...;ulong GetContentSize(Buffer * this)
+.text:00002415  83e808          SUB         EAX,0x8                                 
+.text:00002418  8bce            MOV         this,ESI                                
+.text:0000241a  50              PUSH        EAX                                     
+.text:0000241b  e868120000      CALL        EXTERNAL:<EXTERNAL>::Buffer::GetConte...;uchar * GetContentPtr(Buffer * this)
+.text:00002420  83c008          ADD         EAX,0x8                                 
+.text:00002423  8bcf            MOV         this,EDI                                
+.text:00002425  50              PUSH        EAX                                     
+.text:00002426  e875120000      CALL        EXTERNAL:<EXTERNAL>::Packet::GetPayload ;Buffer * GetPayload(Packet * this)
+.text:0000242b  8bc8            MOV         this,EAX                                
+.text:0000242d  e84e120000      CALL        EXTERNAL:<EXTERNAL>::Buffer::AppendData ;bool AppendData(Buffer * this, void ...
+.text:00002432  84c0            TEST        AL,AL                                   
+.text:00002434  5f              POP         EDI                                     
+.text:00002435  5e              POP         ESI                                     
+.text:00002436  0f95c0          SETNZ       AL                                      
+.text:00002439  c20400          RET         0x4                                     
+                            LAB_0000243c:                 ;XREF[4]:     000023c1(j),000023cc(j),000023df(j),0000240a(j)
+.text:0000243c  5f              POP         EDI                                     
+.text:0000243d  32c0            XOR         AL,AL                                   
+.text:0000243f  5e              POP         ESI                                     
+.text:00002440  c20400          RET         0x4                                     
+.text:00002443  90              ??          90h                                     
+.text:00002444  90              ??          90h                                     
+.text:00002445  90              ??          90h                                     
+.text:00002446  90              ??          90h                                     
+.text:00002447  90              ??          90h                                     
+.text:00002448  90              ??          90h                                     
+.text:00002449  90              ??          90h                                     
+.text:0000244a  90              ??          90h                                     
+.text:0000244b  90              ??          90h                                     
+.text:0000244c  90              ??          90h                                     
+.text:0000244d  90              ??          90h                                     
+.text:0000244e  90              ??          90h                                     
+.text:0000244f  90              ??          90h                                     
+                            $L1144:                       
+.text$x:000025008b4dec          MOV         ECX,dword ptr [EBP + -0x14]             
+.text$x:00002503e940110000      JMP         EXTERNAL:<EXTERNAL>::Packet::~Packet    ;void ~Packet(Packet * this)
+                            $L1145:                       
+.text$x:000025088b45f0          MOV         EAX,dword ptr [EBP + -0x10]             
+.text$x:0000250b50              PUSH        EAX                                     
+.text$x:0000250ce82f110000      CALL        EXTERNAL:<EXTERNAL>::operator_delete    ;void operator_delete(void * param_1)
+.text$x:0000251159              POP         ECX                                     
+.text$x:00002512c3              RET                                                 
+                            $L1150:                       ;XREF[1]:     00002302(*)
+.text$x:00002513b800260000      MOV         EAX,.xdata$x:$T1149                     ;= 20h     
+.text$x:00002518e953110000      JMP         EXTERNAL:<EXTERNAL>::___CxxFrameHandler ;undefined ___CxxFrameHandler()
+                            $T1149:                       ;XREF[1]:     00002513(*)
+.xdata$x:0000...20              ??          20h                                     
+.xdata$x:0000...05              ??          05h                                     
+.xdata$x:0000...93              ??          93h                                     
+.xdata$x:0000...19              ??          19h                                     
+.xdata$x:0000...02              ??          02h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...20              ??          20h                                     ;?  ->  00002620
+.xdata$x:0000...26              ??          26h    &                                
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+                            $T1152:                       
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...00              ??          00h                                     ;?  ->  00002500
+.xdata$x:0000...25              ??          25h    %                                
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...08              ??          08h                                     ;?  ->  00002508
+.xdata$x:0000...25              ??          25h    %                                
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+                            ;************************************************************************************************
+                            ;*    public: virtual void * __thiscall PacketIn::`scalar deleting destructor'(unsigned int)    *
+                            ;************************************************************************************************
+                            ;void * `scalar_deleting_destructor'(PacketIn * this, uint param_1)
+          ;this          PacketIn *         ECX                      
+          ;param_1       uint                 4                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*    public: virtual void * __thiscall PacketIn::`vector deleting destructor'(unsigned int)    *
+                            ;************************************************************************************************
+                            ;void * `vector_deleting_destructor'(PacketIn * this, uint param_1)
+          ;this          PacketIn *         ECX                      
+          ;param_1       uint                 4                      
+                                                          ;XREF[1]:     00002200(*)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;void operator_delete(void * param_1)
+          ;param_1       void *               4                      
+                                                          ;XREF[2]:     00002390(c),0000250c(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;void ~Packet(Packet * this)
+          ;this          Packet *           ECX                      
+                                                          ;XREF[2]:     000023a0(c),00002503(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;bool SetPayload(Packet * this, Buffer * param_1)
+          ;this          Packet *           ECX                      
+          ;param_1       Buffer *             4                      
+                                                          ;XREF[1]:     00002361(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined Buffer(Buffer * this, ulong param_1)
+          ;this          Buffer *           ECX                      
+          ;param_1       ulong                4                      
+                                                          ;XREF[1]:     00002350(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;void * operator_new(uint param_1)
+          ;param_1       uint                 4                      
+                                                          ;XREF[1]:     00002334(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined Packet(Packet * this)
+          ;this          Packet *           ECX                      
+                                                          ;XREF[1]:     0000231f(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined ___CxxFrameHandler()
+                                                          ;XREF[1]:     00002518(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            __except_list:                ;XREF[3]:     00002307(*),0000230e(*),0000236d(*)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;bool AppendData(Buffer * this, void * param_1, ulong param_2, ulong param_3)
+          ;this          Buffer *           ECX                      
+          ;param_1       void *               4                      
+          ;param_2       ulong                8                      
+          ;param_3       ulong                c                      
+                                                          ;XREF[1]:     0000242d(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;uchar * GetContentPtr(Buffer * this)
+          ;this          Buffer *           ECX                      
+                                                          ;XREF[1]:     0000241b(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;ushort GetSize(Packet * this)
+          ;this          Packet *           ECX                      
+                                                          ;XREF[1]:     000023f2(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;void Clear(Buffer * this)
+          ;this          Buffer *           ECX                      
+                                                          ;XREF[1]:     000023eb(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;Buffer * GetPayload(Packet * this)
+          ;this          Packet *           ECX                      
+                                                          ;XREF[2]:     000023e4(c),00002426(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;bool CopyContent(Buffer * this, void * param_1, ulong param_2, ulong param_3)
+          ;this          Buffer *           ECX                      
+          ;param_1       void *               4                      
+          ;param_2       ulong                8                      
+          ;param_3       ulong                c                      
+                                                          ;XREF[1]:     000023d8(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;bool ValidateAndRetrieveChecksum(Buffer * this)
+          ;this          Buffer *           ECX                      
+                                                          ;XREF[1]:     000023c5(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;ulong GetContentSize(Buffer * this)
+          ;this          Buffer *           ECX                      
+                                                          ;XREF[3]:     000023ba(c),00002402(c),00002410(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+HEADER:HEADER...4c010c00c...    CoffFile...                                        
+   |_HEADER:HEADER...f_magic         dw          14Ch                                    
+   |_HEADER:HEADER...f_nscns         dw          Ch                                      
+   |_HEADER:HEADER...f_timdat        ddw         3BEC6FC3h                               
+   |_HEADER:HEADER...f_symptr        ddw         55Bh                                    
+   |_HEADER:HEADER...f_nsyms         ddw         38h                                     
+   |_HEADER:HEADER...f_opthdr        dw          0h                                      
+   |_HEADER:HEADER...f_flags         dw          0h                                      
+HEADER:HEADER...2e6472656...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".drectve"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'r'                                     
+      |_HEADER:HEADER...[3]             char        'e'                                     
+      |_HEADER:HEADER...[4]             char        'c'                                     
+      |_HEADER:HEADER...[5]             char        't'                                     
+      |_HEADER:HEADER...[6]             char        'v'                                     
+      |_HEADER:HEADER...[7]             char        'e'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         28h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         1F4h                                    
+   |_HEADER:HEADER...s_relptr        ddw         0h                                      
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          0h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         100A00h                                 
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         80h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         21Ch                                    
+   |_HEADER:HEADER...s_relptr        ddw         29Ch                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          9h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text$x"                               
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        '$'                                     
+      |_HEADER:HEADER...[6]             char        'x'                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         1Dh                                     
+   |_HEADER:HEADER...s_scnptr        ddw         2F6h                                    
+   |_HEADER:HEADER...s_relptr        ddw         313h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          4h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e7264617...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".rdata"                                
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'r'                                     
+      |_HEADER:HEADER...[2]             char        'd'                                     
+      |_HEADER:HEADER...[3]             char        'a'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        'a'                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         4h                                      
+   |_HEADER:HEADER...s_scnptr        ddw         33Bh                                    
+   |_HEADER:HEADER...s_relptr        ddw         33Fh                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         40301040h                               
+HEADER:HEADER...2e7864617...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".xdata$x"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'x'                                     
+      |_HEADER:HEADER...[2]             char        'd'                                     
+      |_HEADER:HEADER...[3]             char        'a'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        'a'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'x'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         30h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         349h                                    
+   |_HEADER:HEADER...s_relptr        ddw         379h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          3h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         40401040h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         397h                                    
+   |_HEADER:HEADER...s_relptr        ddw         3A7h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         20h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         3B1h                                    
+   |_HEADER:HEADER...s_relptr        ddw         3D1h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          2h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         3E5h                                    
+   |_HEADER:HEADER...s_relptr        ddw         3F5h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         3FFh                                    
+   |_HEADER:HEADER...s_relptr        ddw         40Fh                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         419h                                    
+   |_HEADER:HEADER...s_relptr        ddw         429h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         A0h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         433h                                    
+   |_HEADER:HEADER...s_relptr        ddw         4D3h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          Bh                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         541h                                    
+   |_HEADER:HEADER...s_relptr        ddw         551h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+.debug$F-10:....a0              ??          A0h                                     ;?  ->  000023a0
+.debug$F-10:....23              ??          23h    #                                
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....05              ??          05h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-10:....00              ??          00h                                     
+.debug$F-12:....b0              ??          B0h                                     ;?  ->  000023b0
+.debug$F-12:....23              ??          23h    #                                
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....93              ??          93h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....01              ??          01h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....03              ??          03h                                     
+.debug$F-6:.d...00              ??          00h                                     ;?  ->  00002300
+.debug$F-6:.d...23              ??          23h    #                                
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...78              ??          78h    x                                
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...05              ??          05h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...01              ??          01h                                     
+.debug$F-8:.d...30              ??          30h    0                                ;?  ->  00003630
+.debug$F-8:.d...36              ??          36h    6                                
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...1e              ??          1Eh                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...01              ??          01h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...01              ??          01h                                     

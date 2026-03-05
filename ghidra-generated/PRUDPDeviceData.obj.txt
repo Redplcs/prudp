@@ -1,0 +1,675 @@
+.drectve:0000...2d              ??          2Dh    -                                
+.drectve:0000...64              ??          64h    d                                
+.drectve:0000...65              ??          65h    e                                
+.drectve:0000...66              ??          66h    f                                
+.drectve:0000...61              ??          61h    a                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...74              ??          74h    t                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...62              ??          62h    b                                
+.drectve:0000...3a              ??          3Ah    :                                
+.drectve:0000...4d              ??          4Dh    M                                
+.drectve:0000...53              ??          53h    S                                
+.drectve:0000...56              ??          56h    V                                
+.drectve:0000...43              ??          43h    C                                
+.drectve:0000...52              ??          52h    R                                
+.drectve:0000...54              ??          54h    T                                
+.drectve:0000...20              ??          20h                                     
+.drectve:0000...2d              ??          2Dh    -                                
+.drectve:0000...64              ??          64h    d                                
+.drectve:0000...65              ??          65h    e                                
+.drectve:0000...66              ??          66h    f                                
+.drectve:0000...61              ??          61h    a                                
+.drectve:0000...75              ??          75h    u                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...74              ??          74h    t                                
+.drectve:0000...6c              ??          6Ch    l                                
+.drectve:0000...69              ??          69h    i                                
+.drectve:0000...62              ??          62h    b                                
+.drectve:0000...3a              ??          3Ah    :                                
+.drectve:0000...4f              ??          4Fh    O                                
+.drectve:0000...4c              ??          4Ch    L                                
+.drectve:0000...44              ??          44h    D                                
+.drectve:0000...4e              ??          4Eh    N                                
+.drectve:0000...41              ??          41h    A                                
+.drectve:0000...4d              ??          4Dh    M                                
+.drectve:0000...45              ??          45h    E                                
+.drectve:0000...53              ??          53h    S                                
+.drectve:0000...20              ??          20h                                     
+                            ;************************************************************************************************
+                            ;*                               const PRUDPDeviceData::`vftable'                               *
+                            ;************************************************************************************************
+                            ??_7PRUDPDeviceData@@6B@:     ;XREF[2]:     00002345(*),000023ad(*)
+                            `vftable':                    
+.rdata:00002200 58360000        addr        EXTERNAL:<EXTERNAL>::PRUDPDeviceData:...;= ??
+                            ;************************************************************************************************
+                            ;*public: __thiscall PRUDPDeviceData::PRUDPDeviceData(class Packet *,class UDPSocket *,bool (__...*
+                            ;************************************************************************************************
+                            ;undefined PRUDPDeviceData(PRUDPDeviceData * this, Packet * param_1, UDPSocket * param_2, _func_bool_DeviceData_ptr * param_3)
+          ;this          PRUDPDevice...     ECX                      
+          ;param_1       Packet *             4                      ;XREF[1]:     0000231c(R)
+          ;param_2       UDPSocket *          8                      ;XREF[1]:     00002350(R)
+          ;param_3       _func_bool_...       c                      ;XREF[1]:     00002316(R)
+          ;local_4       undefined4          -4                      ;XREF[1]:     0000233d(W)
+          ;local_c       undefined4          -c                      ;XREF[1]:     0000235a(R)
+          ;local_10      undefined4         -10                      ;XREF[1]:     00002325(W)
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002300  6aff            PUSH        -0x1                                    
+.text:00002302  6808250000      PUSH        .text$x:$L1335                          
+.text:00002307  64a188360000    MOV         EAX,FS:[EXTERNAL:__except_list]         ;= ??
+.text:0000230d  50              PUSH        EAX                                     
+.text:0000230e  648925883...    MOV         dword ptr FS:[EX...,ESP                 ;= ??
+.text:00002315  51              PUSH        this                                    
+.text:00002316  8b44241c        MOV         EAX,dword ptr [ESP + param_3+0x10]      
+.text:0000231a  56              PUSH        ESI                                     
+.text:0000231b  57              PUSH        EDI                                     
+.text:0000231c  8b7c241c        MOV         EDI,dword ptr [ESP + param_1+0x18]      
+.text:00002320  8bf1            MOV         ESI,this                                
+.text:00002322  50              PUSH        EAX                                     
+.text:00002323  8bcf            MOV         this,EDI                                
+.text:00002325  8974240c        MOV         dword ptr [ESP + local_10+0x1c],ESI     
+.text:00002329  e84a130000      CALL        EXTERNAL:<EXTERNAL>::Packet::GetSize    ;ushort GetSize(Packet * this)
+.text:0000232e  25ffff0000      AND         EAX,0xffff                              
+.text:00002333  8bce            MOV         this,ESI                                
+.text:00002335  50              PUSH        EAX                                     
+.text:00002336  e835130000      CALL        EXTERNAL:<EXTERNAL>::DeviceData::Devi...;undefined DeviceData(DeviceData * th...
+.text:0000233b  8bcf            MOV         this,EDI                                
+.text:0000233d  c74424140...    MOV         dword ptr [ESP + local_4+0x18],0x0      
+.text:00002345  c70600220000    MOV         dword ptr [ESI],.rdata:PRUDPDeviceDat...;= 00003658
+.text:0000234b  e818130000      CALL        EXTERNAL:<EXTERNAL>::RefCountedObject...;RefCountedObject * AcquireRef(RefCou...
+.text:00002350  8b4c2420        MOV         this,dword ptr [ESP + param_2+0x18]     
+.text:00002354  894614          MOV         dword ptr [ESI + 0x14],EAX              
+.text:00002357  894e18          MOV         dword ptr [ESI + 0x18],this             
+.text:0000235a  8b4c240c        MOV         this,dword ptr [ESP + local_c+0x18]     
+.text:0000235e  8bc6            MOV         EAX,ESI                                 
+.text:00002360  5f              POP         EDI                                     
+.text:00002361  5e              POP         ESI                                     
+.text:00002362  64890d883...    MOV         dword ptr FS:[EX...,this                ;= ??
+.text:00002369  83c410          ADD         ESP,0x10                                
+.text:0000236c  c20c00          RET         0xc                                     
+.text:0000236f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*public: virtual void * __thiscall PRUDPDeviceData::`scalar deleting destructor'(unsigned int) *
+                            ;************************************************************************************************
+                            ;void * `scalar_deleting_destructor'(PRUDPDeviceData * this, uint param_1)
+          ;this          PRUDPDevice...     ECX                      
+          ;param_1       uint                 4                      ;XREF[1]:     00002378(R)
+                                                          ;XREF[1]:     Entry Point(*)
+.text:00002370  56              PUSH        ESI                                     
+.text:00002371  8bf1            MOV         ESI,this                                
+.text:00002373  e818000000      CALL        .text:PRUDPDeviceData::~PRUDPDeviceData ;void ~PRUDPDeviceData(PRUDPDeviceDat...
+.text:00002378  f644240801      TEST        byte ptr [ESP + param_1+0x4],0x1        
+.text:0000237d  7409            JZ          LAB_00002388                            
+.text:0000237f  56              PUSH        ESI                                     
+.text:00002380  e80b130000      CALL        EXTERNAL:<EXTERNAL>::operator_delete    ;void operator_delete(void * param_1)
+.text:00002385  83c404          ADD         ESP,0x4                                 
+                            LAB_00002388:                 ;XREF[1]:     0000237d(j)
+.text:00002388  8bc6            MOV         EAX,ESI                                 
+.text:0000238a  5e              POP         ESI                                     
+.text:0000238b  c20400          RET         0x4                                     
+.text:0000238e  90              ??          90h                                     
+.text:0000238f  90              ??          90h                                     
+                            ;************************************************************************************************
+                            ;*              public: virtual __thiscall PRUDPDeviceData::~PRUDPDeviceData(void)              *
+                            ;************************************************************************************************
+                            ;void ~PRUDPDeviceData(PRUDPDeviceData * this)
+          ;this          PRUDPDevice...     ECX                      
+          ;local_4       undefined4          -4                      ;XREF[2]:     000023b6(W),000023c5(W)
+          ;local_c       undefined4          -c                      ;XREF[1]:     000023d2(R)
+          ;local_10      undefined4         -10                      ;XREF[1]:     000023a9(W)
+                                                          ;XREF[2]:     Entry Point(*),00002373(c)
+.text:00002390  6aff            PUSH        -0x1                                    
+.text:00002392  6828250000      PUSH        .text$x:$L1349                          
+.text:00002397  64a188360000    MOV         EAX,FS:[EXTERNAL:__except_list]         ;= ??
+.text:0000239d  50              PUSH        EAX                                     
+.text:0000239e  648925883...    MOV         dword ptr FS:[EX...,ESP                 ;= ??
+.text:000023a5  51              PUSH        this                                    
+.text:000023a6  56              PUSH        ESI                                     
+.text:000023a7  8bf1            MOV         ESI,this                                
+.text:000023a9  89742404        MOV         dword ptr [ESP + local_10+0x14],ESI     
+.text:000023ad  c70600220000    MOV         dword ptr [ESI],.rdata:PRUDPDeviceDat...;= 00003658
+.text:000023b3  8b4e14          MOV         this,dword ptr [ESI + 0x14]             
+.text:000023b6  c74424100...    MOV         dword ptr [ESP + local_4+0x14],0x0      
+.text:000023be  e8d5120000      CALL        EXTERNAL:<EXTERNAL>::RefCountedObject...;void ReleaseRef(RefCountedObject * t...
+.text:000023c3  8bce            MOV         this,ESI                                
+.text:000023c5  c7442410f...    MOV         dword ptr [ESP +...,0xffffffff          
+.text:000023cd  e88e120000      CALL        EXTERNAL:<EXTERNAL>::DeviceData::~Dev...;void ~DeviceData(DeviceData * this)
+.text:000023d2  8b4c2408        MOV         this,dword ptr [ESP + local_c+0x14]     
+.text:000023d6  5e              POP         ESI                                     
+.text:000023d7  64890d883...    MOV         dword ptr FS:[EX...,this                ;= ??
+.text:000023de  83c410          ADD         ESP,0x10                                
+.text:000023e1  c3              RET                                                 
+.text:000023e2  90              ??          90h                                     
+.text:000023e3  90              ??          90h                                     
+.text:000023e4  90              ??          90h                                     
+.text:000023e5  90              ??          90h                                     
+.text:000023e6  90              ??          90h                                     
+.text:000023e7  90              ??          90h                                     
+.text:000023e8  90              ??          90h                                     
+.text:000023e9  90              ??          90h                                     
+.text:000023ea  90              ??          90h                                     
+.text:000023eb  90              ??          90h                                     
+.text:000023ec  90              ??          90h                                     
+.text:000023ed  90              ??          90h                                     
+.text:000023ee  90              ??          90h                                     
+.text:000023ef  90              ??          90h                                     
+                            $L1330:                       
+.text$x:000025008b4df0          MOV         ECX,dword ptr [EBP + -0x10]             
+.text$x:00002503e958110000      JMP         EXTERNAL:<EXTERNAL>::DeviceData::~Dev...;void ~DeviceData(DeviceData * this)
+                            $L1335:                       ;XREF[1]:     00002302(*)
+.text$x:00002508b800260000      MOV         EAX,.xdata$x:$T1334                     ;= 20h     
+.text$x:0000250de96e110000      JMP         EXTERNAL:<EXTERNAL>::___CxxFrameHandler ;undefined ___CxxFrameHandler()
+                            $L1346:                       
+.text$x:000025208b4df0          MOV         ECX,dword ptr [EBP + -0x10]             
+.text$x:00002523e938110000      JMP         EXTERNAL:<EXTERNAL>::DeviceData::~Dev...;void ~DeviceData(DeviceData * this)
+                            $L1349:                       ;XREF[1]:     00002392(*)
+.text$x:00002528b828260000      MOV         EAX,.xdata$x:$T1348                     ;= 20h     
+.text$x:0000252de94e110000      JMP         EXTERNAL:<EXTERNAL>::___CxxFrameHandler ;undefined ___CxxFrameHandler()
+                            $T1334:                       ;XREF[1]:     00002508(*)
+.xdata$x:0000...20              ??          20h                                     
+.xdata$x:0000...05              ??          05h                                     
+.xdata$x:0000...93              ??          93h                                     
+.xdata$x:0000...19              ??          19h                                     
+.xdata$x:0000...01              ??          01h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...20              ??          20h                                     ;?  ->  00002620
+.xdata$x:0000...26              ??          26h    &                                
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+                            $T1337:                       
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...00              ??          00h                                     ;?  ->  00002500
+.xdata$x:0000...25              ??          25h    %                                
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+                            $T1348:                       ;XREF[1]:     00002528(*)
+.xdata$x:0000...20              ??          20h                                     
+.xdata$x:0000...05              ??          05h                                     
+.xdata$x:0000...93              ??          93h                                     
+.xdata$x:0000...19              ??          19h                                     
+.xdata$x:0000...01              ??          01h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...48              ??          48h    H                                ;?  ->  00002648
+.xdata$x:0000...26              ??          26h    &                                
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+                            $T1350:                       
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...ff              ??          FFh                                     
+.xdata$x:0000...20              ??          20h                                     ;?  ->  00002520
+.xdata$x:0000...25              ??          25h    %                                
+.xdata$x:0000...00              ??          00h                                     
+.xdata$x:0000...00              ??          00h                                     
+                            ;************************************************************************************************
+                            ;*public: virtual void * __thiscall PRUDPDeviceData::`scalar deleting destructor'(unsigned int) *
+                            ;************************************************************************************************
+                            ;void * `scalar_deleting_destructor'(PRUDPDeviceData * this, uint param_1)
+          ;this          PRUDPDevice...     ECX                      
+          ;param_1       uint                 4                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*public: virtual void * __thiscall PRUDPDeviceData::`vector deleting destructor'(unsigned int) *
+                            ;************************************************************************************************
+                            ;void * `vector_deleting_destructor'(PRUDPDeviceData * this, uint param_1)
+          ;this          PRUDPDevice...     ECX                      
+          ;param_1       uint                 4                      
+                                                          ;XREF[1]:     00002200(*)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;void ~DeviceData(DeviceData * this)
+          ;this          DeviceData *       ECX                      
+                                                          ;XREF[3]:     000023cd(c),00002503(c),00002523(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;RefCountedObject * AcquireRef(RefCountedObject * this)
+          ;this          RefCountedO...     ECX                      
+                                                          ;XREF[1]:     0000234b(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined DeviceData(DeviceData * this, ulong param_1, _func_bool_DeviceData_ptr * param_2)
+          ;this          DeviceData *       ECX                      
+          ;param_1       ulong                4                      
+          ;param_2       _func_bool_...       8                      
+                                                          ;XREF[1]:     00002336(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;ushort GetSize(Packet * this)
+          ;this          Packet *           ECX                      
+                                                          ;XREF[1]:     00002329(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined ___CxxFrameHandler()
+                                                          ;XREF[2]:     0000250d(c),0000252d(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            __except_list:                ;XREF[6]:     00002307(*),0000230e(*),00002362(*),00002397(*),
+                                                          ;             0000239e(*),000023d7(*)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;void operator_delete(void * param_1)
+          ;param_1       void *               4                      
+                                                          ;XREF[1]:     00002380(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;void ReleaseRef(RefCountedObject * this)
+          ;this          RefCountedO...     ECX                      
+                                                          ;XREF[1]:     000023be(c)
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+EXTERNAL:0000...                ??          ??                                      
+HEADER:HEADER...4c010c00c...    CoffFile...                                        
+   |_HEADER:HEADER...f_magic         dw          14Ch                                    
+   |_HEADER:HEADER...f_nscns         dw          Ch                                      
+   |_HEADER:HEADER...f_timdat        ddw         3BEC6FC6h                               
+   |_HEADER:HEADER...f_symptr        ddw         4EAh                                    
+   |_HEADER:HEADER...f_nsyms         ddw         33h                                     
+   |_HEADER:HEADER...f_opthdr        dw          0h                                      
+   |_HEADER:HEADER...f_flags         dw          0h                                      
+HEADER:HEADER...2e6472656...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".drectve"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'r'                                     
+      |_HEADER:HEADER...[3]             char        'e'                                     
+      |_HEADER:HEADER...[4]             char        'c'                                     
+      |_HEADER:HEADER...[5]             char        't'                                     
+      |_HEADER:HEADER...[6]             char        'v'                                     
+      |_HEADER:HEADER...[7]             char        'e'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         28h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         1F4h                                    
+   |_HEADER:HEADER...s_relptr        ddw         0h                                      
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          0h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         100A00h                                 
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         70h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         21Ch                                    
+   |_HEADER:HEADER...s_relptr        ddw         28Ch                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          8h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text$x"                               
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        '$'                                     
+      |_HEADER:HEADER...[6]             char        'x'                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         12h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         2DCh                                    
+   |_HEADER:HEADER...s_relptr        ddw         2EEh                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          3h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e7264617...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".rdata"                                
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'r'                                     
+      |_HEADER:HEADER...[2]             char        'd'                                     
+      |_HEADER:HEADER...[3]             char        'a'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        'a'                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         4h                                      
+   |_HEADER:HEADER...s_scnptr        ddw         30Ch                                    
+   |_HEADER:HEADER...s_relptr        ddw         310h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         40301040h                               
+HEADER:HEADER...2e7864617...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".xdata$x"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'x'                                     
+      |_HEADER:HEADER...[2]             char        'd'                                     
+      |_HEADER:HEADER...[3]             char        'a'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        'a'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'x'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         28h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         31Ah                                    
+   |_HEADER:HEADER...s_relptr        ddw         342h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          2h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         40401040h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         356h                                    
+   |_HEADER:HEADER...s_relptr        ddw         366h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         20h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         370h                                    
+   |_HEADER:HEADER...s_relptr        ddw         390h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          2h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         3A4h                                    
+   |_HEADER:HEADER...s_relptr        ddw         3B4h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text"                                 
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        00h                                     
+      |_HEADER:HEADER...[6]             char        00h                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         60h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         3BEh                                    
+   |_HEADER:HEADER...s_relptr        ddw         41Eh                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          7h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e7465787...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".text$x"                               
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        't'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'x'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        '$'                                     
+      |_HEADER:HEADER...[6]             char        'x'                                     
+      |_HEADER:HEADER...[7]             char        00h                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         12h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         464h                                    
+   |_HEADER:HEADER...s_relptr        ddw         476h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          3h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         60501020h                               
+HEADER:HEADER...2e7864617...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".xdata$x"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'x'                                     
+      |_HEADER:HEADER...[2]             char        'd'                                     
+      |_HEADER:HEADER...[3]             char        'a'                                     
+      |_HEADER:HEADER...[4]             char        't'                                     
+      |_HEADER:HEADER...[5]             char        'a'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'x'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         28h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         494h                                    
+   |_HEADER:HEADER...s_relptr        ddw         4BCh                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          2h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         40401040h                               
+HEADER:HEADER...2e6465627...    CoffSect...                                        
+   |_HEADER:HEADER...s_name          char[8]     ".debug$F"                              
+      |_HEADER:HEADER...[0]             char        '.'                                     
+      |_HEADER:HEADER...[1]             char        'd'                                     
+      |_HEADER:HEADER...[2]             char        'e'                                     
+      |_HEADER:HEADER...[3]             char        'b'                                     
+      |_HEADER:HEADER...[4]             char        'u'                                     
+      |_HEADER:HEADER...[5]             char        'g'                                     
+      |_HEADER:HEADER...[6]             char        '$'                                     
+      |_HEADER:HEADER...[7]             char        'F'                                     
+   |_HEADER:HEADER...s_paddr         ddw         0h                                      
+   |_HEADER:HEADER...s_vaddr         ddw         0h                                      
+   |_HEADER:HEADER...s_size          ddw         10h                                     
+   |_HEADER:HEADER...s_scnptr        ddw         4D0h                                    
+   |_HEADER:HEADER...s_relptr        ddw         4E0h                                    
+   |_HEADER:HEADER...s_lnnoptr       ddw         0h                                      
+   |_HEADER:HEADER...s_nreloc        dw          1h                                      
+   |_HEADER:HEADER...s_nlnno         dw          0h                                      
+   |_HEADER:HEADER...s_flags         ddw         42101048h                               
+.debug$F-12:....90              ??          90h                                     ;?  ->  00002390
+.debug$F-12:....23              ??          23h    #                                
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....52              ??          52h    R                                
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....04              ??          04h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....00              ??          00h                                     
+.debug$F-12:....01              ??          01h                                     
+.debug$F-6:.d...00              ??          00h                                     ;?  ->  00002300
+.debug$F-6:.d...23              ??          23h    #                                
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...6f              ??          6Fh    o                                
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...04              ??          04h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...03              ??          03h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...00              ??          00h                                     
+.debug$F-6:.d...02              ??          02h                                     
+.debug$F-8:.d...50              ??          50h    P                                ;?  ->  00003650
+.debug$F-8:.d...36              ??          36h    6                                
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...1e              ??          1Eh                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...01              ??          01h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...00              ??          00h                                     
+.debug$F-8:.d...01              ??          01h                                     
