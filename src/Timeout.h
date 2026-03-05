@@ -22,6 +22,12 @@ public:
 
 	bool operator<(Timeout &refTimeout);
 
+private:
+
+	unsigned long m_oRTO;
+	Time m_tAwaitedTime;
+	Time m_tExpirationTime;
+
 };
 
 #endif

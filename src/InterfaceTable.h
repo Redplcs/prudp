@@ -15,6 +15,11 @@ public:
 	InterfaceInfo &operator[](unsigned long ulIndex);
 	void Trace(unsigned long ulLevel);
 
+private:
+
+	unsigned long m_ulNbInterface;
+	InterfaceInfo *m_pInterfaces;
+
 };
 
 #endif

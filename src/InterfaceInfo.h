@@ -33,6 +33,12 @@ private:
 
 	bool Addr2Str(unsigned long ulAddr, TCHAR *szBuffer, unsigned long ulSize);
 
+	unsigned long m_ulAddress;
+	unsigned long m_ulBroadcastAddress;
+	unsigned long m_ulMask;
+	unsigned long m_ulFlags;
+	TCHAR *m_szName;
+
 };
 
 #endif

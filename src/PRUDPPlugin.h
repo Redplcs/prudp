@@ -25,6 +25,10 @@ public:
 
 	static PRUDPPlugin *GetInstance();
 
+private:
+
+	static PRUDPPlugin s_oPlugin;
+
 };
 
 #endif

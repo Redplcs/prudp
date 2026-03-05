@@ -20,6 +20,12 @@ public:
 	void SetReturnCode(unsigned long ulReturnCode);
 	OVERLAPPED *GetOverlapped();
 
+private:
+	OVERLAPPED m_overlapped;
+	Event *m_pEvent;
+	unsigned long m_ulIOSize;
+	unsigned long m_ulReturnCode;
+
 };
 
 

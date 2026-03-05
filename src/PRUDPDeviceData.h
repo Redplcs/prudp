@@ -11,6 +11,9 @@ public:
 	PRUDPDeviceData(Packet *pPacket, UDPSocket *pSocket, DeliverCallback pfCallback);
 	virtual ~PRUDPDeviceData();
 
+	Packet *m_pPacket;
+	UDPSocket *m_pSocket;
+
 };
 
 #endif

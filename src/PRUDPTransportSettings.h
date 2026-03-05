@@ -30,6 +30,18 @@ public:
 	unsigned long SetOption(unsigned long ulOption, UserContext &refContext);
 	unsigned long GetOption(unsigned long ulOption, UserContext &refContext);
 
+private:
+
+	unsigned long m_ulWellKnownPortNumber;
+	unsigned long m_ulMaxRetransmission;
+	bool m_bTrapICMP;
+	unsigned long m_ulKeepAliveTimeout;
+	unsigned long m_ulMaxSilenceTime;
+	unsigned long m_ulMTU;
+	unsigned long m_ulTimeSlice;
+	unsigned long m_ulWindowSize;
+	bool m_bBroadcastEverywhere;
+
 };
 
 #endif

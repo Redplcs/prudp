@@ -2,6 +2,7 @@
 #define _SlidingWindow_H_
 
 #include <map>
+#include <Platform/CriticalSection.h>
 #include "PacketOut.h"
 
 class SlidingWindow {
@@ -23,6 +24,16 @@ public:
 	bool DataPending();
 	unsigned long NbDataPending();
 	void Trace();
+
+private:
+
+	std::map<unsigned long, PacketOut*> m_mapPackets;
+	unsigned short m_usWindowSize;
+	unsigned long m_ulNextSeqId;
+	unsigned long m_ulRightEdge;
+	unsigned long m_ulLeftEdge;
+	unsigned long m_ulDataPending;
+	CriticalSection m_oCS;
 
 };
 

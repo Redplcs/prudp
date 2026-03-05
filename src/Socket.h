@@ -8,6 +8,13 @@
 class Socket {
 public:
 
+	enum State {
+		OPEN     = 0,
+		BOUND    = 1,
+		SHUTDOWN = 2,
+		CLOSE    = 3
+	};
+
 	Socket(unsigned long ulType);
 	~Socket();
 
@@ -32,6 +39,18 @@ public:
 
 	static unsigned long GetLastSocketError();
 	unsigned short GetBoundPort();
+
+protected:
+
+	State m_eState;
+
+private:
+
+	struct SocketData;
+	unsigned long m_ulType;
+	PRUDPInetAddress m_address;
+	int m_iAddrLen;
+	SocketData *m_pSocketData;
 
 };
 

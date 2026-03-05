@@ -6,7 +6,12 @@
 #include "Timeout.h"
 #include "Packet.h"
 
-class IORequestContext;
+struct IORequestContext {
+	EndPoint::Callback m_pfCallback;
+	UserContext *m_pContext;
+	PacketOut *m_pPacket;
+	Buffer *m_pBuffer;
+};
 
 class PacketOut : public Packet {
 public:
@@ -23,6 +28,14 @@ public:
 	IORequestContext *GetIORequestContext();
 
 	bool Pack(Buffer *pBuffer);
+
+private:
+
+	Timeout *m_pTimeout;
+	PRUDPEndPoint *m_pEndPoint;
+	unsigned short m_usNbTransmission;
+	Time m_tRetransmitTime;
+	IORequestContext *m_pIORequestContext;
 
 };
 

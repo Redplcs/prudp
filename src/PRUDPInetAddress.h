@@ -34,6 +34,8 @@ private:
 
 	void SetAddress(void *pAddress);
 
+	sockaddr *m_pSockAddr;
+
 };
 
 #endif

@@ -14,6 +14,12 @@ public:
 	unsigned long GetLastRTT();
 	void Trace(unsigned long ulLevel);
 
+private:
+
+	unsigned long m_ulSmoothedAvg;
+	unsigned long m_ulSmoothedDev;
+	unsigned long m_ulLastRTT;
+
 };
 
 #endif

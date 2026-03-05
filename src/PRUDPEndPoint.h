@@ -13,8 +13,25 @@
 #include "PacketIn.h"
 #include "PacketOut.h"
 #include "RTT.h"
+#include "SlidingWindow.h"
+#include "TimeoutManager.h"
+
+class DispatchQueue {
+public:
+
+	DispatchQueue();
+	~DispatchQueue();
+
+	void Purge();
+	PacketIn *GetNextToDispatch();
+	void Dispatched(PacketIn *pPacket);
+
+};
 
 class PRUDPEndPoint : public EndPoint {
+
+	friend class PRUDPTransport;
+	friend class TimeoutManager;
 
 	enum ConnectionState {
 		NotConnected = 0,
@@ -76,6 +93,21 @@ private:
 	PRUDPInetAddress *GetPRUDPInetAddress();
 	bool IsFlooded();
 	PRUDPTransport *GetTransport();
+
+	ConnectionState m_eState;
+	unsigned long m_ulIndex;
+	PRUDPInetAddress m_oAddress;
+	DispatchQueue *m_pDispatchQueue;
+	SlidingWindow *m_pSlidingWindow;
+	PacketOut *m_pPingPacket;
+	RTT m_oRTT;
+	Time m_tLastSent;
+	Time m_tLastReceived;
+	unsigned long m_ulNextUnreliableSeqId;
+	unsigned long m_ulExpectedSeqId;
+	unsigned char m_ucPeerFlags;
+	Buffer *m_pPendingBuffer;
+	unsigned char m_ucExpectedContext;
 
 };
 

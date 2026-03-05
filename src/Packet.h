@@ -46,6 +46,15 @@ protected:
 
 	bool SetPayload(Buffer *pPayload);
 
+	unsigned char m_ucTypeFlags;
+	unsigned char m_ucContextInfo;
+	unsigned short m_usSize;
+	unsigned long m_ulSeqId;
+	Buffer *m_pPayload;
+	PRUDPInetAddress m_peerAddress;
+	Time m_tIOTime;
+	unsigned long m_ulIOResult;
+
 };
 
 #endif

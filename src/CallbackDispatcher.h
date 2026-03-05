@@ -2,7 +2,9 @@
 #define _CallbackDispatcher_H_
 
 #include <Platform/ObjectThread.h>
+#include <Platform/EventHandler.h>
 #include <Platform/Event.h>
+#include <Platform/CriticalSection.h>
 
 class CallbackDispatcher : public ObjectThread<CallbackDispatcher, void*> {
 public:
@@ -20,6 +22,17 @@ public:
 	void CallInContext(Callback pfCallback, unsigned long ulContext);
 	void DispatcherThread(void *pParam);
 
+private:
+	unsigned long m_ulContext;
+	EventHandler *m_pEventHandler;
+	Event *m_pWakeupEvent;
+	Event *m_pCallbackEvent;
+	EventHandler *m_pSyncEventHandler;
+	Event *m_pSyncDoneEvent;
+	CriticalSection m_cs;
+	CallbackData *m_pTimeSliceCallback;
+	long m_lTimeSliceTimeout;
+	bool m_bStopRequested;
 };
 
 #endif

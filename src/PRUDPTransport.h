@@ -1,6 +1,8 @@
 #ifndef _PRUDPTransport_H_
 #define _PRUDPTransport_H_
 
+#include <map>
+#include <Platform/Event.h>
 #include <Platform/UserContext.h>
 #include <Plugins/Core/Buffer.h>
 #include <Plugins/Core/Plugin.h>
@@ -9,7 +11,9 @@
 #include <Plugins/Transport/Interface/EndPointGroup.h>
 #include <Plugins/Transport/Interface/StationURL.h>
 #include <Plugins/Transport/Interface/Transport.h>
+#include "CallbackDispatcher.h"
 #include "ICMPSocket.h"
+#include "InterfaceTable.h"
 #include "PRUDPEndPoint.h"
 #include "PRUDPInetAddress.h"
 #include "PRUDPTransportSettings.h"
@@ -19,6 +23,12 @@
 #include "UDPSocket.h"
 
 class PRUDPTransport : public Transport {
+
+	friend unsigned long HandleTimeSliceWrap(unsigned long, unsigned long);
+	friend unsigned long HandleRecvCompletedWrap(unsigned long, unsigned long);
+	friend unsigned long HandleSendCompletedWrap(unsigned long, unsigned long);
+	friend unsigned long HandleICMPCompletedWrap(unsigned long, unsigned long);
+
 public:
 
 	PRUDPTransport(Plugin *pPlugin);
@@ -86,6 +96,23 @@ private:
 	UDPSocket *GetSocket(unsigned char ucIndex);
 	unsigned short GetPortNumber(unsigned long ulSocket);
 	PRUDPTransportSettings *GetSettings();
+
+	bool m_bInitialized;
+	PRUDPInetAddress m_apAddress[2];
+	UDPSocket *m_apSocket[2];
+	Event *m_apRecvEvent[2];
+	Event *m_apSendEvent[2];
+	ICMPSocket *m_apICMPSocket[2];
+	Event *m_apICMPEvent[2];
+	CallbackDispatcher *m_pCallbackDispatcher;
+	TimeoutManager m_oTimeoutManager;
+	std::map<__int64, PRUDPEndPoint *> m_mapEndPoints;
+	CriticalSection m_csEndPoints;
+	CriticalSection m_csSocket;
+	InterfaceTable m_oInterfaceTable;
+	std::list<PRUDPEndPoint *> m_lstIdleEndPoints;
+	CriticalSection m_csIdleEndPoints;
+	PRUDPTransportSettings m_oSettings;
 
 };
 
